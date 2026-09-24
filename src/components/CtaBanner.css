@@ -1,0 +1,131 @@
+.cta-banner {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.cta-banner__container {
+  position: relative;
+  width: 100%;
+  height: 800px;
+  max-height: 80vh;
+  border-radius: 5px;
+  overflow: hidden;
+  background: var(--color-ink);
+  display: flex;
+  align-items: flex-end;
+}
+.cta-banner__bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  /* Deliberately taller than the container (like About's portrait) so
+     there's room for a scroll-linked pan — see the useScroll/useTransform
+     wiring in CtaBanner.tsx. Top-aligned by default (no `bottom`/`inset`),
+     so the untransformed rest state is unchanged from before. */
+  height: 145%;
+  object-fit: cover;
+  opacity: 0.8;
+}
+
+.cta-banner__content {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+}
+
+/* Bounded to exactly the rectangle the four plus-marks frame (19%/76% of
+   width, 37%/67% of height) so the marquee is only ever visible between
+   them, and edge-masked so text fades in/out fast as it crosses the
+   rectangle's left/right edges instead of hard-cutting at the clip. */
+.cta-banner__marquee-track {
+  position: absolute;
+  top: 32%;
+  left: calc(22% - 1rem);
+  width: 57%;
+  height: 30%;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+}
+.cta-banner__marquee {
+  display: flex;
+  width: max-content;
+}
+.cta-banner__marquee-text {
+  flex: none;
+  white-space: nowrap;
+  font-family: 'BDO Grotesk Variable', sans-serif;
+  font-size: 100px;
+  font-weight: 400;
+  line-height: 100px;
+  letter-spacing: -3px;
+  color: var(--color-paper);
+}
+@media (max-width: 809.98px) {
+  .cta-banner__marquee-text {
+    font-size: 48px;
+    line-height: 48px;
+    letter-spacing: -1.5px;
+  }
+}
+
+.cta-banner__focal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 23px;
+}
+.cta-banner__accent-photo {
+  width: 224px;
+  max-width: 40vw;
+  aspect-ratio: 0.69;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.cta-banner__plus-mark {
+  position: absolute;
+  z-index: 2;
+  width: 16px;
+  height: 16px;
+  transform: translate(-50%, -50%);
+}
+.cta-banner__plus-bar {
+  position: absolute;
+  background: var(--color-paper);
+  top: 50%;
+  left: 50%;
+}
+.cta-banner__plus-bar--h {
+  width: 16px;
+  height: 1px;
+  transform: translate(-50%, -50%);
+}
+.cta-banner__plus-bar--v {
+  width: 1px;
+  height: 16px;
+  transform: translate(-50%, -50%);
+}
+@media (max-width: 809.98px) {
+  .cta-banner__plus-mark {
+    display: none;
+  }
+}
+
+@media (max-width: 809.98px) {
+  .cta-banner__container {
+    height: 600px;
+  }
+  .cta-banner__accent-photo {
+    width: 140px;
+  }
+}
