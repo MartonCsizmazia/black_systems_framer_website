@@ -179,19 +179,28 @@
 }
 
 .hero__logo-banner {
-  width: 75%;
-  aspect-ratio: 6.38;
+  width: 65%;
+  aspect-ratio: 2045 / 565; /* matches black-systems-stacked-white-2x.svg viewBox */
   position: relative;
 }
-.hero__logo-banner img {
+/* White wordmark with a hint of the background showing through: a mostly
+   white fill, clipped to the logo shape by the mask, over a brightened and
+   saturated copy of whatever is behind it. Lower the white alpha for more
+   colour, raise it for less. */
+.hero__logo-fill {
+  /* Overridden inline in Hero.tsx with the actual logo URL. */
+  --logo-src: none;
   width: 100%;
   height: 100%;
-  object-fit: contain;
-  display: block;
+  background: rgba(255, 255, 255, 0.86);
+  -webkit-backdrop-filter: brightness(3) saturate(1.8);
+  backdrop-filter: brightness(8) saturate(3);
+  -webkit-mask: var(--logo-src) center / contain no-repeat;
+  mask: var(--logo-src) center / contain no-repeat;
 }
 @media (min-width: 810px) and (max-width: 1199.98px) {
   .hero__logo-banner {
-    width: 60%;
+    width: 68%;
   }
 }
 @media (max-width: 809.98px) {

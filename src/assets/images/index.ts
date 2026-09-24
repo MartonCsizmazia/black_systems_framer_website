@@ -34,7 +34,6 @@ import curlyWomanWq7hn1Src from './curly-woman-wq7hn1.avif'
 import manHoodie9kkvudSrc from './man-hoodie-9kkvud.avif'
 import manMotionBlur1d2ldlSrc from './man-motion-blur-1d2ldl.avif'
 import nextArrow11ksgbSrc from './next-arrow-11ksgb.svg'
-import placeYourLogoHere71ydgbSrc from './place-your-logo-here-71ydgb.avif'
 import placeYourLogoHereVhwyufSrc from './place-your-logo-here-vhwyuf.avif'
 import villaG891spSrc from './villa-g891sp.avif'
 import womanBeach7ug4bhSrc from './woman-beach-7ug4bh.avif'
@@ -45,6 +44,7 @@ import womanStaircaseBchnf0Src from './woman-staircase-bchnf0.avif'
 import womenOnTheSofaYw1gczSrc from './women-on-the-sofa-yw1gcz.avif'
 import womenOrangeBgAvoxawSrc from './women-orange-bg-avoxaw.avif'
 import womenSidePoseYkb2unSrc from './women-side-pose-ykb2un.avif'
+import blacksystemslogoStackedCurvy from './black-systems-stacked-white-curvy.png'
 
 export const images = {
   logoIgv5zp: { src: logoIgv5zpSrc, alt: 'Logo', sourceHash: 'igV5Zp5vOf75Co9CAClwajll0' },
@@ -79,7 +79,7 @@ export const images = {
   manHoodie9kkvud: { src: manHoodie9kkvudSrc, alt: 'Man Hoodie', sourceHash: '9KKvuDkNH8D0g7hq1fUdqCWs' },
   manMotionBlur1d2ldl: { src: manMotionBlur1d2ldlSrc, alt: 'Man Motion Blur', sourceHash: '1D2lDLcBnKpywBRPAJWNr6cpA' },
   nextArrow11ksgb: { src: nextArrow11ksgbSrc, alt: 'Next Arrow', sourceHash: '11KSGbIZoRSg4pjdnUoif6MKHI' },
-  placeYourLogoHere71ydgb: { src: placeYourLogoHere71ydgbSrc, alt: 'Place Your Logo Here', sourceHash: '71YDGBsigsdGanJvkYBelFcVI' },
+  placeYourLogoHere71ydgb: { src: blacksystemslogoStackedCurvy, alt: 'Place Your Logo Here', sourceHash: '71YDGBsigsdGanJvkYBelFcVI' },
   placeYourLogoHereVhwyuf: { src: placeYourLogoHereVhwyufSrc, alt: 'Place Your Logo Here', sourceHash: 'vHwYuFX3wPjx3PFeXrRkO4wfztA' },
   villaG891sp: { src: villaG891spSrc, alt: 'Villa', sourceHash: 'G891sPJdh93gPfGSBboEt88Now' },
   womanBeach7ug4bh: { src: womanBeach7ug4bhSrc, alt: 'Woman Beach', sourceHash: '7uG4BhwVaiwETVmXbIX3b81RuRw' },

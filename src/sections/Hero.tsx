@@ -183,17 +183,24 @@ export default function Hero({ backgroundImage, darkenOnScroll = true }: HeroPro
 
         <div className="hero__details-logo">
           <motion.div className="hero__year-details" {...yearDetailsAppear}>
-            <span className="text-preset-q70fzl">&copy; 2025</span>
+            <span className="text-preset-q70fzl">&copy; {new Date().getFullYear()}</span>
             <div className="hero__lines">
               {lineHeights.map((h, i) => (
                 <span key={i} className="hero__line-tick" style={{ height: h }} />
               ))}
             </div>
-            <span className="text-preset-q70fzl">19'</span>
+            <span className="text-preset-q70fzl">25'</span>
           </motion.div>
 
           <motion.div className="hero__logo-banner" {...logoBannerAppear}>
-            <img src={images.placeYourLogoHere71ydgb.src} alt={images.placeYourLogoHere71ydgb.alt || ''} />
+            {/* Logo drawn as a mask over a frosted white fill (see Hero.css),
+                so the background tints the letters instead of darkening them. */}
+            <div
+              className="hero__logo-fill"
+              role="img"
+              aria-label={images.placeYourLogoHere71ydgb.alt || ''}
+              style={{ '--logo-src': `url(${images.placeYourLogoHere71ydgb.src})` } as React.CSSProperties}
+            />
           </motion.div>
         </div>
       </motion.div>
