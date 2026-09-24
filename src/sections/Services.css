@@ -113,6 +113,14 @@
     gap: 160px;
   }
 }
+/* A fixed gap made this row 368px wide and pushed the page past the viewport
+   on phones; spread the marks over whatever space is left instead. */
+@media (max-width: 809.98px) {
+  .services__details {
+    gap: 0;
+    justify-content: space-evenly;
+  }
+}
 .services__plus {
   position: relative;
   width: 16px;
