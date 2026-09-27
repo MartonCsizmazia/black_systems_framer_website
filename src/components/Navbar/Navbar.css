@@ -9,12 +9,12 @@
       menu + CTA vertically as a full-width dropdown
 */
 
-/* Positioned absolute within .hero (which is itself position:sticky, top:0,
-   height:100vh) so the nav stays pinned only for the duration Hero is
-   "stuck", then scrolls away with it — matching the original exactly,
-   rather than a permanently fixed navbar. */
+/* Fixed to the viewport at page level (rendered in App, not inside Hero),
+   so the menu stays reachable on every section. At the top of the page it
+   looks exactly like the original; scrolling one viewport down turns it into
+   the compact state (see Navbar.tsx). */
 .navbar {
-  position: absolute;
+  position: fixed;
   top: 24px;
   left: 0;
   right: 0;
@@ -34,6 +34,32 @@
   box-shadow: none;
   border-radius: 8px;
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  /* Own stacking context so the backdrop (z-index -1) sits behind the
+     bar's content but stays inside the bar. */
+  position: relative;
+  z-index: 0;
+}
+
+/* Translucent panel behind the bar; its opacity is scroll-driven (0 at the
+   top of the page, 1 once About reaches the top). Its own fixed height,
+   centred on the menu row — not the bar's height, which stays as tall as the
+   (faded-out) CEO card. Slightly wider than the bar so nothing shifts.
+   Tint: lower the alpha for more see-through (less contrast for the white
+   text over white sections), raise it for more. */
+.navbar__backdrop {
+  position: absolute;
+  left: -14px;
+  right: -14px;
+  top: 50%;
+  height: 48px;
+  transform: translateY(-50%);
+  z-index: -1;
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.50);
+  /* Light blur: content behind stays almost legible. */
+  -webkit-backdrop-filter: blur(3px);
+  backdrop-filter: blur(3px);
+  pointer-events: none;
 }
 
 .navbar__logo-group {
@@ -75,6 +101,10 @@
   order: 0;
   flex: none;
 }
+.navbar__logo-icon-wrap {
+  display: block;
+  flex: none;
+}
 /* <SquaresLogo />: sized by width (height follows its 183:113 viewBox).
    50px matches the visible squares of the previous APNG at 200% height. */
 .navbar__logo-icon {
@@ -85,6 +115,22 @@
   display: block;
   width: auto;
   height: 85%;
+  /* Scroll-driven shrink (Navbar.tsx) anchors on the left edge. */
+  transform-origin: left center;
+}
+
+/* CEO card and the compact "Book a call" button share one spot and
+   cross-fade with scroll. */
+.navbar__actions {
+  display: grid;
+  align-items: center;
+  justify-items: end;
+}
+.navbar__actions > * {
+  grid-area: 1 / 1;
+}
+.navbar__book-button {
+  width: 150px;
 }
 
 .navbar__menu {
@@ -252,11 +298,29 @@
     width: 100%;
     order: 1;
   }
-  .navbar__cta {
+  .navbar__actions {
     display: none;
     width: 100%;
-    max-width: none;
     order: 3;
+    justify-items: start;
+  }
+  .navbar__cta {
+    width: 100%;
+    max-width: none;
+  }
+  /* Hamburger layout: the row sits inside the bar's padding, so centre the
+     slim panel on that row instead of the (taller) padded bar. */
+  .navbar__backdrop {
+    left: 0;
+    right: 0;
+    top: 0;
+    height: 64px;
+    transform: none;
+    border-radius: 12px;
+  }
+  /* The open menu has its own solid dark panel. */
+  .navbar__bar--open .navbar__backdrop {
+    display: none;
   }
   .navbar__bar--open {
     gap: 40px;
@@ -267,19 +331,17 @@
   .navbar__bar--open .navbar__hamburger-line:last-child {
     transform: translateY(-5px) rotate(-45deg);
   }
-  .navbar__bar--open .navbar__menu,
-  .navbar__bar--open .navbar__cta {
+  .navbar__bar--open .navbar__menu {
     display: flex;
   }
-  .navbar__bar--open .navbar__menu-item-title,
-  .navbar__bar--open .navbar__menu-item-roll,
-  .navbar__bar--open .navbar__cta-heading,
-  .navbar__bar--open .navbar__cta-name,
-  .navbar__bar--open .navbar__cta-icon-track {
-    color: var(--color-paper);
+  .navbar__bar--open .navbar__actions {
+    display: grid;
   }
-  .navbar__bar--open .navbar__cta-position {
-    color: var(--color-paper-50);
+  /* Menu links stay white on the dark open panel. The CEO card keeps its
+     desktop colours (dark text on its light card background). */
+  .navbar__bar--open .navbar__menu-item-title,
+  .navbar__bar--open .navbar__menu-item-roll {
+    color: var(--color-paper);
   }
   .navbar__bar--open .navbar__menu-item-underline {
     background: var(--color-paper);
@@ -294,6 +356,13 @@
   }
   .navbar__bar {
     padding: 20px 16px;
+  }
+  /* 55px strip centred on the logo/hamburger row: row centre = 20px top
+     padding + half of the 24px row. */
+  .navbar__backdrop {
+    top: calc(20px + 12px);
+    height: 55px;
+    transform: translateY(-50%);
   }
 }
 
@@ -329,8 +398,10 @@
     width: auto;
     justify-self: start;
   }
+  .navbar__actions {
+    justify-self: end;
+  }
   .navbar__cta {
     width: 22vw;
-    justify-self: end;
   }
 }

@@ -1,5 +1,6 @@
 import { useLenis } from './hooks/useLenis'
 import { useCalEmbed } from './hooks/useCalEmbed'
+import Navbar from './components/Navbar/Navbar'
 import Hero from './sections/Hero/Hero'
 import About from './sections/About/About'
 import ClientLogos from './sections/ClientLogos/ClientLogos'
@@ -18,6 +19,7 @@ export default function App() {
 
   return (
     <main style={{ background: 'var(--color-ink)', minHeight: '550vh' }}>
+      <Navbar />
       <Hero />
       <About />
       <ClientLogos />

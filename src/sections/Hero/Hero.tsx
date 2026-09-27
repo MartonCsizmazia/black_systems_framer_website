@@ -1,7 +1,6 @@
 import { useRef } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import Button from '../../components/Button/Button'
-import Navbar from '../../components/Navbar/Navbar'
 import LiquidHover, { isVideoSrc } from '../../components/LiquidHover/LiquidHover'
 import { images } from '../../assets/images'
 import { useMediaQuery } from '../../hooks/useMediaQuery'
@@ -141,7 +140,6 @@ export default function Hero({ backgroundImage, backgroundImageMobile, darkenOnS
   return (
     <div id="top" className="hero-wrapper">
     <motion.section className="hero" style={{ opacity: heroOpacity, y: heroParallaxY }}>
-      <Navbar />
       <motion.div className="hero__bg" {...bgAppear}>
         {bgIsVideo ? (
           // muted + playsInline are required for autoplay (iOS included).

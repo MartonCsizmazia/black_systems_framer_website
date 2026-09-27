@@ -1,8 +1,9 @@
-import { useState } from 'react'
-import { motion } from 'framer-motion'
+import { useEffect, useRef, useState } from 'react'
+import { motion, useMotionValueEvent, useScroll, useTransform } from 'framer-motion'
 import { images } from '../../assets/images'
 import SquaresLogo from '../SquaresLogo/SquaresLogo'
 import { scrollToSection } from '../../hooks/useLenis'
+import Button from '../Button/Button'
 import './Navbar.css'
 
 export interface NavLink {
@@ -21,14 +22,27 @@ export interface NavbarProps {
 
 // One item per main section, in page order. Each '#id' matches the id on
 // that section's root element.
+// "Home" is the wordmark itself (it scrolls back to the top).
 const DEFAULT_LINKS: NavLink[] = [
-  { title: 'Home', rollNo: '01', href: '#top' },
-  { title: 'About', rollNo: '02', href: '#about' },
-  { title: 'Portfolio', rollNo: '03', href: '#portfolio' },
-  { title: 'Services', rollNo: '04', href: '#services' },
-  { title: 'Pricing', rollNo: '05', href: '#pricing' },
-  { title: 'Contact', rollNo: '06', href: '#contact' },
+  { title: 'About Us', rollNo: '01', href: '#about' },
+  { title: 'Portfolio', rollNo: '02', href: '#portfolio' },
+  { title: 'Services', rollNo: '03', href: '#services' },
+  { title: 'Pricing', rollNo: '04', href: '#pricing' },
+  { title: 'Contact', rollNo: '05', href: '#contact' },
 ]
+
+// Scroll-driven "compact" state: 0 at the top of the page, 1 once the first
+// section (About) reaches the top of the viewport, i.e. after scrolling one
+// viewport height past the hero.
+//   0   -> 0.5 : CEO card and animated squares fade out
+//   0.5 -> 1   : "Book a call" fades in; wordmark shrinks and slides left
+//   0   -> 1   : translucent backdrop fades in behind the bar
+const COMPACT_HALF = 0.5
+const WORDMARK_MIN_SCALE = 0.8
+const LOGO_GAP_PX = 6 // matches .navbar__logo-link gap
+// How far the whole bar rises in the compact state, closing the gap above
+// the (slimmer) backdrop. Desktop / hamburger layout (< 1200px).
+const RAISE_PX = { desktop: 24, mobile: 16 }
 
 // Recovered from __framer__appearAnimationsContent id "93osxn" (the navbar's
 // own entrance) and the per-item entries used inside "Menu Items" (staggered
@@ -93,13 +107,44 @@ function MenuItem({ title, rollNo, href, delay, onNavigate }: NavLink & { delay:
 export default function Navbar({ links = DEFAULT_LINKS }: NavbarProps) {
   const [mobileOpen, setMobileOpen] = useState(false)
 
+  const { scrollY } = useScroll()
+  const progress = useTransform(scrollY, (y) => Math.min(1, Math.max(0, y / window.innerHeight)))
+  const firstHalfOut = useTransform(progress, [0, COMPACT_HALF], [1, 0])
+  const secondHalfIn = useTransform(progress, [COMPACT_HALF, 1], [0, 1])
+  const wordmarkScale = useTransform(secondHalfIn, [0, 1], [1, WORDMARK_MIN_SCALE])
+  // Slide the wordmark left by exactly the (faded-out) icon's width + gap,
+  // so it ends up where the icon started — the left edge of the bar.
+  const iconRef = useRef<HTMLSpanElement>(null)
+  const slideDistance = useRef(0)
+  useEffect(() => {
+    const measure = () => { slideDistance.current = (iconRef.current?.offsetWidth ?? 0) + LOGO_GAP_PX }
+    measure()
+    window.addEventListener('resize', measure)
+    return () => window.removeEventListener('resize', measure)
+  }, [])
+  const wordmarkX = useTransform(secondHalfIn, (t) => -t * slideDistance.current)
+  const barY = useTransform(progress, (p) => -p * (window.innerWidth >= 1200 ? RAISE_PX.desktop : RAISE_PX.mobile))
+
+  // Whichever of the CEO card / Book button is showing is the interactive one.
+  const [compact, setCompact] = useState(false)
+  useMotionValueEvent(progress, 'change', (p) => setCompact(p >= COMPACT_HALF))
+
+  const scrollHome = (e: React.MouseEvent) => {
+    e.preventDefault()
+    scrollToSection('#top')
+    setMobileOpen(false)
+  }
+
   return (
     <motion.header
       className="navbar"
       data-framer-name="Primary"
       {...barAppear}
     >
-      <div className={`navbar__bar${mobileOpen ? ' navbar__bar--open' : ''}`}>
+      <motion.div className={`navbar__bar${mobileOpen ? ' navbar__bar--open' : ''}`} style={{ y: barY }}>
+        {/* Translucent grey backdrop, faded in with scroll so the white menu
+            stays readable over light sections. */}
+        <motion.div className="navbar__backdrop" style={{ opacity: progress }} aria-hidden="true" />
         <div className="navbar__logo-group">
           <button
             type="button"
@@ -111,9 +156,16 @@ export default function Navbar({ links = DEFAULT_LINKS }: NavbarProps) {
             <span className="navbar__hamburger-line" />
             <span className="navbar__hamburger-line" />
           </button>
-          <a href="/" className="navbar__logo-link" aria-label="Black Systems — home">
-            <SquaresLogo className="navbar__logo-icon" label="Black Systems" />
-            <img src={images.blackSystemsLogoOneLine.src} alt="" className="navbar__logo-img" />
+          <a href="#top" className="navbar__logo-link" aria-label="Black Systems — back to top" onClick={scrollHome}>
+            <motion.span ref={iconRef} className="navbar__logo-icon-wrap" style={{ opacity: firstHalfOut }}>
+              <SquaresLogo className="navbar__logo-icon" label="Black Systems" />
+            </motion.span>
+            <motion.img
+              src={images.blackSystemsLogoOneLine.src}
+              alt=""
+              className="navbar__logo-img"
+              style={{ x: wordmarkX, scale: wordmarkScale }}
+            />
           </a>
         </div>
 
@@ -123,8 +175,13 @@ export default function Navbar({ links = DEFAULT_LINKS }: NavbarProps) {
           ))}
         </nav>
 
+        <div className="navbar__actions">
         {/* No destination for now (no href), so clicking does nothing. */}
-        <a className="navbar__cta">
+        <motion.a
+          className="navbar__cta"
+          style={{ opacity: firstHalfOut, pointerEvents: compact ? 'none' : 'auto' }}
+          aria-hidden={compact}
+        >
           <span className="navbar__cta-avatar">
             <img src={images.ctaAvatarWfrjn1.src} alt={images.ctaAvatarWfrjn1.alt || 'CEO'} />
           </span>
@@ -141,8 +198,16 @@ export default function Navbar({ links = DEFAULT_LINKS }: NavbarProps) {
               <span className="text-preset-152twjm navbar__cta-position">CEO</span>
             </span>
           </span>
-        </a>
-      </div>
+        </motion.a>
+        <motion.div
+          className="navbar__book"
+          style={{ opacity: secondHalfIn, pointerEvents: compact ? 'auto' : 'none' }}
+          aria-hidden={!compact}
+        >
+          <Button title="Book a call" variant="light" booking className="navbar__book-button" tabIndex={compact ? 0 : -1} />
+        </motion.div>
+        </div>
+      </motion.div>
     </motion.header>
   )
 }

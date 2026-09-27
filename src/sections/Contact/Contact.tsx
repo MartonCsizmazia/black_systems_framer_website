@@ -34,7 +34,7 @@ export default function Contact() {
     <section id="contact" className="contact">
       <OverlapFiller color="ink" />
 
-      <div className="contact__layout">
+      <div className="contact__layout" data-scroll-anchor>
         <div className="contact__photo">
           <img src={images.menOrangeBgBfbeq6.src} alt={images.menOrangeBgBfbeq6.alt || ''} />
         </div>

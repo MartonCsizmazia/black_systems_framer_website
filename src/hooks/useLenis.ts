@@ -21,8 +21,11 @@ export const SECTION_SCROLL = {
   duration: 1.8,
   /** 0 -> 1 progress curve (default: easeInOutCubic — gentle start and stop). */
   easing: (t: number) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2),
-  /** Pixels to stop short of (negative) or past (positive) the section top. */
-  offset: 0,
+  /** Where a jump stops, relative to the section's eyebrow (or its
+   * [data-scroll-anchor] element): negative = that many px below the top of
+   * the screen. One value for every section, so all jumps land alike; it
+   * must clear the fixed navbar (~95px tall incl. its top gap). */
+  offset: -120,
 }
 
 // The page's single Lenis instance, so other components can drive it.
@@ -35,17 +38,20 @@ let lenisInstance: Lenis | null = null
  */
 export function scrollToSection(target: string) {
   const id = target.replace(/^#/, '')
-  const el = id === 'top' ? null : document.getElementById(id)
-  if (id !== 'top' && !el) return
+  const section = id === 'top' ? null : document.getElementById(id)
+  if (id !== 'top' && !section) return
+  // Land on the section's heading row, not its outer edge — sections have
+  // different amounts of top padding, so their edges aren't comparable.
+  const el = section?.querySelector<HTMLElement>('[data-scroll-anchor], .section-eyebrow') ?? section
 
   if (lenisInstance) {
     lenisInstance.scrollTo(el ?? 0, {
       duration: SECTION_SCROLL.duration,
       easing: SECTION_SCROLL.easing,
-      offset: SECTION_SCROLL.offset,
+      offset: el ? SECTION_SCROLL.offset : 0,
     })
   } else if (el) {
-    el.scrollIntoView({ behavior: 'smooth' })
+    window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY + SECTION_SCROLL.offset, behavior: 'smooth' })
   } else {
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }
