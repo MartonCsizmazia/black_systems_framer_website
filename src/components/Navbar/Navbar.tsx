@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
-import { images } from '../assets/images'
-import SquaresLogo from './SquaresLogo'
+import { images } from '../../assets/images'
+import SquaresLogo from '../SquaresLogo/SquaresLogo'
 import './Navbar.css'
 
 export interface NavLink {

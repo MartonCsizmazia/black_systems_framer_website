@@ -1,4 +1,4 @@
-import { CAL_URL, calTriggerProps, preventCalNavigation } from '../hooks/useCalEmbed'
+import { CAL_URL, calTriggerProps, preventCalNavigation } from '../../hooks/useCalEmbed'
 import './Button.css'
 
 export interface ButtonProps {

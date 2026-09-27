@@ -1,7 +1,7 @@
-import ArchiveRow from '../components/ArchiveRow'
-import CtaBanner from '../components/CtaBanner'
-import SectionEyebrow from '../components/SectionEyebrow'
-import { images } from '../assets/images'
+import ArchiveRow from '../../components/ArchiveRow/ArchiveRow'
+import CtaBanner from '../../components/CtaBanner/CtaBanner'
+import SectionEyebrow from '../../components/SectionEyebrow/SectionEyebrow'
+import { images } from '../../assets/images'
 import './Archive.css'
 
 // Real row data recovered from the Archive "List" instantiation in the Home

@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { images } from '../assets/images'
+import { images } from '../../assets/images'
 import './TestimonialSlider.css'
 
 interface Testimonial {

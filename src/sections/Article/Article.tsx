@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion'
-import WorkCard from '../components/WorkCard'
-import SectionEyebrow from '../components/SectionEyebrow'
-import { images } from '../assets/images'
+import WorkCard from '../../components/WorkCard/WorkCard'
+import SectionEyebrow from '../../components/SectionEyebrow/SectionEyebrow'
+import { images } from '../../assets/images'
 import './Article.css'
 
 // Real article data recovered from the SSR HTML for the Article CMS grid

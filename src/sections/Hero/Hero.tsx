@@ -1,8 +1,8 @@
 import { motion, useScroll, useTransform } from 'framer-motion'
-import Button from '../components/Button'
-import Navbar from '../components/Navbar'
-import LiquidHover from '../components/LiquidHover'
-import { images } from '../assets/images'
+import Button from '../../components/Button/Button'
+import Navbar from '../../components/Navbar/Navbar'
+import LiquidHover from '../../components/LiquidHover/LiquidHover'
+import { images } from '../../assets/images'
 import './Hero.css'
 
 // Every transition below is copied verbatim from __framer__appearAnimationsContent

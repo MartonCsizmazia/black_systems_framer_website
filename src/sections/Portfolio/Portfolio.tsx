@@ -1,9 +1,9 @@
 import { useRef } from 'react'
 import { motion, useScroll, useTransform, type MotionValue } from 'framer-motion'
-import Button from '../components/Button'
-import WorkCard from '../components/WorkCard'
-import SectionEyebrow from '../components/SectionEyebrow'
-import { images } from '../assets/images'
+import Button from '../../components/Button/Button'
+import WorkCard from '../../components/WorkCard/WorkCard'
+import SectionEyebrow from '../../components/SectionEyebrow/SectionEyebrow'
+import { images } from '../../assets/images'
 import './Portfolio.css'
 
 // Real project data recovered from the SSR HTML (the "Home" page chunk only

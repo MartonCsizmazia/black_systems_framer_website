@@ -1,5 +1,5 @@
-import TestimonialSlider from '../components/TestimonialSlider'
-import SectionEyebrow from '../components/SectionEyebrow'
+import TestimonialSlider from '../../components/TestimonialSlider/TestimonialSlider'
+import SectionEyebrow from '../../components/SectionEyebrow/SectionEyebrow'
 import './Testimonial.css'
 
 export default function Testimonial() {

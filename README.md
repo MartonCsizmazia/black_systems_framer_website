@@ -54,10 +54,13 @@ src/
 ├── App.tsx          # puts the page together from the sections, in order
 ├── main.tsx         # React entry point
 ├── sections/        # page sections: Hero, About, ClientLogos, Portfolio, Services,
-│                    #   Pricing, Testimonial, Archive, Stats, Article
+│   │                #   Pricing, Testimonial, Archive, Stats, Article
+│   └── Hero/        # one folder per section: Hero.tsx + Hero.css
 ├── components/      # reusable parts: Navbar, Button, WorkCard, ServiceCard,
-│                    #   PricingCard, StatCard, CtaBanner, TestimonialSlider, ...
-├── hooks/           # useLenis (smooth scrolling)
+│   │                #   PricingCard, StatCard, CtaBanner, SquaresLogo, ...
+│   └── Button/      # one folder per component: Button.tsx + Button.css
+├── animations/      # squaresLogo.ts (animated logo mark, used by SquaresLogo)
+├── hooks/           # useLenis (smooth scrolling), useCalEmbed (Cal.com booking popup)
 ├── styles/          # tokens.css (colors/spacing), typography.css, global.css, breakpoints.ts
 └── assets/          # fonts/, images/, video/ (each exported via an index.ts)
 ```

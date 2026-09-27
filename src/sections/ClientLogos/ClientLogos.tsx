@@ -1,6 +1,6 @@
 import { useRef, useState } from 'react'
 import { motion, useAnimationFrame, useMotionValue } from 'framer-motion'
-import { images } from '../assets/images'
+import { images } from '../../assets/images'
 import './ClientLogos.css'
 
 /**

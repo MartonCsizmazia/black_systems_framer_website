@@ -1,7 +1,7 @@
 import { useRef } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
-import Button from './Button'
-import { images } from '../assets/images'
+import Button from '../Button/Button'
+import { images } from '../../assets/images'
 import './CtaBanner.css'
 
 // Same technique as About's portrait: the container stays put, the

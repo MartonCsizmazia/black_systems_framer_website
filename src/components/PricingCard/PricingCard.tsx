@@ -1,4 +1,4 @@
-import Button from './Button'
+import Button from '../Button/Button'
 import './PricingCard.css'
 
 export interface PricingCardProps {

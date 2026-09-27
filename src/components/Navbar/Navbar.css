@@ -113,7 +113,7 @@
   position: absolute;
   left: -1px;
   bottom: 0;
-  width: 0%;
+  width: 0;
   height: 1px;
   background: var(--color-paper);
   transition: width 0.3s ease;
@@ -222,7 +222,7 @@
   }
   .navbar__bar--open {
     background-color: var(--color-surface-dark);
-    box-shadow: 0px 22px 40px 20px var(--color-ink-50);
+    box-shadow: 0 22px 40px 20px var(--color-ink-50);
   }
   .navbar__hamburger {
     display: inline-flex;

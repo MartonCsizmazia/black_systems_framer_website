@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
-import StatCard from '../components/StatCard'
-import SectionEyebrow from '../components/SectionEyebrow'
+import StatCard from '../../components/StatCard/StatCard'
+import SectionEyebrow from '../../components/SectionEyebrow/SectionEyebrow'
 import './Stats.css'
 
 // Real content recovered from the 4 "Stat Card" instances in the Home page chunk.

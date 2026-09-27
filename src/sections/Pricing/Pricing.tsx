@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion'
-import PricingCard from '../components/PricingCard'
-import OverlapFiller from '../components/OverlapFiller'
-import SectionEyebrow from '../components/SectionEyebrow'
+import PricingCard from '../../components/PricingCard/PricingCard'
+import OverlapFiller from '../../components/OverlapFiller/OverlapFiller'
+import SectionEyebrow from '../../components/SectionEyebrow/SectionEyebrow'
 import './Pricing.css'
 
 // Real tier content recovered from the "Pricing Card" instances in the Home

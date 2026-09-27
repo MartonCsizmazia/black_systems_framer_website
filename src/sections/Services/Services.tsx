@@ -1,9 +1,9 @@
 import { motion } from 'framer-motion'
-import Button from '../components/Button'
-import ServiceCard from '../components/ServiceCard'
-import OverlapFiller from '../components/OverlapFiller'
-import SectionEyebrow from '../components/SectionEyebrow'
-import { images } from '../assets/images'
+import Button from '../../components/Button/Button'
+import ServiceCard from '../../components/ServiceCard/ServiceCard'
+import OverlapFiller from '../../components/OverlapFiller/OverlapFiller'
+import SectionEyebrow from '../../components/SectionEyebrow/SectionEyebrow'
+import { images } from '../../assets/images'
 import './Services.css'
 
 const cards = [

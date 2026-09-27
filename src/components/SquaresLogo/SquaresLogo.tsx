@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react'
-import { mountSquaresLogo, type SquaresLogoOptions } from '../animations/squaresLogo'
+import { mountSquaresLogo, type SquaresLogoOptions } from '../../animations/squaresLogo'
 import './SquaresLogo.css'
 
 export interface SquaresLogoProps extends SquaresLogoOptions {
