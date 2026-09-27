@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { images } from '../../assets/images'
+import { CAL_URL, calTriggerProps, preventCalNavigation } from '../../hooks/useCalEmbed'
 import SquaresLogo from '../SquaresLogo/SquaresLogo'
 import './Navbar.css'
 
@@ -19,7 +20,6 @@ export interface NavbarProps {
    * conventional slugs — update them once the real destinations are known.
    */
   links?: NavLink[]
-  ctaHref?: string
 }
 
 const DEFAULT_LINKS: NavLink[] = [
@@ -81,7 +81,7 @@ function MenuItem({ title, rollNo, href, delay }: NavLink & { delay: number }) {
   )
 }
 
-export default function Navbar({ links = DEFAULT_LINKS, ctaHref = '/about' }: NavbarProps) {
+export default function Navbar({ links = DEFAULT_LINKS }: NavbarProps) {
   const [mobileOpen, setMobileOpen] = useState(false)
 
   return (
@@ -114,7 +114,8 @@ export default function Navbar({ links = DEFAULT_LINKS, ctaHref = '/about' }: Na
           ))}
         </nav>
 
-        <a href={ctaHref} className="navbar__cta">
+        {/* Opens the Cal.com booking popup (see hooks/useCalEmbed). */}
+        <a href={CAL_URL} {...calTriggerProps} onClick={preventCalNavigation} className="navbar__cta">
           <span className="navbar__cta-avatar">
             <img src={images.ctaAvatarWfrjn1.src} alt={images.ctaAvatarWfrjn1.alt || 'CEO'} />
           </span>

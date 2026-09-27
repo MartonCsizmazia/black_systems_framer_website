@@ -26,6 +26,7 @@ import assetXfjtzmSrc from './asset-xfjtzm.avif'
 import assetXzbpneSrc from './asset-xzbpne.avif'
 import backArrow6ttbkxSrc from './back-arrow-6ttbkx.svg'
 import bgImageHshviiSrc from './mountain_contrail_30s_8.mp4'
+import bgImageHshviiMobileSrc from './mountain_contrail_mobile.mp4'
 import bgImageJqzov1Src from './bg-image-jqzov1.avif'
 import bgImageJt7zqgSrc from './bg-image-jt7zqg.avif'
 import bgImageRmeblxSrc from './bg-image-rmeblx.avif'
@@ -73,6 +74,7 @@ export const images = {
   assetXzbpne: { src: assetXzbpneSrc, alt: '', sourceHash: 'xzbPNePbVo1XEJ4a3O4V473BM' },
   backArrow6ttbkx: { src: backArrow6ttbkxSrc, alt: 'Back Arrow', sourceHash: '6tTbkXggWgQCAJ4DO2QEdXXmgM' },
   bgImageHshvii: { src: bgImageHshviiSrc, alt: 'BG Image', sourceHash: 'hSHVIIYtrGfgpDljXoyCyDkfE' },
+  bgImageHshviiMobile: { src: bgImageHshviiMobileSrc, alt: 'BG Image', sourceHash: 'uAwehYVTmw9nrdY2bcGONB8bG' },
   bgImageJqzov1: { src: bgImageJqzov1Src, alt: 'BG Image', sourceHash: 'JQZOV1weNouMXqzxyX8EWnm7zEw' },
   bgImageJt7zqg: { src: bgImageJt7zqgSrc, alt: 'BG Image', sourceHash: 'Jt7zqgTjQMYT15YvEkLGKiF9Cw' },
   bgImageRmeblx: { src: bgImageRmeblxSrc, alt: 'BG Image', sourceHash: 'rmeBLxZhEpvUaEnrIirzHJQynwc' },

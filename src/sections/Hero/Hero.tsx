@@ -4,6 +4,8 @@ import Button from '../../components/Button/Button'
 import Navbar from '../../components/Navbar/Navbar'
 import LiquidHover, { isVideoSrc } from '../../components/LiquidHover/LiquidHover'
 import { images } from '../../assets/images'
+import { useMediaQuery } from '../../hooks/useMediaQuery'
+import { mediaQueries } from '../../styles/breakpoints'
 import './Hero.css'
 
 // Every transition below is copied verbatim from __framer__appearAnimationsContent
@@ -84,6 +86,10 @@ export interface HeroProps {
    * (.mp4/.webm/...); used for both the visible background and the
    * LiquidHover distortion layer, which samples the same source. */
   backgroundImage?: { src: string; alt?: string }
+  /** Used instead of `backgroundImage` on phones (< 810px). Defaults to
+   * images.bgImageHshviiMobile when no backgroundImage is given, otherwise
+   * to backgroundImage itself. */
+  backgroundImageMobile?: { src: string; alt?: string }
   /** Whether the background darkens as the hero scrolls out of view — an
    * overlay fading in from transparent to ~65% black over the same scroll
    * distance the hero itself fades out over. On by default (the main page
@@ -92,8 +98,13 @@ export interface HeroProps {
   darkenOnScroll?: boolean
 }
 
-export default function Hero({ backgroundImage, darkenOnScroll = true }: HeroProps = {}) {
-  const bgImage = backgroundImage ?? images.bgImageHshvii
+export default function Hero({ backgroundImage, backgroundImageMobile, darkenOnScroll = true }: HeroProps = {}) {
+  // Phones get their own background (framed so the animation reads better
+  // in portrait); switches live if the viewport crosses the breakpoint.
+  const isPhone = useMediaQuery(mediaQueries.phone)
+  const desktopBg = backgroundImage ?? images.bgImageHshvii
+  const mobileBg = backgroundImageMobile ?? (backgroundImage ?? images.bgImageHshviiMobile)
+  const bgImage = isPhone ? mobileBg : desktopBg
   // The background may be a still image or a video (picked by file extension).
   const bgIsVideo = isVideoSrc(bgImage.src)
   const bgVideoRef = useRef<HTMLVideoElement>(null)
