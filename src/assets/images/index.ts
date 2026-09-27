@@ -44,7 +44,9 @@ import womanStaircaseBchnf0Src from './woman-staircase-bchnf0.avif'
 import womenOnTheSofaYw1gczSrc from './women-on-the-sofa-yw1gcz.avif'
 import womenOrangeBgAvoxawSrc from './women-orange-bg-avoxaw.avif'
 import womenSidePoseYkb2unSrc from './women-side-pose-ykb2un.avif'
-import blacksystemslogoStackedCurvy from './black-systems-stacked-white-curvy.png'
+import blacksystemslogoThinStackedCurvy from './black-systems-thin-stacked-white.png'
+import blacksystemslogoThinOneLineCurvy from './black-systems-thin-oneline-white.png'
+import blacksystemslogoThinnerOneLineCurvy from './black-systems-thinner-oneline-white.png'
 
 export const images = {
   logoIgv5zp: { src: logoIgv5zpSrc, alt: 'Logo', sourceHash: 'igV5Zp5vOf75Co9CAClwajll0' },
@@ -79,7 +81,8 @@ export const images = {
   manHoodie9kkvud: { src: manHoodie9kkvudSrc, alt: 'Man Hoodie', sourceHash: '9KKvuDkNH8D0g7hq1fUdqCWs' },
   manMotionBlur1d2ldl: { src: manMotionBlur1d2ldlSrc, alt: 'Man Motion Blur', sourceHash: '1D2lDLcBnKpywBRPAJWNr6cpA' },
   nextArrow11ksgb: { src: nextArrow11ksgbSrc, alt: 'Next Arrow', sourceHash: '11KSGbIZoRSg4pjdnUoif6MKHI' },
-  placeYourLogoHere71ydgb: { src: blacksystemslogoStackedCurvy, alt: 'Place Your Logo Here', sourceHash: '71YDGBsigsdGanJvkYBelFcVI' },
+  placeYourLogoHere71ydgb: { src: blacksystemslogoThinStackedCurvy, alt: 'Place Your Logo Here', sourceHash: '71YDGBsigsdGanJvkYBelFcVI' },
+  blackSystemsLogoOneLine: { src: blacksystemslogoThinnerOneLineCurvy, alt: 'Black Systems' },
   placeYourLogoHereVhwyuf: { src: placeYourLogoHereVhwyufSrc, alt: 'Place Your Logo Here', sourceHash: 'vHwYuFX3wPjx3PFeXrRkO4wfztA' },
   villaG891sp: { src: villaG891spSrc, alt: 'Villa', sourceHash: 'G891sPJdh93gPfGSBboEt88Now' },
   womanBeach7ug4bh: { src: womanBeach7ug4bhSrc, alt: 'Woman Beach', sourceHash: '7uG4BhwVaiwETVmXbIX3b81RuRw' },

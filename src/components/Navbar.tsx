@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { images } from '../assets/images'
+import SquaresLogo from './SquaresLogo'
 import './Navbar.css'
 
 export interface NavLink {
@@ -101,8 +102,9 @@ export default function Navbar({ links = DEFAULT_LINKS, ctaHref = '/about' }: Na
             <span className="navbar__hamburger-line" />
             <span className="navbar__hamburger-line" />
           </button>
-          <a href="/" className="navbar__logo-link">
-            <img src={images.logoIgv5zp.src} alt={images.logoIgv5zp.alt || 'Logo'} className="navbar__logo-img" />
+          <a href="/" className="navbar__logo-link" aria-label="Black Systems — home">
+            <SquaresLogo className="navbar__logo-icon" label="Black Systems" />
+            <img src={images.blackSystemsLogoOneLine.src} alt="" className="navbar__logo-img" />
           </a>
         </div>
 

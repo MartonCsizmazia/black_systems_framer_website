@@ -65,17 +65,26 @@
   transition: transform 0.3s ease;
 }
 
+/* Animated squares mark + one-line wordmark side by side. Height matches
+   the old single logo (18px); the mark may overhang it, centred. */
 .navbar__logo-link {
-  display: block;
-  width: 98px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
   height: 18px;
   order: 0;
+  flex: none;
+}
+/* <SquaresLogo />: sized by width (height follows its 183:113 viewBox).
+   50px matches the visible squares of the previous APNG at 200% height. */
+.navbar__logo-icon {
+  width: 60px;
+  color: var(--color-paper);
 }
 .navbar__logo-img {
   display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
+  width: auto;
+  height: 85%;
 }
 
 .navbar__menu {

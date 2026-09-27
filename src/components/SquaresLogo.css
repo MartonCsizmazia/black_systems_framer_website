@@ -1,0 +1,5 @@
+.squares-logo {
+  display: block;
+  flex: none;
+  color: var(--color-paper);
+}
