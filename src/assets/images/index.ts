@@ -47,6 +47,7 @@ import womenSidePoseYkb2unSrc from './women-side-pose-ykb2un.avif'
 import blacksystemslogoThinStackedCurvy from './black-systems-thin-stacked-white.png'
 import blacksystemslogoThinOneLineCurvy from './black-systems-thin-oneline-white.png'
 import blacksystemslogoThinnerOneLineCurvy from './black-systems-thinner-oneline-white.png'
+import menOrangeBgBfbeq6Src from './men-orange-bg-bfbeq6.png'
 
 export const images = {
   logoIgv5zp: { src: logoIgv5zpSrc, alt: 'Logo', sourceHash: 'igV5Zp5vOf75Co9CAClwajll0' },
@@ -93,4 +94,5 @@ export const images = {
   womenOnTheSofaYw1gcz: { src: womenOnTheSofaYw1gczSrc, alt: 'Women On The Sofa', sourceHash: 'yw1GCZxhNp9c0ifxjP3zVlEc' },
   womenOrangeBgAvoxaw: { src: womenOrangeBgAvoxawSrc, alt: 'Women Orange BG', sourceHash: 'aVOxaW9TAd0obDqqJbHz7JTt7h8' },
   womenSidePoseYkb2un: { src: womenSidePoseYkb2unSrc, alt: 'Women Side Pose', sourceHash: 'ykB2unblGBc4DohSe1vhH0DUD4' },
+  menOrangeBgBfbeq6: { src: menOrangeBgBfbeq6Src, alt: 'Men Orange BG', sourceHash: 'bFbEQ6JZkAoHLWCpyzfCKp69U' },
 } as const

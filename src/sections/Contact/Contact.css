@@ -1,0 +1,158 @@
+/* Recovered from the original site's Contact page (client-side routed, not
+   part of the static mirror capture — see Contact.tsx for how this was
+   measured). Pure black background, matching --color-ink exactly (not the
+   near-black --color-surface-dark Services/Testimonial use). */
+
+.contact {
+  background: var(--color-ink);
+  color: var(--color-paper);
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 120px 24px;
+}
+@media (max-width: 809.98px) {
+  .contact {
+    padding: 80px 24px;
+  }
+}
+
+.contact__layout {
+  display: flex;
+  align-items: flex-start;
+  gap: 127px;
+  width: 100%;
+  max-width: 1440px;
+}
+@media (max-width: 1199.98px) {
+  .contact__layout {
+    flex-direction: column;
+    gap: 40px;
+  }
+}
+
+.contact__photo {
+  width: 574px;
+  max-width: 40%;
+  aspect-ratio: 574 / 940;
+  border-radius: 5px;
+  overflow: hidden;
+  flex: none;
+}
+.contact__photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+@media (max-width: 1199.98px) {
+  .contact__photo {
+    width: 100%;
+    max-width: none;
+    aspect-ratio: auto;
+    height: 60vh;
+  }
+}
+
+.contact__inner {
+  width: 100%;
+  max-width: 460px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+@media (max-width: 1199.98px) {
+  .contact__inner {
+    max-width: none;
+  }
+}
+
+.contact__heading {
+  margin: 0;
+  font-family: 'BDO Grotesk Variable', sans-serif;
+  font-size: 70px;
+  font-weight: 400;
+  line-height: 70px;
+  letter-spacing: -2.1px;
+  color: var(--color-paper);
+}
+@media (min-width: 810px) and (max-width: 1199.98px) {
+  .contact__heading {
+    font-size: 38px;
+    line-height: 38px;
+    letter-spacing: -1.2px;
+  }
+}
+@media (max-width: 809.98px) {
+  .contact__heading {
+    font-size: 30px;
+    line-height: 30px;
+    letter-spacing: -1.1px;
+  }
+}
+
+.contact__description {
+  margin: 0;
+  color: var(--color-paper-50);
+}
+
+.contact__form {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+.contact__row {
+  display: flex;
+  gap: 10px;
+}
+.contact__row .contact__field {
+  flex: 1;
+}
+
+.contact__field {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.contact__label {
+  color: var(--color-paper);
+}
+
+/* Borderless by design — confirmed against the source, not an oversight:
+   no border/box-shadow at any level around these inputs. Separation comes
+   entirely from the label above and the 50px gap between field groups. */
+.contact__field input,
+.contact__field select,
+.contact__field textarea {
+  appearance: none;
+  background: transparent;
+  border: none;
+  outline: none;
+  padding: 0;
+  height: 20.2px;
+  color: var(--color-paper);
+}
+.contact__field textarea {
+  height: auto;
+  min-height: 80px;
+  resize: vertical;
+}
+.contact__field select {
+  cursor: pointer;
+}
+.contact__field input::placeholder,
+.contact__field textarea::placeholder {
+  color: var(--color-paper-50);
+}
+
+.contact__submit {
+  align-self: flex-start;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  color: var(--color-paper);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
