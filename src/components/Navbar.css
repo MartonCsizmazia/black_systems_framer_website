@@ -213,7 +213,6 @@
    Closed/Mobile Open (<1200px) are. */
 @media (max-width: 1199.98px) {
   .navbar__bar {
-    max-width: 390px;
     padding: 24px;
     gap: 10px;
     justify-content: flex-start;
@@ -236,6 +235,11 @@
   }
   .navbar__logo-link {
     order: 0;
+  }
+  /* Shrink the wordmark (not the animated mark) to leave room for the
+     hamburger on narrow screens. */
+  .navbar__logo-img {
+    height: 60%;
   }
   .navbar__menu {
     display: none;
@@ -276,5 +280,29 @@
   }
   .navbar__bar--open .navbar__menu-item-underline {
     background: var(--color-paper);
+  }
+}
+
+/* Phones: the desktop gutters (24px on .navbar + 24px inside the bar) waste
+   too much width, so tighten the horizontal padding. */
+@media (max-width: 809.98px) {
+  .navbar {
+    padding: 0 8px;
+  }
+  .navbar__bar {
+    padding: 20px 16px;
+  }
+}
+
+/* Small phones only: the hamburger bar becomes a centred card (max 390px).
+   From 600px up to the desktop breakpoint it spans the full width instead —
+   logo on the left, hamburger on the right. */
+@media (max-width: 599.98px) {
+  .navbar__bar {
+    max-width: 390px;
+  }
+
+  .navbar__logo-img {
+    height: 50%;
   }
 }
