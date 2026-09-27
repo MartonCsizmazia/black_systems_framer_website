@@ -303,6 +303,10 @@
   }
 
   .navbar__logo-img {
-    height: 50%;
+    height: 55%;
+  }
+
+  .navbar__logo-icon{
+    width: 50px;
   }
 }
