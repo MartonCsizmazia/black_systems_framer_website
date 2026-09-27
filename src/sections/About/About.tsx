@@ -40,7 +40,7 @@ export default function About() {
   const imageY = useTransform(imageScrollProgress, [0, 1], [ABOUT_IMAGE_PARALLAX_START, 0])
 
   return (
-    <section className="about">
+    <section id="about" className="about">
       <OverlapFiller color="paper" />
 
       <div className="about__top">

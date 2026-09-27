@@ -1,8 +1,8 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { images } from '../../assets/images'
-import { CAL_URL, calTriggerProps, preventCalNavigation } from '../../hooks/useCalEmbed'
 import SquaresLogo from '../SquaresLogo/SquaresLogo'
+import { scrollToSection } from '../../hooks/useLenis'
 import './Navbar.css'
 
 export interface NavLink {
@@ -13,20 +13,21 @@ export interface NavLink {
 
 export interface NavbarProps {
   /**
-   * Recovered from the captured site's link resolution, the nav items point
-   * at separate Framer pages (webPageIds PBuuJgmj0 / mrmcWhPiV / JuVhtOdyT)
-   * that weren't part of this single-page capture, so their real slugs
-   * couldn't be recovered from static analysis. These are inferred,
-   * conventional slugs — update them once the real destinations are known.
+   * Menu items. An href of '#<id>' smooth-scrolls to the element with that
+   * id on this page ('#top' = page top); anything else is a normal link.
    */
   links?: NavLink[]
 }
 
+// One item per main section, in page order. Each '#id' matches the id on
+// that section's root element.
 const DEFAULT_LINKS: NavLink[] = [
-  { title: 'Home', rollNo: '01', href: '/' },
-  { title: 'Portfolio', rollNo: '02', href: '/portfolio' },
-  { title: 'About', rollNo: '03', href: '/about' },
-  { title: 'Contact', rollNo: '04', href: '/contact' },
+  { title: 'Home', rollNo: '01', href: '#top' },
+  { title: 'About', rollNo: '02', href: '#about' },
+  { title: 'Portfolio', rollNo: '03', href: '#portfolio' },
+  { title: 'Services', rollNo: '04', href: '#services' },
+  { title: 'Pricing', rollNo: '05', href: '#pricing' },
+  { title: 'Contact', rollNo: '06', href: '#contact' },
 ]
 
 // Recovered from __framer__appearAnimationsContent id "93osxn" (the navbar's
@@ -65,11 +66,19 @@ function MenuIcon() {
   )
 }
 
-function MenuItem({ title, rollNo, href, delay }: NavLink & { delay: number }) {
+function MenuItem({ title, rollNo, href, delay, onNavigate }: NavLink & { delay: number; onNavigate?: () => void }) {
+  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    if (!href.startsWith('#')) return
+    e.preventDefault()
+    scrollToSection(href)
+    onNavigate?.()
+  }
+
   return (
     <motion.a
       className="navbar__menu-item"
       href={href}
+      onClick={handleClick}
       {...itemAppear(delay)}
     >
       <span className="navbar__menu-item-page">
@@ -110,12 +119,12 @@ export default function Navbar({ links = DEFAULT_LINKS }: NavbarProps) {
 
         <nav className="navbar__menu" aria-label="Primary">
           {links.map((link, i) => (
-            <MenuItem key={link.title} {...link} delay={0.4 + i * 0.1} />
+            <MenuItem key={link.title} {...link} delay={0.4 + i * 0.1} onNavigate={() => setMobileOpen(false)} />
           ))}
         </nav>
 
-        {/* Opens the Cal.com booking popup (see hooks/useCalEmbed). */}
-        <a href={CAL_URL} {...calTriggerProps} onClick={preventCalNavigation} className="navbar__cta">
+        {/* No destination for now (no href), so clicking does nothing. */}
+        <a className="navbar__cta">
           <span className="navbar__cta-avatar">
             <img src={images.ctaAvatarWfrjn1.src} alt={images.ctaAvatarWfrjn1.alt || 'CEO'} />
           </span>

@@ -11,6 +11,46 @@ import Lenis from 'lenis'
  * duration is what makes the post-scroll glide read as heavier ("walking
  * on ice") rather than just slower-but-still-snappy.
  */
+
+/**
+ * Menu "jump to section" scrolling. Tune these to change how navigation
+ * clicks feel (independent of the wheel settings in useLenis below).
+ */
+export const SECTION_SCROLL = {
+  /** Seconds the scroll animation takes. */
+  duration: 1.8,
+  /** 0 -> 1 progress curve (default: easeInOutCubic — gentle start and stop). */
+  easing: (t: number) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2),
+  /** Pixels to stop short of (negative) or past (positive) the section top. */
+  offset: 0,
+}
+
+// The page's single Lenis instance, so other components can drive it.
+let lenisInstance: Lenis | null = null
+
+/**
+ * Smoothly scroll to a section by its element id ('about' or '#about'), or
+ * to the very top ('top' / '#top'). Falls back to native smooth scrolling
+ * if Lenis isn't running.
+ */
+export function scrollToSection(target: string) {
+  const id = target.replace(/^#/, '')
+  const el = id === 'top' ? null : document.getElementById(id)
+  if (id !== 'top' && !el) return
+
+  if (lenisInstance) {
+    lenisInstance.scrollTo(el ?? 0, {
+      duration: SECTION_SCROLL.duration,
+      easing: SECTION_SCROLL.easing,
+      offset: SECTION_SCROLL.offset,
+    })
+  } else if (el) {
+    el.scrollIntoView({ behavior: 'smooth' })
+  } else {
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }
+}
+
 export function useLenis() {
   useEffect(() => {
     const lenis = new Lenis({
@@ -18,6 +58,7 @@ export function useLenis() {
       easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       smoothWheel: true,
     })
+    lenisInstance = lenis
 
     let rafId: number
     function raf(time: number) {
@@ -29,6 +70,7 @@ export function useLenis() {
     return () => {
       cancelAnimationFrame(rafId)
       lenis.destroy()
+      if (lenisInstance === lenis) lenisInstance = null
     }
   }, [])
 }

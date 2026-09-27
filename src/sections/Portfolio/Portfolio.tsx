@@ -100,7 +100,7 @@ export default function Portfolio() {
   const yearSuffix = new Date().getFullYear() % 100
 
   return (
-    <section className="portfolio">
+    <section id="portfolio" className="portfolio">
       <SectionEyebrow index="02" title="Portfolio" />
 
       <div className="portfolio__bottom">

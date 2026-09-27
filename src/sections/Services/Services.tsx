@@ -35,7 +35,7 @@ const cards = [
 
 export default function Services() {
   return (
-    <section className="services">
+    <section id="services" className="services">
       <OverlapFiller color="ink" />
 
       <div className="services__top">

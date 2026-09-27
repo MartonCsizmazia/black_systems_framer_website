@@ -139,7 +139,7 @@ export default function Hero({ backgroundImage, backgroundImageMobile, darkenOnS
   const darkenOpacity = useTransform(pageScrollY, [0, 1100], [0, 0.65])
 
   return (
-    <div className="hero-wrapper">
+    <div id="top" className="hero-wrapper">
     <motion.section className="hero" style={{ opacity: heroOpacity, y: heroParallaxY }}>
       <Navbar />
       <motion.div className="hero__bg" {...bgAppear}>
@@ -194,7 +194,7 @@ export default function Hero({ backgroundImage, backgroundImageMobile, darkenOnS
           </motion.p>
         </div>
         <motion.div {...ctaAppear}>
-          <Button title="Explore Now" href="/about" variant="light" />
+          <Button title="Book a free call" variant="light" booking />
         </motion.div>
       </div>
 

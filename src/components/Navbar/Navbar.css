@@ -90,7 +90,10 @@
 .navbar__menu {
   display: flex;
   align-items: center;
-  gap: 80px;
+  /* 80px between items on wide screens, tightening on smaller desktops so
+     all six section links fit between the logo and the CTA card
+     (20px at 1200px, 80px from ~1580px up). */
+  gap: clamp(20px, calc((100vw - 1100px) / 6), 80px);
 }
 
 .navbar__menu-item {

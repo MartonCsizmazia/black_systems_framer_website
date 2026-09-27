@@ -52,7 +52,7 @@ const tiers = [
 
 export default function Pricing() {
   return (
-    <section className="pricing">
+    <section id="pricing" className="pricing">
       <OverlapFiller color="paper" />
 
       <SectionEyebrow index="04" title="Pricing" />
