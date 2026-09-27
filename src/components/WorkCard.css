@@ -43,6 +43,12 @@
   height: 100%;
   object-fit: cover;
   display: block;
+  transition: transform 0.5s cubic-bezier(0.44, 0, 0.34, 0.98);
+}
+/* Zoom the sharp inner picture while it's hovered; .work-card__art-inner's
+   overflow:hidden keeps it inside its rounded frame. */
+.work-card__art-inner:hover img {
+  transform: scale(1.1);
 }
 .work-card__art-flat {
   width: 100%;

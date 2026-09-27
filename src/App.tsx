@@ -1,4 +1,5 @@
 import { useLenis } from './hooks/useLenis'
+import { useCalEmbed } from './hooks/useCalEmbed'
 import Hero from './sections/Hero'
 import About from './sections/About'
 import ClientLogos from './sections/ClientLogos'
@@ -12,6 +13,7 @@ import Article from './sections/Article'
 
 export default function App() {
   useLenis()
+  useCalEmbed()
 
   return (
     <main style={{ background: 'var(--color-ink)', minHeight: '550vh' }}>

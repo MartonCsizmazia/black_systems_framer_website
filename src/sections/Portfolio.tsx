@@ -107,7 +107,7 @@ export default function Portfolio() {
         <div className="portfolio__sidebar portfolio__sidebar--left">
           <h4 className="text-preset-kxvc54 portfolio__sidebar-title">FX-{yearSuffix}'</h4>
           <div className="portfolio__sidebar-line" />
-          <Button title="Join Us Now" href="/contact" variant="dark" />
+          <Button title="Book a Call" variant="dark" booking />
         </div>
 
         <div className="portfolio__middle" ref={middleRef}>

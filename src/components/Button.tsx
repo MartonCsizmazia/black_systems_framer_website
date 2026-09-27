@@ -1,3 +1,4 @@
+import { CAL_URL, calTriggerProps, preventCalNavigation } from '../hooks/useCalEmbed'
 import './Button.css'
 
 export interface ButtonProps {
@@ -5,6 +6,8 @@ export interface ButtonProps {
   href?: string
   variant?: 'light' | 'dark'
   newTab?: boolean
+  /** Opens the Cal.com booking popup instead of navigating (href is ignored). */
+  booking?: boolean
 }
 
 /**
@@ -13,10 +16,11 @@ export interface ButtonProps {
  * on the right; on hover the icon slides from top to bottom within its
  * clipped 8px track.
  */
-export default function Button({ title = 'Explore Now', href = '#', variant = 'light', newTab = false }: ButtonProps) {
+export default function Button({ title = 'Explore Now', href = '#', variant = 'light', newTab = false, booking = false }: ButtonProps) {
   return (
     <a
-      href={href}
+      href={booking ? CAL_URL : href}
+      {...(booking ? { ...calTriggerProps, onClick: preventCalNavigation } : {})}
       target={newTab ? '_blank' : undefined}
       rel={newTab ? 'noopener noreferrer' : undefined}
       className={`button button--${variant}`}
