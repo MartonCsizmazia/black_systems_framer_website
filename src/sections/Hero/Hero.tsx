@@ -1,7 +1,8 @@
+import { useRef } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import Button from '../../components/Button/Button'
 import Navbar from '../../components/Navbar/Navbar'
-import LiquidHover from '../../components/LiquidHover/LiquidHover'
+import LiquidHover, { isVideoSrc } from '../../components/LiquidHover/LiquidHover'
 import { images } from '../../assets/images'
 import './Hero.css'
 
@@ -79,9 +80,9 @@ function PlusMark({ right, bottom, from, visibleAt }: (typeof cornerMarks)[numbe
 }
 
 export interface HeroProps {
-  /** Defaults to the original hero photo, so the main page's <Hero /> call
-   * needs no changes. Used for both the visible background and the
-   * LiquidHover distortion layer, which samples the same image. */
+  /** Defaults to images.bgImageHshvii. Can be an image or a video file
+   * (.mp4/.webm/...); used for both the visible background and the
+   * LiquidHover distortion layer, which samples the same source. */
   backgroundImage?: { src: string; alt?: string }
   /** Whether the background darkens as the hero scrolls out of view — an
    * overlay fading in from transparent to ~65% black over the same scroll
@@ -93,6 +94,9 @@ export interface HeroProps {
 
 export default function Hero({ backgroundImage, darkenOnScroll = true }: HeroProps = {}) {
   const bgImage = backgroundImage ?? images.bgImageHshvii
+  // The background may be a still image or a video (picked by file extension).
+  const bgIsVideo = isVideoSrc(bgImage.src)
+  const bgVideoRef = useRef<HTMLVideoElement>(null)
   // Framer's built-in Parallax effect, recovered exactly from the runtime:
   // y = -scrollY * (speed/100 - 1), using raw page scroll. Traced from the
   // shared-lib chunk's `Sl`/`Cl` functions. Hero's own root:
@@ -128,7 +132,21 @@ export default function Hero({ backgroundImage, darkenOnScroll = true }: HeroPro
     <motion.section className="hero" style={{ opacity: heroOpacity, y: heroParallaxY }}>
       <Navbar />
       <motion.div className="hero__bg" {...bgAppear}>
-        <img src={bgImage.src} alt={bgImage.alt || 'Hero background'} />
+        {bgIsVideo ? (
+          // muted + playsInline are required for autoplay (iOS included).
+          <video
+            ref={bgVideoRef}
+            src={bgImage.src}
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="auto"
+            aria-hidden="true"
+          />
+        ) : (
+          <img src={bgImage.src} alt={bgImage.alt || 'Hero background'} />
+        )}
       </motion.div>
 
       {/* Desktop-only. Real-time WebGL fluid-sim distortion, recovered
@@ -139,6 +157,7 @@ export default function Hero({ backgroundImage, darkenOnScroll = true }: HeroPro
       <div className="hero__distortion-layer">
         <LiquidHover
           image={bgImage}
+          video={bgIsVideo ? bgVideoRef : undefined}
           cursorPower={1}
           cursorSize={0.5}
           distortionPower={0.8}

@@ -1,8 +1,16 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, type RefObject } from 'react'
 import './LiquidHover.css'
+
+/** True for sources the background should play as <video> (by file extension). */
+export const isVideoSrc = (src: string) => /\.(mp4|webm|mov|m4v)(\?|#|$)/i.test(src)
 
 export interface LiquidHoverProps {
   image: { src: string; alt?: string }
+  /** When the background is a video, the <video> element that plays it. Its
+   * current frame is re-uploaded as the texture every time it changes, so
+   * the distortion stays in sync with the visible video. Takes precedence
+   * over `image`. */
+  video?: RefObject<HTMLVideoElement>
   /** Simulation grid density. Framer control range ~1-10; Hero uses 4. */
   resolution?: number
   /** Radius of the cursor's velocity splat. Framer control 0-1; Hero uses 0.5. */
@@ -278,6 +286,7 @@ interface GLProgram {
  */
 export default function LiquidHover({
   image,
+  video,
   resolution = 5,
   cursorSize = 0.5,
   cursorPower = 0.5,
@@ -466,22 +475,40 @@ export default function LiquidHover({
       return { u: (pointer.x + offsetX) / w, v: 1 - (pointer.y + offsetY) / h }
     }
 
-    function loadImageTexture(src: string) {
-      const img = new Image()
-      img.crossOrigin = 'anonymous'
-      img.src = src
-      img.onload = () => {
-        imageAspect = img.naturalWidth / Math.max(1, img.naturalHeight)
+    // Uploads an image or the current video frame as the texture that the
+    // display pass distorts (created on first upload).
+    function uploadTexture(source: TexImageSource, width: number, height: number) {
+      imageAspect = width / Math.max(1, height)
+      if (!imageTexture) {
         imageTexture = gl!.createTexture()
         gl!.bindTexture(gl!.TEXTURE_2D, imageTexture)
         gl!.texParameteri(gl!.TEXTURE_2D, gl!.TEXTURE_MIN_FILTER, gl!.LINEAR)
         gl!.texParameteri(gl!.TEXTURE_2D, gl!.TEXTURE_MAG_FILTER, gl!.LINEAR)
         gl!.texParameteri(gl!.TEXTURE_2D, gl!.TEXTURE_WRAP_S, gl!.CLAMP_TO_EDGE)
         gl!.texParameteri(gl!.TEXTURE_2D, gl!.TEXTURE_WRAP_T, gl!.CLAMP_TO_EDGE)
-        gl!.activeTexture(gl!.TEXTURE0)
-        gl!.bindTexture(gl!.TEXTURE_2D, imageTexture)
-        gl!.texImage2D(gl!.TEXTURE_2D, 0, gl!.RGBA, gl!.RGBA, gl!.UNSIGNED_BYTE, img)
       }
+      gl!.activeTexture(gl!.TEXTURE0)
+      gl!.bindTexture(gl!.TEXTURE_2D, imageTexture)
+      gl!.texImage2D(gl!.TEXTURE_2D, 0, gl!.RGBA, gl!.RGBA, gl!.UNSIGNED_BYTE, source)
+    }
+
+    function loadImageTexture(src: string) {
+      const img = new Image()
+      img.crossOrigin = 'anonymous'
+      img.src = src
+      img.onload = () => uploadTexture(img, img.naturalWidth, img.naturalHeight)
+    }
+
+    // Video source: re-upload only when a new frame is showing, and skip it
+    // entirely while the layer is hidden (display:none below desktop).
+    const videoEl = video?.current ?? null
+    let lastVideoTime = -1
+    function updateVideoTexture() {
+      if (!videoEl || videoEl.readyState < 2 /* HAVE_CURRENT_DATA */) return
+      if (!canvas!.offsetParent) return
+      if (imageTexture && videoEl.currentTime === lastVideoTime) return
+      lastVideoTime = videoEl.currentTime
+      uploadTexture(videoEl, videoEl.videoWidth, videoEl.videoHeight)
     }
 
     function setupEvents() {
@@ -533,6 +560,7 @@ export default function LiquidHover({
 
     function render() {
       const dt = 1 / 60
+      updateVideoTexture()
 
       if (pointer.moved) {
         pointer.moved = false
@@ -618,13 +646,13 @@ export default function LiquidHover({
     allocateBuffers()
     const cleanupEvents = setupEvents()
     rafRef.current = requestAnimationFrame(render)
-    loadImageTexture(image?.src || '')
+    if (!videoEl) loadImageTexture(image?.src || '')
 
     return () => {
       cancelAnimationFrame(rafRef.current)
       cleanupEvents()
     }
-  }, [image?.src, resolution, cursorSize, cursorPower, distortionPower])
+  }, [image?.src, video, resolution, cursorSize, cursorPower, distortionPower])
 
   return (
     <div ref={wrapperRef} className="liquid-hover">
