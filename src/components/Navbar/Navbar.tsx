@@ -128,7 +128,7 @@ export default function Navbar({ links = DEFAULT_LINKS }: NavbarProps) {
               </span>
             </span>
             <span className="navbar__cta-name-position">
-              <span className="text-preset-152twjm navbar__cta-name">Lousiana KD6</span>
+              <span className="text-preset-152twjm navbar__cta-name">Márton Csizmazia</span>
               <span className="text-preset-152twjm navbar__cta-position">CEO</span>
             </span>
           </span>

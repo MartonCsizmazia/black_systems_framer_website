@@ -79,7 +79,7 @@ export default function CtaBanner() {
               alt=""
               className="cta-banner__accent-photo"
             />
-            <Button title="Contact Now" href="/contact" variant="light" />
+            <Button title="Let's talk" variant="light" booking />
           </div>
         </div>
       </div>

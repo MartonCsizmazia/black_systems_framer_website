@@ -1,4 +1,4 @@
-import { useEffect, useRef, type RefObject } from 'react'
+import { useEffect, useRef, useState, type RefObject } from 'react'
 import './LiquidHover.css'
 
 /** True for sources the background should play as <video> (by file extension). */
@@ -260,6 +260,7 @@ interface FBO {
   width: number
   height: number
   attach(unit: number): number
+  dispose(): void
 }
 interface DoubleFBO {
   width: number
@@ -269,6 +270,7 @@ interface DoubleFBO {
   read: () => FBO
   write: () => FBO
   swap: () => void
+  dispose: () => void
 }
 interface GLProgram {
   program: WebGLProgram
@@ -295,6 +297,8 @@ export default function LiquidHover({
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const wrapperRef = useRef<HTMLDivElement>(null)
   const rafRef = useRef<number>(0)
+  // Bumped when the browser restores a lost WebGL context, to rebuild everything.
+  const [contextGeneration, setContextGeneration] = useState(0)
 
   useEffect(() => {
     const canvas = canvasRef.current
@@ -362,15 +366,19 @@ export default function LiquidHover({
       return { program, uniforms }
     }
 
+    // Fullscreen quad geometry, created once and left bound. (It used to be
+    // re-created on every drawQuad call — ~22x per frame — leaking GPU
+    // buffers until the context stalled or was lost, freezing the canvas.)
+    const quadPositions = gl.createBuffer()
+    gl.bindBuffer(gl.ARRAY_BUFFER, quadPositions)
+    gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1, -1, -1, 1, 1, 1, 1, -1]), gl.STATIC_DRAW)
+    const quadIndices = gl.createBuffer()
+    gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, quadIndices)
+    gl.bufferData(gl.ELEMENT_ARRAY_BUFFER, new Uint16Array([0, 1, 2, 0, 2, 3]), gl.STATIC_DRAW)
+    gl.vertexAttribPointer(0, 2, gl.FLOAT, false, 0, 0)
+    gl.enableVertexAttribArray(0)
+
     function drawQuad(target: FBO | null = null) {
-      const posBuf = gl!.createBuffer()
-      gl!.bindBuffer(gl!.ARRAY_BUFFER, posBuf)
-      gl!.bufferData(gl!.ARRAY_BUFFER, new Float32Array([-1, -1, -1, 1, 1, 1, 1, -1]), gl!.STATIC_DRAW)
-      const idxBuf = gl!.createBuffer()
-      gl!.bindBuffer(gl!.ELEMENT_ARRAY_BUFFER, idxBuf)
-      gl!.bufferData(gl!.ELEMENT_ARRAY_BUFFER, new Uint16Array([0, 1, 2, 0, 2, 3]), gl!.STATIC_DRAW)
-      gl!.vertexAttribPointer(0, 2, gl!.FLOAT, false, 0, 0)
-      gl!.enableVertexAttribArray(0)
       if (target == null) {
         gl!.viewport(0, 0, gl!.drawingBufferWidth, gl!.drawingBufferHeight)
         gl!.bindFramebuffer(gl!.FRAMEBUFFER, null)
@@ -408,6 +416,10 @@ export default function LiquidHover({
           gl!.bindTexture(gl!.TEXTURE_2D, texture)
           return unit
         },
+        dispose() {
+          gl!.deleteFramebuffer(fbo)
+          gl!.deleteTexture(texture)
+        },
       }
     }
 
@@ -425,6 +437,10 @@ export default function LiquidHover({
           const tmp = a
           a = b
           b = tmp
+        },
+        dispose() {
+          a.dispose()
+          b.dispose()
         },
       }
     }
@@ -452,7 +468,22 @@ export default function LiquidHover({
       simSize.h = Math.round(simBase)
     }
 
+    // Simulation buffers are only (re)allocated when the sim size actually
+    // changes, and the previous set is freed first (both window 'resize' and
+    // the ResizeObserver call this, and it used to leak a full set each time).
+    let allocatedSize: { w: number; h: number } | null = null
+    function disposeBuffers() {
+      if (!allocatedSize) return
+      velocity.dispose()
+      dye.dispose()
+      divergence.dispose()
+      pressure.dispose()
+      allocatedSize = null
+    }
     function allocateBuffers() {
+      if (allocatedSize && allocatedSize.w === simSize.w && allocatedSize.h === simSize.h) return
+      disposeBuffers()
+      allocatedSize = { w: simSize.w, h: simSize.h }
       velocity = createDoubleFBO(simSize.w, simSize.h)
       dye = createDoubleFBO(simSize.w, simSize.h)
       divergence = createFBO(simSize.w, simSize.h)
@@ -642,6 +673,17 @@ export default function LiquidHover({
       rafRef.current = requestAnimationFrame(render)
     }
 
+    // If the GPU context is lost anyway (driver reset, memory pressure), stop
+    // drawing and rebuild the whole effect once the browser restores it,
+    // instead of leaving the canvas frozen on its last frame.
+    const onContextLost = (e: Event) => {
+      e.preventDefault()
+      cancelAnimationFrame(rafRef.current)
+    }
+    const onContextRestored = () => setContextGeneration((g) => g + 1)
+    canvas.addEventListener('webglcontextlost', onContextLost)
+    canvas.addEventListener('webglcontextrestored', onContextRestored)
+
     resizeCanvas()
     allocateBuffers()
     const cleanupEvents = setupEvents()
@@ -651,8 +693,19 @@ export default function LiquidHover({
     return () => {
       cancelAnimationFrame(rafRef.current)
       cleanupEvents()
+      canvas.removeEventListener('webglcontextlost', onContextLost)
+      canvas.removeEventListener('webglcontextrestored', onContextRestored)
+      // Free GPU resources (a remount, e.g. StrictMode or a prop change,
+      // reuses this same canvas/context).
+      disposeBuffers()
+      if (imageTexture) gl.deleteTexture(imageTexture)
+      gl.deleteBuffer(quadPositions)
+      gl.deleteBuffer(quadIndices)
+      for (const p of [splatProgram, divergenceProgram, pressureProgram, gradientSubtractProgram, advectionProgram, displayProgram]) {
+        gl.deleteProgram(p.program)
+      }
     }
-  }, [image?.src, video, resolution, cursorSize, cursorPower, distortionPower])
+  }, [image?.src, video, resolution, cursorSize, cursorPower, distortionPower, contextGeneration])
 
   return (
     <div ref={wrapperRef} className="liquid-hover">
