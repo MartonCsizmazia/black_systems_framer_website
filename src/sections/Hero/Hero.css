@@ -82,7 +82,10 @@
 .hero__top {
   position: absolute;
   top: 193px;
-  left: 24px;
+  /* 24px from the screen edge, like the navbar logo — but on screens wider
+     than 1920px it follows the navbar's 1920px cap (1872px bar, centred)
+     so it stays aligned under the logo. */
+  left: max(24px, calc(50% - 936px));
   z-index: 1;
   display: flex;
   flex-direction: column;

@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import { images } from '../../assets/images'
+import OverlapFiller from '../../components/OverlapFiller/OverlapFiller'
 import './Contact.css'
 
 /**
@@ -31,6 +32,8 @@ export default function Contact() {
 
   return (
     <section className="contact">
+      <OverlapFiller color="ink" />
+
       <div className="contact__layout">
         <div className="contact__photo">
           <img src={images.menOrangeBgBfbeq6.src} alt={images.menOrangeBgBfbeq6.alt || ''} />

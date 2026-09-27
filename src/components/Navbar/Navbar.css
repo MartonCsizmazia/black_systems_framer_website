@@ -310,3 +310,24 @@
     width: 50px;
   }
 }
+
+/* Desktop: full width (only the 24px .navbar padding at the screen edges)
+   up to a 1920px screen, then capped and centred so ultra-wide monitors
+   don't push the logo and CTA into the far corners. Logo pinned left, CTA card pinned right, menu centred between them with
+   its own 80px item gap unchanged — extra width goes to the empty space on
+   either side of the menu, not into it. */
+@media (min-width: 1200px) {
+  .navbar__bar {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    max-width: calc(1920px - 48px);
+  }
+  .navbar__logo-group {
+    width: auto;
+    justify-self: start;
+  }
+  .navbar__cta {
+    width: 22vw;
+    justify-self: end;
+  }
+}

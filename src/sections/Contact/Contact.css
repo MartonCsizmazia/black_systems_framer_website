@@ -1,15 +1,20 @@
 /* Recovered from the original site's Contact page (client-side routed, not
    part of the static mirror capture — see Contact.tsx for how this was
-   measured). Pure black background, matching --color-ink exactly (not the
-   near-black --color-surface-dark Services/Testimonial use). */
+   measured). Near-black #111 background (--color-surface-dark), the same
+   as Services/Testimonial. */
 
 .contact {
-  background: var(--color-ink);
+  background: var(--color-surface-dark);
   color: var(--color-paper);
   width: 100%;
   display: flex;
   justify-content: center;
   padding: 120px 24px;
+  /* Same stacking as the other sections: its own context at z-index 1 so
+     the angled OverlapFiller (z-index -1 inside it) paints over the
+     previous section's bottom but under this section's content. */
+  position: relative;
+  z-index: 1;
 }
 @media (max-width: 809.98px) {
   .contact {
@@ -55,14 +60,20 @@
 }
 
 .contact__inner {
+  /* Desktop: fill the space beside the photo, capped at 720px; shrinks with
+     the viewport (min-width: 0 lets it go narrower than its content). The
+     form fields inside stretch to this width. */
+  flex: 1;
+  min-width: 0;
   width: 100%;
-  max-width: 460px;
+  max-width: 720px;
   display: flex;
   flex-direction: column;
   gap: 40px;
 }
 @media (max-width: 1199.98px) {
   .contact__inner {
+    flex: none;
     max-width: none;
   }
 }
@@ -119,9 +130,8 @@
   color: var(--color-paper);
 }
 
-/* Borderless by design — confirmed against the source, not an oversight:
-   no border/box-shadow at any level around these inputs. Separation comes
-   entirely from the label above and the 50px gap between field groups. */
+/* Each field gets a thin underline in the same colour as its placeholder
+   text, brightening to full white while focused. */
 .contact__field input,
 .contact__field select,
 .contact__field textarea {
@@ -129,9 +139,16 @@
   background: transparent;
   border: none;
   outline: none;
-  padding: 0;
-  height: 20.2px;
+  padding: 0 0 10px;
+  border-bottom: 1px solid var(--color-paper-50);
+  border-radius: 0;
   color: var(--color-paper);
+  transition: border-color 0.3s ease;
+}
+.contact__field input:focus,
+.contact__field select:focus,
+.contact__field textarea:focus {
+  border-bottom-color: var(--color-paper);
 }
 .contact__field textarea {
   height: auto;

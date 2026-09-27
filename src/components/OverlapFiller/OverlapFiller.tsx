@@ -3,6 +3,8 @@ import { motion, useScroll, useTransform } from 'framer-motion'
 import './OverlapFiller.css'
 
 export interface OverlapFillerProps {
+  /** Must match the host section's background: 'paper' (off-white) or
+   * 'ink' (near-black #111, --color-surface-dark). */
   color?: 'paper' | 'ink'
 }
 
