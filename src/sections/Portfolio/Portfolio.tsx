@@ -25,7 +25,10 @@ const projects = [
 // of its own top edge peeking out above — the "photo album" cascade. The
 // final card is left in normal flow (no sticky) so it settles as the resting
 // full-size image once the stack finishes, with nothing left to cover it.
-const STACK_BASE_TOP = 50
+// Raised from the original 50px so the stack pins below the fixed navbar
+// (compact bar ends at ~59px desktop / ~68px phone), even after a covered
+// card's full upward drift (up to 0.75 * COVER_DRIFT_Y = ~34px).
+const STACK_BASE_TOP = 100
 const STACK_STEP = 20
 
 // Once the *next* card starts covering a card, that card should slowly
