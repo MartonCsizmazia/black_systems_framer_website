@@ -54,12 +54,11 @@
   object-fit: cover;
   display: block;
 }
+/* Below 1200px the layout stacks; the photo is dropped so the form comes
+   first instead of sitting under a full-width image. */
 @media (max-width: 1199.98px) {
   .contact__photo {
-    width: 100%;
-    max-width: none;
-    aspect-ratio: auto;
-    height: 60vh;
+    display: none;
   }
 }
 
