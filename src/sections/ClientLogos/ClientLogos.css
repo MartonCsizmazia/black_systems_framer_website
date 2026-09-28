@@ -1,6 +1,7 @@
 /* Recovered from the "Client Section" component (.framer-9weVr): section
    height 330px, white background, tiles 224x168px (rgb(247,247,247), no
-   gap between them), logo images uniformly boxed to 104x16px. */
+   gap between them). Logo box enlarged from the source's 104x16px so the
+   logos read clearly inside the tiles. */
 
 .client-logos {
   width: 100%;
@@ -29,8 +30,8 @@
   justify-content: center;
 }
 .client-logos__logo {
-  width: 104px;
-  height: 16px;
+  width: 122px;
+  height: 40px;
   object-fit: contain;
 }
 @media (max-width: 809.98px) {
@@ -39,7 +40,7 @@
     height: 105px;
   }
   .client-logos__logo {
-    width: 72px;
-    height: 11px;
+    width: 85px;
+    height: 26px;
   }
 }

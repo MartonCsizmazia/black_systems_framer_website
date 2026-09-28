@@ -9,26 +9,26 @@ import './Services.css'
 const cards = [
   {
     rollNo: '01',
-    category: 'Art Direction',
-    heading: 'Creative Oversight',
+    category: 'Lead Capture & Response',
+    heading: 'Instant follow-up',
     bodyText:
-      'Guiding visual identity through clarity and intentional design. Fuel shapes cohesive narratives that elevate brands beyond aesthetics, creating timeless expressions with edge.',
+      'Every inquiry from your website, forms, email or ads gets an answer within minutes, day or night. The system qualifies the lead, answers common questions and books the call straight into your calendar.',
     image: images.assetGwbdxr, // "Woman Beach" — default image (no override for card 1 in the source)
   },
   {
     rollNo: '02',
-    category: 'Photography',
-    heading: 'Brand Imaging',
+    category: 'Manual Work Automation',
+    heading: 'Hands-off operations',
     bodyText:
-      'Crafting imagery with mood, precision, and emotional depth. Fuel captures moments that feel curated and purposeful, transforming simple visuals into powerful brand stories.',
+      'Copy-pasting, data entry, CRM updates, follow-up emails and reports run automatically between your tools, so your team spends its time on clients, not admin.',
     image: images.womanStaircaseBchnf0,
   },
   {
     rollNo: '03',
-    category: 'Strategy',
-    heading: 'Concept Frameworks',
+    category: 'Audit & Custom Systems',
+    heading: 'Built around your process',
     bodyText:
-      'Structuring ideas with insight, direction, and clarity. Fuel builds thoughtful frameworks that define positioning, strengthen identity, and move brands toward long-term impact.',
+      'We map how your business actually runs, find where time and leads are lost, and build tailored automations for everything in between, tested, integrated and supported after launch.',
     image: images.womanBeach7ug4bh,
   },
 ]
@@ -60,8 +60,8 @@ export default function Services() {
               whileInView={{ opacity: 1, y: 0, transition: { duration: 0.7, delay: 0.1 } }}
               viewport={{ once: true, amount: 0.01 }}
             >
-              Design-driven studio delivering the structured visuals, refined digital system, and
-              high-impact brand experiences shaped by aesthetics &amp; Fuel&reg;.
+                Process-driven agency delivering custom-built automation - we map how your business really runs, then design,
+                integrate and maintain systems that fit it exactly.
             </motion.p>
           </div>
 

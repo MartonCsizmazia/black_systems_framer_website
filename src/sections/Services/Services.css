@@ -72,7 +72,7 @@
   line-height: 70px;
   letter-spacing: -2.1px;
   color: var(--color-paper);
-  max-width: 1200px;
+  max-width: 1250px;
 }
 @media (min-width: 810px) and (max-width: 1199.98px) {
   .services__heading {

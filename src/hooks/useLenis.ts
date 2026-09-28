@@ -24,8 +24,9 @@ export const SECTION_SCROLL = {
   /** Where a jump stops, relative to the section's eyebrow (or its
    * [data-scroll-anchor] element): negative = that many px below the top of
    * the screen. One value for every section, so all jumps land alike; it
-   * must clear the fixed navbar (~95px tall incl. its top gap). */
-  offset: -120,
+   * must clear the compact fixed navbar (~70px tall incl. its top gap);
+   * -90 leaves ~20px of breathing room below it. */
+  offset: -80,
 }
 
 // The page's single Lenis instance, so other components can drive it.
