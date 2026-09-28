@@ -8,10 +8,10 @@ export interface WorkCardProps {
   year?: string
   href: string
   image: { src: string; alt?: string }
-  /** Article's grid uses a plain full-bleed crop, not the Portfolio blur-frame treatment. */
+  /** Article's grid uses a plain full-bleed crop, not the Case Studies blur-frame treatment. */
   flat?: boolean
-  /** Portfolio's stacked cards fade their caption out as they get covered
-   * (see Portfolio.tsx) so it doesn't stay legibly overlapping the next
+  /** Case Studies' stacked cards fade their caption out as they get covered
+   * (see CaseStudies.tsx) so it doesn't stay legibly overlapping the next
    * card's own caption. Omitted entirely elsewhere, so other callers
    * (Article, Archive) keep a plain, always-opaque caption. */
   captionOpacity?: MotionValue<number>

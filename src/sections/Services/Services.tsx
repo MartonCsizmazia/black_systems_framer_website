@@ -66,7 +66,7 @@ export default function Services() {
           </div>
 
           <div className="services__button-detail">
-            <Button title="Explore More" href="/about" variant="light" />
+            {/*<Button title="Explore More" href="/about" variant="light" />*/}
             <div className="services__details" aria-hidden="true">
               <span className="services__plus" />
               <span className="services__plus" />

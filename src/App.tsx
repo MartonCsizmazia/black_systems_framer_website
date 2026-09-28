@@ -4,11 +4,11 @@ import Navbar from './components/Navbar/Navbar'
 import Hero from './sections/Hero/Hero'
 import About from './sections/About/About'
 import ClientLogos from './sections/ClientLogos/ClientLogos'
-import Portfolio from './sections/Portfolio/Portfolio'
+import CaseStudies from './sections/CaseStudies/CaseStudies'
 import Services from './sections/Services/Services'
 import Testimonial from './sections/Testimonial/Testimonial'
 import Stats from './sections/Stats/Stats'
-import Article from './sections/Article/Article'
+// import Article from './sections/Article/Article'
 import Contact from './sections/Contact/Contact'
 
 export default function App() {
@@ -21,13 +21,13 @@ export default function App() {
       <Hero />
       <About />
       <ClientLogos />
-      <Portfolio />
+      <CaseStudies />
       <Services />
       {/*<Pricing />*/}
       <Testimonial />
       {/*<Archive />*/}
       <Stats />
-      <Article />
+      {/*<Article />*/}
       <Contact />
     </main>
   )

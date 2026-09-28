@@ -65,11 +65,11 @@
   letter-spacing: -3px;
   color: var(--color-paper);
 }
+/* Below 810px only the photo and button remain — the marquee (and the
+   plus-marks, hidden further down) are dropped on small screens. */
 @media (max-width: 809.98px) {
-  .cta-banner__marquee-text {
-    font-size: 48px;
-    line-height: 48px;
-    letter-spacing: -1.5px;
+  .cta-banner__marquee-track {
+    display: none;
   }
 }
 
@@ -125,7 +125,10 @@
   .cta-banner__container {
     height: 600px;
   }
+  /* Match the button's fixed 246px width: the focal column is centered and
+     left-aligned, so a narrower photo would sit off-center above it. */
   .cta-banner__accent-photo {
-    width: 140px;
+    width: 246px;
+    max-width: 100%;
   }
 }

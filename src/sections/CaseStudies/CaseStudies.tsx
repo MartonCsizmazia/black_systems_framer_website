@@ -4,7 +4,7 @@ import Button from '../../components/Button/Button'
 import WorkCard from '../../components/WorkCard/WorkCard'
 import SectionEyebrow from '../../components/SectionEyebrow/SectionEyebrow'
 import { images } from '../../assets/images'
-import './Portfolio.css'
+import './CaseStudies.css'
 
 // Real project data recovered from the SSR HTML (the "Home" page chunk only
 // carries the CMS query, not resolved records — this is the actual live
@@ -53,7 +53,7 @@ const COVER_SHRINK = 0.18
 // Never applied to the last card (see isLast below): nothing ever covers it.
 const CAPTION_FADE_RANGE = 0.12
 
-function PortfolioCard({
+function CaseStudyCard({
   project,
   index,
   isLast,
@@ -84,12 +84,12 @@ function PortfolioCard({
       }
 
   return (
-    <motion.div className="portfolio__card-slot" style={style}>
+    <motion.div className="case-studies__card-slot" style={style}>
       <WorkCard
         title={project.title}
         category={project.category}
         rollNo={project.rollNo}
-        href={`/work/portfolio/${project.slug}`}
+        href={`/case-studies/${project.slug}`}
         image={project.image}
         captionOpacity={isLast ? undefined : captionOpacity}
       />
@@ -97,25 +97,25 @@ function PortfolioCard({
   )
 }
 
-export default function Portfolio() {
+export default function CaseStudies() {
   const middleRef = useRef<HTMLDivElement>(null)
   const { scrollYProgress } = useScroll({ target: middleRef, offset: ['start start', 'end end'] })
   const yearSuffix = new Date().getFullYear() % 100
 
   return (
-    <section id="portfolio" className="portfolio">
-      <SectionEyebrow index="02" title="Portfolio" />
+    <section id="case-studies" className="case-studies">
+      <SectionEyebrow index="02" title="Case Studies" />
 
-      <div className="portfolio__bottom">
-        <div className="portfolio__sidebar portfolio__sidebar--left">
-          <h4 className="text-preset-kxvc54 portfolio__sidebar-title">FX-{yearSuffix}'</h4>
-          <div className="portfolio__sidebar-line" />
+      <div className="case-studies__bottom">
+        <div className="case-studies__sidebar case-studies__sidebar--left">
+          <h4 className="text-preset-kxvc54 case-studies__sidebar-title">FX-{yearSuffix}'</h4>
+          <div className="case-studies__sidebar-line" />
           <Button title="Book a Call" variant="dark" booking />
         </div>
 
-        <div className="portfolio__middle" ref={middleRef}>
+        <div className="case-studies__middle" ref={middleRef}>
           {projects.map((p, i) => (
-            <PortfolioCard
+            <CaseStudyCard
               key={p.slug}
               project={p}
               index={i}
@@ -126,9 +126,9 @@ export default function Portfolio() {
           ))}
         </div>
 
-        <div className="portfolio__sidebar portfolio__sidebar--right">
-          <a href="/portfolio" className="portfolio__see-all">
-            <img src={images.assetXfjtzm.src} alt="" className="portfolio__see-all-thumb" />
+        <div className="case-studies__sidebar case-studies__sidebar--right">
+          <a href="/case-studies" className="case-studies__see-all">
+            <img src={images.assetXfjtzm.src} alt="" className="case-studies__see-all-thumb" />
             <span className="text-preset-q70fzl">See all (07)</span>
           </a>
         </div>

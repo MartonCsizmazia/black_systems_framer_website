@@ -26,12 +26,11 @@ export interface NavbarProps {
 // "Home" is the wordmark itself (it scrolls back to the top).
 const DEFAULT_LINKS: NavLink[] = [
   { title: 'About Us', rollNo: '01', href: '#about' },
-  { title: 'Portfolio', rollNo: '02', href: '#portfolio' },
+  { title: 'Case Studies', rollNo: '02', href: '#case-studies' },
   { title: 'Services', rollNo: '03', href: '#services' },
   { title: 'Testimonial', rollNo: '04', href: '#testimonial' },
   { title: 'Stats', rollNo: '05', href: '#stats' },
-  { title: 'Article', rollNo: '06', href: '#article' },
-  { title: 'Contact', rollNo: '07', href: '#contact' },
+  { title: 'Contact', rollNo: '06', href: '#contact' },
 ]
 
 // Scroll-driven "compact" state: 0 at the top of the page, 1 once the first

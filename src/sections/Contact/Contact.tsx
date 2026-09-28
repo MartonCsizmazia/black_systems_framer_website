@@ -6,7 +6,7 @@ import './Contact.css'
 
 /**
  * Recovered from the original site's "Contact" page — reached via the
- * navbar's Contact link, which (like About and Portfolio) is client-side
+ * navbar's Contact link, which (like About and Case Studies) is client-side
  * routed with no URL change, so it was never captured as a separate mirror
  * entry. Measured directly by clicking through the live mirror instead: a
  * full-bleed black section, a two-column row (a tall portrait photo, then
@@ -17,7 +17,7 @@ import './Contact.css'
  * wasn't in the mirror capture at all — it loads straight from Framer's own
  * CDN on the live site, so it was fetched separately (see assets/images).
  * The FAQ section that follows this on the original page is reused across
- * About/Portfolio/Contact and isn't part of this component; it doesn't
+ * About/Case Studies/Contact and isn't part of this component; it doesn't
  * exist elsewhere in this project yet either.
  *
  * Standalone by design (only imports Contact.css and the shared images
@@ -35,7 +35,7 @@ export default function Contact() {
     <section id="contact" className="contact">
       <OverlapFiller color="ink" />
 
-      <SectionEyebrow index="07" title="Contact" dark />
+      <SectionEyebrow index="06" title="Contact" dark />
 
       <div className="contact__layout">
         <div className="contact__photo">
