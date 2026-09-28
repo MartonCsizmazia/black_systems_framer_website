@@ -6,9 +6,7 @@ import About from './sections/About/About'
 import ClientLogos from './sections/ClientLogos/ClientLogos'
 import Portfolio from './sections/Portfolio/Portfolio'
 import Services from './sections/Services/Services'
-import Pricing from './sections/Pricing/Pricing'
 import Testimonial from './sections/Testimonial/Testimonial'
-import Archive from './sections/Archive/Archive'
 import Stats from './sections/Stats/Stats'
 import Article from './sections/Article/Article'
 import Contact from './sections/Contact/Contact'
@@ -25,9 +23,9 @@ export default function App() {
       <ClientLogos />
       <Portfolio />
       <Services />
-      <Pricing />
+      {/*<Pricing />*/}
       <Testimonial />
-      <Archive />
+      {/*<Archive />*/}
       <Stats />
       <Article />
       <Contact />

@@ -46,7 +46,7 @@
   letter-spacing: -2.1px;
   /* Scales with the paragraph width (capped at the desktop 31rem) — a fixed
      31rem plus the unbreakable first word overflowed viewports < ~660px. */
-  text-indent: min(31rem, 36%);
+  text-indent: min(27rem, 40%);
   max-width: 1400px;
 }
 @media (min-width: 810px) and (max-width: 1199.98px) {
@@ -54,6 +54,7 @@
     font-size: 38px;
     line-height: 38px;
     letter-spacing: -1.2px;
+    text-indent: min(15rem, 40%);
   }
 }
 @media (max-width: 809.98px) {
@@ -61,6 +62,7 @@
     font-size: 30px;
     line-height: 30px;
     letter-spacing: -1.1px;
+    text-indent: 0;
   }
 }
 

@@ -27,8 +27,9 @@ const fadeIn = (duration: number) => ({
 })
 
 const stats = [
-  { label: 'New clients', value: '15' },
-  { label: 'Success rate', value: '100%' },
+  { label: 'Lead response time', value: 'under 1 minute' },
+  { label: 'More leads handled', value: '+20%' },
+  { label: 'Availability', value: '24/7' },
 ]
 
 export default function About() {
@@ -51,8 +52,8 @@ export default function About() {
           whileInView={{ opacity: 1, y: 0, transition: { duration: 0.7, delay: 0.1 } }}
           viewport={{ once: true, amount: 0.01 }}
         >
-          Design-forward impressive agency crafting bold visuals, structured layouts, and
-          high-impact digital 3D Swiss inspired by modern aesthetics&reg;.
+            The AI automation partner for growing businesses.
+            AI systems that bring in more leads and take the repetitive work off your team.
         </motion.p>
       </div>
 
@@ -65,16 +66,15 @@ export default function About() {
           <div className="about__column">
             <span className="about__column-heading text-preset-q70fzl">(Pre)</span>
             <p className="about__column-text text-preset-q70fzl">
-              Igniting ideas with precision and intentional design. Fuel transforms raw
-              creativity into structured visual systems that shape brands and elevate digital
-              experiences.
+                Leads slip through the cracks, replies take hours, and your team
+                loses days to copy-pasting, data entry and chasing follow-ups.
             </p>
           </div>
           <div className="about__column">
             <span className="about__column-heading text-preset-q70fzl">(+Post)</span>
             <p className="about__column-text text-preset-q70fzl">
-              Driven by bold aesthetics and functional simplicity. Fuel blends modern form with
-              purposeful detail, delivering refined experiences that push brands forward.
+                We build AI systems that respond to every lead in minutes, qualify them
+                and handle the repetitive tasks in the background, reliably, day and night.
             </p>
           </div>
           <div className="about__column">
@@ -91,7 +91,7 @@ export default function About() {
                   </div>
                 ))}
               </div>
-              <Button title="Explore Now" href="/about" variant="dark" />
+              <Button title="Let's talk" variant="dark" booking />
             </div>
           </div>
         </motion.div>
