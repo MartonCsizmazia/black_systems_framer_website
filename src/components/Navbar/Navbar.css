@@ -1,12 +1,11 @@
 /*
   Recovered from the "Navigation Bar" (.framer-tU76Z), "Menu Items"
   (.framer-SEtwB), "Menu Item" (.framer-TpKqM) and "CTA Card" (.framer-J6Nvq)
-  components in shared-lib.BzGWWn4k.mjs. Four Framer variants collapse to
-  three real layouts here:
-    Primary   (>=1200px): logo | menu | CTA, all visible
-    Secondary (810-1199px): logo | menu, CTA hidden
-    Mobile closed/open (<810px): logo + hamburger; open state stacks the
-      menu + CTA vertically as a full-width dropdown
+  components in shared-lib.BzGWWn4k.mjs. Two layouts:
+    Desktop (default): logo | menu | CTA card, in a three-column grid
+    Hamburger (below the single breakpoint further down): logo + hamburger;
+      the open state stacks the menu + CTA vertically as a dropdown
+  The breakpoint lives in exactly one place: the hamburger @media query.
 */
 
 /* Fixed to the viewport at page level (rendered in App, not inside Hero),
@@ -22,14 +21,21 @@
   display: flex;
   justify-content: center;
   padding: 0 24px;
+  /* How far the whole bar rises in the compact (scrolled) state. Read by
+     Navbar.tsx; overridden for the hamburger layout below. */
+  --navbar-raise: 24px;
 }
 
+/* Desktop: logo pinned left, CTA card pinned right, menu centred between
+   them (extra width goes to the space either side of the menu, not into its
+   item gaps). Full width up to a 1920px screen, then capped and centred so
+   ultra-wide monitors don't push the logo and CTA into the far corners. */
 .navbar__bar {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
   align-items: center;
-  justify-content: space-between;
   width: 100%;
-  max-width: 1392px;
+  max-width: calc(1920px - 48px);
   background: rgba(0, 0, 0, 0);
   box-shadow: none;
   border-radius: 8px;
@@ -66,7 +72,7 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  width: 22%;
+  justify-self: start;
 }
 
 .navbar__hamburger {
@@ -125,6 +131,7 @@
   display: grid;
   align-items: center;
   justify-items: end;
+  justify-self: end;
 }
 .navbar__actions > * {
   grid-area: 1 / 1;
@@ -187,7 +194,7 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  width: 22%;
+  width: 22vw;
   max-width: 315px;
   padding: 3px 8px 3px 3px;
   border-radius: 5px;
@@ -260,17 +267,18 @@
    dump): the "Secondary" text-menu variant is not actually reached at any
    real viewport width on this page, only Primary (>=1200px) and Moblie
    Closed/Mobile Open (<1200px) are. */
-/* Hamburger layout below 1440px (the rest of the site switches at 1200px):
-   seven section links, the full-size logo and the CEO card only fit side by
-   side from ~1440px up. */
-/* One uniform hamburger layout for every width below 1440px — phones,
-   tablets and small laptops look the same: full width, logo 24px from the
-   screen edge (8px outer + 16px bar padding, matching desktop). */
+/* THE navbar breakpoint — the only place it's set. Below it: one uniform
+   hamburger layout for phones, tablets and small laptops (full width, logo
+   24px from the screen edge: 8px outer + 16px bar padding, like desktop).
+   1440px because seven section links, the full-size logo and the CEO card
+   only fit side by side from about there up. */
 @media (max-width: 1439.98px) {
   .navbar {
     padding: 0 8px;
+    --navbar-raise: 16px;
   }
   .navbar__bar {
+    display: flex;
     max-width: none;
     padding: 20px 16px;
     gap: 10px;
@@ -358,28 +366,5 @@
   }
   .navbar__bar--open .navbar__menu-item-underline {
     background: var(--color-paper);
-  }
-}
-
-/* Desktop: full width (only the 24px .navbar padding at the screen edges)
-   up to a 1920px screen, then capped and centred so ultra-wide monitors
-   don't push the logo and CTA into the far corners. Logo pinned left, CTA card pinned right, menu centred between them with
-   its own 80px item gap unchanged — extra width goes to the empty space on
-   either side of the menu, not into it. */
-@media (min-width: 1440px) {
-  .navbar__bar {
-    display: grid;
-    grid-template-columns: 1fr auto 1fr;
-    max-width: calc(1920px - 48px);
-  }
-  .navbar__logo-group {
-    width: auto;
-    justify-self: start;
-  }
-  .navbar__actions {
-    justify-self: end;
-  }
-  .navbar__cta {
-    width: 22vw;
   }
 }

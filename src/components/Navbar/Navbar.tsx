@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { motion, useMotionValueEvent, useScroll, useTransform } from 'framer-motion'
+import { motion, useMotionValue, useMotionValueEvent, useScroll, useTransform } from 'framer-motion'
 import { images } from '../../assets/images'
 import SquaresLogo from '../SquaresLogo/SquaresLogo'
 import { scrollToSection } from '../../hooks/useLenis'
@@ -43,10 +43,6 @@ const DEFAULT_LINKS: NavLink[] = [
 const COMPACT_HALF = 0.5
 const WORDMARK_MIN_SCALE = 0.8
 const LOGO_GAP_PX = 6 // matches .navbar__logo-link gap
-// How far the whole bar rises in the compact state, closing the gap above
-// the (slimmer) backdrop. Desktop / hamburger layout (< 1440px).
-const NAV_DESKTOP_MIN = 1440 // keep in sync with Navbar.css
-const RAISE_PX = { desktop: 24, mobile: 16 }
 
 // Recovered from __framer__appearAnimationsContent id "93osxn" (the navbar's
 // own entrance) and the per-item entries used inside "Menu Items" (staggered
@@ -112,22 +108,43 @@ export default function Navbar({ links = DEFAULT_LINKS }: NavbarProps) {
   const [mobileOpen, setMobileOpen] = useState(false)
 
   const { scrollY } = useScroll()
-  const progress = useTransform(scrollY, (y) => Math.min(1, Math.max(0, y / window.innerHeight)))
+  // Layout-dependent inputs as motion values, re-measured on resize, so the
+  // animation updates immediately when the window is resized — not only on
+  // the next scroll (a stale value left the wordmark off by the icon's
+  // width change when crossing the navbar breakpoint while scrolled down).
+  const viewportH = useMotionValue(window.innerHeight)
+  const slideDistance = useMotionValue(0)
+  const raise = useMotionValue(0)
+  const progress = useTransform([scrollY, viewportH], ([y, h]: number[]) => Math.min(1, Math.max(0, y / h)))
   const firstHalfOut = useTransform(progress, [0, COMPACT_HALF], [1, 0])
   const secondHalfIn = useTransform(progress, [COMPACT_HALF, 1], [0, 1])
   const wordmarkScale = useTransform(secondHalfIn, [0, 1], [1, WORDMARK_MIN_SCALE])
   // Slide the wordmark left by exactly the (faded-out) icon's width + gap,
   // so it ends up where the icon started — the left edge of the bar.
   const iconRef = useRef<HTMLSpanElement>(null)
-  const slideDistance = useRef(0)
+  const headerRef = useRef<HTMLElement>(null)
   useEffect(() => {
-    const measure = () => { slideDistance.current = (iconRef.current?.offsetWidth ?? 0) + LOGO_GAP_PX }
+    const measure = () => {
+      viewportH.set(window.innerHeight)
+      slideDistance.set((iconRef.current?.offsetWidth ?? 0) + LOGO_GAP_PX)
+      // How far the bar rises in the compact state comes from CSS
+      // (--navbar-raise, set per layout in Navbar.css), so the breakpoint
+      // only lives in the stylesheet.
+      const cssRaise = headerRef.current ? getComputedStyle(headerRef.current).getPropertyValue('--navbar-raise') : ''
+      raise.set(parseFloat(cssRaise) || 0)
+    }
     measure()
     window.addEventListener('resize', measure)
-    return () => window.removeEventListener('resize', measure)
-  }, [])
-  const wordmarkX = useTransform(secondHalfIn, (t) => -t * slideDistance.current)
-  const barY = useTransform(progress, (p) => -p * (window.innerWidth >= NAV_DESKTOP_MIN ? RAISE_PX.desktop : RAISE_PX.mobile))
+    // The icon's width changes via CSS at the breakpoint; observe it directly too.
+    const observer = new ResizeObserver(measure)
+    if (iconRef.current) observer.observe(iconRef.current)
+    return () => {
+      window.removeEventListener('resize', measure)
+      observer.disconnect()
+    }
+  }, [viewportH, slideDistance, raise])
+  const wordmarkX = useTransform([secondHalfIn, slideDistance], ([t, d]: number[]) => -t * d)
+  const barY = useTransform([progress, raise], ([p, r]: number[]) => -p * r)
 
   // Whichever of the CEO card / Book button is showing is the interactive one.
   const [compact, setCompact] = useState(false)
@@ -141,6 +158,7 @@ export default function Navbar({ links = DEFAULT_LINKS }: NavbarProps) {
 
   return (
     <motion.header
+      ref={headerRef}
       className="navbar"
       data-framer-name="Primary"
       {...barAppear}
