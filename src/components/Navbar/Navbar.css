@@ -137,9 +137,9 @@
   display: flex;
   align-items: center;
   /* 80px between items on wide screens, tightening on smaller desktops so
-     all six section links fit between the logo and the CTA card
-     (20px at 1200px, 80px from ~1580px up). */
-  gap: clamp(20px, calc((100vw - 1100px) / 6), 80px);
+     all seven section links fit between the logo and the CTA card
+     (~32px at 1440px, 80px from ~1730px up). */
+  gap: clamp(16px, calc((100vw - 1250px) / 6), 80px);
 }
 
 .navbar__menu-item {
@@ -260,9 +260,19 @@
    dump): the "Secondary" text-menu variant is not actually reached at any
    real viewport width on this page, only Primary (>=1200px) and Moblie
    Closed/Mobile Open (<1200px) are. */
-@media (max-width: 1199.98px) {
+/* Hamburger layout below 1440px (the rest of the site switches at 1200px):
+   seven section links, the full-size logo and the CEO card only fit side by
+   side from ~1440px up. */
+/* One uniform hamburger layout for every width below 1440px — phones,
+   tablets and small laptops look the same: full width, logo 24px from the
+   screen edge (8px outer + 16px bar padding, matching desktop). */
+@media (max-width: 1439.98px) {
+  .navbar {
+    padding: 0 8px;
+  }
   .navbar__bar {
-    padding: 24px;
+    max-width: none;
+    padding: 20px 16px;
     gap: 10px;
     justify-content: flex-start;
     flex-direction: column;
@@ -285,10 +295,12 @@
   .navbar__logo-link {
     order: 0;
   }
-  /* Shrink the wordmark (not the animated mark) to leave room for the
-     hamburger on narrow screens. */
+  /* Smaller logo to leave room for the hamburger. */
+  .navbar__logo-icon {
+    width: 50px;
+  }
   .navbar__logo-img {
-    height: 60%;
+    height: 55%;
   }
   .navbar__menu {
     display: none;
@@ -308,14 +320,15 @@
     width: 100%;
     max-width: none;
   }
-  /* Hamburger layout: the row sits inside the bar's padding, so centre the
-     slim panel on that row instead of the (taller) padded bar. */
+  /* The row sits inside the bar's padding, so centre the slim panel on that
+     row instead of the (taller) padded bar: row centre = 20px top padding +
+     half of the 24px row. */
   .navbar__backdrop {
     left: 0;
     right: 0;
-    top: 0;
-    height: 64px;
-    transform: none;
+    top: calc(20px + 12px);
+    height: 55px;
+    transform: translateY(-50%);
     border-radius: 12px;
   }
   /* The open menu has its own solid dark panel. */
@@ -348,47 +361,12 @@
   }
 }
 
-/* Phones: the desktop gutters (24px on .navbar + 24px inside the bar) waste
-   too much width, so tighten the horizontal padding. */
-@media (max-width: 809.98px) {
-  .navbar {
-    padding: 0 8px;
-  }
-  .navbar__bar {
-    padding: 20px 16px;
-  }
-  /* 55px strip centred on the logo/hamburger row: row centre = 20px top
-     padding + half of the 24px row. */
-  .navbar__backdrop {
-    top: calc(20px + 12px);
-    height: 55px;
-    transform: translateY(-50%);
-  }
-}
-
-/* Small phones only: the hamburger bar becomes a centred card (max 390px).
-   From 600px up to the desktop breakpoint it spans the full width instead —
-   logo on the left, hamburger on the right. */
-@media (max-width: 599.98px) {
-  .navbar__bar {
-    max-width: 390px;
-  }
-
-  .navbar__logo-img {
-    height: 55%;
-  }
-
-  .navbar__logo-icon{
-    width: 50px;
-  }
-}
-
 /* Desktop: full width (only the 24px .navbar padding at the screen edges)
    up to a 1920px screen, then capped and centred so ultra-wide monitors
    don't push the logo and CTA into the far corners. Logo pinned left, CTA card pinned right, menu centred between them with
    its own 80px item gap unchanged — extra width goes to the empty space on
    either side of the menu, not into it. */
-@media (min-width: 1200px) {
+@media (min-width: 1440px) {
   .navbar__bar {
     display: grid;
     grid-template-columns: 1fr auto 1fr;

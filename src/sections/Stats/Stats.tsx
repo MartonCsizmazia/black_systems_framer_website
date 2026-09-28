@@ -29,8 +29,8 @@ const stats = [
 
 export default function Stats() {
   return (
-    <section className="stats">
-      <SectionEyebrow index="07" title="Stats" />
+    <section id="stats" className="stats">
+      <SectionEyebrow index="05" title="Stats" />
 
       <div className="stats__container">
         <span className="stats__top-line" />

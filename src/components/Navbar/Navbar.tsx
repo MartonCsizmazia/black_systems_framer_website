@@ -20,15 +20,18 @@ export interface NavbarProps {
   links?: NavLink[]
 }
 
-// One item per main section, in page order. Each '#id' matches the id on
+// One item per numbered section, in page order; rollNo matches that
+// section's eyebrow index, and each '#id' matches the id on
 // that section's root element.
 // "Home" is the wordmark itself (it scrolls back to the top).
 const DEFAULT_LINKS: NavLink[] = [
   { title: 'About Us', rollNo: '01', href: '#about' },
   { title: 'Portfolio', rollNo: '02', href: '#portfolio' },
   { title: 'Services', rollNo: '03', href: '#services' },
-  { title: 'Pricing', rollNo: '04', href: '#pricing' },
-  { title: 'Contact', rollNo: '05', href: '#contact' },
+  { title: 'Testimonial', rollNo: '04', href: '#testimonial' },
+  { title: 'Stats', rollNo: '05', href: '#stats' },
+  { title: 'Article', rollNo: '06', href: '#article' },
+  { title: 'Contact', rollNo: '07', href: '#contact' },
 ]
 
 // Scroll-driven "compact" state: 0 at the top of the page, 1 once the first
@@ -41,7 +44,8 @@ const COMPACT_HALF = 0.5
 const WORDMARK_MIN_SCALE = 0.8
 const LOGO_GAP_PX = 6 // matches .navbar__logo-link gap
 // How far the whole bar rises in the compact state, closing the gap above
-// the (slimmer) backdrop. Desktop / hamburger layout (< 1200px).
+// the (slimmer) backdrop. Desktop / hamburger layout (< 1440px).
+const NAV_DESKTOP_MIN = 1440 // keep in sync with Navbar.css
 const RAISE_PX = { desktop: 24, mobile: 16 }
 
 // Recovered from __framer__appearAnimationsContent id "93osxn" (the navbar's
@@ -123,7 +127,7 @@ export default function Navbar({ links = DEFAULT_LINKS }: NavbarProps) {
     return () => window.removeEventListener('resize', measure)
   }, [])
   const wordmarkX = useTransform(secondHalfIn, (t) => -t * slideDistance.current)
-  const barY = useTransform(progress, (p) => -p * (window.innerWidth >= 1200 ? RAISE_PX.desktop : RAISE_PX.mobile))
+  const barY = useTransform(progress, (p) => -p * (window.innerWidth >= NAV_DESKTOP_MIN ? RAISE_PX.desktop : RAISE_PX.mobile))
 
   // Whichever of the CEO card / Book button is showing is the interactive one.
   const [compact, setCompact] = useState(false)

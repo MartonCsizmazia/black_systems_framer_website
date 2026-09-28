@@ -15,8 +15,8 @@ const articles = [
 
 export default function Article() {
   return (
-    <section className="article">
-      <SectionEyebrow index="08" title="Article" />
+    <section id="article" className="article">
+      <SectionEyebrow index="06" title="Article" />
 
       <div className="article__grid">
         {articles.map((a, i) => (

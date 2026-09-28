@@ -5,9 +5,9 @@ import OverlapFiller from "../../components/OverlapFiller/OverlapFiller";
 
 export default function Testimonial() {
   return (
-    <section className="testimonial">
+    <section id="testimonial" className="testimonial">
         <OverlapFiller color="paper" />
-      <SectionEyebrow index="05" title="Testimonial" />
+      <SectionEyebrow index="04" title="Testimonial" />
       <TestimonialSlider />
     </section>
   )

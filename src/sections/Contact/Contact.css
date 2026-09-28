@@ -8,8 +8,11 @@
   color: var(--color-paper);
   width: 100%;
   display: flex;
-  justify-content: center;
-  padding: 120px 24px;
+  flex-direction: column;
+  align-items: center;
+  /* Eyebrow at the top like every other section, then the layout. */
+  gap: 96px;
+  padding: 24px 24px 120px;
   /* Same stacking as the other sections: its own context at z-index 1 so
      the angled OverlapFiller (z-index -1 inside it) paints over the
      previous section's bottom but under this section's content. */
@@ -18,7 +21,8 @@
 }
 @media (max-width: 809.98px) {
   .contact {
-    padding: 80px 24px;
+    gap: 56px;
+    padding: 24px 24px 80px;
   }
 }
 
