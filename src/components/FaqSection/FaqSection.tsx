@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
-import { images } from '../assets/images'
+import { images } from '../../assets/images'
+import SectionEyebrow from '../SectionEyebrow/SectionEyebrow'
 import './FaqSection.css'
 
 export interface Faq {
@@ -106,7 +107,10 @@ function ShowreelCard({ href }: { href: string }) {
 }
 
 export interface FaqSectionProps {
-  rollNo?: string
+  /** Element id, so a menu link ('#faq') can scroll to it. */
+  id?: string
+  /** Section number shown in the eyebrow, e.g. '05' -> "(05)". */
+  index?: string
   faqs?: Faq[]
   showreelHref?: string
 }
@@ -114,26 +118,21 @@ export interface FaqSectionProps {
 /**
  * Recovered from the shared "FAQ Section" component (.framer-jdAJs), which
  * the original reuses on About, Portfolio, Contact and every portfolio
- * detail page (here: the case study pages) — only the roll number changes per page.
+ * detail page (here: the case study pages). Only the section number changes
+ * per page; the heading is the site's standard SectionEyebrow.
  */
 export default function FaqSection({
-  rollNo = '(03)',
+  id,
+  index = '03',
   faqs = DEFAULT_FAQS,
   showreelHref = 'https://www.youtube.com/',
 }: FaqSectionProps) {
   return (
-    <section className="faq-section">
+    <section id={id} className="faq-section">
       <div className="faq-section__container">
-        <div className="faq-section__line" />
+        <SectionEyebrow index={index} title="Frequently Asked Questions" />
         <div className="faq-section__content">
           <div className="faq-section__left">
-            <div className="faq-section__header text-preset-152twjm">
-              <span className="faq-section__roll">
-                <span className="faq-section__icon" />
-                {rollNo}
-              </span>
-              <span>(Frequently Asked Questions)</span>
-            </div>
             <ShowreelCard href={showreelHref} />
           </div>
           <div className="faq-section__list">

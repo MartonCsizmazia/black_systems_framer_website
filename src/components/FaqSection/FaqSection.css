@@ -16,16 +16,11 @@
 .faq-section__container {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  /* Space between the SectionEyebrow and the showreel + questions. */
+  gap: 60px;
   width: 100%;
   max-width: 1440px;
 }
-.faq-section__line {
-  height: 1px;
-  width: 100%;
-  background: var(--color-ink-16);
-}
-
 .faq-section__content {
   display: flex;
   align-items: flex-start;
@@ -51,26 +46,6 @@
     flex: none;
     width: 100%;
   }
-}
-
-.faq-section__header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  max-width: 394.5px;
-  white-space: pre;
-}
-.faq-section__roll {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-}
-.faq-section__icon {
-  width: 5px;
-  height: 5px;
-  background: var(--color-ink);
-  transform: rotate(-45deg);
 }
 
 .faq-section__list {
@@ -206,4 +181,10 @@
 .showreel-card__right {
   justify-content: flex-end;
   color: var(--color-ink-50);
+}
+
+@media (max-width: 809.98px) {
+  .faq-section__container {
+    gap: 40px;
+  }
 }

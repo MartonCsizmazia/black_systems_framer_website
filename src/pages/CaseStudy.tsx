@@ -1,17 +1,15 @@
 import { useEffect, useRef } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
 
-import LabelBar from '../components/LabelBar'
-import LineReveal from '../components/LineReveal'
+import SectionEyebrow from '../components/SectionEyebrow/SectionEyebrow'
+import LineReveal from '../components/LineReveal/LineReveal'
 
-import FaqSection from '../components/FaqSection'
 import Footer from '../components/Footer/Footer'
 import Contact from '../sections/Contact/Contact'
 import { moreCaseStudies, caseStudyHref, type CaseStudyEntry } from '../data/caseStudiesConfig'
 import './CaseStudy.css'
 import Navbar from "../components/Navbar/Navbar";
 import OverlapFiller from "../components/OverlapFiller/OverlapFiller";
-import Button from "../components/Button/Button";
 import WorkCard from "../components/WorkCard/WorkCard";
 
 // Every value below is copied from the detail-page template chunk
@@ -38,15 +36,6 @@ const fadeIn = (duration: number) => ({
   whileInView: { opacity: 1, transition: { duration, ease: tweenIn } },
   viewport: { once: true, amount: 0 },
 })
-
-// Framer parallax "speed 90" on each gallery image: it drifts down at 10% of
-// scroll speed inside its clipped frame. The source applies that to raw page
-// scroll, which pushes the lower images past the bottom of their 150%-tall
-// layer before they've even scrolled into view (visible as a gap at the top
-// of the last image on the original). Measured per image instead, from the
-// moment it enters the viewport, so the drift rate matches but the image
-// always covers its frame.
-const GALLERY_PARALLAX = 0.1
 
 function PlusMark() {
   return (
@@ -113,23 +102,6 @@ function CaseStudyHero({ caseStudy, fadeTargetRef }: { caseStudy: CaseStudyEntry
   )
 }
 
-function GalleryImage({ image }: { image: CaseStudyEntry['gallery'][number] }) {
-  const ref = useRef<HTMLDivElement>(null)
-  const { scrollYProgress } = useScroll({ target: ref, offset: ['start end', 'end start'] })
-  const y = useTransform(scrollYProgress, (p) => {
-    const travel = window.innerHeight + (ref.current?.offsetHeight ?? 0)
-    return p * travel * GALLERY_PARALLAX
-  })
-
-  return (
-    <div className="case-study-content__image" ref={ref}>
-      <motion.div className="case-study-content__image-layer" style={{ y }}>
-        <img src={image.src} alt={image.alt || ''} />
-      </motion.div>
-    </div>
-  )
-}
-
 function CaseStudyContent({ caseStudy, fadeTargetRef }: { caseStudy: CaseStudyEntry; fadeTargetRef: React.RefObject<HTMLDivElement> }) {
   return (
     <section className="case-study-content">
@@ -139,7 +111,7 @@ function CaseStudyContent({ caseStudy, fadeTargetRef }: { caseStudy: CaseStudyEn
       <div className="case-study-content__fade-target" ref={fadeTargetRef} aria-hidden="true" />
 
       <div className="case-study-content__top">
-        <LabelBar rollNo="(01)" label="(Read More)" />
+        <SectionEyebrow index="01" title="Read More" />
         <LineReveal as="h3" className="text-preset-13ruabr case-study-content__intro" text={caseStudy.intro} />
       </div>
 
@@ -169,15 +141,8 @@ function CaseStudyContent({ caseStudy, fadeTargetRef }: { caseStudy: CaseStudyEn
                   </div>
                 ))}
               </div>
-              <Button title="Live Preview" href={caseStudy.livePreview} variant="dark" newTab />
             </div>
           </div>
-        </motion.div>
-
-        <motion.div className="case-study-content__gallery" {...fadeIn(0.6)}>
-          {caseStudy.gallery.map((image, i) => (
-            <GalleryImage key={i} image={image} />
-          ))}
         </motion.div>
       </div>
     </section>
@@ -187,7 +152,7 @@ function CaseStudyContent({ caseStudy, fadeTargetRef }: { caseStudy: CaseStudyEn
 function MoreCaseStudies({ caseStudy }: { caseStudy: CaseStudyEntry }) {
   return (
     <section className="more-case-studies">
-      <LabelBar rollNo="(02)" label="(Case Studies)" />
+      <SectionEyebrow index="02" title="Case Studies" />
       <div className="more-case-studies__grid">
         {moreCaseStudies(caseStudy.slug).map((p) => (
           <WorkCard
@@ -209,7 +174,7 @@ function MoreCaseStudies({ caseStudy }: { caseStudy: CaseStudyEntry }) {
  * One template for every /case-studies/:slug route, as in the original
  * (a single Framer CMS detail page): blurred cover hero, intro paragraph,
  * research/experiment/results next to a parallax gallery, two other
- * case studies, then the site-wide FAQ section and footer.
+ * case studies, then the Contact section and footer.
  */
 export default function CaseStudy({ caseStudy }: { caseStudy: CaseStudyEntry }) {
   const fadeTargetRef = useRef<HTMLDivElement>(null)
@@ -226,8 +191,7 @@ export default function CaseStudy({ caseStudy }: { caseStudy: CaseStudyEntry }) 
       <CaseStudyHero caseStudy={caseStudy} fadeTargetRef={fadeTargetRef} />
       <CaseStudyContent caseStudy={caseStudy} fadeTargetRef={fadeTargetRef} />
       <MoreCaseStudies caseStudy={caseStudy} />
-      <FaqSection rollNo="(03)" />
-      <Contact />
+      <Contact index="03" />
       <Footer />
     </main>
   )

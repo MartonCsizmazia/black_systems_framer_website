@@ -25,7 +25,8 @@ import './Contact.css'
  * stylesheet — just bring the men-orange-bg-bfbeq6 image file too, or swap
  * in your own.
  */
-export default function Contact() {
+/** `index`: the section number in its eyebrow, which differs per page. */
+export default function Contact({ index = '06' }: { index?: string }) {
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
     // No real backend wired up — the original is a Framer-hosted form.
@@ -35,7 +36,7 @@ export default function Contact() {
     <section id="contact" className="contact">
       <OverlapFiller color="ink" />
 
-      <SectionEyebrow index="06" title="Contact" dark />
+      <SectionEyebrow index={index} title="Contact" dark />
 
       <div className="contact__layout">
         <div className="contact__photo">

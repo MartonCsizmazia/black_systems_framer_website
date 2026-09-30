@@ -370,7 +370,10 @@
 
 .more-case-studies {
   position: relative;
-  z-index: 2;
+  /* Same level as the other sections (DOM order decides who paints on top):
+     a higher value would cover the angled OverlapFiller that the next
+     section (Contact) skews up over this one. */
+  z-index: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
