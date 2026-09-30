@@ -180,15 +180,15 @@ export default function Hero({ backgroundImage, backgroundImageMobile, darkenOnS
 
       <div className="hero__top">
         <div className="hero__description">
-          <p className="text-preset-q70fzl hero__line" {...descLine(0.4)}>
-            Pick a plan, submit a job request,
-          </p>
+          <motion.p className="text-preset-q70fzl hero__line" {...descLine(0.4)}>
+            Book a call, share your process,
+          </motion.p>
           <motion.p className="text-preset-q70fzl hero__line" {...descLine(0.6)}>
-            and your image{' '}
-            <span className="hero__dim">will kickoff</span>
+            and your first automation{' '}
+            <span className="hero__dim">goes live</span>
           </motion.p>
           <motion.p className="text-preset-q70fzl hero__line hero__dim" {...descLine(0.8)}>
-            within 24 hours.
+            within weeks.
           </motion.p>
         </div>
         <motion.div {...ctaAppear}>
@@ -199,13 +199,13 @@ export default function Hero({ backgroundImage, backgroundImageMobile, darkenOnS
       <motion.div className="hero__bottom" style={{ y: bottomY }}>
         <div className="hero__services">
           <motion.p className="text-preset-q70fzl" {...serviceLine(0.9, 10)}>
-            <span className="hero__dim">01/</span> Strategy
+            <span className="hero__dim">01/</span> Lead Capture
           </motion.p>
           <motion.p className="text-preset-q70fzl" {...serviceLine(1.1, 8)}>
-            Videography
+            Automation
           </motion.p>
           <motion.p className="text-preset-q70fzl" {...serviceLine(1.3, 6)}>
-            Branding
+            AI Agents
           </motion.p>
         </div>
 
