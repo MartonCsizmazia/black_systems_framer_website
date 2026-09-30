@@ -1,0 +1,77 @@
+.case-study-slider {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 100%;
+  max-width: 1440px;
+}
+
+/* Native horizontal scroller, snapping to card starts; scrollbar hidden
+   (the arrows and swipe/trackpad gestures drive it). */
+.case-study-slider__track {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+}
+.case-study-slider__track::-webkit-scrollbar {
+  display: none;
+}
+
+/* Cards per view: 3 on desktop, 2 on tablet, one plus a peek on phones. */
+.case-study-slider__slide {
+  position: relative;
+  flex: 0 0 calc((100% - 2 * 10px) / 3);
+  /* Let the slide shrink below the card's 432px inner picture (a flex
+     item's default min-width is its content width). */
+  min-width: 0;
+  scroll-snap-align: start;
+}
+@media (max-width: 1199.98px) {
+  .case-study-slider__slide {
+    flex-basis: calc((100% - 10px) / 2);
+  }
+}
+@media (max-width: 809.98px) {
+  .case-study-slider__slide {
+    flex-basis: 85%;
+  }
+}
+
+.case-study-slider__current {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  z-index: 1;
+  padding: 6px 10px;
+  border-radius: 5px;
+  background: var(--color-paper);
+  color: var(--color-ink);
+  pointer-events: none;
+}
+
+/* Same look as the testimonial slider's buttons. */
+.case-study-slider__controls {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+.case-study-slider__controls button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 98px;
+  height: 50px;
+  border: none;
+  border-radius: 5px;
+  background: var(--color-surface);
+  color: var(--color-ink);
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+.case-study-slider__controls button:disabled {
+  opacity: 0.35;
+  cursor: default;
+}

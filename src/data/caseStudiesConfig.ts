@@ -20,10 +20,10 @@ export interface CaseStudyEntry {
   image: Image
 }
 
-// Every case study on the site: the home page's Case Studies cards and each
-// /case-studies/<slug> page are rendered from these entries. Order matters:
-// it's the order of the cards, and "More Works" at the bottom of a case
-// study page shows the first two entries other than the current one.
+// Every case study on the site: the home page's Case Studies cards, each
+// /case-studies/<slug> page and the slider at the bottom of those pages are
+// rendered from these entries. Order matters: it's the order of the cards
+// and of the slider.
 export const caseStudies: CaseStudyEntry[] = [
   {
     slug: 'lead-machine',
@@ -107,9 +107,4 @@ export const caseStudyHref = (slug: string) => `/case-studies/${slug}`
 
 export function findCaseStudy(slug: string) {
   return caseStudies.find((p) => p.slug === slug)
-}
-
-/** The source's "More Works" CMS query: page size 2, offset 0, `slug != current`. */
-export function moreCaseStudies(slug: string, count = 2) {
-  return caseStudies.filter((p) => p.slug !== slug).slice(0, count)
 }

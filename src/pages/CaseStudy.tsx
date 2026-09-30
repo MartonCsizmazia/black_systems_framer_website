@@ -6,11 +6,11 @@ import LineReveal from '../components/LineReveal/LineReveal'
 
 import Footer from '../components/Footer/Footer'
 import Contact from '../sections/Contact/Contact'
-import { moreCaseStudies, caseStudyHref, type CaseStudyEntry } from '../data/caseStudiesConfig'
+import { type CaseStudyEntry } from '../data/caseStudiesConfig'
+import CaseStudySlider from '../components/CaseStudySlider/CaseStudySlider'
 import './CaseStudy.css'
 import Navbar, { type NavLink } from "../components/Navbar/Navbar";
 import OverlapFiller from "../components/OverlapFiller/OverlapFiller";
-import WorkCard from "../components/WorkCard/WorkCard";
 
 // Every value below is copied from the detail-page template chunk
 // (s1MaDFfTYJ…XDhxFXEf.mjs, CMS collection "UANVURkgl") — not approximated
@@ -153,24 +153,12 @@ function MoreCaseStudies({ caseStudy }: { caseStudy: CaseStudyEntry }) {
   return (
     <section id="more-case-studies" className="more-case-studies">
       <SectionEyebrow index="02" title="Case Studies" />
-      <div className="more-case-studies__grid">
-        {moreCaseStudies(caseStudy.slug).map((p) => (
-          <WorkCard
-            key={p.slug}
-            title={p.title}
-            category={p.category}
-            rollNo={p.rollNo}
-            year={p.year}
-            href={caseStudyHref(p.slug)}
-            image={p.image}
-          />
-        ))}
-      </div>
+      <CaseStudySlider currentSlug={caseStudy.slug} currentTarget="#case-study-content" />
     </section>
   )
 }
 
-/** Case study menu: the current case study, the other case studies below
+/** Case study menu: the current case study, the case studies slider below
  * it, and Contact, matching the page's (01) / (02) / (03) eyebrows. */
 function caseStudyNavLinks(caseStudy: CaseStudyEntry): NavLink[] {
   return [
@@ -183,7 +171,7 @@ function caseStudyNavLinks(caseStudy: CaseStudyEntry): NavLink[] {
 /**
  * One template for every /case-studies/:slug route, as in the original
  * (a single Framer CMS detail page): blurred cover hero, intro paragraph,
- * research/solution/results, two other case studies, then the Contact
+ * research/solution/results, a slider of all case studies, then the Contact
  * section and footer.
  */
 export default function CaseStudy({ caseStudy }: { caseStudy: CaseStudyEntry }) {

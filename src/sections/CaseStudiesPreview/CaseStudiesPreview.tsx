@@ -99,7 +99,7 @@ export default function CaseStudiesPreview() {
 
       <div className="case-studies__bottom">
         <div className="case-studies__sidebar case-studies__sidebar--left">
-          <h4 className="text-preset-kxvc54 case-studies__sidebar-title">FX-{yearSuffix}'</h4>
+          <h4 className="text-preset-kxvc54 case-studies__sidebar-title">CS-{yearSuffix}'</h4>
           <div className="case-studies__sidebar-line" />
         </div>
 

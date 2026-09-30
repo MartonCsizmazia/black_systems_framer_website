@@ -394,16 +394,3 @@
     padding: 0 24px 80px;
   }
 }
-.more-case-studies__grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(50px, 1fr));
-  gap: 10px;
-  width: 100%;
-  max-width: 1440px;
-}
-@media (max-width: 1199.98px) {
-  .more-case-studies__grid {
-    display: flex;
-    flex-direction: column;
-  }
-}
