@@ -4,6 +4,7 @@ import { images } from '../../assets/images'
 import SquaresLogo from '../SquaresLogo/SquaresLogo'
 import { scrollToSection } from '../../hooks/useLenis'
 import Button from '../Button/Button'
+import { NAME } from '../../data/contact'
 import './Navbar.css'
 
 export interface NavLink {
@@ -221,7 +222,7 @@ export default function Navbar({ links = NAV_LINKS }: NavbarProps) {
               </span>
             </span>
             <span className="navbar__cta-name-position">
-              <span className="text-preset-152twjm navbar__cta-name">Márton Csizmazia</span>
+              <span className="text-preset-152twjm navbar__cta-name">{NAME}</span>
               <span className="text-preset-152twjm navbar__cta-position">CEO</span>
             </span>
           </span>

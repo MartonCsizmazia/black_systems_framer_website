@@ -3,6 +3,8 @@ import { motion, useScroll, useTransform } from 'framer-motion'
 import Button from '../../components/Button/Button'
 import OverlapFiller from '../../components/OverlapFiller/OverlapFiller'
 import SectionEyebrow from '../../components/SectionEyebrow/SectionEyebrow'
+import CtaBanner from '../../components/CtaBanner/CtaBanner'
+import { NAME } from '../../data/contact'
 import { images } from '../../assets/images'
 import './About.css'
 
@@ -57,17 +59,13 @@ export default function About() {
         </motion.p>
       </div>
 
-      {/* id="founder": target of the navbar's "Meet the CEO" card. */}
-      <div id="founder" className="about__bottom">
+      <div className="about__bottom">
         <div className="about__portrait">
           <motion.div className="about__image" ref={imageRef} {...fadeIn(0.6)}>
             {/* TODO: replace with the founder's own photo (also used in the navbar's CEO card). */}
-            <motion.img src={images.assetMrongf.src} alt="Márton Csizmazia" style={{ y: imageY }} />
+            <motion.img src={images.assetMrongf.src} alt={NAME} style={{ y: imageY }} />
           </motion.div>
-          <motion.div className="about__caption" {...fadeIn(0.6)}>
-            <span className="text-preset-q70fzl">Márton Csizmazia</span>
-            <span className="text-preset-q70fzl about__caption-role">Founder &amp; CEO</span>
-          </motion.div>
+
         </div>
 
         <motion.div className="about__columns" {...fadeIn(1.2)}>
@@ -101,19 +99,29 @@ export default function About() {
               </div>
             </div>
           </div>
-          <div className="about__column">
-            <span className="about__column-heading text-preset-q70fzl">(Founder)</span>
-            <div className="about__founder-content">
-              {/* Draft intro — to be replaced with Márton's own text. */}
-              <p className="about__column-text text-preset-q70fzl">
-                  I'm Márton, the founder of Black Systems. I work with every client
-                  directly, from mapping how your business runs to launching the system
-                  and keeping it running, so you always know what's being built and why.
-              </p>
-              <Button title="Let's talk" variant="dark" booking />
-            </div>
-          </div>
         </motion.div>
+      </div>
+
+      {/* Founder intro, attached to the CTA banner below it (whose centered
+          photo + "Let's talk" complete it). id="founder" is the target of
+          the navbar's "Meet the CEO" card. */}
+      <div id="founder" className="about__cta">
+        <motion.div className="about__founder" {...fadeIn(1.2)}>
+          {/* Label row mirrors .about__bottom (photo + columns) so the label
+              lines up with the (Pre) / (+Post) / (=Results) headings. */}
+          <div className="about__founder-label-row">
+            <span className="about__founder-label text-preset-q70fzl">(You'll work with)</span>
+          </div>
+          <h3 className="about__founder-name">{NAME}</h3>
+          <span className="text-preset-q70fzl about__founder-role">Founder &amp; CEO</span>
+          {/* Draft intro — to be replaced with Márton's own text. */}
+          <p className="text-preset-q70fzl about__founder-text">
+              I'm Márton, the founder of Black Systems. I work with every client
+              directly, from mapping how your business runs to launching the system
+              and keeping it running, so you always know what's being built and why.
+          </p>
+        </motion.div>
+        <CtaBanner />
       </div>
     </section>
   )

@@ -23,3 +23,13 @@
         gap: 50px
     }
 }
+
+/* The logo marquee runs edge to edge: undo the section's 24px side padding,
+   and drop the strip's own vertical padding (the section gap spaces it). */
+.testimonial__logos {
+  width: calc(100% + 48px);
+  margin: 0 -24px;
+}
+.testimonial__logos .client-logos {
+  padding: 0;
+}

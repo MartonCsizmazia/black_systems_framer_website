@@ -12,3 +12,10 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+/* Each top-level section overlaps the next by 1px. Section heights are
+   often fractional, and at a fractional boundary the black <main>
+   background shows through as a hairline between two white sections. */
+main > section {
+  margin-bottom: -1px;
+}

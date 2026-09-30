@@ -3,7 +3,6 @@ import { useCalEmbed } from './hooks/useCalEmbed'
 import Navbar from './components/Navbar/Navbar'
 import Hero from './sections/Hero/Hero'
 import About from './sections/About/About'
-import ClientLogos from './sections/ClientLogos/ClientLogos'
 import CaseStudies from './sections/CaseStudies/CaseStudies'
 import Services from './sections/Services/Services'
 import Testimonial from './sections/Testimonial/Testimonial'
@@ -21,7 +20,6 @@ export default function App() {
       <Navbar />
       <Hero />
       <About />
-      <ClientLogos />
       <CaseStudies />
       <Services />
       {/*<Pricing />*/}

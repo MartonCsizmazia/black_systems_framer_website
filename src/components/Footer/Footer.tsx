@@ -3,12 +3,9 @@ import { scrollToSection } from '../../hooks/useLenis'
 import SquaresLogo from '../SquaresLogo/SquaresLogo'
 import Button from '../Button/Button'
 import { NAV_LINKS } from '../Navbar/Navbar'
+import { EMAIL, LINKEDIN, NAME, PHONE } from '../../data/contact'
 import './Footer.css'
 
-const NAME = 'Márton Csizmazia'
-const EMAIL = 'marton@blacksystems.ai'
-const PHONE = { display: '+36 30 316 5634', href: 'tel:+36303165634' }
-const LINKEDIN = 'https://www.linkedin.com/in/m%C3%A1rton-csizmazia-8047611a3/'
 
 /**
  * Site footer, sitting directly under Contact on the same near-black

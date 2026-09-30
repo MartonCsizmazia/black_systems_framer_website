@@ -5,7 +5,7 @@ import './ClientLogos.css'
 
 /**
  * Recovered from the "Client Section" component (.framer-9weVr) — the
- * client-logo strip between About and Case Studies. Each logo sits in its own
+ * logo strip (past employers), now shown inside Testimonial under the quote. Each logo sits in its own
  * 224x168px tile (background rgb(247,247,247), no gap between tiles) with
  * the logo image uniformly boxed to 104x16px — measured directly against
  * the mirror. The real source renders two different widgets depending on
