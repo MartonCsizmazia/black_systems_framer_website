@@ -8,7 +8,7 @@ import Footer from '../components/Footer/Footer'
 import Contact from '../sections/Contact/Contact'
 import { moreCaseStudies, caseStudyHref, type CaseStudyEntry } from '../data/caseStudiesConfig'
 import './CaseStudy.css'
-import Navbar from "../components/Navbar/Navbar";
+import Navbar, { type NavLink } from "../components/Navbar/Navbar";
 import OverlapFiller from "../components/OverlapFiller/OverlapFiller";
 import WorkCard from "../components/WorkCard/WorkCard";
 
@@ -104,14 +104,14 @@ function CaseStudyHero({ caseStudy, fadeTargetRef }: { caseStudy: CaseStudyEntry
 
 function CaseStudyContent({ caseStudy, fadeTargetRef }: { caseStudy: CaseStudyEntry; fadeTargetRef: React.RefObject<HTMLDivElement> }) {
   return (
-    <section className="case-study-content">
+    <section id="case-study-content" className="case-study-content">
       <OverlapFiller color="paper" />
       {/* Invisible stand-in for the source's Overlap Detailing section box
           (834px, top of this section) — the hero's fade-out is keyed to it. */}
       <div className="case-study-content__fade-target" ref={fadeTargetRef} aria-hidden="true" />
 
       <div className="case-study-content__top">
-        <SectionEyebrow index="01" title="Read More" />
+        <SectionEyebrow index="01" title={caseStudy.title} />
         <LineReveal as="h3" className="text-preset-13ruabr case-study-content__intro" text={caseStudy.intro} />
       </div>
 
@@ -151,7 +151,7 @@ function CaseStudyContent({ caseStudy, fadeTargetRef }: { caseStudy: CaseStudyEn
 
 function MoreCaseStudies({ caseStudy }: { caseStudy: CaseStudyEntry }) {
   return (
-    <section className="more-case-studies">
+    <section id="more-case-studies" className="more-case-studies">
       <SectionEyebrow index="02" title="Case Studies" />
       <div className="more-case-studies__grid">
         {moreCaseStudies(caseStudy.slug).map((p) => (
@@ -170,6 +170,16 @@ function MoreCaseStudies({ caseStudy }: { caseStudy: CaseStudyEntry }) {
   )
 }
 
+/** Case study menu: the current case study, the other case studies below
+ * it, and Contact, matching the page's (01) / (02) / (03) eyebrows. */
+function caseStudyNavLinks(caseStudy: CaseStudyEntry): NavLink[] {
+  return [
+    { title: caseStudy.title, rollNo: '01', href: '#case-study-content' },
+    { title: 'Case Studies', rollNo: '02', href: '#more-case-studies' },
+    { title: 'Contact', rollNo: '03', href: '#contact' },
+  ]
+}
+
 /**
  * One template for every /case-studies/:slug route, as in the original
  * (a single Framer CMS detail page): blurred cover hero, intro paragraph,
@@ -186,8 +196,9 @@ export default function CaseStudy({ caseStudy }: { caseStudy: CaseStudyEntry }) 
   return (
     <main className="case-study">
       {/* Site-wide fixed navbar, outside the hero: inside it, it would drift
-          and fade out with the hero's parallax. */}
-      <Navbar />
+          and fade out with the hero's parallax. Its menu lists this page's
+          own sections, numbered like their eyebrows. */}
+      <Navbar links={caseStudyNavLinks(caseStudy)} />
       <CaseStudyHero caseStudy={caseStudy} fadeTargetRef={fadeTargetRef} />
       <CaseStudyContent caseStudy={caseStudy} fadeTargetRef={fadeTargetRef} />
       <MoreCaseStudies caseStudy={caseStudy} />
