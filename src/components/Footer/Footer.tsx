@@ -26,7 +26,7 @@ export default function Footer() {
       <div className="footer__inner">
         <div className="footer__top">
           <div className="footer__brand">
-            <a href="#top" className="footer__logo" aria-label="Black Systems - back to top" onClick={jumpTo('#top')}>
+            <a href="/" className="footer__logo" aria-label="Black Systems - back to top" onClick={jumpTo('#top')}>
               <SquaresLogo className="footer__logo-icon" label="Black Systems" />
               <img src={images.blackSystemsLogoOneLine.src} alt="" className="footer__logo-img" />
             </a>

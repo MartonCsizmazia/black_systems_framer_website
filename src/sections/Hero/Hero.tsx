@@ -100,10 +100,14 @@ export interface HeroProps {
 export default function Hero({ backgroundImage, backgroundImageMobile, darkenOnScroll = true }: HeroProps = {}) {
   // Phones get their own background (framed so the animation reads better
   // in portrait); switches live if the viewport crosses the breakpoint.
+  // null until the viewport is known (prerender + hydration): the video is
+  // then rendered without a source, so phones never start downloading the
+  // desktop video before React picks the right one.
   const isPhone = useMediaQuery(mediaQueries.phone)
   const desktopBg = backgroundImage ?? images.bgImageHshvii
   const mobileBg = backgroundImageMobile ?? (backgroundImage ?? images.bgImageHshviiMobile)
   const bgImage = isPhone ? mobileBg : desktopBg
+  const bgSrc = isPhone === null ? undefined : bgImage.src
   // The background may be a still image or a video (picked by file extension).
   const bgIsVideo = isVideoSrc(bgImage.src)
   const bgVideoRef = useRef<HTMLVideoElement>(null)
@@ -145,7 +149,7 @@ export default function Hero({ backgroundImage, backgroundImageMobile, darkenOnS
           // muted + playsInline are required for autoplay (iOS included).
           <video
             ref={bgVideoRef}
-            src={bgImage.src}
+            src={bgSrc}
             autoPlay
             muted
             loop
@@ -154,7 +158,7 @@ export default function Hero({ backgroundImage, backgroundImageMobile, darkenOnS
             aria-hidden="true"
           />
         ) : (
-          <img src={bgImage.src} alt={bgImage.alt || 'Hero background'} />
+          <img src={bgSrc} alt={bgImage.alt || 'Hero background'} />
         )}
       </motion.div>
 

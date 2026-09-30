@@ -112,7 +112,9 @@ export default function Navbar({ links = NAV_LINKS }: NavbarProps) {
   // animation updates immediately when the window is resized — not only on
   // the next scroll (a stale value left the wordmark off by the icon's
   // width change when crossing the navbar breakpoint while scrolled down).
-  const viewportH = useMotionValue(window.innerHeight)
+  // Any positive height gives progress 0 at the top of the page, so the
+  // prerendered markup matches; the real height is measured on mount.
+  const viewportH = useMotionValue(typeof window === 'undefined' ? 1 : window.innerHeight)
   const slideDistance = useMotionValue(0)
   const raise = useMotionValue(0)
   const progress = useTransform([scrollY, viewportH], ([y, h]: number[]) => Math.min(1, Math.max(0, y / h)))
@@ -178,7 +180,7 @@ export default function Navbar({ links = NAV_LINKS }: NavbarProps) {
             <span className="navbar__hamburger-line" />
             <span className="navbar__hamburger-line" />
           </button>
-          <a href="#top" className="navbar__logo-link" aria-label="Black Systems - back to top" onClick={scrollHome}>
+          <a href="/" className="navbar__logo-link" aria-label="Black Systems - back to top" onClick={scrollHome}>
             <motion.span ref={iconRef} className="navbar__logo-icon-wrap" style={{ opacity: firstHalfOut }}>
               <SquaresLogo className="navbar__logo-icon" label="Black Systems" />
             </motion.span>

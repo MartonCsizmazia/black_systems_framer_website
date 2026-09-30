@@ -1,0 +1,59 @@
+/* Dark full-screen panel on the Contact / footer surface, so the footer
+   continues it seamlessly. */
+.not-found {
+  background: var(--color-surface-dark);
+}
+
+.not-found__section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 120px;
+  min-height: 100vh;
+  /* Clears the fixed navbar. */
+  padding: 140px 24px 120px;
+  background: var(--color-surface-dark);
+  color: var(--color-paper);
+}
+
+.not-found__content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 32px;
+  width: 100%;
+  max-width: 1440px;
+}
+
+/* Same size steps as the About headline. */
+.not-found__heading {
+  margin: 0;
+  font-family: 'BDO Grotesk Variable', sans-serif;
+  font-size: 70px;
+  font-weight: 400;
+  line-height: 70px;
+  letter-spacing: -2.1px;
+}
+@media (min-width: 810px) and (max-width: 1199.98px) {
+  .not-found__heading {
+    font-size: 38px;
+    line-height: 38px;
+    letter-spacing: -1.2px;
+  }
+}
+@media (max-width: 809.98px) {
+  .not-found__section {
+    gap: 80px;
+    padding: 120px 24px 80px;
+  }
+  .not-found__heading {
+    font-size: 30px;
+    line-height: 30px;
+    letter-spacing: -1.1px;
+  }
+}
+
+.not-found__text {
+  max-width: 421px;
+  color: var(--color-paper-50);
+}

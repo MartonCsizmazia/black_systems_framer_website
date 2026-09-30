@@ -1,8 +1,9 @@
-import { useEffect, useLayoutEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import WorkCard from '../WorkCard/WorkCard'
 import { scrollToSection } from '../../hooks/useLenis'
 import { caseStudies, caseStudyHref } from '../../data/caseStudiesConfig'
 import './CaseStudySlider.css'
+import { useIsomorphicLayoutEffect } from '../../hooks/useIsomorphicLayoutEffect'
 
 export interface CaseStudySliderProps {
   /** Slug of the case study being viewed: its card is tagged "(Current)",
@@ -48,7 +49,7 @@ export default function CaseStudySlider({ currentSlug, currentTarget }: CaseStud
   }
 
   // Start with the current case study in view (instantly, before paint).
-  useLayoutEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     const track = trackRef.current
     const current = track?.querySelector<HTMLElement>('[aria-current="page"]')
     if (track && current) track.scrollLeft = current.offsetLeft - track.offsetLeft

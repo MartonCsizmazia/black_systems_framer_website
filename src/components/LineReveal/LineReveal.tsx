@@ -1,5 +1,6 @@
-import { useLayoutEffect, useRef, useState, type ElementType } from 'react'
+import { useRef, useState, type ElementType } from 'react'
 import { motion, useInView } from 'framer-motion'
+import { useIsomorphicLayoutEffect } from '../../hooks/useIsomorphicLayoutEffect'
 
 export interface LineRevealProps {
   text: string
@@ -27,7 +28,7 @@ export default function LineReveal({ text, className, as = 'p' }: LineRevealProp
   const words = text.split(' ')
   const Tag = as
 
-  useLayoutEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     const el = ref.current
     if (!el) return
     const measure = () => {

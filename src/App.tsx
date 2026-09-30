@@ -3,19 +3,25 @@ import { scrollToSection, useLenis } from './hooks/useLenis'
 import { useCalEmbed } from './hooks/useCalEmbed'
 import Home from './pages/Home'
 import CaseStudy from './pages/CaseStudy'
+import NotFound from './pages/NotFound'
 import { findCaseStudy } from './data/caseStudiesConfig'
 
 // Minimal path-based routing: every link in the site is a plain <a href>, so
 // navigation is a full page load and the route only needs resolving once.
-// Vite's dev server and `vite preview` both fall back to index.html for
-// unknown paths, so /case-studies/<slug> works without extra config.
+// The build prerenders every page to its own HTML file (see
+// scripts/prerender.mjs); the dev server falls back to index.html for any
+// path, so this also works while developing.
 function resolveRoute(pathname: string) {
-  const match = pathname.replace(/\/+$/, '').match(/^\/case-studies\/([^/]+)$/)
+  const clean = pathname.replace(/\/+$/, '') || '/'
+  if (clean === '/') return <Home />
+  const match = clean.match(/^\/case-studies\/([^/]+)$/)
   const caseStudy = match ? findCaseStudy(match[1]) : undefined
-  return caseStudy ? <CaseStudy caseStudy={caseStudy} /> : <Home />
+  return caseStudy ? <CaseStudy caseStudy={caseStudy} /> : <NotFound />
 }
 
-export default function App() {
+/** `path`: the page to render; given by the build-time prerender (there is
+ * no window there), otherwise read from the browser's address. */
+export default function App({ path }: { path?: string }) {
   useLenis()
   useCalEmbed()
 
@@ -29,5 +35,5 @@ export default function App() {
     return () => window.clearTimeout(t)
   }, [])
 
-  return resolveRoute(window.location.pathname)
+  return resolveRoute(path ?? window.location.pathname)
 }
