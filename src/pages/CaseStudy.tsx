@@ -124,8 +124,8 @@ function CaseStudyContent({ caseStudy, fadeTargetRef }: { caseStudy: CaseStudyEn
             <p className="text-preset-q70fzl case-study-content__text">{caseStudy.research}</p>
           </div>
           <div className="case-study-content__row">
-            <p className="text-preset-q70fzl case-study-content__heading">(Experiment)</p>
-            <p className="text-preset-q70fzl case-study-content__text">{caseStudy.experiment}</p>
+            <p className="text-preset-q70fzl case-study-content__heading">(Solution)</p>
+            <p className="text-preset-q70fzl case-study-content__text">{caseStudy.solution}</p>
           </div>
           <div className="case-study-content__row">
             <p className="text-preset-q70fzl case-study-content__heading">(Results)</p>
@@ -173,8 +173,8 @@ function MoreCaseStudies({ caseStudy }: { caseStudy: CaseStudyEntry }) {
 /**
  * One template for every /case-studies/:slug route, as in the original
  * (a single Framer CMS detail page): blurred cover hero, intro paragraph,
- * research/experiment/results next to a parallax gallery, two other
- * case studies, then the Contact section and footer.
+ * research/solution/results, two other case studies, then the Contact
+ * section and footer.
  */
 export default function CaseStudy({ caseStudy }: { caseStudy: CaseStudyEntry }) {
   const fadeTargetRef = useRef<HTMLDivElement>(null)
