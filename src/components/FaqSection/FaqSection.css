@@ -99,6 +99,14 @@
   max-width: 569px;
   color: var(--color-ink-50);
 }
+/* Larger than its 12px text preset for readability, still a step below the
+   16px questions. Two classes, so it outranks the preset's own single-class
+   rule (typography.css loads after this file). */
+.faq-item .faq-item__answer {
+  --framer-font-size: 15px;
+  --framer-line-height: 21px;
+  --framer-letter-spacing: -0.3px;
+}
 .faq-item__line {
   height: 1px;
   width: 100%;

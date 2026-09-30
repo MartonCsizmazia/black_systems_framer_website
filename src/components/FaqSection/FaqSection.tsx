@@ -8,32 +8,32 @@ export interface Faq {
   answer: string
 }
 
-// Recovered verbatim from the "FAQ List" component in script_main.CmhsiTLL.mjs.
+// The site's FAQ, used unless a page passes its own `faqs`.
 export const DEFAULT_FAQS: Faq[] = [
   {
-    question: 'What distinguishes us from other agencies?',
+    question: 'How quickly will my first automation be live?',
     answer:
-      'Fuel blends structured design with purposeful clarity, moving beyond surface visuals to create refined systems that shape brands with long-term impact.',
+      "Usually within weeks, not months. A free call maps where time and leads get lost, then we launch the automation with the biggest impact first and build from there.",
   },
   {
-    question: 'Why not hire an in-house designer or freelancer?',
+    question: 'Do I need to change the tools I already use?',
     answer:
-      'You get senior-level consistency without overhead. Fuel delivers focused, high-quality output with the flexibility and precision solo designers often can’t match.',
+      "Not unless you want to. We connect the tools you already use, like your CRM, applicant tracking system, email or booking tools, so data flows between them automatically. If a new tool would fit better, we'll suggest it, but it's always optional. Anything new comes with team training and detailed notes.",
   },
   {
-    question: 'Are creative requests truly unlimited?',
+    question: "Is my data and my customers' data safe?",
     answer:
-      'Yes—requests flow through a structured queue. Fuel handles each task with intention, ensuring every deliverable remains polished, thoughtful, and on-brand.',
+      "Yes. Security is built in from the start: each automation only accesses the data it needs, and you always know what's processed, where it's stored and who can see it. Nothing runs without your knowledge.",
   },
   {
-    question: 'How fast will I receive my work?',
+    question: 'What happens if something breaks or my process changes?',
     answer:
-      'Fuel adapts effortlessly. Whether it’s one campaign or a full system, the same clarity, craftsmanship, and refined design process applies from start to finish.',
+      "I don't hand over a system and disappear. Every automation is monitored after launch and adjusted as your business changes, whether that's a new lead source, a new tool or a new step in your process.",
   },
   {
-    question: 'What if I have a single project?',
+    question: 'Will AI replace my team?',
     answer:
-      'Most tasks are delivered within a few days. Fuel’s streamlined workflow ensures each piece is crafted with balance, detail, and dependable turnaround.',
+      "No, it takes the repetitive work off their plate. Routine inquiries, data entry and follow-ups run automatically, and anything that needs judgment goes to a person, so your team can focus on clients.",
   },
 ]
 
