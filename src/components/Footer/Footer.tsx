@@ -5,6 +5,7 @@ import Button from '../Button/Button'
 import { NAV_LINKS } from '../Navbar/Navbar'
 import './Footer.css'
 
+const NAME = 'Márton Csizmazia'
 const EMAIL = 'marton@blacksystems.ai'
 const PHONE = { display: '+36 30 316 5634', href: 'tel:+36303165634' }
 const LINKEDIN = 'https://www.linkedin.com/in/m%C3%A1rton-csizmazia-8047611a3/'
@@ -40,6 +41,7 @@ export default function Footer() {
 
           <div className="footer__column">
             <span className="footer__label text-preset-152twjm">(Contact)</span>
+            <a className="footer__link">{NAME}</a>
             <a href={`mailto:${EMAIL}`} className="footer__link">{EMAIL}</a>
             <a href={PHONE.href} className="footer__link">{PHONE.display}</a>
           </div>

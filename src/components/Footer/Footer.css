@@ -127,12 +127,12 @@
   }
 }
 
-/* Phone: brand and Contact (the email is too long for half a row) get
-   full rows; Follow and Menu share one. */
+/* Phone: a single column — brand, Contact, Follow and Menu stacked and
+   left-aligned under each other. */
 @media (max-width: 809.98px) {
   .footer__top {
-    grid-template-columns: 1fr 1fr;
-    gap: 40px 24px;
+    grid-template-columns: 1fr;
+    gap: 40px;
     padding: 48px 0 64px;
   }
   .footer__brand {
@@ -142,8 +142,5 @@
     font-size: 20px;
     line-height: 24px;
     letter-spacing: -0.5px;
-  }
-  .footer__brand + .footer__column {
-    grid-column: 1 / -1;
   }
 }

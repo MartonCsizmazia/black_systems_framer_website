@@ -110,7 +110,6 @@ export default function CaseStudies() {
         <div className="case-studies__sidebar case-studies__sidebar--left">
           <h4 className="text-preset-kxvc54 case-studies__sidebar-title">FX-{yearSuffix}'</h4>
           <div className="case-studies__sidebar-line" />
-          <Button title="Book a Call" variant="dark" booking />
         </div>
 
         <div className="case-studies__middle" ref={middleRef}>
