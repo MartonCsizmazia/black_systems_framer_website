@@ -178,7 +178,7 @@ export default function Navbar({ links = NAV_LINKS }: NavbarProps) {
             <span className="navbar__hamburger-line" />
             <span className="navbar__hamburger-line" />
           </button>
-          <a href="#top" className="navbar__logo-link" aria-label="Black Systems — back to top" onClick={scrollHome}>
+          <a href="#top" className="navbar__logo-link" aria-label="Black Systems - back to top" onClick={scrollHome}>
             <motion.span ref={iconRef} className="navbar__logo-icon-wrap" style={{ opacity: firstHalfOut }}>
               <SquaresLogo className="navbar__logo-icon" label="Black Systems" />
             </motion.span>

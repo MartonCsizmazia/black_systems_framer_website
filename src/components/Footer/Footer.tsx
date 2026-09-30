@@ -26,12 +26,12 @@ export default function Footer() {
       <div className="footer__inner">
         <div className="footer__top">
           <div className="footer__brand">
-            <a href="#top" className="footer__logo" aria-label="Black Systems — back to top" onClick={jumpTo('#top')}>
+            <a href="#top" className="footer__logo" aria-label="Black Systems - back to top" onClick={jumpTo('#top')}>
               <SquaresLogo className="footer__logo-icon" label="Black Systems" />
               <img src={images.blackSystemsLogoOneLine.src} alt="" className="footer__logo-img" />
             </a>
             <p className="footer__tagline">
-              AI automation for growing businesses — instant lead response, less manual work.
+              AI automation for growing businesses - instant lead response, less manual work.
             </p>
             <Button title="Book a call" variant="light" booking />
           </div>

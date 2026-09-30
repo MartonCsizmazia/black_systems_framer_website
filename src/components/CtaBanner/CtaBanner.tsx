@@ -55,7 +55,7 @@ export default function CtaBanner() {
             >
               {Array.from({ length: 6 }).map((_, i) => (
                 <span key={i} className="cta-banner__marquee-text">
-                  We Are Faster, Better And Cheaper&rdquo;&nbsp;
+                  Faster. Smarter. Simpler.&nbsp;-&nbsp;
                 </span>
               ))}
             </motion.div>
