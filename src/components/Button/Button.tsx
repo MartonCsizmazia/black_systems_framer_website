@@ -8,6 +8,9 @@ export interface ButtonProps {
   newTab?: boolean
   /** Opens the Cal.com booking popup instead of navigating (href is ignored). */
   booking?: boolean
+  /** Filled block style for the page's main calls to action; the default
+   * underlined text style is for secondary ones. */
+  solid?: boolean
   /** Extra class for context-specific sizing (e.g. a compact navbar button). */
   className?: string
   tabIndex?: number
@@ -19,14 +22,14 @@ export interface ButtonProps {
  * on the right; on hover the icon slides from top to bottom within its
  * clipped 8px track.
  */
-export default function Button({ title = 'Explore Now', href = '#', variant = 'light', newTab = false, booking = false, className, tabIndex }: ButtonProps) {
+export default function Button({ title = 'Explore Now', href = '#', variant = 'light', newTab = false, booking = false, solid = false, className, tabIndex }: ButtonProps) {
   return (
     <a
       href={booking ? CAL_URL : href}
       {...(booking ? { ...calTriggerProps, onClick: preventCalNavigation } : {})}
       target={newTab ? '_blank' : undefined}
       rel={newTab ? 'noopener noreferrer' : undefined}
-      className={`button button--${variant}${className ? ` ${className}` : ''}`}
+      className={`button button--${variant}${solid ? ' button--solid' : ''}${className ? ` ${className}` : ''}`}
       tabIndex={tabIndex}
     >
       <span className="button__content">

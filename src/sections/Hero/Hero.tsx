@@ -192,7 +192,7 @@ export default function Hero({ backgroundImage, backgroundImageMobile, darkenOnS
           </motion.p>
         </div>
         <motion.div {...ctaAppear}>
-          <Button title="Book a free call" variant="light" booking />
+          <Button title="Book a free call" variant="light" booking solid />
         </motion.div>
       </div>
 

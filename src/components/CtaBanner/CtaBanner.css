@@ -84,8 +84,9 @@
   align-items: flex-start;
   gap: 23px;
 }
+/* Same 246px width as the button below it, so their edges line up. */
 .cta-banner__accent-photo {
-  width: 224px;
+  width: 246px;
   max-width: 40vw;
   aspect-ratio: 0.69;
   object-fit: cover;
@@ -125,10 +126,9 @@
   .cta-banner__container {
     height: 600px;
   }
-  /* Match the button's fixed 246px width: the focal column is centered and
-     left-aligned, so a narrower photo would sit off-center above it. */
+  /* Lift the desktop 40vw cap so the photo keeps the button's width
+     (and stays centered above it) on phones. */
   .cta-banner__accent-photo {
-    width: 246px;
     max-width: 100%;
   }
 }

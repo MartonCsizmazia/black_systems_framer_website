@@ -225,7 +225,7 @@ export default function Navbar({ links = NAV_LINKS }: NavbarProps) {
           style={{ opacity: secondHalfIn, pointerEvents: compact ? 'auto' : 'none' }}
           aria-hidden={!compact}
         >
-          <Button title="Book a call" variant="light" booking className="navbar__book-button" tabIndex={compact ? 0 : -1} />
+          <Button title="Book a call" variant="light" booking solid className="navbar__book-button" tabIndex={compact ? 0 : -1} />
         </motion.div>
         </div>
       </motion.div>

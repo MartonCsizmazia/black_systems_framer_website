@@ -62,3 +62,40 @@
 .button--dark {
   color: var(--color-ink);
 }
+
+/* Solid: the main calls to action (Hero, compact navbar, CTA banner). Same
+   type and arrow as the underlined style, on a filled 5px-radius block (the
+   radius the site's photos use) instead of the underline. The fill is the
+   variant's text colour, inverted: light = white block, black text. */
+.button--solid {
+  flex-direction: row;
+  align-items: center;
+  height: 48px;
+  padding: 0 18px;
+  border-radius: 5px;
+  box-sizing: border-box;
+  transition: background-color 0.3s ease;
+}
+.button--solid .button__content {
+  align-items: center;
+}
+.button--solid .button__line {
+  display: none;
+}
+.button--solid:hover .button__text {
+  opacity: 1;
+}
+.button--solid.button--light {
+  background: var(--color-paper);
+  color: var(--color-ink);
+}
+.button--solid.button--light:hover {
+  background: var(--color-paper-85);
+}
+.button--solid.button--dark {
+  background: var(--color-ink);
+  color: var(--color-paper);
+}
+.button--solid.button--dark:hover {
+  background: var(--color-surface-dark);
+}

@@ -139,6 +139,11 @@
 .navbar__book-button {
   width: 150px;
 }
+/* Compact solid size so it fits the scrolled (compact) bar. */
+.navbar__book-button.button--solid {
+  height: 36px;
+  padding: 0 14px;
+}
 
 .navbar__menu {
   display: flex;
