@@ -24,7 +24,7 @@ export interface NavbarProps {
 // section's eyebrow index, and each '#id' matches the id on
 // that section's root element.
 // "Home" is the wordmark itself (it scrolls back to the top).
-const DEFAULT_LINKS: NavLink[] = [
+export const NAV_LINKS: NavLink[] = [
   { title: 'About Us', rollNo: '01', href: '#about' },
   { title: 'Case Studies', rollNo: '02', href: '#case-studies' },
   { title: 'Services', rollNo: '03', href: '#services' },
@@ -103,7 +103,7 @@ function MenuItem({ title, rollNo, href, delay, onNavigate }: NavLink & { delay:
   )
 }
 
-export default function Navbar({ links = DEFAULT_LINKS }: NavbarProps) {
+export default function Navbar({ links = NAV_LINKS }: NavbarProps) {
   const [mobileOpen, setMobileOpen] = useState(false)
 
   const { scrollY } = useScroll()

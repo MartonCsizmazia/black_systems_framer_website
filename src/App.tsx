@@ -10,6 +10,7 @@ import Testimonial from './sections/Testimonial/Testimonial'
 import Stats from './sections/Stats/Stats'
 // import Article from './sections/Article/Article'
 import Contact from './sections/Contact/Contact'
+import Footer from './components/Footer/Footer'
 
 export default function App() {
   useLenis()
@@ -29,6 +30,7 @@ export default function App() {
       <Stats />
       {/*<Article />*/}
       <Contact />
+      <Footer />
     </main>
   )
 }

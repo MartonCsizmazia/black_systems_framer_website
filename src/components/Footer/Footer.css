@@ -1,0 +1,149 @@
+/* Continues Contact's near-black surface; separated from it only by the
+   same 1px paper @ 16% divider the section eyebrows use. */
+
+.footer {
+  background: var(--color-surface-dark);
+  color: var(--color-paper);
+  width: 100%;
+  padding: 0 24px 24px;
+  position: relative;
+  z-index: 1;
+}
+
+.footer__inner {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  border-top: 1px solid var(--color-paper-16);
+}
+
+.footer__top {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 40px;
+  padding: 64px 0 96px;
+}
+
+.footer__brand {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 32px;
+  max-width: 420px;
+}
+
+/* Same construction as the navbar's desktop logo (.navbar__logo-link),
+   scaled up by a third: 80px squares + wordmark at 85% of a 24px row.
+   The whole logo is ~17.5x its row height wide (18.5 leaves a margin), so the row height shrinks
+   with the viewport to keep it inside the 24px side gutters on phones. */
+.footer__logo {
+  --logo-h: min(24px, calc((100vw - 56px) / 18.5));
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: var(--logo-h);
+}
+.footer__logo-icon {
+  width: calc(var(--logo-h) * 10 / 3);
+  color: var(--color-paper);
+}
+.footer__logo-img {
+  display: block;
+  width: auto;
+  height: 85%;
+}
+
+.footer__tagline {
+  margin: 0;
+  font-family: 'BDO Grotesk Variable', sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  font-variation-settings: 'wght' 500;
+  line-height: 28px;
+  letter-spacing: -0.6px;
+  color: var(--color-paper-50);
+}
+
+.footer__column {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+}
+.footer__label {
+  color: var(--color-paper-50);
+  margin-bottom: 12px;
+}
+.footer__link {
+  font-family: 'BDO Grotesk Variable', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  font-variation-settings: 'wght' 500;
+  line-height: 20px;
+  letter-spacing: -0.4px;
+  color: var(--color-paper);
+  text-decoration: none;
+  padding: 6px 0;
+  transition: opacity 0.3s ease;
+}
+.footer__link:hover {
+  opacity: 0.6;
+}
+.footer__arrow {
+  display: inline-block;
+  margin-left: 2px;
+}
+
+.footer__bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 16px;
+  border-top: 1px solid var(--color-paper-16);
+  color: var(--color-paper-50);
+}
+.footer__top-link {
+  background: none;
+  border: none;
+  padding: 8px 0;
+  font: inherit;
+  letter-spacing: inherit;
+  color: inherit;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+.footer__top-link:hover {
+  color: var(--color-paper);
+}
+
+/* Tablet: brand on its own row, the three link columns below it. */
+@media (max-width: 1199.98px) {
+  .footer__top {
+    grid-template-columns: repeat(3, 1fr);
+    row-gap: 56px;
+  }
+  .footer__brand {
+    grid-column: 1 / -1;
+  }
+}
+
+/* Phone: brand and Contact (the email is too long for half a row) get
+   full rows; Follow and Menu share one. */
+@media (max-width: 809.98px) {
+  .footer__top {
+    grid-template-columns: 1fr 1fr;
+    gap: 40px 24px;
+    padding: 48px 0 64px;
+  }
+  .footer__brand {
+    gap: 24px;
+  }
+  .footer__tagline {
+    font-size: 20px;
+    line-height: 24px;
+    letter-spacing: -0.5px;
+  }
+  .footer__brand + .footer__column {
+    grid-column: 1 / -1;
+  }
+}

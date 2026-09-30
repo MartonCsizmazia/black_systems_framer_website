@@ -43,11 +43,6 @@ const testimonials: Testimonial[] = [
   },
 ]
 
-const stats = [
-  { value: '122+ / 257+ / 315+', title: 'Success Rate', subtitle: 'Reliable execution' },
-  { value: '99%', title: 'Client Satisfaction', subtitle: 'Seamless delivery' },
-]
-
 export default function TestimonialSlider() {
   const [index, setIndex] = useState(0)
   const current = testimonials[index]
@@ -103,20 +98,6 @@ export default function TestimonialSlider() {
             <span className="text-preset-q70fzl">{current.name}</span>
             <span className="text-preset-152twjm testimonial-slider__position">{current.position}</span>
           </div>
-        </div>
-
-        <span className="testimonial-slider__divider" />
-
-        <div className="testimonial-slider__stats">
-          {stats.map((s) => (
-            <div className="testimonial-slider__stat" key={s.title}>
-              <h6 className="text-preset-gftg2f">{s.value}</h6>
-              <div className="testimonial-slider__stat-details">
-                <span className="text-preset-152twjm">{s.title}</span>
-                <span className="text-preset-152twjm testimonial-slider__stat-subtitle">{s.subtitle}</span>
-              </div>
-            </div>
-          ))}
         </div>
       </div>
     </div>

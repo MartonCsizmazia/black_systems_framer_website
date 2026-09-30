@@ -17,3 +17,9 @@
     padding-bottom: 120px;
   }
 }
+
+@media (max-width: 810px) {
+    .testimonial {
+        gap: 50px
+    }
+}
