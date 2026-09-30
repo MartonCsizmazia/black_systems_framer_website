@@ -2,16 +2,12 @@
 // Each entry's `sourceHash` traces back to the original framerusercontent.com/images/<hash> URL
 // (see mirror/manifest.json) so a replacement can be cross-checked against the original if needed.
 
-import logoIgv5zpSrc from './logo-igv5zp.avif'
 import asset3emr1nSrc from './asset-3emr1n.avif'
-import asset4ljy6cSrc from './asset-4ljy6c.avif'
 import asset4wrdliSrc from './accenture.svg'
 import asset4zx7dvSrc from './clario.svg'
 import assetAl0gg5Src from './budapest-logo-white.svg'
 import assetBk2irgSrc from './asset-bk2irg.avif'
 import assetCjbuf1Src from './asset-cjbuf1.avif'
-import assetDp6mhfSrc from './asset-dp6mhf.avif'
-import faviconLightF0ehgxSrc from './favicon-light-f0ehgx.avif'
 import assetF4esjySrc from './asset-f4esjy.avif'
 import assetFpupnaSrc from './budapest-logo.svg'
 import assetGwbdxrSrc from './asset-gwbdxr.avif'
@@ -23,8 +19,6 @@ import assetTgpbpkSrc from './asset-tgpbpk.avif'
 import assetU6lqqgSrc from './asset-u6lqqg.avif'
 import ctaAvatarWfrjn1Src from './cta-avatar-wfrjn1.avif'
 import assetXfjtzmSrc from './asset-xfjtzm.avif'
-import assetXzbpneSrc from './asset-xzbpne.avif'
-import backArrow6ttbkxSrc from './back-arrow-6ttbkx.svg'
 import bgImageHshviiSrc from './mountain_contrail_30s_8.mp4'
 import bgImageHshviiMobileSrc from './mountain_contrail_mobile.mp4'
 import bgImageJqzov1Src from './bg-image-jqzov1.avif'
@@ -34,17 +28,13 @@ import bgImageYiiumxSrc from './bg-image-yiiumx.avif'
 import curlyWomanWq7hn1Src from './curly-woman-wq7hn1.avif'
 import manHoodie9kkvudSrc from './man-hoodie-9kkvud.avif'
 import manMotionBlur1d2ldlSrc from './man-motion-blur-1d2ldl.avif'
-import nextArrow11ksgbSrc from './next-arrow-11ksgb.svg'
-import placeYourLogoHereVhwyufSrc from './place-your-logo-here-vhwyuf.avif'
 import villaG891spSrc from './villa-g891sp.avif'
 import womanBeach7ug4bhSrc from './woman-beach-7ug4bh.avif'
 import womanCloseUpVsmr1zSrc from './woman-close-up-vsmr1z.avif'
 import womanFlowersUjmih3Src from './woman-flowers-ujmih3.avif'
-import womanNntodpSrc from './woman-nntodp.avif'
 import womanStaircaseBchnf0Src from './woman-staircase-bchnf0.avif'
 import womenOnTheSofaYw1gczSrc from './women-on-the-sofa-yw1gcz.avif'
 import womenOrangeBgAvoxawSrc from './women-orange-bg-avoxaw.avif'
-import womenSidePoseYkb2unSrc from './women-side-pose-ykb2un.avif'
 import blacksystemslogoThinStackedCurvy from './black-systems-thin-stacked-white.png'
 import blacksystemslogoThinnerOneLineCurvy from './black-systems-thinner-oneline-white.png'
 import menOrangeBgBfbeq6Src from './men-orange-bg-bfbeq6.png'
@@ -55,16 +45,12 @@ import manDancingZvom13Src from './man-dancing-zvom13.png'
 import womanGlitchWbsn9cSrc from './woman-glitch-wbsn9c.png'
 
 export const images = {
-  logoIgv5zp: { src: logoIgv5zpSrc, alt: 'Logo', sourceHash: 'igV5Zp5vOf75Co9CAClwajll0' },
   asset3emr1n: { src: asset3emr1nSrc, alt: '', sourceHash: '3EMr1NhuWwBtVXlyMEIByWDH2Q' },
-  asset4ljy6c: { src: asset4ljy6cSrc, alt: '', sourceHash: '4lJy6CZV8T9kSyNv3RKwekdOjnU' },
   asset4wrdli: { src: asset4wrdliSrc, alt: '', sourceHash: '4WrDlIk4IMVyEjSDilmLEh58' },
   asset4zx7dv: { src: asset4zx7dvSrc, alt: '', sourceHash: '4Zx7DVBTo5PGL5e1p7CD0XPVHqU' },
   assetAl0gg5: { src: assetAl0gg5Src, alt: '', sourceHash: 'aL0GG5D3njIn3Q6555V3SUL4k' },
   assetBk2irg: { src: assetBk2irgSrc, alt: '', sourceHash: 'BK2IrgzEGoJFR5oTt5xtzVwoZFA' },
   assetCjbuf1: { src: assetCjbuf1Src, alt: '', sourceHash: 'cjbuf1kYKkIFSJgJaqT5Mn1aq98' },
-  assetDp6mhf: { src: assetDp6mhfSrc, alt: '', sourceHash: 'dP6MHfBLig8cUKuvoJeRJF5Z8' },
-  faviconLightF0ehgx: { src: faviconLightF0ehgxSrc, alt: 'Favicon (light)', sourceHash: 'f0EhgXWunWZsCvCzDGy44b0jj6Y' },
   assetF4esjy: { src: assetF4esjySrc, alt: '', sourceHash: 'F4eSJYirTag9mbvaRPdB9xa65Q' },
   assetFpupna: { src: assetFpupnaSrc, alt: '', sourceHash: 'FPUpnaBFdLVCGfhNiopLgzEHvfk' },
   assetGwbdxr: { src: assetGwbdxrSrc, alt: '', sourceHash: 'GWbDxRwp39ZkrSjQVPc6IjmS8us' },
@@ -76,8 +62,6 @@ export const images = {
   assetU6lqqg: { src: assetU6lqqgSrc, alt: '', sourceHash: 'U6Lqqgoqd6GcIuLTfi8cdeLwVO4' },
   ctaAvatarWfrjn1: { src: ctaAvatarWfrjn1Src, alt: 'CTA Card avatar (CEO)', sourceHash: 'wFRJn1NkdVZsLrogcfZqK9CfE' },
   assetXfjtzm: { src: assetXfjtzmSrc, alt: '', sourceHash: 'XfjtzmccZPHvD68yhm9WnkoDQ' },
-  assetXzbpne: { src: assetXzbpneSrc, alt: '', sourceHash: 'xzbPNePbVo1XEJ4a3O4V473BM' },
-  backArrow6ttbkx: { src: backArrow6ttbkxSrc, alt: 'Back Arrow', sourceHash: '6tTbkXggWgQCAJ4DO2QEdXXmgM' },
   bgImageHshvii: { src: bgImageHshviiSrc, alt: 'BG Image', sourceHash: 'hSHVIIYtrGfgpDljXoyCyDkfE' },
   bgImageHshviiMobile: { src: bgImageHshviiMobileSrc, alt: 'BG Image', sourceHash: 'uAwehYVTmw9nrdY2bcGONB8bG' },
   bgImageJqzov1: { src: bgImageJqzov1Src, alt: 'BG Image', sourceHash: 'JQZOV1weNouMXqzxyX8EWnm7zEw' },
@@ -87,19 +71,15 @@ export const images = {
   curlyWomanWq7hn1: { src: curlyWomanWq7hn1Src, alt: 'Curly Woman', sourceHash: 'WQ7hN14i6MTMqvTt8ieID7j9YbY' },
   manHoodie9kkvud: { src: manHoodie9kkvudSrc, alt: 'Man Hoodie', sourceHash: '9KKvuDkNH8D0g7hq1fUdqCWs' },
   manMotionBlur1d2ldl: { src: manMotionBlur1d2ldlSrc, alt: 'Man Motion Blur', sourceHash: '1D2lDLcBnKpywBRPAJWNr6cpA' },
-  nextArrow11ksgb: { src: nextArrow11ksgbSrc, alt: 'Next Arrow', sourceHash: '11KSGbIZoRSg4pjdnUoif6MKHI' },
   placeYourLogoHere71ydgb: { src: blacksystemslogoThinStackedCurvy, alt: 'Place Your Logo Here', sourceHash: '71YDGBsigsdGanJvkYBelFcVI' },
   blackSystemsLogoOneLine: { src: blacksystemslogoThinnerOneLineCurvy, alt: 'Black Systems' },
-  placeYourLogoHereVhwyuf: { src: placeYourLogoHereVhwyufSrc, alt: 'Place Your Logo Here', sourceHash: 'vHwYuFX3wPjx3PFeXrRkO4wfztA' },
   villaG891sp: { src: villaG891spSrc, alt: 'Villa', sourceHash: 'G891sPJdh93gPfGSBboEt88Now' },
   womanBeach7ug4bh: { src: womanBeach7ug4bhSrc, alt: 'Woman Beach', sourceHash: '7uG4BhwVaiwETVmXbIX3b81RuRw' },
   womanCloseUpVsmr1z: { src: womanCloseUpVsmr1zSrc, alt: 'Woman Close Up', sourceHash: 'vSMr1Zfuh0b2i7lq2yOMx58uxs' },
   womanFlowersUjmih3: { src: womanFlowersUjmih3Src, alt: 'Woman Flowers', sourceHash: 'uJMIH3K4JijRLtNCNuWBj9M2cbA' },
-  womanNntodp: { src: womanNntodpSrc, alt: 'Woman', sourceHash: 'NNTodPsX12UvYBugIWgJ0QL38PU' },
   womanStaircaseBchnf0: { src: womanStaircaseBchnf0Src, alt: 'Woman Staircase', sourceHash: 'BChNf0ssn5x1I9kAk4vwX8qT5o' },
   womenOnTheSofaYw1gcz: { src: womenOnTheSofaYw1gczSrc, alt: 'Women On The Sofa', sourceHash: 'yw1GCZxhNp9c0ifxjP3zVlEc' },
   womenOrangeBgAvoxaw: { src: womenOrangeBgAvoxawSrc, alt: 'Women Orange BG', sourceHash: 'aVOxaW9TAd0obDqqJbHz7JTt7h8' },
-  womenSidePoseYkb2un: { src: womenSidePoseYkb2unSrc, alt: 'Women Side Pose', sourceHash: 'ykB2unblGBc4DohSe1vhH0DUD4' },
   menOrangeBgBfbeq6: { src: menOrangeBgBfbeq6Src, alt: 'Men Orange BG', sourceHash: 'bFbEQ6JZkAoHLWCpyzfCKp69U' },
     // Case study page galleries — same situation as menOrangeBgBfbeq6:
     // the detail route is client-side only, so the capture never requested
