@@ -189,7 +189,7 @@
 /* CTA banner closing the About section (moved here from Testimonial). */
 .about__cta {
   width: 100%;
-  margin-top: 120px;
+  margin-top: 80px;
   padding-bottom: 110px;
 }
 @media (max-width: 809.98px) {
@@ -199,50 +199,55 @@
   }
 }
 
-/* Founder intro: centered above the banner, lined up with its centered
-   photo + button, with the name as a heading a step below the About headline. */
+/* Founder intro above the banner, laid out like the (Pre) / (+Post) /
+   (=Results) rows: label in the heading position, content in the text
+   column. */
 .about__founder {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
   margin-bottom: 56px;
 }
 /* Same geometry as .about__bottom: a spacer the width of the photo
    (328px) + the 24px gap, then a column matching .about__columns
-   (flex: 1, max 835px) — so the label starts exactly where the
-   (Pre) / (+Post) / (=Results) headings do. Stacked below 1200px, like
-   .about__bottom, which puts it at the left edge with them. */
-.about__founder-label-row {
-  align-self: stretch;
+   (flex: 1, max 835px), so the label and text start exactly where the
+   rows above do. Stacked below 1200px, like .about__bottom. */
+.about__founder-row {
   display: flex;
   justify-content: space-between;
   gap: 24px;
   width: 100%;
   max-width: 1440px;
   margin: 0 auto;
-  text-align: left;
 }
-.about__founder-label-row::before {
+.about__founder-row::before {
   content: '';
   flex: none;
   width: 328px;
 }
-.about__founder-label {
+.about__founder-row > .about__column {
   flex: 1;
   max-width: 835px;
 }
 @media (max-width: 1199.98px) {
-  .about__founder-label-row::before {
+  .about__founder-row::before {
     display: none;
   }
-  .about__founder-label {
+  .about__founder-row > .about__column {
     max-width: none;
   }
 }
+/* The heading slot is 100px wide (sized for "(=Results)"); this longer
+   label may run past it into the 200px gap rather than wrap. */
+.about__founder-row .about__column-heading {
+  white-space: nowrap;
+}
+.about__founder-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
 
 .about__founder-name {
-  margin: 20px 0 0;
+  margin: 0;
   font-family: 'BDO Grotesk Variable', sans-serif;
   font-size: 54px;
   font-weight: 400;
@@ -255,7 +260,7 @@
   color: var(--color-ink-50);
 }
 .about__founder-text {
-  max-width: 520px;
+  max-width: 421px; /* same measure as the Pre / Post text */
   padding-top: 32px;
   color: var(--color-ink-50);
 }
@@ -278,4 +283,25 @@
   .about__founder-text {
     padding-top: 24px;
   }
+}
+
+/* Expandable "More about me" background; height animated in About.tsx
+   (overflow hidden so the text is clipped while it opens/closes). */
+.about__founder-more {
+  overflow: hidden;
+}
+.about__founder-more .about__founder-text {
+  padding-top: 20px;
+}
+.about__founder-toggle {
+  /* spacing as padding: the text-preset rule resets margin to 0. */
+  padding: 24px 0 6px;
+  background: none;
+  border: none;
+  color: var(--color-ink);
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+.about__founder-toggle:hover {
+  opacity: 0.6;
 }

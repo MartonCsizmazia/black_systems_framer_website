@@ -1,5 +1,5 @@
-import { useRef } from 'react'
-import { motion, useScroll, useTransform } from 'framer-motion'
+import { useRef, useState } from 'react'
+import { AnimatePresence, motion, useScroll, useTransform } from 'framer-motion'
 import Button from '../../components/Button/Button'
 import OverlapFiller from '../../components/OverlapFiller/OverlapFiller'
 import SectionEyebrow from '../../components/SectionEyebrow/SectionEyebrow'
@@ -36,6 +36,7 @@ const stats = [
 
 export default function About() {
   const imageRef = useRef<HTMLDivElement>(null)
+  const [moreOpen, setMoreOpen] = useState(false)
   const { scrollYProgress: imageScrollProgress } = useScroll({
     target: imageRef,
     offset: ['start end', 'end start'],
@@ -102,24 +103,64 @@ export default function About() {
         </motion.div>
       </div>
 
-      {/* Founder intro, attached to the CTA banner below it (whose centered
+      {/* Founder intro, attached to the CTA banner below it (whose
           photo + "Let's talk" complete it). id="founder" is the target of
           the navbar's "Meet the CEO" card. */}
       <div id="founder" className="about__cta">
         <motion.div className="about__founder" {...fadeIn(1.2)}>
-          {/* Label row mirrors .about__bottom (photo + columns) so the label
-              lines up with the (Pre) / (+Post) / (=Results) headings. */}
-          <div className="about__founder-label-row">
-            <span className="about__founder-label text-preset-q70fzl">(You'll work with)</span>
+          {/* Same row structure as (Pre) / (+Post) / (=Results): the label in
+              the heading position, name + role + intro in the text column. */}
+          <div className="about__founder-row">
+            <div className="about__column">
+              <span className="about__column-heading text-preset-q70fzl">(You'll work with)</span>
+              <div className="about__founder-content">
+                <h3 className="about__founder-name">{NAME}</h3>
+                <span className="text-preset-q70fzl about__founder-role">Founder &amp; CEO</span>
+                <p className="text-preset-q70fzl about__founder-text">
+                    I'm Márton, the founder of Black Systems. I work with every client
+                    directly, from mapping how your business runs to launching the system
+                    and keeping it running, so you always know what's being built and why.
+                </p>
+
+                {/* Longer background, revealed on demand so the intro stays short. */}
+                <AnimatePresence initial={false}>
+                  {moreOpen && (
+                    <motion.div
+                      id="founder-more"
+                      className="about__founder-more"
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: 'auto', opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.5, ease: [0.44, 0, 0.34, 0.98] }}
+                    >
+                      <p className="text-preset-q70fzl about__founder-text">
+                          Before Black Systems, I spent seven years in software development,
+                          most of them in corporate banking, where systems have
+                          to be secure, precise and never fail. I bring that same standard to
+                          every automation I build.
+                      </p>
+                      <p className="text-preset-q70fzl about__founder-text">
+                          I started Black Systems to create high added value where it's needed
+                          most. I believe most everyday work can be far simpler than it is
+                          today: every workflow that runs on its own gives time back to your
+                          team and makes the whole business more productive.
+                      </p>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+                <button
+                  type="button"
+                  className="about__founder-toggle text-preset-q70fzl"
+                  aria-expanded={moreOpen}
+                  aria-controls="founder-more"
+                  onClick={() => setMoreOpen((v) => !v)}
+                >
+                  {moreOpen ? 'Less' : 'More about me'}{' '}
+                  <span aria-hidden="true">{moreOpen ? '↑' : '↓'}</span>
+                </button>
+              </div>
+            </div>
           </div>
-          <h3 className="about__founder-name">{NAME}</h3>
-          <span className="text-preset-q70fzl about__founder-role">Founder &amp; CEO</span>
-          {/* Draft intro — to be replaced with Márton's own text. */}
-          <p className="text-preset-q70fzl about__founder-text">
-              I'm Márton, the founder of Black Systems. I work with every client
-              directly, from mapping how your business runs to launching the system
-              and keeping it running, so you always know what's being built and why.
-          </p>
         </motion.div>
         <CtaBanner />
       </div>
