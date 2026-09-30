@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
-import { images } from '../../assets/images'
 import SectionEyebrow from '../SectionEyebrow/SectionEyebrow'
 import './FaqSection.css'
 
@@ -87,32 +86,12 @@ function FaqItem({ faq, index }: { faq: Faq; index: number }) {
   )
 }
 
-function ShowreelCard({ href }: { href: string }) {
-  return (
-    <a href={href} target="_blank" rel="noopener noreferrer" className="showreel-card">
-      <span className="showreel-card__image">
-        <img src={images.curlyWomanWq7hn1.src} alt={images.curlyWomanWq7hn1.alt} />
-      </span>
-      <span className="showreel-card__content text-preset-152twjm">
-        <span className="showreel-card__left">
-          <svg viewBox="0 0 7.5 8.66" width={8} height={9} aria-hidden="true">
-            <path d="M 7.5 4.33 L 0 8.66 L 0 0 Z" fill="currentColor" />
-          </svg>
-          Play
-        </span>
-        <span className="showreel-card__right">Showreel</span>
-      </span>
-    </a>
-  )
-}
-
 export interface FaqSectionProps {
   /** Element id, so a menu link ('#faq') can scroll to it. */
   id?: string
   /** Section number shown in the eyebrow, e.g. '05' -> "(05)". */
   index?: string
   faqs?: Faq[]
-  showreelHref?: string
 }
 
 /**
@@ -125,16 +104,12 @@ export default function FaqSection({
   id,
   index = '03',
   faqs = DEFAULT_FAQS,
-  showreelHref = 'https://www.youtube.com/',
 }: FaqSectionProps) {
   return (
     <section id={id} className="faq-section">
       <div className="faq-section__container">
         <SectionEyebrow index={index} title="Frequently Asked Questions" />
         <div className="faq-section__content">
-          <div className="faq-section__left">
-            <ShowreelCard href={showreelHref} />
-          </div>
           <div className="faq-section__list">
             {faqs.map((faq, i) => (
               <FaqItem key={faq.question} faq={faq} index={i} />

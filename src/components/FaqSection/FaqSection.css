@@ -1,5 +1,5 @@
 /* Recovered from "FAQ Section" (.framer-jdAJs), "FAQ List" (.framer-Anv2q),
-   "FAQ Single" (.framer-RiA7P) and "Showreel Card" (.framer-2E6DK). */
+   "FAQ Single" (.framer-RiA7P). The source's "Showreel Card" was removed. */
 
 .faq-section {
   position: relative;
@@ -16,42 +16,21 @@
 .faq-section__container {
   display: flex;
   flex-direction: column;
-  /* Space between the SectionEyebrow and the showreel + questions. */
+  /* Space between the SectionEyebrow and the questions. */
   gap: 60px;
   width: 100%;
   max-width: 1440px;
 }
 .faq-section__content {
   display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
+  justify-content: center;
   width: 100%;
-}
-@media (max-width: 1199.98px) {
-  .faq-section__content {
-    flex-direction: column;
-    gap: 40px;
-  }
-}
-
-.faq-section__left {
-  display: flex;
-  flex-direction: column;
-  gap: 40px;
-  flex: 1 0 0;
-  max-width: 560px;
-}
-@media (max-width: 1199.98px) {
-  .faq-section__left {
-    flex: none;
-    width: 100%;
-  }
 }
 
 .faq-section__list {
   display: flex;
   flex-direction: column;
-  flex: 1 0 0;
+  width: 100%;
   max-width: 710px;
 }
 @media (max-width: 1199.98px) {
@@ -124,63 +103,6 @@
   height: 1px;
   width: 100%;
   background: var(--color-ink-16);
-}
-
-/* ---- Showreel Card ---- */
-
-.showreel-card {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-  width: 306px;
-  height: 203px;
-  padding: 4px;
-  border-radius: 5px;
-  background: var(--color-surface);
-  color: var(--color-ink);
-  text-decoration: none;
-}
-@media (max-width: 809.98px) {
-  .showreel-card {
-    width: 100%;
-  }
-}
-.showreel-card__image {
-  flex: 1 0 0;
-  display: flex;
-  overflow: hidden;
-  border-radius: 2.5px;
-  background: var(--color-ink);
-}
-.showreel-card__image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 2.5px;
-  /* Hover variant: opacity .7, scale 1.1 on a spring (damping 50,
-     stiffness 300); approximated with an ease-out curve. */
-  transition: opacity 0.5s cubic-bezier(0.22, 1, 0.36, 1), transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
-}
-.showreel-card:hover .showreel-card__image img {
-  opacity: 0.7;
-  transform: scale(1.1);
-}
-.showreel-card__content {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 0 10px 10px;
-}
-.showreel-card__left,
-.showreel-card__right {
-  flex: 1 0 0;
-  display: flex;
-  align-items: center;
-  gap: 4px;
-}
-.showreel-card__right {
-  justify-content: flex-end;
-  color: var(--color-ink-50);
 }
 
 @media (max-width: 809.98px) {
