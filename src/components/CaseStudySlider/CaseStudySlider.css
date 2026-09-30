@@ -12,7 +12,8 @@
   display: flex;
   gap: 10px;
   overflow-x: auto;
-  overscroll-behavior-x: contain;
+  /* No bounce past the first / last card. */
+  overscroll-behavior-x: none;
   scroll-snap-type: x mandatory;
   scrollbar-width: none;
 }
@@ -37,6 +38,15 @@
 @media (max-width: 809.98px) {
   .case-study-slider__slide {
     flex-basis: 85%;
+    scroll-snap-align: center;
+  }
+  /* The ends stay flush with the edges, so the user sees they've reached
+     the first / last case study. */
+  .case-study-slider__slide:first-child {
+    scroll-snap-align: start;
+  }
+  .case-study-slider__slide:last-child {
+    scroll-snap-align: end;
   }
 }
 

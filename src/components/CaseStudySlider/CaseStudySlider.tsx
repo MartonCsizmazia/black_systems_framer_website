@@ -30,11 +30,23 @@ function Arrow({ direction }: { direction: 'prev' | 'next' }) {
   )
 }
 
+/** Scroll position at which `slide` rests, following its CSS
+ * scroll-snap-align (start / center / end), clamped to the track's range. */
+function snapLeft(track: HTMLElement, slide: HTMLElement) {
+  const align = getComputedStyle(slide).scrollSnapAlign.split(' ').pop()
+  const start = slide.offsetLeft - track.offsetLeft
+  const free = track.clientWidth - slide.offsetWidth
+  const left = align === 'center' ? start - free / 2 : align === 'end' ? start - free : start
+  return Math.min(track.scrollWidth - track.clientWidth, Math.max(0, left))
+}
+
 /**
  * Finite horizontal slider of every case study (the current one included,
  * in config order). Native horizontal scrolling with scroll-snap, so touch
  * swipes and trackpad scrolls work as-is; the arrows move one card and are
- * disabled at either end. Cards per view come from CSS (3 / 2 / ~1).
+ * disabled at either end. Cards per view come from CSS (3 / 2 / ~1); on
+ * phones the middle cards snap to the centre, the first and last to the
+ * edges, so reaching either end is visible.
  */
 export default function CaseStudySlider({ currentSlug, currentTarget }: CaseStudySliderProps) {
   const trackRef = useRef<HTMLDivElement>(null)
@@ -48,11 +60,12 @@ export default function CaseStudySlider({ currentSlug, currentTarget }: CaseStud
     setCanNext(track.scrollLeft < track.scrollWidth - track.clientWidth - 1)
   }
 
-  // Start with the current case study in view (instantly, before paint).
+  // Start with the current case study at its snap position (instantly,
+  // before paint).
   useIsomorphicLayoutEffect(() => {
     const track = trackRef.current
     const current = track?.querySelector<HTMLElement>('[aria-current="page"]')
-    if (track && current) track.scrollLeft = current.offsetLeft - track.offsetLeft
+    if (track && current) track.scrollLeft = snapLeft(track, current)
     updateEnds()
   }, [currentSlug])
 
@@ -61,12 +74,19 @@ export default function CaseStudySlider({ currentSlug, currentTarget }: CaseStud
     return () => window.removeEventListener('resize', updateEnds)
   }, [])
 
+  // Card by card, to the same positions the CSS snaps to (on phones the
+  // middle cards are centred, so a fixed step distance wouldn't fit).
   const step = (direction: 1 | -1) => {
     const track = trackRef.current
-    const slide = track?.firstElementChild as HTMLElement | null
-    if (!track || !slide) return
-    const gap = parseFloat(getComputedStyle(track).columnGap) || 0
-    track.scrollBy({ left: direction * (slide.offsetWidth + gap), behavior: 'smooth' })
+    if (!track) return
+    const slides = Array.from(track.children) as HTMLElement[]
+    const positions = slides.map((slide) => snapLeft(track, slide))
+    const nearest = positions.reduce(
+      (best, left, i) => (Math.abs(left - track.scrollLeft) < Math.abs(positions[best] - track.scrollLeft) ? i : best),
+      0,
+    )
+    const target = Math.min(slides.length - 1, Math.max(0, nearest + direction))
+    track.scrollTo({ left: positions[target], behavior: 'smooth' })
   }
 
   return (
