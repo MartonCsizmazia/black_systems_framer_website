@@ -286,11 +286,14 @@
     display: flex;
     max-width: none;
     padding: 20px 16px;
-    gap: 10px;
+    /* No gap: the menu and CEO card below are always rendered (collapsed
+       when closed), so their spacing is an animated margin instead. */
+    gap: 0;
     justify-content: flex-start;
     flex-direction: column;
     align-items: stretch;
     border-radius: 16px;
+    transition: background-color 0.45s ease, box-shadow 0.45s ease;
   }
   .navbar__bar--open {
     background-color: var(--color-surface-dark);
@@ -316,7 +319,6 @@
     height: 55%;
   }
   .navbar__menu {
-    display: none;
     flex-direction: column;
     align-items: flex-start;
     gap: 24px;
@@ -324,10 +326,30 @@
     order: 1;
   }
   .navbar__actions {
-    display: none;
     width: 100%;
     order: 3;
     justify-items: start;
+  }
+  /* Open/close animation: both panels stay in the layout and expand from
+     zero height while fading and sliding in (content slightly after the
+     height, CEO card after the links). Closed they are also `visibility:
+     hidden`, so their links can't be tabbed to; the visibility switch is
+     delayed on close until the collapse has finished. */
+  .navbar__menu,
+  .navbar__actions {
+    max-height: 0;
+    margin-top: 0;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(-8px);
+    visibility: hidden;
+    pointer-events: none;
+    transition:
+      max-height 0.5s cubic-bezier(0.44, 0, 0.34, 0.98),
+      margin-top 0.5s cubic-bezier(0.44, 0, 0.34, 0.98),
+      opacity 0.25s ease,
+      transform 0.3s ease,
+      visibility 0s linear 0.5s;
   }
   .navbar__cta {
     width: 100%;
@@ -344,12 +366,14 @@
     transform: translateY(-50%);
     border-radius: 12px;
   }
-  /* The open menu has its own solid dark panel. */
-  .navbar__bar--open .navbar__backdrop {
-    display: none;
+  /* The open menu has its own solid dark panel, so the scrolled grey
+     backdrop fades out. (filter, not opacity: its opacity is driven inline
+     by scroll, and a transition on it would lag the scroll fade.) */
+  .navbar__backdrop {
+    transition: filter 0.35s ease;
   }
-  .navbar__bar--open {
-    gap: 40px;
+  .navbar__bar--open .navbar__backdrop {
+    filter: opacity(0);
   }
   .navbar__bar--open .navbar__hamburger-line:first-child {
     transform: translateY(5px) rotate(45deg);
@@ -357,11 +381,26 @@
   .navbar__bar--open .navbar__hamburger-line:last-child {
     transform: translateY(-5px) rotate(-45deg);
   }
+  .navbar__bar--open .navbar__menu,
+  .navbar__bar--open .navbar__actions {
+    margin-top: 40px;
+    opacity: 1;
+    transform: none;
+    visibility: visible;
+    pointer-events: auto;
+    transition:
+      max-height 0.5s cubic-bezier(0.44, 0, 0.34, 0.98),
+      margin-top 0.5s cubic-bezier(0.44, 0, 0.34, 0.98),
+      opacity 0.4s ease 0.12s,
+      transform 0.45s ease 0.12s,
+      visibility 0s;
+  }
   .navbar__bar--open .navbar__menu {
-    display: flex;
+    max-height: 480px;
   }
   .navbar__bar--open .navbar__actions {
-    display: grid;
+    max-height: 160px;
+    transition-delay: 0s, 0s, 0.22s, 0.22s, 0s;
   }
   /* Menu links stay white on the dark open panel. The CEO card keeps its
      desktop colours (dark text on its light card background). */
