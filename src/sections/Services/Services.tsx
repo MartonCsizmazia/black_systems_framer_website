@@ -48,12 +48,6 @@ export default function Services() {
                 shown as a static image instead. Floated (not absolutely
                 positioned) so the heading text that follows it in the DOM
                 wraps around it instead of running underneath it. */}
-            <img
-              src={images.assetBk2irg.src}
-              alt=""
-              className="services__video-thumb"
-              aria-hidden="true"
-            />
             <motion.p
               className="services__heading"
               initial={{ opacity: 0, y: 20 }}
