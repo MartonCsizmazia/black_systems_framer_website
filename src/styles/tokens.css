@@ -43,6 +43,9 @@
   --color-accent-pale: var(--token-3276f804-88ae-458e-ac7a-7ed927b3c137);
   --color-paper-alt: var(--token-a83649a1-3fb0-4a78-ac47-908be8944abe);
   --color-surface-dark: var(--token-6ff13ffa-609b-49bb-b9d4-b969f2d488bd);
+  /* Brand accent (the hero's orange) — reserved for the main CTAs. */
+  --color-accent: #f14b00;
+  --color-accent-hover: #c43d00;
 }
 
 /*

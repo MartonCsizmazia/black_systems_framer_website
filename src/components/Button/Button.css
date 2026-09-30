@@ -99,3 +99,14 @@
 .button--solid.button--dark:hover {
   background: var(--color-surface-dark);
 }
+
+/* Accent: brand orange with black text, for the main CTAs that sit away
+   from the (already orange) hero. Declared after the light/dark fills so it
+   wins over them. */
+.button--solid.button--accent {
+  background: var(--color-accent);
+  color: var(--color-ink);
+}
+.button--solid.button--accent:hover {
+  background: var(--color-accent-hover);
+}

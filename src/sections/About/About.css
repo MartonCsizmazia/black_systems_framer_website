@@ -81,6 +81,28 @@
   }
 }
 
+/* Photo + name/role caption, so the (Founder) row further down clearly
+   belongs to the person pictured. */
+.about__portrait {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  flex: none;
+}
+@media (max-width: 1199.98px) {
+  .about__portrait {
+    width: 100%;
+  }
+}
+.about__caption {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.about__caption-role {
+  color: var(--color-ink-50);
+}
+
 .about__image {
   width: 328px;
   height: 440px;
@@ -173,4 +195,12 @@
   height: 1px;
   width: 100%;
   background: var(--color-ink-10);
+}
+
+.about__founder-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  width: 100%;
 }

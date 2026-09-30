@@ -197,8 +197,14 @@ export default function Navbar({ links = NAV_LINKS }: NavbarProps) {
         </nav>
 
         <div className="navbar__actions">
-        {/* No destination for now (no href), so clicking does nothing. */}
+        {/* Scrolls to the founder intro (photo + (Founder) row) in About. */}
         <motion.a
+          href="#founder"
+          onClick={(e) => {
+            e.preventDefault()
+            scrollToSection('#founder')
+            setMobileOpen(false)
+          }}
           className="navbar__cta"
           style={{ opacity: firstHalfOut, pointerEvents: compact ? 'none' : 'auto' }}
           aria-hidden={compact}

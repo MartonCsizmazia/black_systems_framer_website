@@ -57,10 +57,18 @@ export default function About() {
         </motion.p>
       </div>
 
-      <div className="about__bottom">
-        <motion.div className="about__image" ref={imageRef} {...fadeIn(0.6)}>
-          <motion.img src={images.assetMrongf.src} alt="Men Red BG" style={{ y: imageY }} />
-        </motion.div>
+      {/* id="founder": target of the navbar's "Meet the CEO" card. */}
+      <div id="founder" className="about__bottom">
+        <div className="about__portrait">
+          <motion.div className="about__image" ref={imageRef} {...fadeIn(0.6)}>
+            {/* TODO: replace with the founder's own photo (also used in the navbar's CEO card). */}
+            <motion.img src={images.assetMrongf.src} alt="Márton Csizmazia" style={{ y: imageY }} />
+          </motion.div>
+          <motion.div className="about__caption" {...fadeIn(0.6)}>
+            <span className="text-preset-q70fzl">Márton Csizmazia</span>
+            <span className="text-preset-q70fzl about__caption-role">Founder &amp; CEO</span>
+          </motion.div>
+        </div>
 
         <motion.div className="about__columns" {...fadeIn(1.2)}>
           <div className="about__column">
@@ -91,6 +99,17 @@ export default function About() {
                   </div>
                 ))}
               </div>
+            </div>
+          </div>
+          <div className="about__column">
+            <span className="about__column-heading text-preset-q70fzl">(Founder)</span>
+            <div className="about__founder-content">
+              {/* Draft intro — to be replaced with Márton's own text. */}
+              <p className="about__column-text text-preset-q70fzl">
+                  I'm Márton, the founder of Black Systems. I work with every client
+                  directly, from mapping how your business runs to launching the system
+                  and keeping it running, so you always know what's being built and why.
+              </p>
               <Button title="Let's talk" variant="dark" booking />
             </div>
           </div>
