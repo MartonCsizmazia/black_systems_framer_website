@@ -4,17 +4,8 @@ import Button from '../../components/Button/Button'
 import WorkCard from '../../components/WorkCard/WorkCard'
 import SectionEyebrow from '../../components/SectionEyebrow/SectionEyebrow'
 import { images } from '../../assets/images'
-import './CaseStudies.css'
-
-// Real project data recovered from the SSR HTML (the "Home" page chunk only
-// carries the CMS query, not resolved records — this is the actual live
-// content from the captured page load, "Photograhy" typo included verbatim).
-const projects = [
-  { rollNo: '(01)', title: 'Vellfire Calibration', category: 'Art Direction', slug: 'vellfire-calibration', image: images.bgImageJqzov1 },
-  { rollNo: '(02)', title: 'Dunwill Lanson', category: 'Photograhy', slug: 'dunwill-lanson', image: images.bgImageRmeblx },
-  { rollNo: '(03)', title: 'Noara Willis', category: 'Strategy', slug: 'noara-willis', image: images.bgImageJt7zqg },
-  { rollNo: '(04)', title: 'Nike Studios', category: 'Art Direction', slug: 'nike-studios', image: images.bgImageYiiumx },
-]
+import './CaseStudiesPreview.css'
+import { caseStudies, caseStudyHref, type CaseStudyEntry } from '../../data/caseStudiesConfig'
 
 // Recovered exactly by measuring the live source: each card slot but the
 // last is plain `position: sticky`, with `top` increasing by 40px per card
@@ -54,13 +45,13 @@ const COVER_SHRINK = 0.18
 const CAPTION_FADE_RANGE = 0.12
 
 function CaseStudyCard({
-  project,
+  caseStudy,
   index,
   isLast,
   total,
   progress,
 }: {
-  project: (typeof projects)[number]
+  caseStudy: CaseStudyEntry
   index: number
   isLast: boolean
   total: number
@@ -86,18 +77,18 @@ function CaseStudyCard({
   return (
     <motion.div className="case-studies__card-slot" style={style}>
       <WorkCard
-        title={project.title}
-        category={project.category}
-        rollNo={project.rollNo}
-        href={`/case-studies/${project.slug}`}
-        image={project.image}
+        title={caseStudy.title}
+        category={caseStudy.category}
+        rollNo={caseStudy.rollNo}
+        href={caseStudyHref(caseStudy.slug)}
+        image={caseStudy.image}
         captionOpacity={isLast ? undefined : captionOpacity}
       />
     </motion.div>
   )
 }
 
-export default function CaseStudies() {
+export default function CaseStudiesPreview() {
   const middleRef = useRef<HTMLDivElement>(null)
   const { scrollYProgress } = useScroll({ target: middleRef, offset: ['start start', 'end end'] })
   const yearSuffix = new Date().getFullYear() % 100
@@ -113,13 +104,13 @@ export default function CaseStudies() {
         </div>
 
         <div className="case-studies__middle" ref={middleRef}>
-          {projects.map((p, i) => (
+          {caseStudies.map((p, i) => (
             <CaseStudyCard
               key={p.slug}
-              project={p}
+              caseStudy={p}
               index={i}
-              isLast={i === projects.length - 1}
-              total={projects.length}
+              isLast={i === caseStudies.length - 1}
+              total={caseStudies.length}
               progress={scrollYProgress}
             />
           ))}

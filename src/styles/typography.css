@@ -121,6 +121,28 @@
   }
 }
 
+/* 70px / 56px / 30px — large intro paragraph (H3, case study page) */
+.text-preset-13ruabr {
+    --framer-font-family: "BDO Grotesk Variable", sans-serif;
+    --framer-font-size: 70px;
+    --framer-font-weight: 1000;
+    --framer-line-height: 70px;
+    --framer-letter-spacing: -2.1px;
+}
+@media (min-width: 810px) and (max-width: 1199.98px) {
+    .text-preset-13ruabr {
+        --framer-font-size: 56px;
+        --framer-line-height: 56px;
+    }
+}
+@media (max-width: 809.98px) {
+    .text-preset-13ruabr {
+        --framer-font-size: 30px;
+        --framer-line-height: 30px;
+    }
+}
+
+
 /* 56px / 40px — section heading (H2) */
 .text-preset-kxvc54 {
   --framer-font-family: "BDO Grotesk Variable", sans-serif;

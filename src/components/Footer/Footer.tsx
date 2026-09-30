@@ -1,5 +1,5 @@
 import { images } from '../../assets/images'
-import { scrollToSection } from '../../hooks/useLenis'
+import { scrollToSection, scrollToTop } from '../../hooks/useLenis'
 import SquaresLogo from '../SquaresLogo/SquaresLogo'
 import Button from '../Button/Button'
 import { NAV_LINKS } from '../Navbar/Navbar'
@@ -62,7 +62,7 @@ export default function Footer() {
 
         <div className="footer__bottom text-preset-152twjm">
           <span>&copy; {year} Black Systems</span>
-          <button type="button" className="footer__top-link" onClick={() => scrollToSection('#top')}>
+          <button type="button" className="footer__top-link" onClick={scrollToTop}>
             Back to top <span aria-hidden="true">↑</span>
           </button>
         </div>

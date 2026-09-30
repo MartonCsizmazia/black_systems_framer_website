@@ -48,6 +48,11 @@ import womenSidePoseYkb2unSrc from './women-side-pose-ykb2un.avif'
 import blacksystemslogoThinStackedCurvy from './black-systems-thin-stacked-white.png'
 import blacksystemslogoThinnerOneLineCurvy from './black-systems-thinner-oneline-white.png'
 import menOrangeBgBfbeq6Src from './men-orange-bg-bfbeq6.png'
+import womanOrangeBlurNzlidpSrc from './woman-orange-blur-nzlidp.png'
+import womanGreenBlurXqlxztSrc from './woman-green-blur-xqlxzt.png'
+import manRunningBlurQfdokySrc from './man-running-blur-qfdoky.png'
+import manDancingZvom13Src from './man-dancing-zvom13.png'
+import womanGlitchWbsn9cSrc from './woman-glitch-wbsn9c.png'
 
 export const images = {
   logoIgv5zp: { src: logoIgv5zpSrc, alt: 'Logo', sourceHash: 'igV5Zp5vOf75Co9CAClwajll0' },
@@ -96,4 +101,13 @@ export const images = {
   womenOrangeBgAvoxaw: { src: womenOrangeBgAvoxawSrc, alt: 'Women Orange BG', sourceHash: 'aVOxaW9TAd0obDqqJbHz7JTt7h8' },
   womenSidePoseYkb2un: { src: womenSidePoseYkb2unSrc, alt: 'Women Side Pose', sourceHash: 'ykB2unblGBc4DohSe1vhH0DUD4' },
   menOrangeBgBfbeq6: { src: menOrangeBgBfbeq6Src, alt: 'Men Orange BG', sourceHash: 'bFbEQ6JZkAoHLWCpyzfCKp69U' },
+    // Case study page galleries — same situation as menOrangeBgBfbeq6:
+    // the detail route is client-side only, so the capture never requested
+    // these. Fetched at original resolution from framerusercontent.com.
+    // Alts are the ones the page template itself assigns.
+    womanOrangeBlurNzlidp: { src: womanOrangeBlurNzlidpSrc, alt: 'Woman Orange BG', sourceHash: 'NZLIdp567TgymMJ9pqxk1BvJfxA' },
+    womanGreenBlurXqlxzt: { src: womanGreenBlurXqlxztSrc, alt: 'Woman Green Blur', sourceHash: 'xqLxZtmBU9JZB2mXGcdikP5L93Y' },
+    manRunningBlurQfdoky: { src: manRunningBlurQfdokySrc, alt: 'Man Running', sourceHash: 'qFDokY34xOhbcey4qInWx79GSfM' },
+    manDancingZvom13: { src: manDancingZvom13Src, alt: 'Man Dancing', sourceHash: 'zvOm13VvbejHKebnWNj9EvPG0' },
+    womanGlitchWbsn9c: { src: womanGlitchWbsn9cSrc, alt: 'Woman Glitch', sourceHash: 'WBsN9cyAtbtEGlCs5K1RjWTwgQ' },
 } as const

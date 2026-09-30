@@ -39,6 +39,14 @@ let lenisInstance: Lenis | null = null
  */
 export function scrollToSection(target: string) {
   const id = target.replace(/^#/, '')
+  // On a sub-page (e.g. /case-studies/<slug>) the home sections aren't on
+  // the page: go to them on the home page instead (App scrolls to the hash
+  // once it has rendered). The logo's '#top' goes to the home page too.
+  const onHome = window.location.pathname.replace(/\/+$/, '') === ''
+  if (!onHome && (id === 'top' || !document.getElementById(id))) {
+    window.location.href = id === 'top' ? '/' : `/#${id}`
+    return
+  }
   const section = id === 'top' ? null : document.getElementById(id)
   if (id !== 'top' && !section) return
   // Land on the section's heading row, not its outer edge — sections have
@@ -53,6 +61,16 @@ export function scrollToSection(target: string) {
     })
   } else if (el) {
     window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY + SECTION_SCROLL.offset, behavior: 'smooth' })
+  } else {
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }
+}
+
+/** Smoothly scroll to the top of the current page (any page, unlike
+ * scrollToSection('#top'), which leaves a sub-page for the home page). */
+export function scrollToTop() {
+  if (lenisInstance) {
+    lenisInstance.scrollTo(0, { duration: SECTION_SCROLL.duration, easing: SECTION_SCROLL.easing })
   } else {
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }

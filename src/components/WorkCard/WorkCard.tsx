@@ -11,7 +11,7 @@ export interface WorkCardProps {
   /** Article's grid uses a plain full-bleed crop, not the Case Studies blur-frame treatment. */
   flat?: boolean
   /** Case Studies' stacked cards fade their caption out as they get covered
-   * (see CaseStudies.tsx) so it doesn't stay legibly overlapping the next
+   * (see CaseStudiesPreview.tsx) so it doesn't stay legibly overlapping the next
    * card's own caption. Omitted entirely elsewhere, so other callers
    * (Article, Archive) keep a plain, always-opaque caption. */
   captionOpacity?: MotionValue<number>
