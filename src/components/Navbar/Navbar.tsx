@@ -4,6 +4,7 @@ import { images } from '../../assets/images'
 import SquaresLogo from '../SquaresLogo/SquaresLogo'
 import { scrollToSection } from '../../hooks/useLenis'
 import Button from '../Button/Button'
+import LanguageSwitch from '../LanguageSwitch/LanguageSwitch'
 import { NAME } from '../../data/contact'
 import { useTranslation, type TextKey } from '../../i18n/I18nProvider'
 import { localizePath } from '../../i18n/paths'
@@ -21,6 +22,12 @@ export interface NavbarProps {
    * id on this page ('#top' = page top); anything else is a normal link.
    */
   links?: NavLink[]
+  /**
+   * Desktop: also show the language switch at the top of the page, left of
+   * the CEO card (pages with a short menu, where there's room). It always
+   * shows next to "Book a call" once scrolled.
+   */
+  languageAtTop?: boolean
 }
 
 // The home menu: one item per numbered section, in page order; rollNo
@@ -111,7 +118,7 @@ function MenuItem({ title, rollNo, href, delay, onNavigate }: NavLink & { delay:
   )
 }
 
-export default function Navbar({ links: customLinks }: NavbarProps) {
+export default function Navbar({ links: customLinks, languageAtTop = false }: NavbarProps) {
   const { lang, t } = useTranslation()
   const homeLinks = useHomeNavLinks()
   const links = customLinks ?? homeLinks
@@ -205,22 +212,30 @@ export default function Navbar({ links: customLinks }: NavbarProps) {
 
         <nav className="navbar__menu" aria-label={t('nav.primaryLabel')}>
           {links.map((link, i) => (
-            <MenuItem key={link.title} {...link} delay={0.4 + i * 0.1} onNavigate={() => setMobileOpen(false)} />
+            <MenuItem key={link.href} {...link} delay={0.4 + i * 0.1} onNavigate={() => setMobileOpen(false)} />
           ))}
+          {/* Hamburger menu only (hidden on desktop in CSS): under the last item. */}
+          <LanguageSwitch className="navbar__menu-language" tabbable={mobileOpen} />
         </nav>
 
         <div className="navbar__actions">
-        {/* Scrolls to the founder intro (photo + (Founder) row) in About. */}
-        <motion.a
-          href="#founder"
+        <motion.div
+          className="navbar__intro"
+          style={{ opacity: firstHalfOut, pointerEvents: compact ? 'none' : 'auto' }}
+          aria-hidden={compact}
+        >
+        {languageAtTop && <LanguageSwitch size="small" className="navbar__language" tabbable={!compact} />}
+        {/* Scrolls to the founder intro (photo + (Founder) row) in About.
+            A full address, so it also works from other pages and in a new tab. */}
+        <a
+          href={`${localizePath('/', lang)}#founder`}
           onClick={(e) => {
             e.preventDefault()
             scrollToSection('#founder')
             setMobileOpen(false)
           }}
           className="navbar__cta"
-          style={{ opacity: firstHalfOut, pointerEvents: compact ? 'none' : 'auto' }}
-          aria-hidden={compact}
+          tabIndex={compact ? -1 : undefined}
         >
           <span className="navbar__cta-avatar">
             <img src={images.ctaAvatarWfrjn1.src} alt={images.ctaAvatarWfrjn1.alt || t('nav.ceo')} />
@@ -238,12 +253,16 @@ export default function Navbar({ links: customLinks }: NavbarProps) {
               <span className="text-preset-152twjm navbar__cta-position">{t('nav.ceo')}</span>
             </span>
           </span>
-        </motion.a>
+        </a>
+        </motion.div>
         <motion.div
           className="navbar__book"
           style={{ opacity: secondHalfIn, pointerEvents: compact ? 'auto' : 'none' }}
           aria-hidden={!compact}
         >
+          {/* Desktop only (hidden under the hamburger breakpoint in CSS; the
+              hamburger menu has its own, under the last menu item). */}
+          <LanguageSwitch size="small" className="navbar__language" tabbable={compact} />
           <Button title={t('common.bookCall')} variant="light" booking solid className="navbar__book-button" tabIndex={compact ? 0 : -1} />
         </motion.div>
         </div>

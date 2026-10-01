@@ -190,7 +190,7 @@ export default function CaseStudy({ caseStudy }: { caseStudy: CaseStudyEntry }) 
       {/* Site-wide fixed navbar, outside the hero: inside it, it would drift
           and fade out with the hero's parallax. Its menu lists this page's
           own sections, numbered like their eyebrows. */}
-      <Navbar links={navLinks} />
+      <Navbar links={navLinks} languageAtTop />
       <CaseStudyHero caseStudy={caseStudy} fadeTargetRef={fadeTargetRef} />
       <CaseStudyContent caseStudy={caseStudy} fadeTargetRef={fadeTargetRef} />
       <MoreCaseStudies caseStudy={caseStudy} />

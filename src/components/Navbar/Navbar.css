@@ -136,6 +136,26 @@
 .navbar__actions > * {
   grid-area: 1 / 1;
 }
+/* CEO card (plus, with `languageAtTop`, a language switch left of it):
+   the top-of-page state, fading out with scroll. */
+.navbar__intro {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* The hamburger menu's language switch; desktop uses the one next to
+   "Book a call". */
+.navbar__menu-language {
+  display: none;
+}
+
+/* Language switch + "Book a call", fading in together with scroll. */
+.navbar__book {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
 .navbar__book-button {
   width: 150px;
 }
@@ -330,6 +350,12 @@
     order: 3;
     justify-items: start;
   }
+  .navbar__language {
+    display: none;
+  }
+  .navbar__menu-language {
+    display: inline-flex;
+  }
   /* Open/close animation: both panels stay in the layout and expand from
      zero height while fading and sliding in (content slightly after the
      height, CEO card after the links). Closed they are also `visibility:
@@ -351,6 +377,7 @@
       transform 0.3s ease,
       visibility 0s linear 0.5s;
   }
+  .navbar__intro,
   .navbar__cta {
     width: 100%;
     max-width: none;

@@ -81,10 +81,8 @@
 
 .hero__top {
   position: absolute;
-  /* 193px for the description, minus the language switch (36px) and the
-     24px gap below it, so the description and button keep their place. */
-  top: 133px;
-  /* 24px from the screen edge, like the navbar logo — but on screens wider
+  top: 193px;
+  /* 24px from the screen edge, like the navbar logo - but on screens wider
      than 1920px it follows the navbar's 1920px cap (1872px bar, centred)
      so it stays aligned under the logo. */
   left: max(24px, calc(50% - 936px));
@@ -104,9 +102,20 @@
   }
 }
 
+/* Right-aligned 24px under the navbar's CEO card (24px from the top, 70px
+   tall), following the navbar's 1920px cap like .hero__top. */
 .hero__language {
-  /* 24px to the description instead of the column's 40px gap. */
-  margin-bottom: -16px;
+  position: absolute;
+  top: 118px;
+  right: max(24px, calc(50% - 936px));
+  z-index: 1;
+}
+/* With the hamburger menu (navbar breakpoint) the switch lives in the menu
+   instead. */
+@media (max-width: 1439.98px) {
+  .hero__language {
+    display: none;
+  }
 }
 
 .hero__description {

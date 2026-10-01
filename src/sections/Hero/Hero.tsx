@@ -186,10 +186,13 @@ export default function Hero({ backgroundImage, backgroundImageMobile, darkenOnS
 
       <div className="hero__spacer" />
 
+      {/* Desktop: under the navbar's CEO card (hidden with the hamburger
+          menu, which has its own switch). */}
+      <motion.div className="hero__language" {...descLine(0.3)}>
+        <LanguageSwitch />
+      </motion.div>
+
       <div className="hero__top">
-        <motion.div className="hero__language" {...descLine(0.3)}>
-          <LanguageSwitch />
-        </motion.div>
         <div className="hero__description">
           <motion.p className="text-preset-q70fzl hero__line" {...descLine(0.4)}>
             {t('hero.line1')}

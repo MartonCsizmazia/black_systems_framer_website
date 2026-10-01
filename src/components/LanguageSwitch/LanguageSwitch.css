@@ -49,3 +49,18 @@
   z-index: 1;
   letter-spacing: 0.5px;
 }
+
+/* Small: 30px tall in total, so it sits inside the scrolled navbar next to
+   the 36px "Book a call" button without making the bar taller. */
+.language-switch--small {
+  padding: 2px;
+}
+.language-switch--small .language-switch__option {
+  min-width: 32px;
+  height: 24px;
+  padding: 0 8px;
+}
+.language-switch--small .language-switch__label {
+  --framer-font-size: 11px;
+  --framer-line-height: 14px;
+}
