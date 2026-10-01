@@ -141,7 +141,7 @@
 .navbar__intro {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 25px;
 }
 
 /* The hamburger menu's language switch; desktop uses the one next to
@@ -154,7 +154,7 @@
 .navbar__book {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 20px;
 }
 .navbar__book-button {
   width: 150px;

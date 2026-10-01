@@ -14,6 +14,12 @@ export interface PageMeta {
   image?: string
 }
 
+/** A page's link preview image (1200x630 JPG), made by `npm run og`
+ * (scripts/og-images.mjs) into public/og/<page>-<lang>.jpg. */
+function ogImagePath(name: string, lang: Lang) {
+  return `/og/${name}-${lang}.jpg`
+}
+
 /** Every page that gets its own prerendered HTML file (the 404 is separate). */
 export const PRERENDER_PATHS = ['/', ...caseStudies.map((cs) => caseStudyHref(cs.slug))]
 
@@ -28,6 +34,7 @@ export function pageMeta(path: string, lang: Lang = DEFAULT_LANG): PageMeta {
       title: translate(lang, 'seo.home.title'),
       description: translate(lang, 'seo.home.description'),
       path: '/',
+      image: ogImagePath('home', lang),
     }
   }
   const match = clean.match(/^\/case-studies\/([^/]+)$/)
@@ -38,11 +45,12 @@ export function pageMeta(path: string, lang: Lang = DEFAULT_LANG): PageMeta {
       title: translate(lang, 'seo.caseStudyTitle', { title: text.title }),
       description: text.description,
       path: caseStudyHref(caseStudy.slug),
-      image: caseStudy.image.src,
+      image: ogImagePath(caseStudy.slug, lang),
     }
   }
   return {
     title: translate(lang, 'seo.notFound.title'),
     description: translate(lang, 'seo.notFound.description'),
+    image: ogImagePath('home', lang),
   }
 }

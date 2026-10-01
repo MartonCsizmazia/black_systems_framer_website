@@ -64,7 +64,16 @@ function headTags(meta, lang, path) {
     // The 404 pages shouldn't be indexed.
     tags.push(`<meta name="robots" content="noindex" />`)
   }
-  if (meta.image) tags.push(`<meta property="og:image" content="${escape(absolute(meta.image))}" />`)
+  if (meta.image) {
+    // All preview images are 1200x630 (scripts/og-images.mjs); stating the
+    // size lets LinkedIn and others show the large card on the first share.
+    tags.push(
+      `<meta property="og:image" content="${escape(absolute(meta.image))}" />`,
+      `<meta property="og:image:width" content="1200" />`,
+      `<meta property="og:image:height" content="630" />`,
+      `<meta property="og:image:alt" content="${escape(meta.title)}" />`,
+    )
+  }
   return tags.join('\n    ')
 }
 
