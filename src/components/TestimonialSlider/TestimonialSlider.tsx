@@ -21,7 +21,7 @@ interface Testimonial {
 const testimonials: Testimonial[] = [
   {
     quote:
-      'Fuel delivered with clarity. Their structured workflow and fast turnaround made our redesign launch seamless. They’ve become our trusted partner for every major creative push.',
+      'Black Systems delivered with clarity. Their structured workflow and fast turnaround made our redesign launch seamless. They’ve become our trusted partner for every major creative push.',
     name: 'Adrian Velasco',
     position: 'NovaLabs / Creative Lead',
     image: images.manHoodie9kkvud,
@@ -29,14 +29,14 @@ const testimonials: Testimonial[] = [
   },
   {
     quote:
-      'The team understood our vision instantly. Clean communication, flexible timelines, and consistently refined work. Fuel gave our brand the modern edge we were missing.',
+      'The team understood our vision instantly. Clean communication, flexible timelines, and consistently refined work. Black Systems gave our brand the modern edge we were missing.',
     name: 'Kasandra, Leon, Miles',
     position: 'Miro One / Team Lead Members',
     image: images.womenOnTheSofaYw1gcz,
   },
   {
     quote:
-      'Professional, thoughtful, and incredibly detail-driven. Fuel supported us through multiple product rollouts with steady direction and polished execution. Highly dependable every time.',
+      'Professional, thoughtful, and incredibly detail-driven. Black Systems supported us through multiple product rollouts with steady direction and polished execution. Highly dependable every time.',
     name: 'Gracia Michelle',
     position: 'Apple Co. / Senior Lead Engineer',
     image: images.curlyWomanWq7hn1,

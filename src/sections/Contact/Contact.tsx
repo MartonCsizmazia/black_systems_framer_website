@@ -54,7 +54,9 @@ export default function Contact({ index = '05' }: { index?: string }) {
           </motion.h3>
 
           <p className="text-preset-q70fzl contact__description">
-            Pick a plan, submit a job request, and your image will kickoff within 24 hours.
+              Book a call, share your process,
+              and your first automation goes live
+              within weeks.
           </p>
 
           <form className="contact__form" onSubmit={handleSubmit}>
@@ -71,7 +73,7 @@ export default function Contact({ index = '05' }: { index?: string }) {
 
             <label className="contact__field">
               <span className="text-preset-152twjm contact__label">Email</span>
-              <input className="text-preset-152twjm" type="email" name="email" placeholder="fuel@mail.com" required />
+              <input className="text-preset-152twjm" type="email" name="email" placeholder="marton@blacksystems.ai" required />
             </label>
 
             <label className="contact__field">

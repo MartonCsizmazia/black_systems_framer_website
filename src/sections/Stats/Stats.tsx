@@ -8,22 +8,22 @@ const stats = [
   {
     number: '2.06M',
     title: 'Global Impressions',
-    bodyText: 'Fuel moves beyond simple authenticity, creating refined systems that shape digital presence.',
+    bodyText: 'Black Systems moves beyond simple authenticity, creating refined systems that shape digital presence.',
   },
   {
     number: '160K',
     title: 'Community Reach',
-    bodyText: 'Elevating identity with structured clarity. Fuel crafts experiences that extend far beyond visual form.',
+    bodyText: 'Elevating identity with structured clarity. Black Systems crafts experiences that extend far beyond visual form.',
   },
   {
     number: '750+',
     title: 'Creative Hours Logged',
-    bodyText: 'Through precision and intention, Fuel transforms ideas into cohesive narratives that define brands.',
+    bodyText: 'Through precision and intention, Black Systems transforms ideas into cohesive narratives that define brands.',
   },
   {
     number: '257+',
     title: 'Projects Completed',
-    bodyText: 'Blending modern aesthetics with functional design, Fuel delivers refined solutions that push brands.',
+    bodyText: 'Blending modern aesthetics with functional design, Black Systems delivers refined solutions that push brands.',
   },
 ]
 

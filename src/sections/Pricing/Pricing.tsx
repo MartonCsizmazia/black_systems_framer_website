@@ -34,7 +34,7 @@ const tiers = [
   },
   {
     title: 'Elite',
-    description: 'High-touch and a fully crafted brand experience by Fuel.',
+    description: 'High-touch and a fully crafted brand experience by Black Systems.',
     price: '10999',
     features: [
       'Custom-crafted visual identity',
