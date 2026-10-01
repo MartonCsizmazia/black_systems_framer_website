@@ -11,6 +11,7 @@
 //   dist/hu.html                          Hungarian home            /hu
 //   dist/hu/case-studies/<slug>.html      Hungarian case studies    /hu/case-studies/<slug>
 //   dist/hu/404.html                      Hungarian not found       (anything under /hu)
+//   dist/sitemap.xml, dist/robots.txt     for search engines
 import { mkdir, readFile, rm, writeFile } from 'node:fs/promises'
 import { dirname, join } from 'node:path'
 import { fileURLToPath, pathToFileURL } from 'node:url'
@@ -98,5 +99,28 @@ for (const lang of LANGS) {
   await write(file, page(notFound, pageMeta('/__not-found__', lang), lang))
 }
 
+// sitemap.xml: every page in every language, each listing its language
+// versions (same pairs as the hreflang tags). The 404 pages are left out.
+const urlEntries = PRERENDER_PATHS.flatMap((path) =>
+  LANGS.map((lang) => {
+    const alternates = [...LANGS, 'x-default']
+      .map((other) => {
+        const href = absolute(localizePath(path, other === 'x-default' ? DEFAULT_LANG : other))
+        return `    <xhtml:link rel="alternate" hreflang="${other}" href="${escape(href)}" />`
+      })
+      .join('\n')
+    return `  <url>\n    <loc>${escape(absolute(localizePath(path, lang)))}</loc>\n${alternates}\n  </url>`
+  }),
+)
+await write(
+  join(dist, 'sitemap.xml'),
+  `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+${urlEntries.join('\n')}
+</urlset>
+`,
+)
+await write(join(dist, 'robots.txt'), `User-agent: *\nAllow: /\n\nSitemap: ${SITE_URL}/sitemap.xml\n`)
+
 await rm(serverDir, { recursive: true, force: true })
-console.log(`prerendered ${written.length} pages:\n  ` + written.map((f) => f.replace(root + '/', '')).join('\n  '))
+console.log(`prerendered ${written.length} files:\n  ` + written.map((f) => f.replace(root + '/', '')).join('\n  '))

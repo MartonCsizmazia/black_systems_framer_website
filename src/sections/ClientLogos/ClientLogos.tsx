@@ -1,6 +1,8 @@
 import { useRef, useState } from 'react'
 import { motion, useAnimationFrame, useMotionValue } from 'framer-motion'
+import { useId } from 'react'
 import { images } from '../../assets/images'
+import { useTranslation } from '../../i18n/i18n'
 import './ClientLogos.css'
 
 /**
@@ -13,12 +15,14 @@ import './ClientLogos.css'
  * single-item auto-rotating carousel with dots on phone (not reproduced;
  * the marquee is reused across all breakpoints as a simpler stand-in).
  */
+// The founder's past employers (not clients - the label says so). Names are
+// the first set's alt texts; the repeated copies are decorative.
 const logos = [
-  images.assetFpupna,
-  images.assetPtmk11,
-  images.assetSji9he,
-  images.asset4zx7dv,
-  images.asset4wrdli,
+  { image: images.assetFpupna, name: 'Budapest' },
+  { image: images.assetPtmk11, name: 'Deutsche Telekom' },
+  { image: images.assetSji9he, name: 'Voormedia' },
+  { image: images.asset4zx7dv, name: 'Clario' },
+  { image: images.asset4wrdli, name: 'Accenture' },
 ]
 
 // A 2x-duplicated track only tiles seamlessly while the viewport is narrower
@@ -43,6 +47,8 @@ const SECONDS_PER_SET = 25
 const HOVER_SPEED_FACTOR = 0.35
 
 export default function ClientLogos() {
+  const { t } = useTranslation()
+  const labelId = useId()
   const trackRef = useRef<HTMLDivElement>(null)
   const x = useMotionValue(0)
   const [hovered, setHovered] = useState(false)
@@ -58,18 +64,24 @@ export default function ClientLogos() {
   })
 
   return (
-    <section className="client-logos">
+    <section className="client-logos" aria-labelledby={labelId}>
+      <p id={labelId} className="client-logos__label text-preset-152twjm">
+        {t('about.logosLabel')}
+      </p>
       <div
         className="client-logos__track"
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
       >
         <motion.div ref={trackRef} className="client-logos__marquee" style={{ x }}>
-          {track.map((logo, i) => (
-            <div key={i} className="client-logos__tile">
-              <img src={logo.src} alt={logo.alt || ''} className="client-logos__logo" />
-            </div>
-          ))}
+          {track.map((logo, i) => {
+            const copy = i >= logos.length
+            return (
+              <div key={i} className="client-logos__tile" aria-hidden={copy || undefined}>
+                <img src={logo.image.src} alt={copy ? '' : logo.name} className="client-logos__logo" />
+              </div>
+            )
+          })}
         </motion.div>
       </div>
     </section>

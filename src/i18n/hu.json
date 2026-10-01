@@ -36,6 +36,7 @@
   },
   "about": {
     "eyebrow": "Rólunk",
+    "logosLabel": "(Ahol a Black Systems előtt rendszereket építettem)",
     "heading": "Az AI automatizációs partner növekvő vállalkozásoknak. AI rendszerek, amelyek több érdeklődőt hoznak, és leveszik a csapatod válláról az ismétlődő munkát.",
     "pre": {
       "label": "(Előtte)",
@@ -218,6 +219,7 @@
     "lastNamePlaceholder": "Kovács",
     "email": "E-mail",
     "message": "Üzenet",
+    "emailPlaceholder": "nev@cegnev.hu",
     "messagePlaceholder": "Írd ide az üzeneted...",
     "submit": "Küldés"
   },

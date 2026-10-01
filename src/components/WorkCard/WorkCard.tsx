@@ -52,7 +52,7 @@ export default function WorkCard({
         <span className="work-card__roll text-preset-152twjm">{rollNo}</span>
         <div className="work-card__text-year">
           <div className="work-card__title-category">
-            <span className="text-preset-152twjm work-card__title">{title}</span>
+            <h3 className="text-preset-152twjm work-card__title">{title}</h3>
             <span className="text-preset-152twjm work-card__category">{category}</span>
           </div>
           <span className="text-preset-152twjm work-card__year">{year}</span>

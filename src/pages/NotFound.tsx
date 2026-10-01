@@ -2,7 +2,7 @@ import Navbar from '../components/Navbar/Navbar'
 import SectionEyebrow from '../components/SectionEyebrow/SectionEyebrow'
 import Button from '../components/Button/Button'
 import Footer from '../components/Footer/Footer'
-import { useTranslation } from '../i18n/I18nProvider'
+import { useTranslation } from '../i18n/i18n'
 import { localizePath } from '../i18n/paths'
 import './NotFound.css'
 

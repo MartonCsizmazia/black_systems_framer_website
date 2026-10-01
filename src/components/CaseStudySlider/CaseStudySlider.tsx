@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import WorkCard from '../WorkCard/WorkCard'
 import { scrollToSection } from '../../hooks/useLenis'
 import { caseStudies, caseStudyHref, caseStudyText } from '../../data/caseStudiesConfig'
-import { useTranslation } from '../../i18n/I18nProvider'
+import { useTranslation } from '../../i18n/i18n'
 import './CaseStudySlider.css'
 import { useIsomorphicLayoutEffect } from '../../hooks/useIsomorphicLayoutEffect'
 

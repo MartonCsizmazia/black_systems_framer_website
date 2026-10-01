@@ -6,7 +6,7 @@ import OverlapFiller from '../../components/OverlapFiller/OverlapFiller'
 import { images } from '../../assets/images'
 import './CaseStudiesPreview.css'
 import { caseStudies, caseStudyHref, caseStudyText, type CaseStudyEntry } from '../../data/caseStudiesConfig'
-import { useTranslation } from '../../i18n/I18nProvider'
+import { useTranslation } from '../../i18n/i18n'
 
 // Recovered exactly by measuring the live source: each card slot but the
 // last is plain `position: sticky`, with `top` increasing by 40px per card
@@ -101,11 +101,11 @@ export default function CaseStudiesPreview() {
     <section id="case-studies" className="case-studies">
       {/* Slanted white edge over the dark Services section before it. */}
       <OverlapFiller color="paper" />
-      <SectionEyebrow index="03" title={t('caseStudies.eyebrow')} />
+      <SectionEyebrow index="03" title={t('caseStudies.eyebrow')} heading />
 
       <div className="case-studies__bottom">
         <div className="case-studies__sidebar case-studies__sidebar--left">
-          <h4 className="text-preset-kxvc54 case-studies__sidebar-title">{t('caseStudies.sidebarCode', { year: yearSuffix })}</h4>
+          <p className="text-preset-kxvc54 case-studies__sidebar-title">{t('caseStudies.sidebarCode', { year: yearSuffix })}</p>
           <div className="case-studies__sidebar-line" />
         </div>
 

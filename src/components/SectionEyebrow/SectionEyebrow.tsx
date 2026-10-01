@@ -4,6 +4,9 @@ export interface SectionEyebrowProps {
   index: string
   title: string
   dark?: boolean
+  /** The title is the section's heading (h2), for sections without a
+   * headline of their own. */
+  heading?: boolean
 }
 
 /**
@@ -14,13 +17,13 @@ export interface SectionEyebrowProps {
  * preset at full opacity (solid ink or paper), not the larger, half-opacity
  * text-preset-q70fzl the sections used before.
  */
-export default function SectionEyebrow({ index, title, dark = false }: SectionEyebrowProps) {
+export default function SectionEyebrow({ index, title, dark = false, heading = false }: SectionEyebrowProps) {
   const year = new Date().getFullYear()
 
   return (
     <div className={`section-eyebrow text-preset-152twjm${dark ? ' section-eyebrow--dark' : ''}`}>
       <span>({index})</span>
-      <span>{title}</span>
+      {heading ? <h2 className="section-eyebrow__heading">{title}</h2> : <span>{title}</span>}
       <span>&copy; {year}</span>
     </div>
   )

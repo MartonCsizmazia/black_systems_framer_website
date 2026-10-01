@@ -46,16 +46,16 @@
 .faq-item {
   display: flex;
   flex-direction: column;
-  gap: 40px;
   width: 100%;
-  padding-top: 28px;
 }
 .faq-item__content {
   display: flex;
   flex-direction: column;
   gap: 10px;
   width: 100%;
-  padding: 0;
+  /* The row's spacing lives inside the button, so the whole row (not just
+     the question's text line) is the tap target. */
+  padding: 28px 0 40px;
   border: none;
   background: none;
   color: inherit;

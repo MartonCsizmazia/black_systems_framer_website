@@ -7,7 +7,7 @@ import LineReveal from '../components/LineReveal/LineReveal'
 import Footer from '../components/Footer/Footer'
 import Contact from '../sections/Contact/Contact'
 import { caseStudyText, type CaseStudyEntry } from '../data/caseStudiesConfig'
-import { useTranslation } from '../i18n/I18nProvider'
+import { useTranslation } from '../i18n/i18n'
 import CaseStudySlider from '../components/CaseStudySlider/CaseStudySlider'
 import './CaseStudy.css'
 import Navbar, { type NavLink } from "../components/Navbar/Navbar";
@@ -85,7 +85,7 @@ function CaseStudyHero({ caseStudy, fadeTargetRef }: { caseStudy: CaseStudyEntry
               <PlusMark />
               <PlusMark />
             </div>
-            <h2 className="text-preset-1gc7217 case-study-hero__title">{text.title}</h2>
+            <h1 className="text-preset-1gc7217 case-study-hero__title">{text.title}</h1>
             <div className="case-study-hero__detail">
               <PlusMark />
               <PlusMark />
@@ -117,7 +117,7 @@ function CaseStudyContent({ caseStudy, fadeTargetRef }: { caseStudy: CaseStudyEn
 
       <div className="case-study-content__top">
         <SectionEyebrow index="01" title={text.title} />
-        <LineReveal as="h3" className="text-preset-13ruabr case-study-content__intro" text={text.intro} />
+        <LineReveal as="p" className="text-preset-13ruabr case-study-content__intro" text={text.intro} />
       </div>
 
       <div className="case-study-content__spacer" />
@@ -125,15 +125,15 @@ function CaseStudyContent({ caseStudy, fadeTargetRef }: { caseStudy: CaseStudyEn
       <div className="case-study-content__bottom">
         <motion.div className="case-study-content__info" {...fadeIn(1.2)}>
           <div className="case-study-content__row">
-            <p className="text-preset-q70fzl case-study-content__heading">{t('caseStudies.research')}</p>
+            <h2 className="text-preset-q70fzl case-study-content__heading">{t('caseStudies.research')}</h2>
             <p className="text-preset-q70fzl case-study-content__text">{text.research}</p>
           </div>
           <div className="case-study-content__row">
-            <p className="text-preset-q70fzl case-study-content__heading">{t('caseStudies.solution')}</p>
+            <h2 className="text-preset-q70fzl case-study-content__heading">{t('caseStudies.solution')}</h2>
             <p className="text-preset-q70fzl case-study-content__text">{text.solution}</p>
           </div>
           <div className="case-study-content__row">
-            <p className="text-preset-q70fzl case-study-content__heading">{t('caseStudies.results')}</p>
+            <h2 className="text-preset-q70fzl case-study-content__heading">{t('caseStudies.results')}</h2>
             <div className="case-study-content__results">
               <div className="case-study-content__stats">
                 {text.stats.map((s) => (
@@ -158,7 +158,7 @@ function MoreCaseStudies({ caseStudy }: { caseStudy: CaseStudyEntry }) {
   const { t } = useTranslation()
   return (
     <section id="more-case-studies" className="more-case-studies">
-      <SectionEyebrow index="02" title={t('caseStudies.eyebrow')} />
+      <SectionEyebrow index="02" title={t('caseStudies.eyebrow')} heading />
       <CaseStudySlider currentSlug={caseStudy.slug} currentTarget="#case-study-content" />
     </section>
   )

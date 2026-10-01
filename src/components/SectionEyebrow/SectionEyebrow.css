@@ -13,3 +13,11 @@
   border-top-color: var(--color-paper-16);
   color: var(--color-paper);
 }
+
+/* Same look as the plain title when it's the section's heading. */
+.section-eyebrow__heading {
+  margin: 0;
+  font: inherit;
+  font-variation-settings: inherit;
+  letter-spacing: inherit;
+}

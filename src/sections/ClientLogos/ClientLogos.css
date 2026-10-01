@@ -10,6 +10,15 @@
   overflow: hidden;
 }
 
+/* Small caption above the strip. (Two classes, so the margin wins over the
+   text-preset rule's margin: 0.) */
+.client-logos .client-logos__label {
+  margin: 0 0 24px;
+  padding: 0 24px;
+  text-align: center;
+  color: var(--color-ink-50);
+}
+
 .client-logos__track {
   width: 100%;
   overflow: hidden;

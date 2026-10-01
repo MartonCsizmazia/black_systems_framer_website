@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import SectionEyebrow from '../SectionEyebrow/SectionEyebrow'
-import { useTranslation } from '../../i18n/I18nProvider'
+import { useTranslation } from '../../i18n/i18n'
 import './FaqSection.css'
 
 export interface Faq {
@@ -83,7 +83,7 @@ export default function FaqSection({
   return (
     <section id={id} className="faq-section">
       <div className="faq-section__container">
-        <SectionEyebrow index={index} title={t('faq.eyebrow')} />
+        <SectionEyebrow index={index} title={t('faq.eyebrow')} heading />
         <div className="faq-section__content">
           <div className="faq-section__list">
             {faqs.map((faq, i) => (

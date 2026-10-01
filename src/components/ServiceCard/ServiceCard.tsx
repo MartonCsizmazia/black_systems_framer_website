@@ -42,7 +42,7 @@ export default function ServiceCard({ rollNo, category, heading, bodyText, image
             />
           </div>
           <div className="service-card__content">
-            <h4 className="text-preset-kxvc54 service-card__title">{category}</h4>
+            <h3 className="text-preset-kxvc54 service-card__title">{category}</h3>
             <div className="service-card__description">
               <p className="text-preset-q70fzl service-card__heading">{heading}</p>
               <p className="text-preset-q70fzl service-card__body">{bodyText}</p>

@@ -36,6 +36,7 @@
   },
   "about": {
     "eyebrow": "About Us",
+    "logosLabel": "(Where I built systems before Black Systems)",
     "heading": "The AI automation partner for growing businesses. AI systems that bring in more leads and take the repetitive work off your team.",
     "pre": {
       "label": "(Pre)",
@@ -218,7 +219,8 @@
     "lastNamePlaceholder": "Hopper",
     "email": "Email",
     "message": "Message",
-    "messagePlaceholder": "Enter your message.....",
+    "emailPlaceholder": "name@company.com",
+    "messagePlaceholder": "Write your message...",
     "submit": "Submit"
   },
   "footer": {

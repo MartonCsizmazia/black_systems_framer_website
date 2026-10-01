@@ -2,7 +2,7 @@ import { useRef } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import Button from '../Button/Button'
 import { images } from '../../assets/images'
-import { useTranslation } from '../../i18n/I18nProvider'
+import { useTranslation } from '../../i18n/i18n'
 import './CtaBanner.css'
 
 // Same technique as About's portrait: the container stays put, the

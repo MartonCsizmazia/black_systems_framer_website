@@ -5,7 +5,7 @@ import SectionEyebrow from '../../components/SectionEyebrow/SectionEyebrow'
 import CtaBanner from '../../components/CtaBanner/CtaBanner'
 import ClientLogos from '../ClientLogos/ClientLogos'
 import { NAME } from '../../data/contact'
-import { useTranslation } from '../../i18n/I18nProvider'
+import { useTranslation } from '../../i18n/i18n'
 import { images } from '../../assets/images'
 import './About.css'
 
@@ -54,14 +54,15 @@ export default function About() {
 
       <div className="about__top">
         <SectionEyebrow index="01" title={t('about.eyebrow')} />
-        <motion.p
+        {/* The page's h1: the home page's main statement. */}
+        <motion.h1
           className="about__heading"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0, transition: { duration: 0.7, delay: 0.1 } }}
           viewport={{ once: true, amount: 0.01 }}
         >
             {t('about.heading')}
-        </motion.p>
+        </motion.h1>
       </div>
 
       <div className="about__bottom">

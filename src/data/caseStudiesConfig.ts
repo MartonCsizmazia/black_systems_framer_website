@@ -1,5 +1,5 @@
 import { images } from '../assets/images'
-import type { Lang, Translations } from '../i18n/I18nProvider'
+import type { Lang, Translations } from '../i18n/i18n'
 import { localizePath } from '../i18n/paths'
 
 type Image = { src: string; alt?: string }

@@ -3,7 +3,7 @@ import { renderToString } from 'react-dom/server'
 import App from './App'
 
 export { PRERENDER_PATHS, pageMeta, SITE_URL } from './seo'
-export { LANGS } from './i18n/I18nProvider'
+export { LANGS } from './i18n/i18n'
 export { localizePath } from './i18n/paths'
 
 /** Render one page to HTML for the build-time prerender. `pathname` is the

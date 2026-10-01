@@ -1,4 +1,4 @@
-import type { Lang } from './I18nProvider'
+import type { Lang } from './i18n'
 
 /**
  * Language in the address: English at the root (/, /case-studies/<slug>),

@@ -1,9 +1,9 @@
 import { caseStudies, caseStudyHref, caseStudyText, findCaseStudy } from './data/caseStudiesConfig'
-import { DEFAULT_LANG, getTexts, translate, type Lang } from './i18n/I18nProvider'
+import { DEFAULT_LANG, getTexts, translate, type Lang } from './i18n/i18n'
 
 /** The site's public address: used for canonical links and link previews,
  * which need absolute URLs. Change it if the production domain differs. */
-export const SITE_URL = 'https://blacksystems.ai'
+export const SITE_URL = 'https://www.blacksystems.ai'
 
 export interface PageMeta {
   title: string

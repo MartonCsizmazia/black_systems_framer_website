@@ -3,7 +3,7 @@ import ServiceCard from '../../components/ServiceCard/ServiceCard'
 import OverlapFiller from '../../components/OverlapFiller/OverlapFiller'
 import SectionEyebrow from '../../components/SectionEyebrow/SectionEyebrow'
 import { images } from '../../assets/images'
-import { useTranslation } from '../../i18n/I18nProvider'
+import { useTranslation } from '../../i18n/i18n'
 import './Services.css'
 
 // Language-independent parts of the three service cards; their texts come
@@ -36,14 +36,14 @@ export default function Services() {
                 shown as a static image instead. Floated (not absolutely
                 positioned) so the heading text that follows it in the DOM
                 wraps around it instead of running underneath it. */}
-            <motion.p
+            <motion.h2
               className="services__heading"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0, transition: { duration: 0.7, delay: 0.1 } }}
               viewport={{ once: true, amount: 0.01 }}
             >
                 {t('services.heading')}
-            </motion.p>
+            </motion.h2>
           </div>
 
           <div className="services__button-detail">

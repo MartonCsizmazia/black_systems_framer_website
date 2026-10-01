@@ -1,6 +1,6 @@
 # Black Systems Website
 
-A single-page marketing site built with React, TypeScript and Vite. The layout and scroll animations began as a hand-coded rebuild of the "Fuel" Framer template. Its demo content is being replaced with real content.
+A single-page marketing site built with React, TypeScript and Vite.
 
 ## Requirements
 

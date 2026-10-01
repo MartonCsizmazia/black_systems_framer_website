@@ -1,6 +1,6 @@
 import { useId } from 'react'
 import { motion } from 'framer-motion'
-import { LANGS, useTranslation, type Lang } from '../../i18n/I18nProvider'
+import { LANGS, useTranslation, type Lang } from '../../i18n/i18n'
 import './LanguageSwitch.css'
 
 /** Each language named in itself, so it's recognisable whatever language the

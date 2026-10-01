@@ -1,9 +1,6 @@
 import { useEffect, useRef, useState, type RefObject } from 'react'
 import './LiquidHover.css'
 
-/** True for sources the background should play as <video> (by file extension). */
-export const isVideoSrc = (src: string) => /\.(mp4|webm|mov|m4v)(\?|#|$)/i.test(src)
-
 export interface LiquidHoverProps {
   image: { src: string; alt?: string }
   /** When the background is a video, the <video> element that plays it. Its
@@ -313,7 +310,7 @@ export default function LiquidHover({
     // Not required by source, but some WebGL1 implementations need this to
     // allow rendering (not just sampling) float textures - requesting it is
     // a no-op where unsupported/unnecessary.
-    gl.getExtension('WEBGL_color_buffer_float') || gl.getExtension('EXT_color_buffer_float')
+    if (!gl.getExtension('WEBGL_color_buffer_float')) gl.getExtension('EXT_color_buffer_float')
     gl.clearColor(0, 0, 0, 0)
 
     // Framer's control ranges (0.1-1) remapped to the simulation's own units.

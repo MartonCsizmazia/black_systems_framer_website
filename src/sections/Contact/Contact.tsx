@@ -2,7 +2,7 @@ import { motion } from 'framer-motion'
 import { images } from '../../assets/images'
 import OverlapFiller from '../../components/OverlapFiller/OverlapFiller'
 import SectionEyebrow from '../../components/SectionEyebrow/SectionEyebrow'
-import { useTranslation } from '../../i18n/I18nProvider'
+import { useTranslation } from '../../i18n/i18n'
 import './Contact.css'
 
 /**
@@ -46,14 +46,14 @@ export default function Contact({ index = '05' }: { index?: string }) {
         </div>
 
         <div className="contact__inner">
-          <motion.h3
+          <motion.h2
             className="contact__heading"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0, transition: { duration: 0.7, delay: 0.1 } }}
             viewport={{ once: true, amount: 0.01 }}
           >
             {t('contact.heading')}
-          </motion.h3>
+          </motion.h2>
 
           <p className="text-preset-q70fzl contact__description">{t('contact.description')}</p>
 
@@ -71,7 +71,7 @@ export default function Contact({ index = '05' }: { index?: string }) {
 
             <label className="contact__field">
               <span className="text-preset-152twjm contact__label">{t('contact.email')}</span>
-              <input className="text-preset-152twjm" type="email" name="email" placeholder="marton@blacksystems.ai" required />
+              <input className="text-preset-152twjm" type="email" name="email" placeholder={t('contact.emailPlaceholder')} required />
             </label>
 
             <label className="contact__field">
