@@ -1,6 +1,5 @@
 import { useRef } from 'react'
 import { motion, useScroll, useTransform, type MotionValue } from 'framer-motion'
-import Button from '../../components/Button/Button'
 import WorkCard from '../../components/WorkCard/WorkCard'
 import SectionEyebrow from '../../components/SectionEyebrow/SectionEyebrow'
 import { images } from '../../assets/images'
@@ -117,9 +116,11 @@ export default function CaseStudiesPreview() {
         </div>
 
         <div className="case-studies__sidebar case-studies__sidebar--right">
-          <a href="/case-studies" className="case-studies__see-all">
+          {/* Opens the first case study's page at its slider of all case
+              studies; the count follows the config. */}
+          <a href={`${caseStudyHref(caseStudies[0].slug)}#more-case-studies`} className="case-studies__see-all">
             <img src={images.assetXfjtzm.src} alt="" className="case-studies__see-all-thumb" />
-            <span className="text-preset-q70fzl">See all (07)</span>
+            <span className="text-preset-q70fzl">See all ({String(caseStudies.length).padStart(2, '0')})</span>
           </a>
         </div>
       </div>
