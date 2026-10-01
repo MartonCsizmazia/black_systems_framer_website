@@ -1,5 +1,4 @@
 import { motion } from 'framer-motion'
-import Button from '../../components/Button/Button'
 import ServiceCard from '../../components/ServiceCard/ServiceCard'
 import OverlapFiller from '../../components/OverlapFiller/OverlapFiller'
 import SectionEyebrow from '../../components/SectionEyebrow/SectionEyebrow'
@@ -39,7 +38,7 @@ export default function Services() {
       <OverlapFiller color="ink" />
 
       <div className="services__top">
-        <SectionEyebrow index="03" title="Premium Services" dark />
+        <SectionEyebrow index="02" title="Premium Services" dark />
 
         <div className="services__content">
           <div className="services__heading-wrap">

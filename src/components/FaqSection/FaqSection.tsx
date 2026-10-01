@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import SectionEyebrow from '../SectionEyebrow/SectionEyebrow'
-import OverlapFiller from '../OverlapFiller/OverlapFiller'
 import './FaqSection.css'
 
 export interface Faq {
@@ -108,9 +107,6 @@ export default function FaqSection({
 }: FaqSectionProps) {
   return (
     <section id={id} className="faq-section">
-      {/* Slanted white edge over the previous section (dark Services on the
-          home page), like the other section transitions. */}
-      <OverlapFiller color="paper" />
       <div className="faq-section__container">
         <SectionEyebrow index={index} title="Frequently Asked Questions" />
         <div className="faq-section__content">

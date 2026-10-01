@@ -2,6 +2,7 @@ import { useRef } from 'react'
 import { motion, useScroll, useTransform, type MotionValue } from 'framer-motion'
 import WorkCard from '../../components/WorkCard/WorkCard'
 import SectionEyebrow from '../../components/SectionEyebrow/SectionEyebrow'
+import OverlapFiller from '../../components/OverlapFiller/OverlapFiller'
 import { images } from '../../assets/images'
 import './CaseStudiesPreview.css'
 import { caseStudies, caseStudyHref, type CaseStudyEntry } from '../../data/caseStudiesConfig'
@@ -94,7 +95,9 @@ export default function CaseStudiesPreview() {
 
   return (
     <section id="case-studies" className="case-studies">
-      <SectionEyebrow index="02" title="Case Studies" />
+      {/* Slanted white edge over the dark Services section before it. */}
+      <OverlapFiller color="paper" />
+      <SectionEyebrow index="03" title="Case Studies" />
 
       <div className="case-studies__bottom">
         <div className="case-studies__sidebar case-studies__sidebar--left">

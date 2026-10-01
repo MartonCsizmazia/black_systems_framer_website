@@ -15,8 +15,8 @@ export default function Home() {
       <Navbar />
       <Hero />
       <About />
-      <CaseStudiesPreview />
       <Services />
+      <CaseStudiesPreview />
       {/*<Pricing />*/}
       {/*<Testimonial />*/}
       {/*<Archive />*/}

@@ -27,8 +27,8 @@ export interface NavbarProps {
 // "Home" is the wordmark itself (it scrolls back to the top).
 export const NAV_LINKS: NavLink[] = [
   { title: 'About Us', rollNo: '01', href: '#about' },
-  { title: 'Case Studies', rollNo: '02', href: '#case-studies' },
-  { title: 'Services', rollNo: '03', href: '#services' },
+  { title: 'Services', rollNo: '02', href: '#services' },
+  { title: 'Case Studies', rollNo: '03', href: '#case-studies' },
   { title: 'FAQ', rollNo: '04', href: '#faq' },
   { title: 'Contact', rollNo: '05', href: '#contact' },
 ]
