@@ -11,7 +11,7 @@ import { useEffect } from 'react'
 export const CAL_LINK = 'marton-csizmazia-avnndf/30min'
 export const CAL_NAMESPACE = '30min'
 
-/** Plain booking page URL — the fallback href if embed.js fails to load. */
+/** Plain booking page URL - the fallback href if embed.js fails to load. */
 export const CAL_URL = `https://cal.com/${CAL_LINK}`
 
 /** Attributes that make a link open the booking popup (pair with href={CAL_URL}). */
@@ -29,7 +29,7 @@ export const isCalEmbedReady = () => window.__calEmbedReady === true
 /**
  * Click handler for booking triggers. embed.js opens the modal from its own
  * document-level listener but never cancels the link's navigation, so do
- * that here — only when the embed is ready, keeping the href fallback.
+ * that here - only when the embed is ready, keeping the href fallback.
  */
 export function preventCalNavigation(e: { preventDefault: () => void }) {
   if (isCalEmbedReady()) e.preventDefault()

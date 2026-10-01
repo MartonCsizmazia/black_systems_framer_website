@@ -278,7 +278,7 @@ interface GLProgram {
 }
 
 /**
- * Ported from Framer's "Liquid Hover" component — recovered verbatim
+ * Ported from Framer's "Liquid Hover" component - recovered verbatim
  * (shaders included) from the captured production bundle. It's a small
  * real-time GPU fluid simulation (velocity splat -> divergence -> pressure
  * solve -> gradient subtract -> advection) whose resulting velocity field
@@ -311,7 +311,7 @@ export default function LiquidHover({
     gl.getExtension('OES_texture_float')
     gl.getExtension('OES_texture_float_linear')
     // Not required by source, but some WebGL1 implementations need this to
-    // allow rendering (not just sampling) float textures — requesting it is
+    // allow rendering (not just sampling) float textures - requesting it is
     // a no-op where unsupported/unnecessary.
     gl.getExtension('WEBGL_color_buffer_float') || gl.getExtension('EXT_color_buffer_float')
     gl.clearColor(0, 0, 0, 0)
@@ -367,7 +367,7 @@ export default function LiquidHover({
     }
 
     // Fullscreen quad geometry, created once and left bound. (It used to be
-    // re-created on every drawQuad call — ~22x per frame — leaking GPU
+    // re-created on every drawQuad call - ~22x per frame - leaking GPU
     // buffers until the context stalled or was lost, freezing the canvas.)
     const quadPositions = gl.createBuffer()
     gl.bindBuffer(gl.ARRAY_BUFFER, quadPositions)

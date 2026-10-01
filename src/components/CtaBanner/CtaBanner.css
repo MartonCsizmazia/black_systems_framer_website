@@ -20,7 +20,7 @@
   left: 0;
   width: 100%;
   /* Deliberately taller than the container (like About's portrait) so
-     there's room for a scroll-linked pan — see the useScroll/useTransform
+     there's room for a scroll-linked pan - see the useScroll/useTransform
      wiring in CtaBanner.tsx. Top-aligned by default (no `bottom`/`inset`),
      so the untransformed rest state is unchanged from before. */
   height: 145%;
@@ -65,7 +65,7 @@
   letter-spacing: -3px;
   color: var(--color-paper);
 }
-/* Below 810px only the photo and button remain — the marquee (and the
+/* Below 810px only the photo and button remain - the marquee (and the
    plus-marks, hidden further down) are dropped on small screens. */
 @media (max-width: 809.98px) {
   .cta-banner__marquee-track {

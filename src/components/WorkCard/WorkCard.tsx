@@ -18,10 +18,10 @@ export interface WorkCardProps {
 }
 
 /**
- * Recovered from the "Work Card" component (.framer-MRFEw) — a blurred,
+ * Recovered from the "Work Card" component (.framer-MRFEw) - a blurred,
  * oversized copy of the image sits behind a sharp centered crop, giving a
  * soft glow/vignette around the card art. The mirror's Article grid reuses
- * this card's caption layout but with a plain full-bleed image (`flat`) —
+ * this card's caption layout but with a plain full-bleed image (`flat`) - 
  * verified directly against the mirror, which shows no blur halo there.
  */
 export default function WorkCard({

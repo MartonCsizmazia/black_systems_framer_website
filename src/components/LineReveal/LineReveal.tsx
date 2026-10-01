@@ -18,7 +18,7 @@ const spring = { type: 'spring', damping: 60, mass: 1, stiffness: 300 } as const
  * Framer's "appear by line" text effect: each rendered line rises 10px and
  * fades in, one after another, the first time half the block is visible.
  * Lines depend on the wrap at the current width, so words are measured
- * after layout (and again on resize) and grouped by their offsetTop —
+ * after layout (and again on resize) and grouped by their offsetTop - 
  * offsetTop ignores transforms, so the animation itself doesn't disturb it.
  */
 export default function LineReveal({ text, className, as = 'p' }: LineRevealProps) {
@@ -56,7 +56,7 @@ export default function LineReveal({ text, className, as = 'p' }: LineRevealProp
           <motion.span
             data-word=""
             // text-indent is inherited, and an inline-block applies it to its
-            // own first line — without the reset every word would be indented.
+            // own first line - without the reset every word would be indented.
             style={{ display: 'inline-block', textIndent: 0 }}
             initial={{ opacity: 0.001, y: 10 }}
             animate={inView ? { opacity: 1, y: 0 } : undefined}

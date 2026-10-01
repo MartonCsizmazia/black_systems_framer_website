@@ -6,16 +6,16 @@ import { useTranslation } from '../../i18n/I18nProvider'
 import './Contact.css'
 
 /**
- * Recovered from the original site's "Contact" page — reached via the
+ * Recovered from the original site's "Contact" page - reached via the
  * navbar's Contact link, which (like About and Case Studies) is client-side
  * routed with no URL change, so it was never captured as a separate mirror
  * entry. Measured directly by clicking through the live mirror instead: a
  * full-bleed black section, a two-column row (a tall portrait photo, then
  * the heading + short description + form, 127px gap, 574x940 measured photo
  * size), borderless inputs with a label above each one and no visible
- * underline/box — confirmed by checking border/box-shadow at every level of
+ * underline/box - confirmed by checking border/box-shadow at every level of
  * the DOM chain, all transparent. The photo itself (alt "Men Orange BG")
- * wasn't in the mirror capture at all — it loads straight from Framer's own
+ * wasn't in the mirror capture at all - it loads straight from Framer's own
  * CDN on the live site, so it was fetched separately (see assets/images).
  * The FAQ section that follows this on the original page is reused across
  * About/Case Studies/Contact and isn't part of this component; it doesn't
@@ -23,7 +23,7 @@ import './Contact.css'
  *
  * Standalone by design (only imports Contact.css and the shared images
  * module) so it can be copied directly into another project alongside its
- * stylesheet — just bring the men-orange-bg-bfbeq6 image file too, or swap
+ * stylesheet - just bring the men-orange-bg-bfbeq6 image file too, or swap
  * in your own.
  */
 /** `index`: the section number in its eyebrow, which differs per page. */
@@ -31,7 +31,7 @@ export default function Contact({ index = '05' }: { index?: string }) {
   const { t } = useTranslation()
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
-    // No real backend wired up — the original is a Framer-hosted form.
+    // No real backend wired up - the original is a Framer-hosted form.
   }
 
   return (

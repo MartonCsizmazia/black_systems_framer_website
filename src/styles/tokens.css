@@ -4,7 +4,7 @@
   reused throughout every component's generated CSS as
   `var(--token-<uuid>, <fallback>)`).
 
-  These 13 are ALL of the color tokens the site defines — confirmed by
+  These 13 are ALL of the color tokens the site defines - confirmed by
   scanning every captured JS/CSS/HTML file for --token- declarations; no
   light/dark variant pairs exist, this is a single fixed palette.
 
@@ -29,7 +29,7 @@
   --token-a83649a1-3fb0-4a78-ac47-908be8944abe: #fff;       /* white (distinct token id from "White") */
   --token-6ff13ffa-609b-49bb-b9d4-b969f2d488bd: #111;       /* near-black surface */
 
-  /* semantic aliases — edit these to re-theme the site */
+  /* semantic aliases - edit these to re-theme the site */
   --color-ink: var(--token-86dbb439-c396-48fd-926a-93eef5aacd34);
   --color-paper: var(--token-7d46519b-7ae3-4c0a-9383-88033d4deee8);
   --color-ink-50: var(--token-aac9763f-10b4-4aa7-b48b-ab766ef819dd);
@@ -43,7 +43,7 @@
   --color-accent-pale: var(--token-3276f804-88ae-458e-ac7a-7ed927b3c137);
   --color-paper-alt: var(--token-a83649a1-3fb0-4a78-ac47-908be8944abe);
   --color-surface-dark: var(--token-6ff13ffa-609b-49bb-b9d4-b969f2d488bd);
-  /* Brand accent (the hero's orange) — reserved for the main CTAs. */
+  /* Brand accent (the hero's orange) - reserved for the main CTAs. */
   --color-accent: #f14b00;
   --color-accent-hover: #c43d00;
 }

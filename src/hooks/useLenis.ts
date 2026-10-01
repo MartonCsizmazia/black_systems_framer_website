@@ -6,9 +6,9 @@ import { localizePath, parseLangPath } from '../i18n/paths'
  * Framer-published sites run Lenis for smooth scrolling (confirmed live:
  * the mirror's <html> carries a "lenis" class and window.lenisVersion is
  * set). Without it, native wheel scrolling feels comparatively "weightless"
- * — no inertia glide once the wheel stops. Framer's own baked-in defaults
+ * - no inertia glide once the wheel stops. Framer's own baked-in defaults
  * are duration 1.2s with an easeOutExpo-style curve; bumped to 1.8s here
- * per explicit feedback that the default felt too quick/light — a longer
+ * per explicit feedback that the default felt too quick/light - a longer
  * duration is what makes the post-scroll glide read as heavier ("walking
  * on ice") rather than just slower-but-still-snappy.
  */
@@ -20,7 +20,7 @@ import { localizePath, parseLangPath } from '../i18n/paths'
 export const SECTION_SCROLL = {
   /** Seconds the scroll animation takes. */
   duration: 1.8,
-  /** 0 -> 1 progress curve (default: easeInOutCubic — gentle start and stop). */
+  /** 0 -> 1 progress curve (default: easeInOutCubic - gentle start and stop). */
   easing: (t: number) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2),
   /** Where a jump stops, relative to the section's eyebrow (or its
    * [data-scroll-anchor] element): negative = that many px below the top of
@@ -52,7 +52,7 @@ export function scrollToSection(target: string) {
   }
   const section = id === 'top' ? null : document.getElementById(id)
   if (id !== 'top' && !section) return
-  // Land on the section's heading row, not its outer edge — sections have
+  // Land on the section's heading row, not its outer edge - sections have
   // different amounts of top padding, so their edges aren't comparable.
   const el = section?.querySelector<HTMLElement>('[data-scroll-anchor], .section-eyebrow') ?? section
 

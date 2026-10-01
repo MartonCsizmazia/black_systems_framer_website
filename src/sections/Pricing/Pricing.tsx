@@ -5,7 +5,7 @@ import SectionEyebrow from '../../components/SectionEyebrow/SectionEyebrow'
 import './Pricing.css'
 
 // Real tier content recovered from the "Pricing Card" instances in the Home
-// page chunk — feature order matches the source's point1..point8 mapping.
+// page chunk - feature order matches the source's point1..point8 mapping.
 const tiers = [
   {
     title: 'Starter',

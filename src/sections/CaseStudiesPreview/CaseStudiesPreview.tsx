@@ -10,11 +10,11 @@ import { useTranslation } from '../../i18n/I18nProvider'
 
 // Recovered exactly by measuring the live source: each card slot but the
 // last is plain `position: sticky`, with `top` increasing by 40px per card
-// (50px, 90px, 130px, ...) — NOT a framer-motion scale/y transform. Because
+// (50px, 90px, 130px, ...) - NOT a framer-motion scale/y transform. Because
 // later cards sit later in the DOM (same z-index, ties broken by DOM order)
 // each newly-pinned card paints over the lower portion of the one before
 // it, while that earlier card's own `top` offset keeps a fixed ~40px sliver
-// of its own top edge peeking out above — the "photo album" cascade. The
+// of its own top edge peeking out above - the "photo album" cascade. The
 // final card is left in normal flow (no sticky) so it settles as the resting
 // full-size image once the stack finishes, with nothing left to cover it.
 // Raised from the original 50px so the stack pins below the fixed navbar
@@ -24,23 +24,23 @@ const STACK_BASE_TOP = 100
 const STACK_STEP = 20
 
 // Once the *next* card starts covering a card, that card should slowly
-// shrink and drift upward — slowly enough that by the time the last card has
+// shrink and drift upward - slowly enough that by the time the last card has
 // settled, the first one is still a visible sliver (not scrolled fully out
 // of view), and slowly enough that its caption shrinks/clears out of the way
 // before the next card's own caption arrives on top of it. Every card drifts
 // at the same rate (px / unit of overall scroll progress through the whole
 // stack); they only end up shrunk by different amounts because they start
-// at different progress thresholds — card i starts once card i+1 begins
+// at different progress thresholds - card i starts once card i+1 begins
 // arriving, i.e. at progress (i+1)/total.
 const COVER_DRIFT_Y = 46
 const COVER_SHRINK = 0.18
 
 // The caption fades out fast once its card starts being covered (same
-// `startAt` trigger as the shrink/drift above) — otherwise, since the
+// `startAt` trigger as the shrink/drift above) - otherwise, since the
 // cards overlap so closely, the covered card's caption stays legible right
 // through the one covering it. Reaches 0 after just 12% of the overall
 // scroll progress past startAt, well before COVER_SHRINK/COVER_DRIFT_Y
-// finish their own much slower transitions — and reverses the same way on
+// finish their own much slower transitions - and reverses the same way on
 // scroll-up, since it's driven by the same continuous `progress` value.
 // Never applied to the last card (see isLast below): nothing ever covers it.
 const CAPTION_FADE_RANGE = 0.12

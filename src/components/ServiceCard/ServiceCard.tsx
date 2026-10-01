@@ -20,7 +20,7 @@ export default function ServiceCard({ rollNo, category, heading, bodyText, image
   // Continuously scroll-linked (not a whileInView-triggered tween): the
   // zoom should track scroll position itself, starting the instant the
   // image's top edge enters the bottom of the viewport and finishing right
-  // as it reaches viewport center — not fire all at once the moment any
+  // as it reaches viewport center - not fire all at once the moment any
   // sliver becomes visible.
   const { scrollYProgress } = useScroll({ target: imgRef, offset: ['start end', 'start center'] })
   const rawScale = useTransform(scrollYProgress, [0, 1], [1.25, 1])

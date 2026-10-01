@@ -16,7 +16,7 @@ interface Testimonial {
 
 // Recovered from the "Testimonial Slider" component. 4 client tabs exist in
 // the source; 3 are confidently reconstructed here (name/position/quote all
-// verified) — the 4th tab's text couldn't be reliably paired with a name
+// verified) - the 4th tab's text couldn't be reliably paired with a name
 // from the minified source, so it's left out rather than guessed.
 const testimonials: Testimonial[] = [
   {

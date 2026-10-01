@@ -14,7 +14,7 @@ import Navbar, { type NavLink } from "../components/Navbar/Navbar";
 import OverlapFiller from "../components/OverlapFiller/OverlapFiller";
 
 // Every value below is copied from the detail-page template chunk
-// (s1MaDFfTYJ…XDhxFXEf.mjs, CMS collection "UANVURkgl") — not approximated
+// (s1MaDFfTYJ…XDhxFXEf.mjs, CMS collection "UANVURkgl") - not approximated
 // unless a comment says so.
 const tweenBg = [0.44, 0, 0.56, 1] as const
 const tweenIn = [0.44, 0, 0.34, 0.98] as const
@@ -112,7 +112,7 @@ function CaseStudyContent({ caseStudy, fadeTargetRef }: { caseStudy: CaseStudyEn
     <section id="case-study-content" className="case-study-content">
       <OverlapFiller color="paper" />
       {/* Invisible stand-in for the source's Overlap Detailing section box
-          (834px, top of this section) — the hero's fade-out is keyed to it. */}
+          (834px, top of this section) - the hero's fade-out is keyed to it. */}
       <div className="case-study-content__fade-target" ref={fadeTargetRef} aria-hidden="true" />
 
       <div className="case-study-content__top">

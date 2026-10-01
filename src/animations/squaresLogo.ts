@@ -1,5 +1,5 @@
 /**
- * Animated squares logo — vector, runs at the display's refresh rate (60/120/144 Hz).
+ * Animated squares logo - vector, runs at the display's refresh rate (60/120/144 Hz).
  *
  * ES-module port of the standalone squares-logo.js (which set a global
  * `window.mountSquaresLogo`). Animation data and logic are unchanged; only

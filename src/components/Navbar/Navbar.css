@@ -48,7 +48,7 @@
 
 /* Translucent panel behind the bar; its opacity is scroll-driven (0 at the
    top of the page, 1 once About reaches the top). Its own fixed height,
-   centred on the menu row — not the bar's height, which stays as tall as the
+   centred on the menu row - not the bar's height, which stays as tall as the
    (faded-out) CEO card. Slightly wider than the bar so nothing shifts.
    Tint: lower the alpha for more see-through (less contrast for the white
    text over white sections), raise it for more. */
@@ -288,11 +288,11 @@
 }
 
 /* Tablet AND Phone (<1199.98px) both use the closed/hamburger nav in the
-   source — verified against the live site directly (not just the CSS
+   source - verified against the live site directly (not just the CSS
    dump): the "Secondary" text-menu variant is not actually reached at any
    real viewport width on this page, only Primary (>=1200px) and Moblie
    Closed/Mobile Open (<1200px) are. */
-/* THE navbar breakpoint — the only place it's set. Below it: one uniform
+/* THE navbar breakpoint - the only place it's set. Below it: one uniform
    hamburger layout for phones, tablets and small laptops (full width, logo
    24px from the screen edge: 8px outer + 16px bar padding, like desktop).
    1440px because seven section links, the full-size logo and the CEO card

@@ -127,7 +127,7 @@
   }
 }
 
-/* Phone: a single column — brand, Contact, Follow and Menu stacked and
+/* Phone: a single column - brand, Contact, Follow and Menu stacked and
    left-aligned under each other. */
 @media (max-width: 809.98px) {
   .footer__top {

@@ -33,7 +33,7 @@
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2070, U+2074-207E, U+2080-208E, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
-/* Inter cuts not fetched by the captured session — served from the original
+/* Inter cuts not fetched by the captured session - served from the original
    Framer CDN so full glyph coverage / weights are preserved without guessing
    at bytes we never captured. */
 @font-face { font-family: "Inter"; src: url("https://framerusercontent.com/assets/5vvr9Vy74if2I6bQbJvbw7SY1pQ.woff2"); font-display: swap; font-style: normal; font-weight: 400; unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F }
@@ -89,7 +89,7 @@
    overrides follow using the site's exact breakpoints.
    --------------------------------------------------------------------- */
 
-/* 195px / 196px lh — giant display numerals (nav roll numbers bg, etc.) */
+/* 195px / 196px lh - giant display numerals (nav roll numbers bg, etc.) */
 .text-preset-6fpyuh {
   --framer-font-family: "BDO Grotesk Variable", sans-serif;
   --framer-font-size: 195px;
@@ -98,7 +98,7 @@
   --framer-letter-spacing: -7.8px;
 }
 
-/* 100px / 70px / 30px — primary hero heading (H1) */
+/* 100px / 70px / 30px - primary hero heading (H1) */
 .text-preset-1gc7217 {
   --framer-font-family: "BDO Grotesk Variable", sans-serif;
   --framer-font-size: 100px;
@@ -121,7 +121,7 @@
   }
 }
 
-/* 70px / 56px / 30px — large intro paragraph (H3, case study page) */
+/* 70px / 56px / 30px - large intro paragraph (H3, case study page) */
 .text-preset-13ruabr {
     --framer-font-family: "BDO Grotesk Variable", sans-serif;
     --framer-font-size: 70px;
@@ -143,7 +143,7 @@
 }
 
 
-/* 56px / 40px — section heading (H2) */
+/* 56px / 40px - section heading (H2) */
 .text-preset-kxvc54 {
   --framer-font-family: "BDO Grotesk Variable", sans-serif;
   --framer-font-size: 56px;
@@ -164,7 +164,7 @@
   }
 }
 
-/* 46px / 40px lh, 30px / 30px lh on phone — H3 */
+/* 46px / 40px lh, 30px / 30px lh on phone - H3 */
 .text-preset-wppu5t {
   --framer-font-family: "BDO Grotesk Variable", sans-serif;
   --framer-font-size: 46px;
@@ -179,7 +179,7 @@
   }
 }
 
-/* 36px / 38px lh — H4, no responsive override recovered */
+/* 36px / 38px lh - H4, no responsive override recovered */
 .text-preset-gftg2f {
   --framer-font-family: "BDO Grotesk Variable", sans-serif;
   --framer-font-size: 36px;
@@ -188,7 +188,7 @@
   --framer-letter-spacing: -1.2px;
 }
 
-/* 16px / 20.2px lh — body copy */
+/* 16px / 20.2px lh - body copy */
 .text-preset-q70fzl {
   --framer-font-family: "BDO Grotesk Variable", sans-serif;
   --framer-font-size: 16px;
@@ -197,7 +197,7 @@
   --framer-letter-spacing: -0.5px;
 }
 
-/* 12px / 16.2px lh — secondary/paragraph copy */
+/* 12px / 16.2px lh - secondary/paragraph copy */
 .text-preset-152twjm {
   --framer-font-family: "BDO Grotesk Variable", sans-serif;
   --framer-font-size: 12px;
@@ -206,7 +206,7 @@
   --framer-letter-spacing: -0.5px;
 }
 
-/* 10px / 11.2px lh — micro labels ("Roll No" etc.) */
+/* 10px / 11.2px lh - micro labels ("Roll No" etc.) */
 .text-preset-zhd8ta {
   --framer-font-family: "BDO Grotesk Variable", sans-serif;
   --framer-font-size: 10px;
@@ -216,7 +216,7 @@
 }
 
 /* Matches "text-preset-X" whether it's the first class in the attribute or
-   not — className="foo text-preset-X" is common throughout the components,
+   not - className="foo text-preset-X" is common throughout the components,
    and [class^=] alone only matches when it's first. */
 [class^="text-preset-"],
 [class*=" text-preset-"] {

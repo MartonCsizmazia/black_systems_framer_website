@@ -3,7 +3,7 @@
   top: 0;
   left: 0;
   width: 100%;
-  /* True source height (.framer-38ndun etc.) — safe now that the transform
+  /* True source height (.framer-38ndun etc.) - safe now that the transform
      is continuously scroll-linked (useScroll progress) instead of a
      fire-once whileInView tween. The old "cap to 220" hack was only needed
      because a one-shot animation that reaches -220px once and then never
@@ -17,7 +17,7 @@
      z-index:1) but stay BELOW its own section's real content. A positive
      z-index here would place it in the "positioned, z-index>0" paint
      bucket, which paints after (on top of) this section's own non-positioned
-     in-flow content (heading, cards, etc.) — permanently covering it once
+     in-flow content (heading, cards, etc.) - permanently covering it once
      scrolled past. A negative z-index paints in the bucket right after this
      stacking context's own background but before that in-flow content. */
   z-index: -1;

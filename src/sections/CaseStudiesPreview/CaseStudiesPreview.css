@@ -105,7 +105,7 @@
    `top` (set inline per-index in CaseStudiesPreview.tsx) within this shared 24px-gap
    flex column, so later cards (later in DOM, same z-index) paint over the
    lower part of earlier ones while a fixed sliver of each earlier card's
-   top edge keeps peeking out above — see CaseStudiesPreview.tsx for the full
+   top edge keeps peeking out above - see CaseStudiesPreview.tsx for the full
    explanation. */
 .case-studies__card-slot {
   width: 100%;

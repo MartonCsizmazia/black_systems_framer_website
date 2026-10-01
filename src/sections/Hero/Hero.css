@@ -4,7 +4,7 @@
 
 .hero-wrapper {
   position: relative;
-  /* Just a flow spacer reserving scroll height — .hero itself is
+  /* Just a flow spacer reserving scroll height - .hero itself is
      position:fixed (see below), taken out of flow entirely, so nothing
      needs to be tall enough to give sticky "pin room". Verified directly
      against the mirror: the very next section's top sits at exactly 100vh
@@ -18,12 +18,12 @@
   top: 0;
   left: 0;
   /* Lower than the sections that follow (they're z-index:1) so they
-     unambiguously paint over the fixed Hero once scrolled into view — a
+     unambiguously paint over the fixed Hero once scrolled into view - a
      fixed element's stacking priority isn't reliably "loses same-z-index
      ties to later DOM order" the way a normal in-flow/sticky element's is
      (confirmed empirically: About painted *behind* the fixed Hero despite
      both being z-index:1 and About being later in the DOM). Kept
-     non-negative deliberately — a negative value here pushes Hero behind
+     non-negative deliberately - a negative value here pushes Hero behind
      its own parent's stacking layer instead (also confirmed empirically:
      the plain .hero-wrapper spacer div started painting over it). */
   z-index: 0;
@@ -231,7 +231,7 @@
 }
 
 .hero__corner-mark {
-  /* `bottom` is set per-instance inline (Hero.tsx) — the four marks sit on
+  /* `bottom` is set per-instance inline (Hero.tsx) - the four marks sit on
      two different levels (a zigzag), not one shared line. */
   position: absolute;
   z-index: 1;

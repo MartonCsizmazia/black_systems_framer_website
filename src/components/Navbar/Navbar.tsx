@@ -126,7 +126,7 @@ export default function Navbar({ links: customLinks, languageAtTop = false }: Na
 
   const { scrollY } = useScroll()
   // Layout-dependent inputs as motion values, re-measured on resize, so the
-  // animation updates immediately when the window is resized — not only on
+  // animation updates immediately when the window is resized - not only on
   // the next scroll (a stale value left the wordmark off by the icon's
   // width change when crossing the navbar breakpoint while scrolled down).
   // Any positive height gives progress 0 at the top of the page, so the
@@ -139,7 +139,7 @@ export default function Navbar({ links: customLinks, languageAtTop = false }: Na
   const secondHalfIn = useTransform(progress, [COMPACT_HALF, 1], [0, 1])
   const wordmarkScale = useTransform(secondHalfIn, [0, 1], [1, WORDMARK_MIN_SCALE])
   // Slide the wordmark left by exactly the (faded-out) icon's width + gap,
-  // so it ends up where the icon started — the left edge of the bar.
+  // so it ends up where the icon started - the left edge of the bar.
   const iconRef = useRef<HTMLSpanElement>(null)
   const headerRef = useRef<HTMLElement>(null)
   useEffect(() => {

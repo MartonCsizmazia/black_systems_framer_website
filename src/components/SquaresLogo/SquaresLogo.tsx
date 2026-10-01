@@ -9,7 +9,7 @@ export interface SquaresLogoProps extends SquaresLogoOptions {
 /**
  * Animated five-squares brand mark (inline SVG, requestAnimationFrame).
  * Size it with the container's width (height follows the ~183:113 aspect
- * ratio) and colour it with CSS `color` — the squares use currentColor.
+ * ratio) and colour it with CSS `color` - the squares use currentColor.
  */
 export default function SquaresLogo({ className, hold, move, shrink, label }: SquaresLogoProps) {
   const ref = useRef<HTMLSpanElement>(null)

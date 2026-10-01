@@ -10,7 +10,7 @@ import { images } from '../../assets/images'
 import './About.css'
 
 // The portrait's own container stays put; scrolling instead pans the
-// (deliberately oversized, `height:150%`) image linearly inside it — no
+// (deliberately oversized, `height:150%`) image linearly inside it - no
 // spring, a direct 1:1 function of scroll progress, slower than the page's
 // own scroll speed since it only covers this many px against a full
 // viewport-heights-tall scroll range. Range must stay within the safe

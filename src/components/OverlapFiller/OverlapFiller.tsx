@@ -12,14 +12,14 @@ export interface OverlapFillerProps {
  * Recovered from the "Overlap Detailing" / "Filler" component (recurs in
  * About, Services, Pricing): a Framer native scroll-linked transform effect
  * (__framer__styleTransformEffectEnabled + __framer__transformTargets),
- * NOT a fire-once whileInView animation — confirmed by tracing the runtime's
+ * NOT a fire-once whileInView animation - confirmed by tracing the runtime's
  * `zl` handler, which drives it with `offset: ["start end", "end end"]`
  * (the element's own scroll-through range) rather than a fixed-duration
  * tween. It has to keep tracking scroll position continuously, reversing
  * smoothly on scroll-up, not just play once when first triggered.
  *
  * Exact recovered keyframes: skewY 0 -> -7, y 0 -> -220. Height is the
- * source's own explicit 834px (.framer-38ndun etc.) — not shrunk, since the
+ * source's own explicit 834px (.framer-38ndun etc.) - not shrunk, since the
  * old "cap to 220" hack was only needed to route around the fire-once
  * animation never re-covering the content on scroll-up.
  */

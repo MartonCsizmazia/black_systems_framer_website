@@ -7,7 +7,7 @@ import './CtaBanner.css'
 
 // Same technique as About's portrait: the container stays put, the
 // (deliberately oversized, `height:145%`) background photo pans linearly
-// inside it — a direct, spring-free function of scroll progress. Safe range
+// inside it - a direct, spring-free function of scroll progress. Safe range
 // is [-360, 0] (45% of the 800px container = 360px of overflow); -250 is
 // -192 sped up another 30%, still inside the safe bound with margin.
 const CTA_BG_PARALLAX_START = -300
@@ -16,12 +16,12 @@ const CTA_BG_PARALLAX_START = -300
  * Recovered from the "CTA" component (.framer-LkKYy): a full-bleed dark
  * banner with a parallax background photo and a left-to-right scrolling
  * marquee headline. The accent photo and "Contact Now" button are NOT a
- * bottom row — measured directly against the mirror, the photo sits dead
+ * bottom row - measured directly against the mirror, the photo sits dead
  * center (both axes) over the marquee text, and the button sits ~23px
  * below it, left-aligned to the photo's left edge. Four plus-mark corner
  * decorations (same motif as the Hero) frame the photo at roughly
  * calc(22% - 1.5rem)/calc(79% - 1.5rem) of the content width and 32%/62%
- * of its height — tuned by feel after the photo's own vertical center
+ * of its height - tuned by feel after the photo's own vertical center
  * (measured ~46%) read too low and
  * too far left. The marquee is clipped and edge-masked to exactly this
  * same rectangle (kept in sync with CtaBanner.css), so it's only ever

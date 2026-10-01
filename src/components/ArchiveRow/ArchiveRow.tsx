@@ -10,7 +10,7 @@ export interface ArchiveRowProps {
 /**
  * Recovered from the "Experience Card" component (.framer-eRGcA). Source
  * has each row fade in on scroll (__framer__enter/exit, threshold 0,
- * animateOnce false) — reversible, not a fire-once reveal.
+ * animateOnce false) - reversible, not a fire-once reveal.
  */
 export default function ArchiveRow({ title, year, image }: ArchiveRowProps) {
   return (

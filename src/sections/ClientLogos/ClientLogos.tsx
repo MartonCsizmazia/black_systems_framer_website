@@ -4,10 +4,10 @@ import { images } from '../../assets/images'
 import './ClientLogos.css'
 
 /**
- * Recovered from the "Client Section" component (.framer-9weVr) — the
+ * Recovered from the "Client Section" component (.framer-9weVr) - the
  * logo strip (past employers), shown at the top of About, under the hero. Each logo sits in its own
  * 224x168px tile (background rgb(247,247,247), no gap between tiles) with
- * the logo image uniformly boxed to 104x16px — measured directly against
+ * the logo image uniformly boxed to 104x16px - measured directly against
  * the mirror. The real source renders two different widgets depending on
  * breakpoint: this continuous marquee on desktop/tablet, and a
  * single-item auto-rotating carousel with dots on phone (not reproduced;
@@ -22,7 +22,7 @@ const logos = [
 ]
 
 // A 2x-duplicated track only tiles seamlessly while the viewport is narrower
-// than one full set (5 tiles). Any wider than that — most desktop screens —
+// than one full set (5 tiles). Any wider than that - most desktop screens - 
 // and the loop's instantaneous reset back to 0% becomes visible as a
 // pop/skip once the far edge of the duplicated content runs out mid-viewport.
 // The source itself renders a very generously over-duplicated track for
@@ -33,7 +33,7 @@ const logos = [
 const SET_REPEAT = 8
 const track = Array.from({ length: SET_REPEAT }, () => logos).flat()
 
-// Seconds to travel exactly one set's width at normal speed — matches the
+// Seconds to travel exactly one set's width at normal speed - matches the
 // previous fixed 25s keyframe duration. Driven by useAnimationFrame instead
 // of a keyframe `animate` tween so hovering can smoothly ease the speed down
 // (rather than restart/jump the tween, which a transition-prop swap would

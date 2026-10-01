@@ -1,4 +1,4 @@
-/** Founder / company contact details — the single source for the navbar CEO card, the About founder block and the footer. */
+/** Founder / company contact details - the single source for the navbar CEO card, the About founder block and the footer. */
 export const NAME = 'Márton Csizmazia'
 export const EMAIL = 'marton@blacksystems.ai'
 export const PHONE = { display: '+36 30 316 5634', href: 'tel:+36303165634' }

@@ -54,7 +54,7 @@
   font-weight: 400;
   line-height: 70px;
   letter-spacing: -2.1px;
-  /* Scales with the paragraph width (capped at the desktop 31rem) — a fixed
+  /* Scales with the paragraph width (capped at the desktop 31rem) - a fixed
      31rem plus the unbreakable first word overflowed viewports < ~660px. */
   text-indent: min(27rem, 40%);
   max-width: 1400px;
