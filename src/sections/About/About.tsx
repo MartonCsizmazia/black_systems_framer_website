@@ -1,9 +1,9 @@
 import { useRef, useState } from 'react'
 import { AnimatePresence, motion, useScroll, useTransform } from 'framer-motion'
-import Button from '../../components/Button/Button'
 import OverlapFiller from '../../components/OverlapFiller/OverlapFiller'
 import SectionEyebrow from '../../components/SectionEyebrow/SectionEyebrow'
 import CtaBanner from '../../components/CtaBanner/CtaBanner'
+import ClientLogos from '../ClientLogos/ClientLogos'
 import { NAME } from '../../data/contact'
 import { images } from '../../assets/images'
 import './About.css'
@@ -46,6 +46,13 @@ export default function About() {
   return (
     <section id="about" className="about">
       <OverlapFiller color="paper" />
+
+      {/* Past employers' logos, right under the slanted edge and above the
+          eyebrow: the first thing seen when scrolling past the hero. Not a
+          numbered section, so no menu link. */}
+      <div className="about__logos">
+        <ClientLogos />
+      </div>
 
       <div className="about__top">
         <SectionEyebrow index="01" title="About Us" />

@@ -29,9 +29,8 @@ export const NAV_LINKS: NavLink[] = [
   { title: 'About Us', rollNo: '01', href: '#about' },
   { title: 'Case Studies', rollNo: '02', href: '#case-studies' },
   { title: 'Services', rollNo: '03', href: '#services' },
-  { title: 'Testimonial', rollNo: '04', href: '#testimonial' },
-  { title: 'FAQ', rollNo: '05', href: '#faq' },
-  { title: 'Contact', rollNo: '06', href: '#contact' },
+  { title: 'FAQ', rollNo: '04', href: '#faq' },
+  { title: 'Contact', rollNo: '05', href: '#contact' },
 ]
 
 // Scroll-driven "compact" state: 0 at the top of the page, 1 once the first

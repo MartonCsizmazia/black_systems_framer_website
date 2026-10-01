@@ -26,7 +26,7 @@ import './Contact.css'
  * in your own.
  */
 /** `index`: the section number in its eyebrow, which differs per page. */
-export default function Contact({ index = '06' }: { index?: string }) {
+export default function Contact({ index = '05' }: { index?: string }) {
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
     // No real backend wired up — the original is a Framer-hosted form.
