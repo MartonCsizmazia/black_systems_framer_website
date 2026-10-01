@@ -42,7 +42,8 @@ export const caseStudies: CaseStudyEntry[] = [
       { label: 'Response time', value: '<1 min' },
       { label: 'Lead capture', value: '24/7' },
     ],
-    image: images.bgImageJqzov1,
+    image: images.residenceGoldenHour,
+    // image: images.bgImageJqzov1,
   },
   {
     slug: 'ai-recruiter',
@@ -61,7 +62,8 @@ export const caseStudies: CaseStudyEntry[] = [
       { label: 'Applications', value: '24/7' },
       { label: 'Data capture', value: '100%' },
     ],
-    image: images.bgImageRmeblx,
+    image: images.officeResumeReview,
+    // image: images.bgImageRmeblx,
   },
   {
     slug: '24-7-front-desk',
@@ -80,7 +82,8 @@ export const caseStudies: CaseStudyEntry[] = [
       { label: 'Availability', value: '24/7' },
       { label: 'Response time', value: '<1 min' },
     ],
-    image: images.bgImageJt7zqg,
+    image: images.hotelLobbyReception,
+    // image: images.bgImageJt7zqg,
   },
   {
     slug: 'invisible-back-office',
@@ -99,7 +102,8 @@ export const caseStudies: CaseStudyEntry[] = [
       { label: 'Data flow', value: 'Automated' },
       { label: 'Operations', value: '24/7' },
     ],
-    image: images.bgImageYiiumx,
+    image: images.officeSunsetSigning,
+    // image: images.bgImageYiiumx,
   },
 ]
 

@@ -1,6 +1,6 @@
-// Auto-generated from the captured Framer site's image assets.
-// Each entry's `sourceHash` traces back to the original framerusercontent.com/images/<hash> URL
-// (see mirror/manifest.json) so a replacement can be cross-checked against the original if needed.
+// Every image the site uses: import it here, then reference it as images.<name>.
+// Most entries were generated from the captured Framer site; files are
+// identifiable by their file names.
 
 import asset3emr1nSrc from './asset-3emr1n.avif'
 import asset4wrdliSrc from './accenture.svg'
@@ -38,56 +38,51 @@ import womenOrangeBgAvoxawSrc from './women-orange-bg-avoxaw.avif'
 import blacksystemslogoThinStackedCurvy from './black-systems-thin-stacked-white.png'
 import blacksystemslogoThinnerOneLineCurvy from './black-systems-thinner-oneline-white.png'
 import menOrangeBgBfbeq6Src from './men-orange-bg-bfbeq6.png'
-import womanOrangeBlurNzlidpSrc from './woman-orange-blur-nzlidp.png'
-import womanGreenBlurXqlxztSrc from './woman-green-blur-xqlxzt.png'
-import manRunningBlurQfdokySrc from './man-running-blur-qfdoky.png'
-import manDancingZvom13Src from './man-dancing-zvom13.png'
-import womanGlitchWbsn9cSrc from './woman-glitch-wbsn9c.png'
+import residenceGoldenHourSrc from './residence-golden-hour-512x358.avif'
+import officeResumeReviewSrc from './resume-review-studio-512x358.avif'
+import hotelLobbyReceptionSrc from './hotel-lobby-studio-512x358.avif'
+import officeSunsetSigningSrc from './sunlit-office-studio-512x358.avif'
 
 export const images = {
-  asset3emr1n: { src: asset3emr1nSrc, alt: '', sourceHash: '3EMr1NhuWwBtVXlyMEIByWDH2Q' },
-  asset4wrdli: { src: asset4wrdliSrc, alt: '', sourceHash: '4WrDlIk4IMVyEjSDilmLEh58' },
-  asset4zx7dv: { src: asset4zx7dvSrc, alt: '', sourceHash: '4Zx7DVBTo5PGL5e1p7CD0XPVHqU' },
-  assetAl0gg5: { src: assetAl0gg5Src, alt: '', sourceHash: 'aL0GG5D3njIn3Q6555V3SUL4k' },
-  assetBk2irg: { src: assetBk2irgSrc, alt: '', sourceHash: 'BK2IrgzEGoJFR5oTt5xtzVwoZFA' },
-  assetCjbuf1: { src: assetCjbuf1Src, alt: '', sourceHash: 'cjbuf1kYKkIFSJgJaqT5Mn1aq98' },
-  assetF4esjy: { src: assetF4esjySrc, alt: '', sourceHash: 'F4eSJYirTag9mbvaRPdB9xa65Q' },
-  assetFpupna: { src: assetFpupnaSrc, alt: '', sourceHash: 'FPUpnaBFdLVCGfhNiopLgzEHvfk' },
-  assetGwbdxr: { src: assetGwbdxrSrc, alt: '', sourceHash: 'GWbDxRwp39ZkrSjQVPc6IjmS8us' },
-  assetJvelfw: { src: assetJvelfwSrc, alt: '', sourceHash: 'JVeLFwlla249JSPeVtuDk0OVGs' },
-  assetMrongf: { src: assetMrongfSrc, alt: '', sourceHash: 'mrONGfTFus0kct22YjoSh0JjU' },
-  assetPtmk11: { src: assetPtmk11Src, alt: '', sourceHash: 'Ptmk11ogPhJFCwVSYKSfyefoJN8' },
-  assetSji9he: { src: assetSji9heSrc, alt: '', sourceHash: 'SJI9HeYVWYWNlu9rlE2Px0kk74' },
-  assetTgpbpk: { src: assetTgpbpkSrc, alt: '', sourceHash: 'TGpbpkV9gbzPz61ATQTzIwpBBPU' },
-  assetU6lqqg: { src: assetU6lqqgSrc, alt: '', sourceHash: 'U6Lqqgoqd6GcIuLTfi8cdeLwVO4' },
-  ctaAvatarWfrjn1: { src: ctaAvatarWfrjn1Src, alt: 'CTA Card avatar (CEO)', sourceHash: 'wFRJn1NkdVZsLrogcfZqK9CfE' },
-  assetXfjtzm: { src: assetXfjtzmSrc, alt: '', sourceHash: 'XfjtzmccZPHvD68yhm9WnkoDQ' },
-  bgImageHshvii: { src: bgImageHshviiSrc, alt: 'BG Image', sourceHash: 'hSHVIIYtrGfgpDljXoyCyDkfE' },
-  bgImageHshviiMobile: { src: bgImageHshviiMobileSrc, alt: 'BG Image', sourceHash: 'uAwehYVTmw9nrdY2bcGONB8bG' },
-  bgImageJqzov1: { src: bgImageJqzov1Src, alt: 'BG Image', sourceHash: 'JQZOV1weNouMXqzxyX8EWnm7zEw' },
-  bgImageJt7zqg: { src: bgImageJt7zqgSrc, alt: 'BG Image', sourceHash: 'Jt7zqgTjQMYT15YvEkLGKiF9Cw' },
-  bgImageRmeblx: { src: bgImageRmeblxSrc, alt: 'BG Image', sourceHash: 'rmeBLxZhEpvUaEnrIirzHJQynwc' },
-  bgImageYiiumx: { src: bgImageYiiumxSrc, alt: 'BG Image', sourceHash: 'yIiUMXJoon44xe3SOzMh1ekTV6w' },
-  curlyWomanWq7hn1: { src: curlyWomanWq7hn1Src, alt: 'Curly Woman', sourceHash: 'WQ7hN14i6MTMqvTt8ieID7j9YbY' },
-  manHoodie9kkvud: { src: manHoodie9kkvudSrc, alt: 'Man Hoodie', sourceHash: '9KKvuDkNH8D0g7hq1fUdqCWs' },
-  manMotionBlur1d2ldl: { src: manMotionBlur1d2ldlSrc, alt: 'Man Motion Blur', sourceHash: '1D2lDLcBnKpywBRPAJWNr6cpA' },
-  placeYourLogoHere71ydgb: { src: blacksystemslogoThinStackedCurvy, alt: 'Place Your Logo Here', sourceHash: '71YDGBsigsdGanJvkYBelFcVI' },
+  asset3emr1n: { src: asset3emr1nSrc, alt: '' },
+  asset4wrdli: { src: asset4wrdliSrc, alt: '' },
+  asset4zx7dv: { src: asset4zx7dvSrc, alt: '' },
+  assetAl0gg5: { src: assetAl0gg5Src, alt: '' },
+  assetBk2irg: { src: assetBk2irgSrc, alt: '' },
+  assetCjbuf1: { src: assetCjbuf1Src, alt: '' },
+  assetF4esjy: { src: assetF4esjySrc, alt: '' },
+  assetFpupna: { src: assetFpupnaSrc, alt: '' },
+  assetGwbdxr: { src: assetGwbdxrSrc, alt: '' },
+  assetJvelfw: { src: assetJvelfwSrc, alt: '' },
+  assetMrongf: { src: assetMrongfSrc, alt: '' },
+  assetPtmk11: { src: assetPtmk11Src, alt: '' },
+  assetSji9he: { src: assetSji9heSrc, alt: '' },
+  assetTgpbpk: { src: assetTgpbpkSrc, alt: '' },
+  assetU6lqqg: { src: assetU6lqqgSrc, alt: '' },
+  ctaAvatarWfrjn1: { src: ctaAvatarWfrjn1Src, alt: 'CTA Card avatar (CEO)' },
+  assetXfjtzm: { src: assetXfjtzmSrc, alt: '' },
+  bgImageHshvii: { src: bgImageHshviiSrc, alt: 'BG Image' },
+  bgImageHshviiMobile: { src: bgImageHshviiMobileSrc, alt: 'BG Image' },
+  bgImageJqzov1: { src: bgImageJqzov1Src, alt: 'BG Image' },
+  bgImageJt7zqg: { src: bgImageJt7zqgSrc, alt: 'BG Image' },
+  bgImageRmeblx: { src: bgImageRmeblxSrc, alt: 'BG Image' },
+  bgImageYiiumx: { src: bgImageYiiumxSrc, alt: 'BG Image' },
+  curlyWomanWq7hn1: { src: curlyWomanWq7hn1Src, alt: 'Curly Woman' },
+  manHoodie9kkvud: { src: manHoodie9kkvudSrc, alt: 'Man Hoodie' },
+  manMotionBlur1d2ldl: { src: manMotionBlur1d2ldlSrc, alt: 'Man Motion Blur' },
+  placeYourLogoHere71ydgb: { src: blacksystemslogoThinStackedCurvy, alt: 'Place Your Logo Here' },
   blackSystemsLogoOneLine: { src: blacksystemslogoThinnerOneLineCurvy, alt: 'Black Systems' },
-  villaG891sp: { src: villaG891spSrc, alt: 'Villa', sourceHash: 'G891sPJdh93gPfGSBboEt88Now' },
-  womanBeach7ug4bh: { src: womanBeach7ug4bhSrc, alt: 'Woman Beach', sourceHash: '7uG4BhwVaiwETVmXbIX3b81RuRw' },
-  womanCloseUpVsmr1z: { src: womanCloseUpVsmr1zSrc, alt: 'Woman Close Up', sourceHash: 'vSMr1Zfuh0b2i7lq2yOMx58uxs' },
-  womanFlowersUjmih3: { src: womanFlowersUjmih3Src, alt: 'Woman Flowers', sourceHash: 'uJMIH3K4JijRLtNCNuWBj9M2cbA' },
-  womanStaircaseBchnf0: { src: womanStaircaseBchnf0Src, alt: 'Woman Staircase', sourceHash: 'BChNf0ssn5x1I9kAk4vwX8qT5o' },
-  womenOnTheSofaYw1gcz: { src: womenOnTheSofaYw1gczSrc, alt: 'Women On The Sofa', sourceHash: 'yw1GCZxhNp9c0ifxjP3zVlEc' },
-  womenOrangeBgAvoxaw: { src: womenOrangeBgAvoxawSrc, alt: 'Women Orange BG', sourceHash: 'aVOxaW9TAd0obDqqJbHz7JTt7h8' },
-  menOrangeBgBfbeq6: { src: menOrangeBgBfbeq6Src, alt: 'Men Orange BG', sourceHash: 'bFbEQ6JZkAoHLWCpyzfCKp69U' },
-    // Case study page galleries — same situation as menOrangeBgBfbeq6:
-    // the detail route is client-side only, so the capture never requested
-    // these. Fetched at original resolution from framerusercontent.com.
-    // Alts are the ones the page template itself assigns.
-    womanOrangeBlurNzlidp: { src: womanOrangeBlurNzlidpSrc, alt: 'Woman Orange BG', sourceHash: 'NZLIdp567TgymMJ9pqxk1BvJfxA' },
-    womanGreenBlurXqlxzt: { src: womanGreenBlurXqlxztSrc, alt: 'Woman Green Blur', sourceHash: 'xqLxZtmBU9JZB2mXGcdikP5L93Y' },
-    manRunningBlurQfdoky: { src: manRunningBlurQfdokySrc, alt: 'Man Running', sourceHash: 'qFDokY34xOhbcey4qInWx79GSfM' },
-    manDancingZvom13: { src: manDancingZvom13Src, alt: 'Man Dancing', sourceHash: 'zvOm13VvbejHKebnWNj9EvPG0' },
-    womanGlitchWbsn9c: { src: womanGlitchWbsn9cSrc, alt: 'Woman Glitch', sourceHash: 'WBsN9cyAtbtEGlCs5K1RjWTwgQ' },
+  villaG891sp: { src: villaG891spSrc, alt: 'Villa' },
+  womanBeach7ug4bh: { src: womanBeach7ug4bhSrc, alt: 'Woman Beach' },
+  womanCloseUpVsmr1z: { src: womanCloseUpVsmr1zSrc, alt: 'Woman Close Up' },
+  womanFlowersUjmih3: { src: womanFlowersUjmih3Src, alt: 'Woman Flowers' },
+  womanStaircaseBchnf0: { src: womanStaircaseBchnf0Src, alt: 'Woman Staircase' },
+  womenOnTheSofaYw1gcz: { src: womenOnTheSofaYw1gczSrc, alt: 'Women On The Sofa' },
+  womenOrangeBgAvoxaw: { src: womenOrangeBgAvoxawSrc, alt: 'Women Orange BG' },
+  menOrangeBgBfbeq6: { src: menOrangeBgBfbeq6Src, alt: 'Men Orange BG' },
+  // Black Systems' own images.
+  residenceGoldenHour: { src: residenceGoldenHourSrc, alt: 'Residence at golden hour' },
+  officeResumeReview: { src: officeResumeReviewSrc, alt: 'Reviewing a resume in an office' },
+  hotelLobbyReception: { src: hotelLobbyReceptionSrc, alt: 'Hotel lobby reception desk' },
+  officeSunsetSigning: { src: officeSunsetSigningSrc, alt: 'Signing documents in an office at sunset' },
 } as const
