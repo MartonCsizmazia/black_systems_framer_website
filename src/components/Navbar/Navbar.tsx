@@ -5,6 +5,8 @@ import SquaresLogo from '../SquaresLogo/SquaresLogo'
 import { scrollToSection } from '../../hooks/useLenis'
 import Button from '../Button/Button'
 import { NAME } from '../../data/contact'
+import { useTranslation, type TextKey } from '../../i18n/I18nProvider'
+import { localizePath } from '../../i18n/paths'
 import './Navbar.css'
 
 export interface NavLink {
@@ -21,17 +23,23 @@ export interface NavbarProps {
   links?: NavLink[]
 }
 
-// One item per numbered section, in page order; rollNo matches that
-// section's eyebrow index, and each '#id' matches the id on
-// that section's root element.
+// The home menu: one item per numbered section, in page order; rollNo
+// matches that section's eyebrow index, and each '#id' matches the id on
+// that section's root element. Titles are translation keys.
 // "Home" is the wordmark itself (it scrolls back to the top).
-export const NAV_LINKS: NavLink[] = [
-  { title: 'About Us', rollNo: '01', href: '#about' },
-  { title: 'Services', rollNo: '02', href: '#services' },
-  { title: 'Case Studies', rollNo: '03', href: '#case-studies' },
-  { title: 'FAQ', rollNo: '04', href: '#faq' },
-  { title: 'Contact', rollNo: '05', href: '#contact' },
+const HOME_LINKS: { titleKey: TextKey; rollNo: string; href: string }[] = [
+  { titleKey: 'nav.aboutUs', rollNo: '01', href: '#about' },
+  { titleKey: 'nav.services', rollNo: '02', href: '#services' },
+  { titleKey: 'nav.caseStudies', rollNo: '03', href: '#case-studies' },
+  { titleKey: 'nav.faq', rollNo: '04', href: '#faq' },
+  { titleKey: 'nav.contact', rollNo: '05', href: '#contact' },
 ]
+
+/** The home menu in the current language (navbar default, footer menu). */
+export function useHomeNavLinks(): NavLink[] {
+  const { t } = useTranslation()
+  return HOME_LINKS.map(({ titleKey, rollNo, href }) => ({ title: t(titleKey), rollNo, href }))
+}
 
 // Scroll-driven "compact" state: 0 at the top of the page, 1 once the first
 // section (About) reaches the top of the viewport, i.e. after scrolling one
@@ -103,7 +111,10 @@ function MenuItem({ title, rollNo, href, delay, onNavigate }: NavLink & { delay:
   )
 }
 
-export default function Navbar({ links = NAV_LINKS }: NavbarProps) {
+export default function Navbar({ links: customLinks }: NavbarProps) {
+  const { lang, t } = useTranslation()
+  const homeLinks = useHomeNavLinks()
+  const links = customLinks ?? homeLinks
   const [mobileOpen, setMobileOpen] = useState(false)
 
   const { scrollY } = useScroll()
@@ -172,16 +183,16 @@ export default function Navbar({ links = NAV_LINKS }: NavbarProps) {
           <button
             type="button"
             className="navbar__hamburger"
-            aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
+            aria-label={mobileOpen ? t('nav.closeMenu') : t('nav.openMenu')}
             aria-expanded={mobileOpen}
             onClick={() => setMobileOpen((v) => !v)}
           >
             <span className="navbar__hamburger-line" />
             <span className="navbar__hamburger-line" />
           </button>
-          <a href="/" className="navbar__logo-link" aria-label="Black Systems - back to top" onClick={scrollHome}>
+          <a href={localizePath('/', lang)} className="navbar__logo-link" aria-label={t('common.logoLabel')} onClick={scrollHome}>
             <motion.span ref={iconRef} className="navbar__logo-icon-wrap" style={{ opacity: firstHalfOut }}>
-              <SquaresLogo className="navbar__logo-icon" label="Black Systems" />
+              <SquaresLogo className="navbar__logo-icon" label={t('common.brand')} />
             </motion.span>
             <motion.img
               src={images.blackSystemsLogoOneLine.src}
@@ -192,7 +203,7 @@ export default function Navbar({ links = NAV_LINKS }: NavbarProps) {
           </a>
         </div>
 
-        <nav className="navbar__menu" aria-label="Primary">
+        <nav className="navbar__menu" aria-label={t('nav.primaryLabel')}>
           {links.map((link, i) => (
             <MenuItem key={link.title} {...link} delay={0.4 + i * 0.1} onNavigate={() => setMobileOpen(false)} />
           ))}
@@ -212,11 +223,11 @@ export default function Navbar({ links = NAV_LINKS }: NavbarProps) {
           aria-hidden={compact}
         >
           <span className="navbar__cta-avatar">
-            <img src={images.ctaAvatarWfrjn1.src} alt={images.ctaAvatarWfrjn1.alt || 'CEO'} />
+            <img src={images.ctaAvatarWfrjn1.src} alt={images.ctaAvatarWfrjn1.alt || t('nav.ceo')} />
           </span>
           <span className="navbar__cta-content">
             <span className="navbar__cta-heading-row">
-              <span className="navbar__cta-heading text-preset-q70fzl">Meet the CEO</span>
+              <span className="navbar__cta-heading text-preset-q70fzl">{t('nav.meetTheCeo')}</span>
               <span className="navbar__cta-icon-track">
                 <MenuIcon />
                 <MenuIcon />
@@ -224,7 +235,7 @@ export default function Navbar({ links = NAV_LINKS }: NavbarProps) {
             </span>
             <span className="navbar__cta-name-position">
               <span className="text-preset-152twjm navbar__cta-name">{NAME}</span>
-              <span className="text-preset-152twjm navbar__cta-position">CEO</span>
+              <span className="text-preset-152twjm navbar__cta-position">{t('nav.ceo')}</span>
             </span>
           </span>
         </motion.a>
@@ -233,7 +244,7 @@ export default function Navbar({ links = NAV_LINKS }: NavbarProps) {
           style={{ opacity: secondHalfIn, pointerEvents: compact ? 'auto' : 'none' }}
           aria-hidden={!compact}
         >
-          <Button title="Book a call" variant="light" booking solid className="navbar__book-button" tabIndex={compact ? 0 : -1} />
+          <Button title={t('common.bookCall')} variant="light" booking solid className="navbar__book-button" tabIndex={compact ? 0 : -1} />
         </motion.div>
         </div>
       </motion.div>

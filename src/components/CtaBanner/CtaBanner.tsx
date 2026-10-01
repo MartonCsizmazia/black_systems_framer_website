@@ -2,6 +2,7 @@ import { useRef } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import Button from '../Button/Button'
 import { images } from '../../assets/images'
+import { useTranslation } from '../../i18n/I18nProvider'
 import './CtaBanner.css'
 
 // Same technique as About's portrait: the container stays put, the
@@ -28,6 +29,7 @@ const CTA_BG_PARALLAX_START = -300
  * across the rectangle's left/right edges.
  */
 export default function CtaBanner() {
+  const { t } = useTranslation()
   const containerRef = useRef<HTMLDivElement>(null)
   const { scrollYProgress: bgScrollProgress } = useScroll({
     target: containerRef,
@@ -55,7 +57,7 @@ export default function CtaBanner() {
             >
               {Array.from({ length: 6 }).map((_, i) => (
                 <span key={i} className="cta-banner__marquee-text">
-                  Faster. Smarter. Simpler.&nbsp;-&nbsp;
+                  {t('ctaBanner.marquee')}&nbsp;-&nbsp;
                 </span>
               ))}
             </motion.div>
@@ -79,7 +81,7 @@ export default function CtaBanner() {
               alt=""
               className="cta-banner__accent-photo"
             />
-            <Button title="Let's talk" variant="light" booking solid />
+            <Button title={t('common.letsTalk')} variant="light" booking solid />
           </div>
         </div>
       </div>

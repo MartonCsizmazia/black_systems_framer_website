@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
 import Lenis from 'lenis'
+import { localizePath, parseLangPath } from '../i18n/paths'
 
 /**
  * Framer-published sites run Lenis for smooth scrolling (confirmed live:
@@ -40,11 +41,13 @@ let lenisInstance: Lenis | null = null
 export function scrollToSection(target: string) {
   const id = target.replace(/^#/, '')
   // On a sub-page (e.g. /case-studies/<slug>) the home sections aren't on
-  // the page: go to them on the home page instead (App scrolls to the hash
-  // once it has rendered). The logo's '#top' goes to the home page too.
-  const onHome = window.location.pathname.replace(/\/+$/, '') === ''
-  if (!onHome && (id === 'top' || !document.getElementById(id))) {
-    window.location.href = id === 'top' ? '/' : `/#${id}`
+  // the page: go to them on the home page, in the same language, instead
+  // (App scrolls to the hash once it has rendered). The logo's '#top' goes
+  // to the home page too.
+  const { lang, path } = parseLangPath(window.location.pathname)
+  if (path !== '/' && (id === 'top' || !document.getElementById(id))) {
+    const home = localizePath('/', lang)
+    window.location.href = id === 'top' ? home : `${home}#${id}`
     return
   }
   const section = id === 'top' ? null : document.getElementById(id)

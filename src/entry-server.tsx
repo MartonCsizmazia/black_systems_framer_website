@@ -3,12 +3,15 @@ import { renderToString } from 'react-dom/server'
 import App from './App'
 
 export { PRERENDER_PATHS, pageMeta, SITE_URL } from './seo'
+export { LANGS } from './i18n/I18nProvider'
+export { localizePath } from './i18n/paths'
 
-/** Render one page to HTML for the build-time prerender. */
-export function render(path: string) {
+/** Render one page to HTML for the build-time prerender. `pathname` is the
+ * full address, language prefix included ('/hu/case-studies/x'). */
+export function render(pathname: string) {
   return renderToString(
     <React.StrictMode>
-      <App path={path} />
+      <App pathname={pathname} />
     </React.StrictMode>,
   )
 }

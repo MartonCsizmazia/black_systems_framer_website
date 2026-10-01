@@ -1,7 +1,8 @@
 import { useEffect, useRef, useState } from 'react'
 import WorkCard from '../WorkCard/WorkCard'
 import { scrollToSection } from '../../hooks/useLenis'
-import { caseStudies, caseStudyHref } from '../../data/caseStudiesConfig'
+import { caseStudies, caseStudyHref, caseStudyText } from '../../data/caseStudiesConfig'
+import { useTranslation } from '../../i18n/I18nProvider'
 import './CaseStudySlider.css'
 import { useIsomorphicLayoutEffect } from '../../hooks/useIsomorphicLayoutEffect'
 
@@ -49,6 +50,7 @@ function snapLeft(track: HTMLElement, slide: HTMLElement) {
  * edges, so reaching either end is visible.
  */
 export default function CaseStudySlider({ currentSlug, currentTarget }: CaseStudySliderProps) {
+  const { lang, t, texts } = useTranslation()
   const trackRef = useRef<HTMLDivElement>(null)
   const [canPrev, setCanPrev] = useState(false)
   const [canNext, setCanNext] = useState(false)
@@ -111,24 +113,24 @@ export default function CaseStudySlider({ currentSlug, currentTarget }: CaseStud
               }
             >
               <WorkCard
-                title={cs.title}
-                category={cs.category}
+                title={caseStudyText(texts, cs.slug).title}
+                category={caseStudyText(texts, cs.slug).category}
                 rollNo={cs.rollNo}
                 year={cs.year}
-                href={caseStudyHref(cs.slug)}
+                href={caseStudyHref(cs.slug, lang)}
                 image={cs.image}
               />
-              {isCurrent && <span className="case-study-slider__current text-preset-152twjm">(Current)</span>}
+              {isCurrent && <span className="case-study-slider__current text-preset-152twjm">{t('caseStudies.current')}</span>}
             </div>
           )
         })}
       </div>
 
       <div className="case-study-slider__controls">
-        <button type="button" aria-label="Previous case studies" onClick={() => step(-1)} disabled={!canPrev}>
+        <button type="button" aria-label={t('caseStudies.previous')} onClick={() => step(-1)} disabled={!canPrev}>
           <Arrow direction="prev" />
         </button>
-        <button type="button" aria-label="Next case studies" onClick={() => step(1)} disabled={!canNext}>
+        <button type="button" aria-label={t('caseStudies.next')} onClick={() => step(1)} disabled={!canNext}>
           <Arrow direction="next" />
         </button>
       </div>

@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react'
+import { useRef } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
 
 import SectionEyebrow from '../components/SectionEyebrow/SectionEyebrow'
@@ -6,7 +6,8 @@ import LineReveal from '../components/LineReveal/LineReveal'
 
 import Footer from '../components/Footer/Footer'
 import Contact from '../sections/Contact/Contact'
-import { type CaseStudyEntry } from '../data/caseStudiesConfig'
+import { caseStudyText, type CaseStudyEntry } from '../data/caseStudiesConfig'
+import { useTranslation } from '../i18n/I18nProvider'
 import CaseStudySlider from '../components/CaseStudySlider/CaseStudySlider'
 import './CaseStudy.css'
 import Navbar, { type NavLink } from "../components/Navbar/Navbar";
@@ -47,6 +48,8 @@ function PlusMark() {
 }
 
 function CaseStudyHero({ caseStudy, fadeTargetRef }: { caseStudy: CaseStudyEntry; fadeTargetRef: React.RefObject<HTMLElement> }) {
+  const { texts } = useTranslation()
+  const text = caseStudyText(texts, caseStudy.slug)
   // Same Framer parallax as the home hero (__framer__speed 110 -> 10%).
   const { scrollY } = useScroll()
   const parallaxY = useTransform(scrollY, (v) => -v * 0.1)
@@ -69,7 +72,7 @@ function CaseStudyHero({ caseStudy, fadeTargetRef }: { caseStudy: CaseStudyEntry
     <div className="case-study-hero-wrapper">
       <motion.section className="case-study-hero" style={{ y: parallaxY, opacity }}>
         <motion.div className="case-study-hero__bg" {...bgAppear}>
-          <img src={caseStudy.image.src} alt={caseStudy.image.alt || caseStudy.title} />
+          <img src={caseStudy.image.src} alt={caseStudy.image.alt || text.title} />
         </motion.div>
 
         <div className="case-study-hero__spacer" />
@@ -82,7 +85,7 @@ function CaseStudyHero({ caseStudy, fadeTargetRef }: { caseStudy: CaseStudyEntry
               <PlusMark />
               <PlusMark />
             </div>
-            <h2 className="text-preset-1gc7217 case-study-hero__title">{caseStudy.title}</h2>
+            <h2 className="text-preset-1gc7217 case-study-hero__title">{text.title}</h2>
             <div className="case-study-hero__detail">
               <PlusMark />
               <PlusMark />
@@ -91,8 +94,8 @@ function CaseStudyHero({ caseStudy, fadeTargetRef }: { caseStudy: CaseStudyEntry
 
           <div className="case-study-hero__bottom">
             <div className="case-study-hero__bottom-left">
-              <p className="text-preset-152twjm">{caseStudy.category}</p>
-              <p className="text-preset-152twjm case-study-hero__description">{caseStudy.description}</p>
+              <p className="text-preset-152twjm">{text.category}</p>
+              <p className="text-preset-152twjm case-study-hero__description">{text.description}</p>
             </div>
             <p className="text-preset-152twjm case-study-hero__year">{caseStudy.year}</p>
           </div>
@@ -103,6 +106,8 @@ function CaseStudyHero({ caseStudy, fadeTargetRef }: { caseStudy: CaseStudyEntry
 }
 
 function CaseStudyContent({ caseStudy, fadeTargetRef }: { caseStudy: CaseStudyEntry; fadeTargetRef: React.RefObject<HTMLDivElement> }) {
+  const { t, texts } = useTranslation()
+  const text = caseStudyText(texts, caseStudy.slug)
   return (
     <section id="case-study-content" className="case-study-content">
       <OverlapFiller color="paper" />
@@ -111,8 +116,8 @@ function CaseStudyContent({ caseStudy, fadeTargetRef }: { caseStudy: CaseStudyEn
       <div className="case-study-content__fade-target" ref={fadeTargetRef} aria-hidden="true" />
 
       <div className="case-study-content__top">
-        <SectionEyebrow index="01" title={caseStudy.title} />
-        <LineReveal as="h3" className="text-preset-13ruabr case-study-content__intro" text={caseStudy.intro} />
+        <SectionEyebrow index="01" title={text.title} />
+        <LineReveal as="h3" className="text-preset-13ruabr case-study-content__intro" text={text.intro} />
       </div>
 
       <div className="case-study-content__spacer" />
@@ -120,18 +125,18 @@ function CaseStudyContent({ caseStudy, fadeTargetRef }: { caseStudy: CaseStudyEn
       <div className="case-study-content__bottom">
         <motion.div className="case-study-content__info" {...fadeIn(1.2)}>
           <div className="case-study-content__row">
-            <p className="text-preset-q70fzl case-study-content__heading">(Research)</p>
-            <p className="text-preset-q70fzl case-study-content__text">{caseStudy.research}</p>
+            <p className="text-preset-q70fzl case-study-content__heading">{t('caseStudies.research')}</p>
+            <p className="text-preset-q70fzl case-study-content__text">{text.research}</p>
           </div>
           <div className="case-study-content__row">
-            <p className="text-preset-q70fzl case-study-content__heading">(Solution)</p>
-            <p className="text-preset-q70fzl case-study-content__text">{caseStudy.solution}</p>
+            <p className="text-preset-q70fzl case-study-content__heading">{t('caseStudies.solution')}</p>
+            <p className="text-preset-q70fzl case-study-content__text">{text.solution}</p>
           </div>
           <div className="case-study-content__row">
-            <p className="text-preset-q70fzl case-study-content__heading">(Results)</p>
+            <p className="text-preset-q70fzl case-study-content__heading">{t('caseStudies.results')}</p>
             <div className="case-study-content__results">
               <div className="case-study-content__stats">
-                {caseStudy.stats.map((s) => (
+                {text.stats.map((s) => (
                   <div className="case-study-content__stat" key={s.label}>
                     <div className="case-study-content__stat-row">
                       <span className="text-preset-q70fzl">{s.label}</span>
@@ -150,9 +155,10 @@ function CaseStudyContent({ caseStudy, fadeTargetRef }: { caseStudy: CaseStudyEn
 }
 
 function MoreCaseStudies({ caseStudy }: { caseStudy: CaseStudyEntry }) {
+  const { t } = useTranslation()
   return (
     <section id="more-case-studies" className="more-case-studies">
-      <SectionEyebrow index="02" title="Case Studies" />
+      <SectionEyebrow index="02" title={t('caseStudies.eyebrow')} />
       <CaseStudySlider currentSlug={caseStudy.slug} currentTarget="#case-study-content" />
     </section>
   )
@@ -160,11 +166,12 @@ function MoreCaseStudies({ caseStudy }: { caseStudy: CaseStudyEntry }) {
 
 /** Case study menu: the current case study, the case studies slider below
  * it, and Contact, matching the page's (01) / (02) / (03) eyebrows. */
-function caseStudyNavLinks(caseStudy: CaseStudyEntry): NavLink[] {
+function useCaseStudyNavLinks(caseStudy: CaseStudyEntry): NavLink[] {
+  const { t, texts } = useTranslation()
   return [
-    { title: caseStudy.title, rollNo: '01', href: '#case-study-content' },
-    { title: 'Case Studies', rollNo: '02', href: '#more-case-studies' },
-    { title: 'Contact', rollNo: '03', href: '#contact' },
+    { title: caseStudyText(texts, caseStudy.slug).title, rollNo: '01', href: '#case-study-content' },
+    { title: t('nav.caseStudies'), rollNo: '02', href: '#more-case-studies' },
+    { title: t('nav.contact'), rollNo: '03', href: '#contact' },
   ]
 }
 
@@ -175,18 +182,15 @@ function caseStudyNavLinks(caseStudy: CaseStudyEntry): NavLink[] {
  * section and footer.
  */
 export default function CaseStudy({ caseStudy }: { caseStudy: CaseStudyEntry }) {
+  const navLinks = useCaseStudyNavLinks(caseStudy)
   const fadeTargetRef = useRef<HTMLDivElement>(null)
-
-  useEffect(() => {
-    document.title = `${caseStudy.title} - Black Systems`
-  }, [caseStudy.title])
 
   return (
     <main className="case-study">
       {/* Site-wide fixed navbar, outside the hero: inside it, it would drift
           and fade out with the hero's parallax. Its menu lists this page's
           own sections, numbered like their eyebrows. */}
-      <Navbar links={caseStudyNavLinks(caseStudy)} />
+      <Navbar links={navLinks} />
       <CaseStudyHero caseStudy={caseStudy} fadeTargetRef={fadeTargetRef} />
       <CaseStudyContent caseStudy={caseStudy} fadeTargetRef={fadeTargetRef} />
       <MoreCaseStudies caseStudy={caseStudy} />

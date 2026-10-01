@@ -5,6 +5,7 @@ import SectionEyebrow from '../../components/SectionEyebrow/SectionEyebrow'
 import CtaBanner from '../../components/CtaBanner/CtaBanner'
 import ClientLogos from '../ClientLogos/ClientLogos'
 import { NAME } from '../../data/contact'
+import { useTranslation } from '../../i18n/I18nProvider'
 import { images } from '../../assets/images'
 import './About.css'
 
@@ -28,13 +29,10 @@ const fadeIn = (duration: number) => ({
   viewport: { once: false, amount: 0.01 },
 })
 
-const stats = [
-  { label: 'Lead response time', value: 'under 1 minute' },
-  { label: 'More leads handled', value: '+20%' },
-  { label: 'Availability', value: '24/7' },
-]
-
 export default function About() {
+  const { t, tm } = useTranslation()
+  const stats = tm('about.results.stats')
+  const moreParagraphs = tm('about.founder.more')
   const imageRef = useRef<HTMLDivElement>(null)
   const [moreOpen, setMoreOpen] = useState(false)
   const { scrollYProgress: imageScrollProgress } = useScroll({
@@ -55,15 +53,14 @@ export default function About() {
       </div>
 
       <div className="about__top">
-        <SectionEyebrow index="01" title="About Us" />
+        <SectionEyebrow index="01" title={t('about.eyebrow')} />
         <motion.p
           className="about__heading"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0, transition: { duration: 0.7, delay: 0.1 } }}
           viewport={{ once: true, amount: 0.01 }}
         >
-            The AI automation partner for growing businesses.
-            AI systems that bring in more leads and take the repetitive work off your team.
+            {t('about.heading')}
         </motion.p>
       </div>
 
@@ -78,21 +75,15 @@ export default function About() {
 
         <motion.div className="about__columns" {...fadeIn(1.2)}>
           <div className="about__column">
-            <span className="about__column-heading text-preset-q70fzl">(Pre)</span>
-            <p className="about__column-text text-preset-q70fzl">
-                Leads slip through the cracks, replies take hours, and your team
-                loses days to copy-pasting, data entry and chasing follow-ups.
-            </p>
+            <span className="about__column-heading text-preset-q70fzl">{t('about.pre.label')}</span>
+            <p className="about__column-text text-preset-q70fzl">{t('about.pre.text')}</p>
           </div>
           <div className="about__column">
-            <span className="about__column-heading text-preset-q70fzl">(+Post)</span>
-            <p className="about__column-text text-preset-q70fzl">
-                We build AI systems that respond to every lead in minutes, qualify them
-                and handle the repetitive tasks in the background, reliably, day and night.
-            </p>
+            <span className="about__column-heading text-preset-q70fzl">{t('about.post.label')}</span>
+            <p className="about__column-text text-preset-q70fzl">{t('about.post.text')}</p>
           </div>
           <div className="about__column">
-            <span className="about__column-heading text-preset-q70fzl">(=Results)</span>
+            <span className="about__column-heading text-preset-q70fzl">{t('about.results.label')}</span>
             <div className="about__results-content">
               <div className="about__stats">
                 {stats.map((s) => (
@@ -119,15 +110,11 @@ export default function About() {
               the heading position, name + role + intro in the text column. */}
           <div className="about__founder-row">
             <div className="about__column">
-              <span className="about__column-heading text-preset-q70fzl">(You'll work with)</span>
+              <span className="about__column-heading text-preset-q70fzl">{t('about.founder.label')}</span>
               <div className="about__founder-content">
                 <h3 className="about__founder-name">{NAME}</h3>
-                <span className="text-preset-q70fzl about__founder-role">Founder &amp; CEO</span>
-                <p className="text-preset-q70fzl about__founder-text">
-                    I'm Márton, the founder of Black Systems. I work with every client
-                    directly, from mapping how your business runs to launching the system
-                    and keeping it running, so you always know what's being built and why.
-                </p>
+                <span className="text-preset-q70fzl about__founder-role">{t('about.founder.role')}</span>
+                <p className="text-preset-q70fzl about__founder-text">{t('about.founder.intro')}</p>
 
                 {/* Longer background, revealed on demand so the intro stays short. */}
                 <AnimatePresence initial={false}>
@@ -140,18 +127,11 @@ export default function About() {
                       exit={{ height: 0, opacity: 0 }}
                       transition={{ duration: 0.5, ease: [0.44, 0, 0.34, 0.98] }}
                     >
-                      <p className="text-preset-q70fzl about__founder-text">
-                          Before Black Systems, I spent seven years in software development,
-                          most of them in corporate banking, where systems have
-                          to be secure, precise and never fail. I bring that same standard to
-                          every automation I build.
-                      </p>
-                      <p className="text-preset-q70fzl about__founder-text">
-                          I started Black Systems to create high added value where it's needed
-                          most. I believe most everyday work can be far simpler than it is
-                          today: every workflow that runs on its own gives time back to your
-                          team and makes the whole business more productive.
-                      </p>
+                      {moreParagraphs.map((paragraph) => (
+                        <p key={paragraph} className="text-preset-q70fzl about__founder-text">
+                          {paragraph}
+                        </p>
+                      ))}
                     </motion.div>
                   )}
                 </AnimatePresence>
@@ -162,7 +142,7 @@ export default function About() {
                   aria-controls="founder-more"
                   onClick={() => setMoreOpen((v) => !v)}
                 >
-                  {moreOpen ? 'Less' : 'More about me'}{' '}
+                  {moreOpen ? t('about.founder.lessToggle') : t('about.founder.moreToggle')}{' '}
                   <span aria-hidden="true">{moreOpen ? '↑' : '↓'}</span>
                 </button>
               </div>

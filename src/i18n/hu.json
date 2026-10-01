@@ -1,0 +1,248 @@
+{
+  "common": {
+    "brand": "Black Systems",
+    "logoLabel": "Black Systems - vissza a tetejére",
+    "bookCall": "Hívás foglalása",
+    "bookFreeCall": "Ingyenes hívás foglalása",
+    "letsTalk": "Beszéljünk",
+    "backToTop": "Vissza a tetejére",
+    "backHome": "Vissza a főoldalra",
+    "copyright": "© {{year}}",
+    "language": "Nyelv"
+  },
+  "nav": {
+    "aboutUs": "Rólunk",
+    "services": "Szolgáltatások",
+    "caseStudies": "Esettanulmányok",
+    "faq": "GYIK",
+    "contact": "Kapcsolat",
+    "meetTheCeo": "Ismerd meg a CEO-t",
+    "ceo": "CEO",
+    "openMenu": "Menü megnyitása",
+    "closeMenu": "Menü bezárása",
+    "primaryLabel": "Fő navigáció"
+  },
+  "hero": {
+    "line1": "Foglalj hívást, mutasd be a folyamatot,",
+    "line2": "és az első automatizációd",
+    "line2Dim": "heteken belül",
+    "line3": "élesben fut.",
+    "services": [
+      "Ügyfélszerzés",
+      "Automatizáció",
+      "AI ügynökök"
+    ],
+    "backgroundAlt": "Háttér"
+  },
+  "about": {
+    "eyebrow": "Rólunk",
+    "heading": "Az AI automatizációs partner növekvő vállalkozásoknak. AI rendszerek, amelyek több érdeklődőt hoznak, és leveszik a csapatod válláról az ismétlődő munkát.",
+    "pre": {
+      "label": "(Előtte)",
+      "text": "Az érdeklődők elvesznek, a válaszok órákat késnek, a csapatod pedig napokat tölt másolgatással, adatbevitellel és utánkövetéssel."
+    },
+    "post": {
+      "label": "(+Utána)",
+      "text": "Olyan AI rendszereket építünk, amelyek percek alatt reagálnak minden érdeklődőre, minősítik őket, és a háttérben, megbízhatóan, éjjel-nappal elvégzik az ismétlődő feladatokat."
+    },
+    "results": {
+      "label": "(=Eredmény)",
+      "stats": [
+        {
+          "label": "Válaszidő",
+          "value": "1 percen belül"
+        },
+        {
+          "label": "Több kezelt érdeklődő",
+          "value": "+20%"
+        },
+        {
+          "label": "Elérhetőség",
+          "value": "24/7"
+        }
+      ]
+    },
+    "founder": {
+      "label": "(Velem dolgozol)",
+      "role": "Alapító és CEO",
+      "intro": "Márton vagyok, a Black Systems alapítója. Minden ügyféllel közvetlenül dolgozom, a működésed feltérképezésétől a rendszer elindításáig és folyamatos üzemeltetéséig, így mindig tudod, mi készül és miért.",
+      "more": [
+        "A Black Systems előtt hét évet dolgoztam szoftverfejlesztőként, ennek nagy részét a vállalati bankszektorban, ahol a rendszereknek biztonságosnak, pontosnak és hibátlannak kell lenniük. Ugyanezt a színvonalat hozom minden automatizációba, amit építek.",
+        "Azért alapítottam a Black Systemst, hogy ott teremtsek magas hozzáadott értéket, ahol a legnagyobb szükség van rá. Hiszem, hogy a legtöbb mindennapi munka sokkal egyszerűbb lehetne, mint ma: minden önállóan futó folyamat időt ad vissza a csapatodnak, és termelékenyebbé teszi az egész vállalkozást."
+      ],
+      "moreToggle": "Bővebben rólam",
+      "lessToggle": "Kevesebb"
+    }
+  },
+  "ctaBanner": {
+    "marquee": "Gyorsabb. Okosabb. Egyszerűbb."
+  },
+  "services": {
+    "eyebrow": "Prémium szolgáltatások",
+    "heading": "Folyamatközpontú ügynökség egyedi automatizációkkal - feltérképezzük, hogyan működik valójában a vállalkozásod, majd pontosan hozzá illő rendszereket tervezünk, integrálunk és tartunk karban.",
+    "cards": [
+      {
+        "category": "Ügyfélszerzés és válaszadás",
+        "heading": "Azonnali reagálás",
+        "body": "Minden megkeresés a weboldaladról, űrlapokról, e-mailből vagy hirdetésekből perceken belül választ kap, éjjel-nappal. A rendszer minősíti az érdeklődőt, megválaszolja a gyakori kérdéseket, és egyenesen a naptáradba foglalja a hívást."
+      },
+      {
+        "category": "Kézi munka automatizálása",
+        "heading": "Működés kézi beavatkozás nélkül",
+        "body": "A másolgatás, az adatbevitel, a CRM-frissítések, az utánkövető e-mailek és a riportok automatikusan futnak az eszközeid között, így a csapatod az ügyfelekkel foglalkozhat, nem az adminisztrációval."
+      },
+      {
+        "category": "Audit és egyedi rendszerek",
+        "heading": "A folyamataidra szabva",
+        "body": "Feltérképezzük, hogyan működik valójában a vállalkozásod, megtaláljuk, hol vész el idő és érdeklődő, és mindenre testreszabott automatizációt építünk, tesztelve, integrálva és az indulás után is támogatva."
+      }
+    ]
+  },
+  "caseStudies": {
+    "eyebrow": "Esettanulmányok",
+    "sidebarCode": "CS-{{year}}'",
+    "seeAll": "Összes ({{count}})",
+    "current": "(Jelenlegi)",
+    "previous": "Előző esettanulmányok",
+    "next": "Következő esettanulmányok",
+    "research": "(Feltárás)",
+    "solution": "(Megoldás)",
+    "results": "(Eredmények)",
+    "items": {
+      "lead-machine": {
+        "title": "Az ügyfélszerző gép",
+        "category": "Ingatlan",
+        "description": "Minden ingatlanos megkeresésből minősített értékesítési lehetőség.",
+        "intro": "Automatizált ügyfélszerző rendszer, amely rögzít minden megkeresést, felméri a szándékot, azonnal válaszol, és a vásárlásra kész érdeklődőket egyenesen a CRM-be irányítja.",
+        "research": "Feltérképeztük az utat az első megkereséstől a lefoglalt hívásig, és lassú válaszidőket, kézi minősítést, szétszórt érdeklődőforrásokat és elmaradt utánkövetést találtunk.",
+        "solution": "Minden érdeklődő automatikusan rögzítésre és kiegészítésre kerül. Az AI felméri a szándékot, rendszerezi a fontos adatokat, frissíti a CRM-et, személyre szabott választ küld, és a minősített érdeklődőket az értékesítéshez irányítja.",
+        "stats": [
+          {
+            "label": "Válaszidő",
+            "value": "<1 perc"
+          },
+          {
+            "label": "Ügyfélszerzés",
+            "value": "24/7"
+          }
+        ]
+      },
+      "ai-recruiter": {
+        "title": "Az AI toborzó",
+        "category": "Toborzás",
+        "description": "Több száz jelentkezésből rendezett szűkített lista.",
+        "intro": "AI-alapú előszűrési folyamat, amely beolvassa a beérkező jelentkezéseket, kinyeri a jelöltek adatait, felméri az alkalmasságot, és rangsorolt szűkített listát ad a toborzóknak.",
+        "research": "Feltérképeztük a szűrési folyamatot, és azt láttuk, hogy a toborzók újra és újra önéletrajzokat olvasnak, jelöltadatokat másolnak át, követelményeket ellenőriznek, és kézzel állítják össze a szűkített listákat.",
+        "solution": "Az AI kinyeri és rendszerezi minden jelentkezés adatait, a meghatározott szempontok szerint értékeli a jelölteket, jelzi a hiányzó követelményeket, pontozza az alkalmasságot, és az eredményeket közvetlenül a jelentkezéskezelő rendszerbe szinkronizálja.",
+        "stats": [
+          {
+            "label": "Jelentkezések",
+            "value": "24/7"
+          },
+          {
+            "label": "Adatrögzítés",
+            "value": "100%"
+          }
+        ]
+      },
+      "24-7-front-desk": {
+        "title": "A 24/7 recepció",
+        "category": "Vendéglátás",
+        "description": "Megválaszolt és továbbított vendégkérdések, amíg a csapat alszik.",
+        "intro": "Folyamatosan elérhető AI recepció, amely kezeli a rutin vendégkérdéseket, rögzíti a kéréseket, időpontokat foglal, és továbbítja azokat a beszélgetéseket, amelyekhez ember kell.",
+        "research": "Elemeztük az ismétlődő vendégkommunikációt a webes és üzenetküldő csatornákon, és visszatérő kérdéseket, késedelmes válaszokat, nehézkes foglalást és felesleges munkaterhet találtunk.",
+        "solution": "Az AI jóváhagyott üzleti információk alapján azonnal válaszol, kezeli a gyakori kéréseket, bekéri a hiányzó adatokat, ahol lehet, időpontot foglal, az összetett beszélgetéseket pedig átadja a munkatársaknak.",
+        "stats": [
+          {
+            "label": "Elérhetőség",
+            "value": "24/7"
+          },
+          {
+            "label": "Válaszidő",
+            "value": "<1 perc"
+          }
+        ]
+      },
+      "invisible-back-office": {
+        "title": "A láthatatlan háttériroda",
+        "category": "Szakmai szolgáltatások",
+        "description": "Az ismétlődő adminisztráció úgy zajlik, hogy senkinek nem kell hozzányúlnia.",
+        "intro": "Összekapcsolt működési folyamat, amely feldolgozza a dokumentumokat, adatokat mozgat a rendszerek között, frissíti a nyilvántartásokat, utánkövető üzeneteket küld, és automatikusan naprakészen tartja a riportokat.",
+        "research": "Feltérképeztük az e-mailben, dokumentumokban, CRM-ben és belső eszközökben zajló ismétlődő adminisztrációt, és duplikált adatbevitelt, másolgatást, következetlen nyilvántartásokat és kézi riportkészítést tártunk fel.",
+        "solution": "A dokumentumok és üzenetek feldolgozása automatikus, a fontos adatok ellenőrzötten és rendszerezve kerülnek a helyükre, a rendszerek szinkronban maradnak, a kivételek pedig csak akkor jutnak el emberhez, ha mérlegelésre van szükség.",
+        "stats": [
+          {
+            "label": "Adatáramlás",
+            "value": "Automatizált"
+          },
+          {
+            "label": "Működés",
+            "value": "24/7"
+          }
+        ]
+      }
+    }
+  },
+  "faq": {
+    "eyebrow": "Gyakran ismételt kérdések",
+    "items": [
+      {
+        "question": "Mennyi idő alatt indul el az első automatizációm?",
+        "answer": "Általában heteken, nem hónapokon belül. Egy ingyenes hívás során feltérképezzük, hol vész el idő és érdeklődő, majd először a legnagyobb hatású automatizációt indítjuk el, és onnan építkezünk tovább."
+      },
+      {
+        "question": "Le kell cserélnem a jelenlegi eszközeimet?",
+        "answer": "Csak ha szeretnéd. Összekötjük a már használt eszközeidet, például a CRM-et, a jelentkezéskezelő rendszert, az e-mailt vagy a foglalási rendszert, így az adatok automatikusan áramlanak közöttük. Ha egy új eszköz jobban illene, javasoljuk, de ez mindig opcionális. Minden új eszközhöz csapatoktatást és részletes leírást adunk."
+      },
+      {
+        "question": "Biztonságban vannak az én adataim és az ügyfeleim adatai?",
+        "answer": "Igen. A biztonság az első naptól be van építve: minden automatizáció csak a szükséges adatokhoz fér hozzá, és mindig tudod, mi kerül feldolgozásra, hol tárolódik, és ki láthatja. Semmi sem fut a tudtod nélkül."
+      },
+      {
+        "question": "Mi történik, ha valami elromlik, vagy megváltozik a folyamatom?",
+        "answer": "Nem adom át a rendszert úgy, hogy aztán eltűnök. Minden automatizációt az indulás után is figyelünk, és a vállalkozásod változásaihoz igazítunk, legyen szó új érdeklődőforrásról, új eszközről vagy egy új lépésről a folyamatban."
+      },
+      {
+        "question": "Az AI le fogja cserélni a csapatomat?",
+        "answer": "Nem, leveszi róluk az ismétlődő munkát. A rutin megkeresések, az adatbevitel és az utánkövetés automatikusan zajlik, ami pedig mérlegelést igényel, az emberhez kerül, így a csapatod az ügyfelekre koncentrálhat."
+      }
+    ]
+  },
+  "contact": {
+    "eyebrow": "Kapcsolat",
+    "heading": "Lépj kapcsolatba",
+    "description": "Foglalj hívást, mutasd be a folyamatot, és az első automatizációd heteken belül élesben fut.",
+    "firstName": "Keresztnév*",
+    "firstNamePlaceholder": "Péter",
+    "lastName": "Vezetéknév*",
+    "lastNamePlaceholder": "Kovács",
+    "email": "E-mail",
+    "message": "Üzenet",
+    "messagePlaceholder": "Írd ide az üzeneted...",
+    "submit": "Küldés"
+  },
+  "footer": {
+    "tagline": "AI automatizáció növekvő vállalkozásoknak - azonnali válasz az érdeklődőknek, kevesebb kézi munka.",
+    "contact": "(Kapcsolat)",
+    "follow": "(Követés)",
+    "menu": "(Menü)",
+    "navLabel": "Lábléc",
+    "copyright": "© {{year}} Black Systems"
+  },
+  "notFound": {
+    "eyebrow": "Az oldal nem található",
+    "heading": "Ez az oldal nem létezik.",
+    "text": "Lehet, hogy hibás a link, vagy az oldal máshova került. Minden más egy kattintásnyira van."
+  },
+  "seo": {
+    "home": {
+      "title": "Black Systems - AI automatizáció növekvő vállalkozásoknak",
+      "description": "Az AI automatizációs partner növekvő vállalkozásoknak. AI rendszerek, amelyek több érdeklődőt hoznak, és leveszik a csapatod válláról az ismétlődő munkát."
+    },
+    "caseStudyTitle": "{{title}} - Black Systems",
+    "notFound": {
+      "title": "Az oldal nem található - Black Systems",
+      "description": "Ez az oldal nem létezik."
+    }
+  }
+}

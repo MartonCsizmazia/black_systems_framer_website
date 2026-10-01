@@ -81,7 +81,9 @@
 
 .hero__top {
   position: absolute;
-  top: 193px;
+  /* 193px for the description, minus the language switch (36px) and the
+     24px gap below it, so the description and button keep their place. */
+  top: 133px;
   /* 24px from the screen edge, like the navbar logo — but on screens wider
      than 1920px it follows the navbar's 1920px cap (1872px bar, centred)
      so it stays aligned under the logo. */
@@ -100,6 +102,11 @@
     left: unset;
     width: 100%;
   }
+}
+
+.hero__language {
+  /* 24px to the description instead of the column's 40px gap. */
+  margin-bottom: -16px;
 }
 
 .hero__description {

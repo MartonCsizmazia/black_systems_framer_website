@@ -1,41 +1,13 @@
 import { useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import SectionEyebrow from '../SectionEyebrow/SectionEyebrow'
+import { useTranslation } from '../../i18n/I18nProvider'
 import './FaqSection.css'
 
 export interface Faq {
   question: string
   answer: string
 }
-
-// The site's FAQ, used unless a page passes its own `faqs`.
-export const DEFAULT_FAQS: Faq[] = [
-  {
-    question: 'How quickly will my first automation be live?',
-    answer:
-      "Usually within weeks, not months. A free call maps where time and leads get lost, then we launch the automation with the biggest impact first and build from there.",
-  },
-  {
-    question: 'Do I need to change the tools I already use?',
-    answer:
-      "Not unless you want to. We connect the tools you already use, like your CRM, applicant tracking system, email or booking tools, so data flows between them automatically. If a new tool would fit better, we'll suggest it, but it's always optional. Anything new comes with team training and detailed notes.",
-  },
-  {
-    question: "Is my data and my customers' data safe?",
-    answer:
-      "Yes. Security is built in from the start: each automation only accesses the data it needs, and you always know what's processed, where it's stored and who can see it. Nothing runs without your knowledge.",
-  },
-  {
-    question: 'What happens if something breaks or my process changes?',
-    answer:
-      "I don't hand over a system and disappear. Every automation is monitored after launch and adjusted as your business changes, whether that's a new lead source, a new tool or a new step in your process.",
-  },
-  {
-    question: 'Will AI replace my team?',
-    answer:
-      "No, it takes the repetitive work off their plate. Routine inquiries, data entry and follow-ups run automatically, and anything that needs judgment goes to a person, so your team can focus on clients.",
-  },
-]
 
 // "FAQ Single" variant transition: spring, bounce .2, duration .4.
 const toggleSpring = { type: 'spring', bounce: 0.2, duration: 0.4 } as const
@@ -91,6 +63,7 @@ export interface FaqSectionProps {
   id?: string
   /** Section number shown in the eyebrow, e.g. '05' -> "(05)". */
   index?: string
+  /** Questions to show; defaults to faq.items from the translation files. */
   faqs?: Faq[]
 }
 
@@ -103,12 +76,14 @@ export interface FaqSectionProps {
 export default function FaqSection({
   id,
   index = '03',
-  faqs = DEFAULT_FAQS,
+  faqs: customFaqs,
 }: FaqSectionProps) {
+  const { t, tm } = useTranslation()
+  const faqs = customFaqs ?? tm('faq.items')
   return (
     <section id={id} className="faq-section">
       <div className="faq-section__container">
-        <SectionEyebrow index={index} title="Frequently Asked Questions" />
+        <SectionEyebrow index={index} title={t('faq.eyebrow')} />
         <div className="faq-section__content">
           <div className="faq-section__list">
             {faqs.map((faq, i) => (

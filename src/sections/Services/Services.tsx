@@ -3,42 +3,31 @@ import ServiceCard from '../../components/ServiceCard/ServiceCard'
 import OverlapFiller from '../../components/OverlapFiller/OverlapFiller'
 import SectionEyebrow from '../../components/SectionEyebrow/SectionEyebrow'
 import { images } from '../../assets/images'
+import { useTranslation } from '../../i18n/I18nProvider'
 import './Services.css'
 
-const cards = [
-  {
-    rollNo: '01',
-    category: 'Lead Capture & Response',
-    heading: 'Instant follow-up',
-    bodyText:
-      'Every inquiry from your website, forms, email or ads gets an answer within minutes, day or night. The system qualifies the lead, answers common questions and books the call straight into your calendar.',
-    image: images.assetGwbdxr, // "Woman Beach" — default image (no override for card 1 in the source)
-  },
-  {
-    rollNo: '02',
-    category: 'Manual Work Automation',
-    heading: 'Hands-off operations',
-    bodyText:
-      'Copy-pasting, data entry, CRM updates, follow-up emails and reports run automatically between your tools, so your team spends its time on clients, not admin.',
-    image: images.womanStaircaseBchnf0,
-  },
-  {
-    rollNo: '03',
-    category: 'Audit & Custom Systems',
-    heading: 'Built around your process',
-    bodyText:
-      'We map how your business actually runs, find where time and leads are lost, and build tailored automations for everything in between, tested, integrated and supported after launch.',
-    image: images.womanBeach7ug4bh,
-  },
+// Language-independent parts of the three service cards; their texts come
+// from services.cards in the translation files, in the same order.
+const cardMeta = [
+  { rollNo: '01', image: images.assetGwbdxr },
+  { rollNo: '02', image: images.womanStaircaseBchnf0 },
+  { rollNo: '03', image: images.womanBeach7ug4bh },
 ]
 
 export default function Services() {
+  const { t, tm } = useTranslation()
+  const cards = tm('services.cards').map((text, i) => ({
+    ...cardMeta[i],
+    category: text.category,
+    heading: text.heading,
+    bodyText: text.body,
+  }))
   return (
     <section id="services" className="services">
       <OverlapFiller color="ink" />
 
       <div className="services__top">
-        <SectionEyebrow index="02" title="Premium Services" dark />
+        <SectionEyebrow index="02" title={t('services.eyebrow')} dark />
 
         <div className="services__content">
           <div className="services__heading-wrap">
@@ -53,8 +42,7 @@ export default function Services() {
               whileInView={{ opacity: 1, y: 0, transition: { duration: 0.7, delay: 0.1 } }}
               viewport={{ once: true, amount: 0.01 }}
             >
-                Process-driven agency delivering custom-built automation - we map how your business really runs, then design,
-                integrate and maintain systems that fit it exactly.
+                {t('services.heading')}
             </motion.p>
           </div>
 

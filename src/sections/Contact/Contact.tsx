@@ -2,6 +2,7 @@ import { motion } from 'framer-motion'
 import { images } from '../../assets/images'
 import OverlapFiller from '../../components/OverlapFiller/OverlapFiller'
 import SectionEyebrow from '../../components/SectionEyebrow/SectionEyebrow'
+import { useTranslation } from '../../i18n/I18nProvider'
 import './Contact.css'
 
 /**
@@ -27,6 +28,7 @@ import './Contact.css'
  */
 /** `index`: the section number in its eyebrow, which differs per page. */
 export default function Contact({ index = '05' }: { index?: string }) {
+  const { t } = useTranslation()
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
     // No real backend wired up — the original is a Framer-hosted form.
@@ -36,7 +38,7 @@ export default function Contact({ index = '05' }: { index?: string }) {
     <section id="contact" className="contact">
       <OverlapFiller color="ink" />
 
-      <SectionEyebrow index={index} title="Contact" dark />
+      <SectionEyebrow index={index} title={t('contact.eyebrow')} dark />
 
       <div className="contact__layout">
         <div className="contact__photo">
@@ -50,39 +52,35 @@ export default function Contact({ index = '05' }: { index?: string }) {
             whileInView={{ opacity: 1, y: 0, transition: { duration: 0.7, delay: 0.1 } }}
             viewport={{ once: true, amount: 0.01 }}
           >
-            Get In Touch
+            {t('contact.heading')}
           </motion.h3>
 
-          <p className="text-preset-q70fzl contact__description">
-              Book a call, share your process,
-              and your first automation goes live
-              within weeks.
-          </p>
+          <p className="text-preset-q70fzl contact__description">{t('contact.description')}</p>
 
           <form className="contact__form" onSubmit={handleSubmit}>
             <div className="contact__row">
               <label className="contact__field">
-                <span className="text-preset-152twjm contact__label">First Name*</span>
-                <input className="text-preset-152twjm" type="text" name="firstName" placeholder="Jim" required />
+                <span className="text-preset-152twjm contact__label">{t('contact.firstName')}</span>
+                <input className="text-preset-152twjm" type="text" name="firstName" placeholder={t('contact.firstNamePlaceholder')} required />
               </label>
               <label className="contact__field">
-                <span className="text-preset-152twjm contact__label">Last Name*</span>
-                <input className="text-preset-152twjm" type="text" name="lastName" placeholder="Hopper" required />
+                <span className="text-preset-152twjm contact__label">{t('contact.lastName')}</span>
+                <input className="text-preset-152twjm" type="text" name="lastName" placeholder={t('contact.lastNamePlaceholder')} required />
               </label>
             </div>
 
             <label className="contact__field">
-              <span className="text-preset-152twjm contact__label">Email</span>
+              <span className="text-preset-152twjm contact__label">{t('contact.email')}</span>
               <input className="text-preset-152twjm" type="email" name="email" placeholder="marton@blacksystems.ai" required />
             </label>
 
             <label className="contact__field">
-              <span className="text-preset-152twjm contact__label">Message</span>
-              <textarea className="text-preset-152twjm" name="message" placeholder="Enter your message....." rows={4} />
+              <span className="text-preset-152twjm contact__label">{t('contact.message')}</span>
+              <textarea className="text-preset-152twjm" name="message" placeholder={t('contact.messagePlaceholder')} rows={4} />
             </label>
 
             <button type="submit" className="text-preset-q70fzl contact__submit">
-              Submit
+              {t('contact.submit')}
             </button>
           </form>
         </div>

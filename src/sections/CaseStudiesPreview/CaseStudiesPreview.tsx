@@ -5,7 +5,8 @@ import SectionEyebrow from '../../components/SectionEyebrow/SectionEyebrow'
 import OverlapFiller from '../../components/OverlapFiller/OverlapFiller'
 import { images } from '../../assets/images'
 import './CaseStudiesPreview.css'
-import { caseStudies, caseStudyHref, type CaseStudyEntry } from '../../data/caseStudiesConfig'
+import { caseStudies, caseStudyHref, caseStudyText, type CaseStudyEntry } from '../../data/caseStudiesConfig'
+import { useTranslation } from '../../i18n/I18nProvider'
 
 // Recovered exactly by measuring the live source: each card slot but the
 // last is plain `position: sticky`, with `top` increasing by 40px per card
@@ -57,6 +58,8 @@ function CaseStudyCard({
   total: number
   progress: MotionValue<number>
 }) {
+  const { lang, texts } = useTranslation()
+  const text = caseStudyText(texts, caseStudy.slug)
   const startAt = (index + 1) / total
   const y = useTransform(progress, (p) => -COVER_DRIFT_Y * Math.max(0, p - startAt))
   const scale = useTransform(progress, (p) => 1 - COVER_SHRINK * Math.max(0, p - startAt))
@@ -77,10 +80,10 @@ function CaseStudyCard({
   return (
     <motion.div className="case-studies__card-slot" style={style}>
       <WorkCard
-        title={caseStudy.title}
-        category={caseStudy.category}
+        title={text.title}
+        category={text.category}
         rollNo={caseStudy.rollNo}
-        href={caseStudyHref(caseStudy.slug)}
+        href={caseStudyHref(caseStudy.slug, lang)}
         image={caseStudy.image}
         captionOpacity={isLast ? undefined : captionOpacity}
       />
@@ -89,6 +92,7 @@ function CaseStudyCard({
 }
 
 export default function CaseStudiesPreview() {
+  const { lang, t } = useTranslation()
   const middleRef = useRef<HTMLDivElement>(null)
   const { scrollYProgress } = useScroll({ target: middleRef, offset: ['start start', 'end end'] })
   const yearSuffix = new Date().getFullYear() % 100
@@ -97,11 +101,11 @@ export default function CaseStudiesPreview() {
     <section id="case-studies" className="case-studies">
       {/* Slanted white edge over the dark Services section before it. */}
       <OverlapFiller color="paper" />
-      <SectionEyebrow index="03" title="Case Studies" />
+      <SectionEyebrow index="03" title={t('caseStudies.eyebrow')} />
 
       <div className="case-studies__bottom">
         <div className="case-studies__sidebar case-studies__sidebar--left">
-          <h4 className="text-preset-kxvc54 case-studies__sidebar-title">CS-{yearSuffix}'</h4>
+          <h4 className="text-preset-kxvc54 case-studies__sidebar-title">{t('caseStudies.sidebarCode', { year: yearSuffix })}</h4>
           <div className="case-studies__sidebar-line" />
         </div>
 
@@ -121,9 +125,9 @@ export default function CaseStudiesPreview() {
         <div className="case-studies__sidebar case-studies__sidebar--right">
           {/* Opens the first case study's page at its slider of all case
               studies; the count follows the config. */}
-          <a href={`${caseStudyHref(caseStudies[0].slug)}#more-case-studies`} className="case-studies__see-all">
+          <a href={`${caseStudyHref(caseStudies[0].slug, lang)}#more-case-studies`} className="case-studies__see-all">
             <img src={images.assetXfjtzm.src} alt="" className="case-studies__see-all-thumb" />
-            <span className="text-preset-q70fzl">See all ({String(caseStudies.length).padStart(2, '0')})</span>
+            <span className="text-preset-q70fzl">{t('caseStudies.seeAll', { count: String(caseStudies.length).padStart(2, '0') })}</span>
           </a>
         </div>
       </div>

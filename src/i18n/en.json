@@ -1,0 +1,248 @@
+{
+  "common": {
+    "brand": "Black Systems",
+    "logoLabel": "Black Systems - back to top",
+    "bookCall": "Book a call",
+    "bookFreeCall": "Book a free call",
+    "letsTalk": "Let's talk",
+    "backToTop": "Back to top",
+    "backHome": "Back to home",
+    "copyright": "© {{year}}",
+    "language": "Language"
+  },
+  "nav": {
+    "aboutUs": "About Us",
+    "services": "Services",
+    "caseStudies": "Case Studies",
+    "faq": "FAQ",
+    "contact": "Contact",
+    "meetTheCeo": "Meet the CEO",
+    "ceo": "CEO",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "primaryLabel": "Primary"
+  },
+  "hero": {
+    "line1": "Book a call, share your process,",
+    "line2": "and your first automation",
+    "line2Dim": "goes live",
+    "line3": "within weeks.",
+    "services": [
+      "Lead Capture",
+      "Automation",
+      "AI Agents"
+    ],
+    "backgroundAlt": "Hero background"
+  },
+  "about": {
+    "eyebrow": "About Us",
+    "heading": "The AI automation partner for growing businesses. AI systems that bring in more leads and take the repetitive work off your team.",
+    "pre": {
+      "label": "(Pre)",
+      "text": "Leads slip through the cracks, replies take hours, and your team loses days to copy-pasting, data entry and chasing follow-ups."
+    },
+    "post": {
+      "label": "(+Post)",
+      "text": "We build AI systems that respond to every lead in minutes, qualify them and handle the repetitive tasks in the background, reliably, day and night."
+    },
+    "results": {
+      "label": "(=Results)",
+      "stats": [
+        {
+          "label": "Lead response time",
+          "value": "under 1 minute"
+        },
+        {
+          "label": "More leads handled",
+          "value": "+20%"
+        },
+        {
+          "label": "Availability",
+          "value": "24/7"
+        }
+      ]
+    },
+    "founder": {
+      "label": "(You'll work with)",
+      "role": "Founder & CEO",
+      "intro": "I'm Márton, the founder of Black Systems. I work with every client directly, from mapping how your business runs to launching the system and keeping it running, so you always know what's being built and why.",
+      "more": [
+        "Before Black Systems, I spent seven years in software development, most of them in corporate banking, where systems have to be secure, precise and never fail. I bring that same standard to every automation I build.",
+        "I started Black Systems to create high added value where it's needed most. I believe most everyday work can be far simpler than it is today: every workflow that runs on its own gives time back to your team and makes the whole business more productive."
+      ],
+      "moreToggle": "More about me",
+      "lessToggle": "Less"
+    }
+  },
+  "ctaBanner": {
+    "marquee": "Faster. Smarter. Simpler."
+  },
+  "services": {
+    "eyebrow": "Premium Services",
+    "heading": "Process-driven agency delivering custom-built automation - we map how your business really runs, then design, integrate and maintain systems that fit it exactly.",
+    "cards": [
+      {
+        "category": "Lead Capture & Response",
+        "heading": "Instant follow-up",
+        "body": "Every inquiry from your website, forms, email or ads gets an answer within minutes, day or night. The system qualifies the lead, answers common questions and books the call straight into your calendar."
+      },
+      {
+        "category": "Manual Work Automation",
+        "heading": "Hands-off operations",
+        "body": "Copy-pasting, data entry, CRM updates, follow-up emails and reports run automatically between your tools, so your team spends its time on clients, not admin."
+      },
+      {
+        "category": "Audit & Custom Systems",
+        "heading": "Built around your process",
+        "body": "We map how your business actually runs, find where time and leads are lost, and build tailored automations for everything in between, tested, integrated and supported after launch."
+      }
+    ]
+  },
+  "caseStudies": {
+    "eyebrow": "Case Studies",
+    "sidebarCode": "CS-{{year}}'",
+    "seeAll": "See all ({{count}})",
+    "current": "(Current)",
+    "previous": "Previous case studies",
+    "next": "Next case studies",
+    "research": "(Research)",
+    "solution": "(Solution)",
+    "results": "(Results)",
+    "items": {
+      "lead-machine": {
+        "title": "The Lead Machine",
+        "category": "Real Estate",
+        "description": "Turning every property inquiry into a qualified sales opportunity.",
+        "intro": "An automated lead engine that captures every inquiry, qualifies intent, responds instantly, and routes sales-ready prospects directly into the CRM.",
+        "research": "We mapped the journey from first inquiry to booked call, identifying slow response times, manual qualification, fragmented lead sources, and missed follow-ups.",
+        "solution": "Every lead is captured and enriched automatically. AI qualifies intent, structures key details, updates the CRM, triggers a tailored response, and routes qualified prospects to sales.",
+        "stats": [
+          {
+            "label": "Response time",
+            "value": "<1 min"
+          },
+          {
+            "label": "Lead capture",
+            "value": "24/7"
+          }
+        ]
+      },
+      "ai-recruiter": {
+        "title": "The AI Recruiter",
+        "category": "Recruitment",
+        "description": "Turning hundreds of applications into a structured shortlist.",
+        "intro": "An AI-powered screening workflow that reads incoming applications, extracts candidate data, evaluates job fit, and gives recruiters a prioritized shortlist.",
+        "research": "We mapped the screening process and found recruiters repeatedly reading CVs, transferring candidate data, checking requirements, and manually building shortlists.",
+        "solution": "AI extracts and structures every application, evaluates candidates against defined criteria, flags missing requirements, scores fit, and syncs the results directly with the ATS.",
+        "stats": [
+          {
+            "label": "Applications",
+            "value": "24/7"
+          },
+          {
+            "label": "Data capture",
+            "value": "100%"
+          }
+        ]
+      },
+      "24-7-front-desk": {
+        "title": "The 24/7 Front Desk",
+        "category": "Hospitality",
+        "description": "Guest inquiries answered and routed while the team sleeps.",
+        "intro": "An always-on AI front desk that handles routine guest questions, captures requests, schedules services, and escalates conversations that need a human.",
+        "research": "We analyzed repetitive guest communication across web and messaging channels, identifying recurring questions, delayed replies, booking friction, and unnecessary staff workload.",
+        "solution": "The AI responds instantly using approved business information, handles common requests, collects missing details, schedules where possible, and hands complex conversations to staff.",
+        "stats": [
+          {
+            "label": "Availability",
+            "value": "24/7"
+          },
+          {
+            "label": "Response time",
+            "value": "<1 min"
+          }
+        ]
+      },
+      "invisible-back-office": {
+        "title": "The Invisible Back Office",
+        "category": "Professional Services",
+        "description": "The repetitive admin work happens without anyone touching it.",
+        "intro": "A connected operations workflow that processes documents, moves data between systems, updates records, sends follow-ups, and keeps reporting current automatically.",
+        "research": "We mapped recurring administrative work across email, documents, CRM and internal tools, exposing duplicate entry, copy-pasting, inconsistent records, and manual reporting.",
+        "solution": "Documents and messages are processed automatically, key data is validated and structured, systems stay synchronized, and exceptions are routed to people only when judgment is required.",
+        "stats": [
+          {
+            "label": "Data flow",
+            "value": "Automated"
+          },
+          {
+            "label": "Operations",
+            "value": "24/7"
+          }
+        ]
+      }
+    }
+  },
+  "faq": {
+    "eyebrow": "Frequently Asked Questions",
+    "items": [
+      {
+        "question": "How quickly will my first automation be live?",
+        "answer": "Usually within weeks, not months. A free call maps where time and leads get lost, then we launch the automation with the biggest impact first and build from there."
+      },
+      {
+        "question": "Do I need to change the tools I already use?",
+        "answer": "Not unless you want to. We connect the tools you already use, like your CRM, applicant tracking system, email or booking tools, so data flows between them automatically. If a new tool would fit better, we'll suggest it, but it's always optional. Anything new comes with team training and detailed notes."
+      },
+      {
+        "question": "Is my data and my customers' data safe?",
+        "answer": "Yes. Security is built in from the start: each automation only accesses the data it needs, and you always know what's processed, where it's stored and who can see it. Nothing runs without your knowledge."
+      },
+      {
+        "question": "What happens if something breaks or my process changes?",
+        "answer": "I don't hand over a system and disappear. Every automation is monitored after launch and adjusted as your business changes, whether that's a new lead source, a new tool or a new step in your process."
+      },
+      {
+        "question": "Will AI replace my team?",
+        "answer": "No, it takes the repetitive work off their plate. Routine inquiries, data entry and follow-ups run automatically, and anything that needs judgment goes to a person, so your team can focus on clients."
+      }
+    ]
+  },
+  "contact": {
+    "eyebrow": "Contact",
+    "heading": "Get In Touch",
+    "description": "Book a call, share your process, and your first automation goes live within weeks.",
+    "firstName": "First Name*",
+    "firstNamePlaceholder": "Jim",
+    "lastName": "Last Name*",
+    "lastNamePlaceholder": "Hopper",
+    "email": "Email",
+    "message": "Message",
+    "messagePlaceholder": "Enter your message.....",
+    "submit": "Submit"
+  },
+  "footer": {
+    "tagline": "AI automation for growing businesses - instant lead response, less manual work.",
+    "contact": "(Contact)",
+    "follow": "(Follow)",
+    "menu": "(Menu)",
+    "navLabel": "Footer",
+    "copyright": "© {{year}} Black Systems"
+  },
+  "notFound": {
+    "eyebrow": "Page not found",
+    "heading": "This page doesn't exist.",
+    "text": "The link may be broken, or the page may have moved. Everything else is one click away."
+  },
+  "seo": {
+    "home": {
+      "title": "Black Systems - AI automation for growing businesses",
+      "description": "The AI automation partner for growing businesses. AI systems that bring in more leads and take the repetitive work off your team."
+    },
+    "caseStudyTitle": "{{title}} - Black Systems",
+    "notFound": {
+      "title": "Page not found - Black Systems",
+      "description": "This page doesn't exist."
+    }
+  }
+}

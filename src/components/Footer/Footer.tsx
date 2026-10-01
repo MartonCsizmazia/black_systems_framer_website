@@ -2,7 +2,9 @@ import { images } from '../../assets/images'
 import { scrollToSection, scrollToTop } from '../../hooks/useLenis'
 import SquaresLogo from '../SquaresLogo/SquaresLogo'
 import Button from '../Button/Button'
-import { NAV_LINKS } from '../Navbar/Navbar'
+import { useHomeNavLinks } from '../Navbar/Navbar'
+import { useTranslation } from '../../i18n/I18nProvider'
+import { localizePath } from '../../i18n/paths'
 import { EMAIL, LINKEDIN, NAME, PHONE } from '../../data/contact'
 import './Footer.css'
 
@@ -14,6 +16,8 @@ import './Footer.css'
  * thin 16% divider lines of the section eyebrows.
  */
 export default function Footer() {
+  const { lang, t } = useTranslation()
+  const navLinks = useHomeNavLinks()
   const year = new Date().getFullYear()
 
   const jumpTo = (href: string) => (e: React.MouseEvent) => {
@@ -26,33 +30,31 @@ export default function Footer() {
       <div className="footer__inner">
         <div className="footer__top">
           <div className="footer__brand">
-            <a href="/" className="footer__logo" aria-label="Black Systems - back to top" onClick={jumpTo('#top')}>
-              <SquaresLogo className="footer__logo-icon" label="Black Systems" />
+            <a href={localizePath('/', lang)} className="footer__logo" aria-label={t('common.logoLabel')} onClick={jumpTo('#top')}>
+              <SquaresLogo className="footer__logo-icon" label={t('common.brand')} />
               <img src={images.blackSystemsLogoOneLine.src} alt="" className="footer__logo-img" />
             </a>
-            <p className="footer__tagline">
-              AI automation for growing businesses - instant lead response, less manual work.
-            </p>
-            <Button title="Book a call" variant="light" booking />
+            <p className="footer__tagline">{t('footer.tagline')}</p>
+            <Button title={t('common.bookCall')} variant="light" booking />
           </div>
 
           <div className="footer__column">
-            <span className="footer__label text-preset-152twjm">(Contact)</span>
+            <span className="footer__label text-preset-152twjm">{t('footer.contact')}</span>
             <a className="footer__link">{NAME}</a>
             <a href={`mailto:${EMAIL}`} className="footer__link">{EMAIL}</a>
             <a href={PHONE.href} className="footer__link">{PHONE.display}</a>
           </div>
 
           <div className="footer__column">
-            <span className="footer__label text-preset-152twjm">(Follow)</span>
+            <span className="footer__label text-preset-152twjm">{t('footer.follow')}</span>
             <a href={LINKEDIN} className="footer__link" target="_blank" rel="noopener noreferrer">
               LinkedIn <span className="footer__arrow" aria-hidden="true">↗</span>
             </a>
           </div>
 
-          <nav className="footer__column" aria-label="Footer">
-            <span className="footer__label text-preset-152twjm">(Menu)</span>
-            {NAV_LINKS.map((link) => (
+          <nav className="footer__column" aria-label={t('footer.navLabel')}>
+            <span className="footer__label text-preset-152twjm">{t('footer.menu')}</span>
+            {navLinks.map((link) => (
               <a key={link.href} href={link.href} className="footer__link" onClick={jumpTo(link.href)}>
                 {link.title}
               </a>
@@ -61,9 +63,9 @@ export default function Footer() {
         </div>
 
         <div className="footer__bottom text-preset-152twjm">
-          <span>&copy; {year} Black Systems</span>
+          <span>{t('footer.copyright', { year })}</span>
           <button type="button" className="footer__top-link" onClick={scrollToTop}>
-            Back to top <span aria-hidden="true">↑</span>
+            {t('common.backToTop')} <span aria-hidden="true">↑</span>
           </button>
         </div>
       </div>

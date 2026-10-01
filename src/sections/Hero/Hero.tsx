@@ -5,6 +5,8 @@ import LiquidHover, { isVideoSrc } from '../../components/LiquidHover/LiquidHove
 import { images } from '../../assets/images'
 import { useMediaQuery } from '../../hooks/useMediaQuery'
 import { mediaQueries } from '../../styles/breakpoints'
+import { useTranslation } from '../../i18n/I18nProvider'
+import LanguageSwitch from '../../components/LanguageSwitch/LanguageSwitch'
 import './Hero.css'
 
 // Every transition below is copied verbatim from __framer__appearAnimationsContent
@@ -98,6 +100,8 @@ export interface HeroProps {
 }
 
 export default function Hero({ backgroundImage, backgroundImageMobile, darkenOnScroll = true }: HeroProps = {}) {
+  const { t, tm } = useTranslation()
+  const services = tm('hero.services')
   // Phones get their own background (framed so the animation reads better
   // in portrait); switches live if the viewport crosses the breakpoint.
   // null until the viewport is known (prerender + hydration): the video is
@@ -158,7 +162,7 @@ export default function Hero({ backgroundImage, backgroundImageMobile, darkenOnS
             aria-hidden="true"
           />
         ) : (
-          <img src={bgSrc} alt={bgImage.alt || 'Hero background'} />
+          <img src={bgSrc} alt={bgImage.alt || t('hero.backgroundAlt')} />
         )}
       </motion.div>
 
@@ -183,33 +187,36 @@ export default function Hero({ backgroundImage, backgroundImageMobile, darkenOnS
       <div className="hero__spacer" />
 
       <div className="hero__top">
+        <motion.div className="hero__language" {...descLine(0.3)}>
+          <LanguageSwitch />
+        </motion.div>
         <div className="hero__description">
           <motion.p className="text-preset-q70fzl hero__line" {...descLine(0.4)}>
-            Book a call, share your process,
+            {t('hero.line1')}
           </motion.p>
           <motion.p className="text-preset-q70fzl hero__line" {...descLine(0.6)}>
-            and your first automation{' '}
-            <span className="hero__dim">goes live</span>
+            {t('hero.line2')}{' '}
+            <span className="hero__dim">{t('hero.line2Dim')}</span>
           </motion.p>
           <motion.p className="text-preset-q70fzl hero__line hero__dim" {...descLine(0.8)}>
-            within weeks.
+            {t('hero.line3')}
           </motion.p>
         </div>
         <motion.div {...ctaAppear}>
-          <Button title="Book a free call" variant="light" booking solid />
+          <Button title={t('common.bookFreeCall')} variant="light" booking solid />
         </motion.div>
       </div>
 
       <motion.div className="hero__bottom" style={{ y: bottomY }}>
         <div className="hero__services">
           <motion.p className="text-preset-q70fzl" {...serviceLine(0.9, 10)}>
-            <span className="hero__dim">01/</span> Lead Capture
+            <span className="hero__dim">01/</span> {services[0]}
           </motion.p>
           <motion.p className="text-preset-q70fzl" {...serviceLine(1.1, 8)}>
-            Automation
+            {services[1]}
           </motion.p>
           <motion.p className="text-preset-q70fzl" {...serviceLine(1.3, 6)}>
-            AI Agents
+            {services[2]}
           </motion.p>
         </div>
 
