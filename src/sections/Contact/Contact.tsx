@@ -3,6 +3,7 @@ import { images } from '../../assets/images'
 import OverlapFiller from '../../components/OverlapFiller/OverlapFiller'
 import SectionEyebrow from '../../components/SectionEyebrow/SectionEyebrow'
 import { useTranslation } from '../../i18n/i18n'
+import { localizePath } from '../../i18n/paths'
 import './Contact.css'
 
 /**
@@ -78,6 +79,14 @@ export default function Contact({ index = '05' }: { index?: string }) {
               <span className="text-preset-152twjm contact__label">{t('contact.message')}</span>
               <textarea className="text-preset-152twjm" name="message" placeholder={t('contact.messagePlaceholder')} rows={4} />
             </label>
+
+            <p className="text-preset-152twjm contact__privacy">
+              {t('contact.privacyNote')}{' '}
+              <a href={`${localizePath('/legal', lang)}#privacy`} className="contact__privacy-link">
+                {t('contact.privacyLink')}
+              </a>
+              .
+            </p>
 
             <button type="submit" className="text-preset-q70fzl contact__submit">
               {t('contact.submit')}

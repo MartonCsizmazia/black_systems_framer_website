@@ -136,6 +136,13 @@
 .navbar__actions > * {
   grid-area: 1 / 1;
 }
+/* hideCta pages: just the language switch. Keeps the bar as tall as the
+   CEO card makes it elsewhere (70px), with the switch centred. */
+.navbar__actions--language-only {
+  display: flex;
+  align-items: center;
+  min-height: 70px;
+}
 /* CEO card (plus, with `languageAtTop`, a language switch left of it):
    the top-of-page state, fading out with scroll. */
 .navbar__intro {
@@ -351,6 +358,10 @@
     justify-items: start;
   }
   .navbar__language {
+    display: none;
+  }
+  /* hideCta pages: the desktop-only switch was the only thing in here. */
+  .navbar__actions--language-only {
     display: none;
   }
   .navbar__menu-language {

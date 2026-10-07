@@ -63,7 +63,12 @@ export default function Footer() {
         </div>
 
         <div className="footer__bottom text-preset-152twjm">
-          <span>{t('footer.copyright', { year })}</span>
+          <div className="footer__bottom-left">
+            <span>{t('footer.copyright', { year })}</span>
+            <a href={localizePath('/legal', lang)} className="footer__legal-link">
+              {t('footer.legal')}
+            </a>
+          </div>
           <button type="button" className="footer__top-link" onClick={scrollToTop}>
             {t('common.backToTop')} <span aria-hidden="true">↑</span>
           </button>

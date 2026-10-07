@@ -4,6 +4,7 @@ import { useCalEmbed } from './hooks/useCalEmbed'
 import Home from './pages/Home'
 import CaseStudy from './pages/CaseStudy'
 import NotFound from './pages/NotFound'
+import Legal from './pages/Legal'
 import { findCaseStudy } from './data/caseStudiesConfig'
 import { useTranslation } from './i18n/i18n'
 import { I18nProvider } from './i18n/I18nProvider'
@@ -18,6 +19,7 @@ import { pageMeta } from './seo'
 // `path` is the page path without the language prefix (see i18n/paths.ts).
 function resolveRoute(path: string) {
   if (path === '/') return <Home />
+  if (path === '/legal') return <Legal />
   const match = path.match(/^\/case-studies\/([^/]+)$/)
   const caseStudy = match ? findCaseStudy(match[1]) : undefined
   return caseStudy ? <CaseStudy caseStudy={caseStudy} /> : <NotFound />

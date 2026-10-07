@@ -224,7 +224,9 @@
     "message": "Message",
     "emailPlaceholder": "name@company.com",
     "messagePlaceholder": "Write your message...",
-    "submit": "Submit"
+    "submit": "Submit",
+    "privacyNote": "By sending this form, you acknowledge our",
+    "privacyLink": "privacy notice"
   },
   "footer": {
     "tagline": "AI automation for growing businesses - instant lead response, less manual work.",
@@ -232,7 +234,8 @@
     "follow": "(Follow)",
     "menu": "(Menu)",
     "navLabel": "Footer",
-    "copyright": "© {{year}} Black Systems"
+    "copyright": "© {{year}} Black Systems",
+    "legal": "Legal"
   },
   "notFound": {
     "eyebrow": "Page not found",
@@ -248,6 +251,202 @@
     "notFound": {
       "title": "Page not found - Black Systems",
       "description": "This page doesn't exist."
+    },
+    "legal": {
+      "title": "Legal information - Black Systems",
+      "description": "Company details, how we work with clients, and our privacy notice."
+    }
+  },
+  "legal": {
+    "heading": "Legal information",
+    "intro": "Our company details, what to expect when working with us, and how we handle personal data, all in one place.",
+    "updated": "Last updated: 7 October 2026",
+    "company": {
+      "title": "Company details",
+      "fields": {
+        "name": "Company name",
+        "seat": "Registered seat",
+        "registrationNumber": "Company registration number",
+        "registrationCourt": "Registering court",
+        "taxNumber": "Tax number",
+        "euVatNumber": "EU VAT number",
+        "representative": "Managing director",
+        "email": "Email",
+        "phone": "Phone",
+        "hosting": "Hosting provider"
+      }
+    },
+    "working": {
+      "title": "Working with us",
+      "items": [
+        {
+          "label": "(Free consultation)",
+          "text": "The first consultation is free and comes with no obligation. We look at how your business runs and where automation would help most."
+        },
+        {
+          "label": "(Written proposal)",
+          "text": "Before any work starts, you get a written proposal with the scope, the price and the timeline. Nothing is billed without your approval."
+        },
+        {
+          "label": "(Confidentiality)",
+          "text": "Everything you share about your business is treated as confidential. On request, we sign a non-disclosure agreement (NDA) before the first detailed conversation."
+        },
+        {
+          "label": "(Access & security)",
+          "text": "Automations only get access to the data they need, and you always know what runs where. You can revoke any access at any time."
+        },
+        {
+          "label": "(After launch)",
+          "text": "Every automation is monitored after launch and adjusted when your process changes."
+        }
+      ]
+    },
+    "privacy": {
+      "title": "Privacy notice",
+      "blocks": [
+        {
+          "label": "(Controller)",
+          "text": [
+            "The data controller is {{company}} (see the company details above). Send any question about your personal data to {{email}}."
+          ],
+          "items": []
+        },
+        {
+          "label": "(Scope)",
+          "text": [
+            "This notice explains what personal data we process when you visit this website, book a call, write to us or become a client, why we do it, and what your rights are."
+          ],
+          "items": []
+        },
+        {
+          "label": "(Website visits)",
+          "text": [
+            "No tracking: this website uses no analytics, advertising or tracking cookies. It only stores your language choice (English or Hungarian) in your browser, so the site opens in that language next time. This is not personal data, and you can remove it any time by clearing your browser data."
+          ],
+          "items": [
+            {
+              "term": "Data",
+              "desc": "IP address, browser type, the pages requested and the time of the request (technical logs)."
+            },
+            {
+              "term": "Purpose",
+              "desc": "Delivering the website securely and protecting it against attacks."
+            },
+            {
+              "term": "Legal basis",
+              "desc": "Our legitimate interest in running a secure website (GDPR Art. 6(1)(f))."
+            },
+            {
+              "term": "Retention",
+              "desc": "Kept by our hosting provider, Cloudflare, under its own policy for a short time (typically days, at most a few weeks)."
+            }
+          ]
+        },
+        {
+          "label": "(Booking a call)",
+          "text": [
+            "The booking window is provided by Cal.com. When you open it, Cal.com's own privacy policy also applies: https://cal.com/privacy"
+          ],
+          "items": [
+            {
+              "term": "Data",
+              "desc": "Name, email address, the time you choose and anything you write in the booking form."
+            },
+            {
+              "term": "Purpose",
+              "desc": "Arranging and holding the meeting you asked for."
+            },
+            {
+              "term": "Legal basis",
+              "desc": "Steps taken at your request before a possible contract (GDPR Art. 6(1)(b))."
+            },
+            {
+              "term": "Retention",
+              "desc": "Up to 1 year after our last contact, unless you become a client."
+            }
+          ]
+        },
+        {
+          "label": "(Contact form and email)",
+          "text": [],
+          "items": [
+            {
+              "term": "Data",
+              "desc": "Name, email address and your message."
+            },
+            {
+              "term": "Purpose",
+              "desc": "Answering your inquiry."
+            },
+            {
+              "term": "Legal basis",
+              "desc": "Steps taken at your request (GDPR Art. 6(1)(b)); for general questions, our legitimate interest in answering them (Art. 6(1)(f))."
+            },
+            {
+              "term": "Retention",
+              "desc": "Up to 1 year after our last contact, unless you become a client."
+            }
+          ]
+        },
+        {
+          "label": "(Clients)",
+          "text": [
+            "When an automation we build works with your customers' data, we process that data on your behalf, under a separate data processing agreement (GDPR Art. 28)."
+          ],
+          "items": [
+            {
+              "term": "Data",
+              "desc": "Contact details of the client's representatives, contract and billing details, project correspondence."
+            },
+            {
+              "term": "Purpose",
+              "desc": "Performing the contract and meeting our accounting obligations."
+            },
+            {
+              "term": "Legal basis",
+              "desc": "Performance of a contract (GDPR Art. 6(1)(b)) and legal obligation (Art. 6(1)(c))."
+            },
+            {
+              "term": "Retention",
+              "desc": "For the duration of the cooperation; contracts and invoices for 8 years, as required by Hungarian accounting law (Act C of 2000, Section 169)."
+            }
+          ]
+        },
+        {
+          "label": "(Processors)",
+          "text": [
+            "These companies process data for us, only for the purposes above:",
+            "Cloudflare, Inc. (USA): website hosting and security.",
+            "Cal.com, Inc. (USA): call booking.",
+            "[Email provider]: email.",
+            "[Form service]: delivering contact form messages.",
+            "Some of them are based outside the European Economic Area. These transfers rely on the EU-US Data Privacy Framework or on the standard contractual clauses adopted by the European Commission. We never sell your data or use it for advertising."
+          ],
+          "items": []
+        },
+        {
+          "label": "(Your rights)",
+          "text": [
+            "You can ask for access to your personal data, its correction or deletion, the restriction of its processing, or a copy in a machine-readable format. You can object to processing based on our legitimate interest. Write to {{email}}; we answer within one month.",
+            "Providing your data is voluntary, but without it we cannot answer you or arrange a meeting. We do not use automated decision-making or profiling."
+          ],
+          "items": []
+        },
+        {
+          "label": "(Complaints)",
+          "text": [
+            "If you believe we handle your data unlawfully, you can turn to the Hungarian data protection authority: Nemzeti Adatvédelmi és Információszabadság Hatóság (NAIH), 1055 Budapest, Falk Miksa utca 9-11.; postal address: 1363 Budapest, Pf. 9.; email: ugyfelszolgalat@naih.hu; website: https://naih.hu. You can also go to court; you may start the case before the court of your place of residence."
+          ],
+          "items": []
+        },
+        {
+          "label": "(Changes)",
+          "text": [
+            "We update this notice when our services or the law change. The date at the top of this page always shows the latest version."
+          ],
+          "items": []
+        }
+      ]
     }
   }
 }

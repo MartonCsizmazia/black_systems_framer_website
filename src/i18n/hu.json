@@ -224,7 +224,9 @@
     "message": "Üzenet",
     "emailPlaceholder": "nev@cegnev.hu",
     "messagePlaceholder": "Írd ide az üzeneted...",
-    "submit": "Küldés"
+    "submit": "Küldés",
+    "privacyNote": "Az űrlap elküldésével tudomásul veszed az",
+    "privacyLink": "adatkezelési tájékoztatót"
   },
   "footer": {
     "tagline": "AI-automatizálás fejlődő vállalkozásoknak - azonnali válasz az érdeklődőknek, kevesebb kézi munka.",
@@ -232,7 +234,8 @@
     "follow": "(Kövess)",
     "menu": "(Menü)",
     "navLabel": "Lábléc",
-    "copyright": "© {{year}} Black Systems"
+    "copyright": "© {{year}} Black Systems",
+    "legal": "Jogi információk"
   },
   "notFound": {
     "eyebrow": "Az oldal nem található",
@@ -248,6 +251,202 @@
     "notFound": {
       "title": "Az oldal nem található - Black Systems",
       "description": "Ez az oldal nem létezik."
+    },
+    "legal": {
+      "title": "Jogi információk - Black Systems",
+      "description": "Cégadatok, az együttműködés menete és adatkezelési tájékoztató."
+    }
+  },
+  "legal": {
+    "heading": "Jogi információk",
+    "intro": "Cégadataink, hogy mire számíthatsz, ha velünk dolgozol, és hogyan kezeljük a személyes adatokat, egy helyen.",
+    "updated": "Utolsó frissítés: 2026. október 7.",
+    "company": {
+      "title": "Cégadatok",
+      "fields": {
+        "name": "Cégnév",
+        "seat": "Székhely",
+        "registrationNumber": "Cégjegyzékszám",
+        "registrationCourt": "Nyilvántartó cégbíróság",
+        "taxNumber": "Adószám",
+        "euVatNumber": "Közösségi adószám",
+        "representative": "Ügyvezető",
+        "email": "E-mail",
+        "phone": "Telefon",
+        "hosting": "Tárhelyszolgáltató"
+      }
+    },
+    "working": {
+      "title": "Együttműködés",
+      "items": [
+        {
+          "label": "(Ingyenes konzultáció)",
+          "text": "Az első konzultáció ingyenes, és semmire nem kötelez. Megnézzük, hogyan működik a vállalkozásod, és hol segítene a legtöbbet az automatizálás."
+        },
+        {
+          "label": "(Írásos ajánlat)",
+          "text": "Mielőtt bármilyen munka elkezdődne, írásos ajánlatot kapsz a feladatokról, az árról és a határidőkről. A jóváhagyásod nélkül semmit nem számlázunk."
+        },
+        {
+          "label": "(Titoktartás)",
+          "text": "Mindent, amit a vállalkozásodról megosztasz velünk, bizalmasan kezelünk. Kérésre már az első részletes beszélgetés előtt titoktartási szerződést (NDA) írunk alá."
+        },
+        {
+          "label": "(Hozzáférés és biztonság)",
+          "text": "Az automatizációk csak azokhoz az adatokhoz férnek hozzá, amelyekre szükségük van, és mindig tudod, mi hol fut. A hozzáféréseket bármikor visszavonhatod."
+        },
+        {
+          "label": "(Indulás után)",
+          "text": "Minden automatizációt az indulás után is figyelünk, és igazítunk rajta, ha változik a folyamatod."
+        }
+      ]
+    },
+    "privacy": {
+      "title": "Adatkezelési tájékoztató",
+      "blocks": [
+        {
+          "label": "(Adatkezelő)",
+          "text": [
+            "Az adatkezelő: {{company}} (adatai fent, a Cégadatok között). A személyes adataiddal kapcsolatos kérdéseidet a {{email}} címre várjuk."
+          ],
+          "items": []
+        },
+        {
+          "label": "(Hatály)",
+          "text": [
+            "Ez a tájékoztató azt írja le, milyen személyes adatokat kezelünk, amikor meglátogatod a weboldalt, hívást foglalsz, írsz nekünk vagy az ügyfelünk leszel, miért tesszük ezt, és milyen jogaid vannak."
+          ],
+          "items": []
+        },
+        {
+          "label": "(A weboldal látogatása)",
+          "text": [
+            "Nincs követés: a weboldal nem használ analitikai, hirdetési vagy követő sütiket. Csak a választott nyelvet (magyar vagy angol) tárolja a böngésződben, hogy legközelebb is azon nyíljon meg. Ez nem személyes adat, és a böngészőadatok törlésével bármikor eltávolíthatod."
+          ],
+          "items": [
+            {
+              "term": "Adatok",
+              "desc": "IP-cím, böngészőtípus, a megnyitott oldalak és a látogatás ideje (technikai naplók)."
+            },
+            {
+              "term": "Cél",
+              "desc": "A weboldal biztonságos működtetése és védelme a támadások ellen."
+            },
+            {
+              "term": "Jogalap",
+              "desc": "Jogos érdekünk a biztonságos weboldal üzemeltetéséhez (GDPR 6. cikk (1) bekezdés f) pont)."
+            },
+            {
+              "term": "Megőrzés",
+              "desc": "A tárhelyszolgáltatónk, a Cloudflare a saját szabályai szerint rövid ideig őrzi (jellemzően napokig, legfeljebb néhány hétig)."
+            }
+          ]
+        },
+        {
+          "label": "(Hívásfoglalás)",
+          "text": [
+            "A foglalási ablakot a Cal.com biztosítja. Amikor megnyitod, a Cal.com saját adatkezelési szabályai is érvényesek: https://cal.com/privacy"
+          ],
+          "items": [
+            {
+              "term": "Adatok",
+              "desc": "Név, e-mail-cím, a választott időpont és amit a foglalási űrlapra írsz."
+            },
+            {
+              "term": "Cél",
+              "desc": "A kért megbeszélés egyeztetése és megtartása."
+            },
+            {
+              "term": "Jogalap",
+              "desc": "A kérésedre, egy esetleges szerződés megkötése előtt tett lépések (GDPR 6. cikk (1) bekezdés b) pont)."
+            },
+            {
+              "term": "Megőrzés",
+              "desc": "Legfeljebb 1 évig az utolsó kapcsolatfelvételtől, kivéve, ha az ügyfelünk leszel."
+            }
+          ]
+        },
+        {
+          "label": "(Kapcsolati űrlap és e-mail)",
+          "text": [],
+          "items": [
+            {
+              "term": "Adatok",
+              "desc": "Név, e-mail-cím és az üzeneted."
+            },
+            {
+              "term": "Cél",
+              "desc": "Válasz a megkeresésedre."
+            },
+            {
+              "term": "Jogalap",
+              "desc": "A kérésedre tett lépések (GDPR 6. cikk (1) bekezdés b) pont); általános kérdéseknél jogos érdekünk a válaszadáshoz (f) pont)."
+            },
+            {
+              "term": "Megőrzés",
+              "desc": "Legfeljebb 1 évig az utolsó kapcsolatfelvételtől, kivéve, ha az ügyfelünk leszel."
+            }
+          ]
+        },
+        {
+          "label": "(Ügyfelek)",
+          "text": [
+            "Ha egy általunk épített automatizáció az ügyfeleid adataival dolgozik, azokat a megbízásodból, külön adatfeldolgozási szerződés alapján kezeljük (GDPR 28. cikk)."
+          ],
+          "items": [
+            {
+              "term": "Adatok",
+              "desc": "Az ügyfél képviselőinek elérhetőségei, a szerződés és a számlázás adatai, a projekttel kapcsolatos levelezés."
+            },
+            {
+              "term": "Cél",
+              "desc": "A szerződés teljesítése és a számviteli kötelezettségeink teljesítése."
+            },
+            {
+              "term": "Jogalap",
+              "desc": "Szerződés teljesítése (GDPR 6. cikk (1) bekezdés b) pont) és jogi kötelezettség (c) pont)."
+            },
+            {
+              "term": "Megőrzés",
+              "desc": "Az együttműködés idejére; a szerződéseket és a számlákat a számviteli törvény alapján 8 évig (2000. évi C. törvény 169. §)."
+            }
+          ]
+        },
+        {
+          "label": "(Adatfeldolgozók)",
+          "text": [
+            "Ezek a cégek kezelnek adatokat a megbízásunkból, kizárólag a fenti célokra:",
+            "Cloudflare, Inc. (USA): a weboldal tárhelye és védelme.",
+            "Cal.com, Inc. (USA): hívásfoglalás.",
+            "[E-mail-szolgáltató]: levelezés.",
+            "[Űrlapszolgáltató]: a kapcsolati űrlap üzeneteinek továbbítása.",
+            "Közülük néhány az Európai Gazdasági Térségen kívül működik. Ilyenkor az adattovábbítás az EU-USA adatvédelmi keretrendszeren vagy az Európai Bizottság által elfogadott általános adatvédelmi kikötéseken alapul. Az adataidat soha nem adjuk el, és nem használjuk hirdetésre."
+          ],
+          "items": []
+        },
+        {
+          "label": "(Jogaid)",
+          "text": [
+            "Kérheted, hogy hozzáférj a személyes adataidhoz, helyesbítsük vagy töröljük őket, korlátozzuk a kezelésüket, vagy géppel olvasható formában átadjuk őket. A jogos érdekünkön alapuló adatkezelés ellen tiltakozhatsz. Írj a {{email}} címre, és egy hónapon belül válaszolunk.",
+            "Az adatok megadása önkéntes, de nélkülük nem tudunk válaszolni neked vagy időpontot egyeztetni. Automatizált döntéshozatalt és profilalkotást nem alkalmazunk."
+          ],
+          "items": []
+        },
+        {
+          "label": "(Panasz)",
+          "text": [
+            "Ha úgy érzed, hogy jogsértően kezeljük az adataidat, a Nemzeti Adatvédelmi és Információszabadság Hatósághoz (NAIH) fordulhatsz: 1055 Budapest, Falk Miksa utca 9-11.; postacím: 1363 Budapest, Pf. 9.; e-mail: ugyfelszolgalat@naih.hu; weboldal: https://naih.hu. Bírósághoz is fordulhatsz; a pert a lakóhelyed szerinti törvényszék előtt is megindíthatod."
+          ],
+          "items": []
+        },
+        {
+          "label": "(Változások)",
+          "text": [
+            "A tájékoztatót frissítjük, ha a szolgáltatásaink vagy a jogszabályok változnak. A legfrissebb változat dátuma mindig az oldal tetején látható."
+          ],
+          "items": []
+        }
+      ]
     }
   }
 }

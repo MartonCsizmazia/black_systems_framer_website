@@ -21,7 +21,7 @@ function ogImagePath(name: string, lang: Lang) {
 }
 
 /** Every page that gets its own prerendered HTML file (the 404 is separate). */
-export const PRERENDER_PATHS = ['/', ...caseStudies.map((cs) => caseStudyHref(cs.slug))]
+export const PRERENDER_PATHS = ['/', ...caseStudies.map((cs) => caseStudyHref(cs.slug)), '/legal']
 
 /** Title, description and preview image for a path, in `lang` (English by
  * default). Unknown paths get the "not found" details, matching what App
@@ -34,6 +34,14 @@ export function pageMeta(path: string, lang: Lang = DEFAULT_LANG): PageMeta {
       title: translate(lang, 'seo.home.title'),
       description: translate(lang, 'seo.home.description'),
       path: '/',
+      image: ogImagePath('home', lang),
+    }
+  }
+  if (clean === '/legal') {
+    return {
+      title: translate(lang, 'seo.legal.title'),
+      description: translate(lang, 'seo.legal.description'),
+      path: '/legal',
       image: ogImagePath('home', lang),
     }
   }

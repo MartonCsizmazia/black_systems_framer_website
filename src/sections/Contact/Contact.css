@@ -176,3 +176,18 @@
   text-decoration: underline;
   text-underline-offset: 4px;
 }
+
+/* "By sending this form, you acknowledge our privacy notice." */
+.contact .contact__privacy {
+  margin: 0;
+  color: var(--color-paper-50);
+}
+.contact__privacy-link {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  transition: color 0.3s ease;
+}
+.contact__privacy-link:hover {
+  color: var(--color-paper);
+}

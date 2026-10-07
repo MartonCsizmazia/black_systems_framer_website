@@ -1,0 +1,187 @@
+/* Legal page: a dark intro (like the 404 page, so the white navbar reads at
+   the top), then a light body with the site's slanted edge and the numbered
+   sections in the same "(Label) / text" rows as the case study pages. */
+.legal {
+  background: var(--color-surface-dark);
+}
+
+/* ---- Intro ---- */
+
+.legal__intro {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  /* Clears the fixed navbar; the bottom leaves room for the slanted edge. */
+  padding: 180px 24px 170px;
+  background: var(--color-surface-dark);
+  color: var(--color-paper);
+}
+.legal__intro-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 32px;
+  width: 100%;
+  max-width: 1440px;
+}
+
+/* Same size steps as the About headline and the 404 heading. */
+.legal__heading {
+  margin: 0;
+  font-family: 'BDO Grotesk Variable', sans-serif;
+  font-size: 70px;
+  font-weight: 400;
+  line-height: 70px;
+  letter-spacing: -2.1px;
+}
+.legal__intro-text {
+  max-width: 520px;
+  color: var(--color-paper-50);
+}
+.legal__updated {
+  color: var(--color-paper-50);
+}
+
+/* ---- Body ---- */
+
+.legal__body {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 140px;
+  width: 100%;
+  padding: 24px 24px 160px;
+  background: var(--color-paper);
+  color: var(--color-ink);
+}
+
+.legal__section {
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+  width: 100%;
+  max-width: 1440px;
+}
+
+/* Label column + content column, used by the company details and the rows. */
+.legal__fact,
+.legal__row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+  column-gap: 40px;
+}
+
+/* Company details: one fact per line, thin lines between, like the case
+   study stats. */
+.legal__facts {
+  margin: 0;
+  border-top: 1px solid var(--color-ink-16);
+}
+.legal__fact {
+  padding: 16px 0;
+  border-bottom: 1px solid var(--color-ink-16);
+}
+.legal__fact-term {
+  color: var(--color-ink);
+}
+.legal .legal__fact-value {
+  margin: 0;
+  max-width: 640px;
+  color: var(--color-ink-50);
+  overflow-wrap: anywhere;
+}
+
+.legal__rows {
+  display: flex;
+  flex-direction: column;
+  gap: 56px;
+}
+.legal .legal__row-label {
+  margin: 0;
+}
+.legal__row-content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 640px;
+}
+.legal .legal__text {
+  margin: 0;
+  color: var(--color-ink-50);
+  /* Long web and email addresses wrap instead of overflowing on phones. */
+  overflow-wrap: anywhere;
+}
+
+/* Data / Purpose / Legal basis / Retention, inside a privacy row. */
+.legal__details {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin: 0;
+}
+.legal__detail {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.legal__detail dd {
+  margin: 0;
+}
+.legal__detail-term {
+  color: var(--color-ink);
+}
+
+.legal__link {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  transition: color 0.3s ease;
+}
+.legal__link:hover {
+  color: var(--color-ink);
+}
+
+/* ---- Tablet ---- */
+@media (min-width: 810px) and (max-width: 1199.98px) {
+  .legal__heading {
+    font-size: 38px;
+    line-height: 38px;
+    letter-spacing: -1.2px;
+  }
+  .legal__body {
+    gap: 120px;
+  }
+}
+
+/* ---- Phone: one column, labels above their text ---- */
+@media (max-width: 809.98px) {
+  .legal__intro {
+    padding: 130px 24px 140px;
+  }
+  .legal__heading {
+    font-size: 30px;
+    line-height: 30px;
+    letter-spacing: -1.1px;
+  }
+  .legal__body {
+    gap: 100px;
+    padding: 24px 24px 100px;
+  }
+  .legal__section {
+    gap: 40px;
+  }
+  .legal__fact,
+  .legal__row {
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: 6px;
+  }
+  .legal__row {
+    row-gap: 16px;
+  }
+  .legal__rows {
+    gap: 44px;
+  }
+}

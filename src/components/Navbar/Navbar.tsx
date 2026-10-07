@@ -24,6 +24,12 @@ export interface NavbarProps {
    * shows next to "Book a call" once scrolled.
    */
   languageAtTop?: boolean
+  /**
+   * Hide the "Meet the CEO" card and the "Book a call" button (pages that
+   * aren't about selling, like /legal). Desktop keeps just the language
+   * switch, always visible; the hamburger menu has its own switch.
+   */
+  hideCta?: boolean
 }
 
 // Scroll-driven "compact" state: 0 at the top of the page, 1 once the first
@@ -96,7 +102,7 @@ function MenuItem({ title, rollNo, href, delay, onNavigate }: NavLink & { delay:
   )
 }
 
-export default function Navbar({ links: customLinks, languageAtTop = false }: NavbarProps) {
+export default function Navbar({ links: customLinks, languageAtTop = false, hideCta = false }: NavbarProps) {
   const { lang, t } = useTranslation()
   const homeLinks = useHomeNavLinks()
   const links = customLinks ?? homeLinks
@@ -196,54 +202,60 @@ export default function Navbar({ links: customLinks, languageAtTop = false }: Na
           <LanguageSwitch className="navbar__menu-language" tabbable={mobileOpen} />
         </nav>
 
-        <div className="navbar__actions">
-        <motion.div
-          className="navbar__intro"
-          style={{ opacity: firstHalfOut, pointerEvents: compact ? 'none' : 'auto' }}
-          aria-hidden={compact}
-        >
-        {languageAtTop && <LanguageSwitch size="small" className="navbar__language" tabbable={!compact} />}
-        {/* Scrolls to the founder intro (photo + (Founder) row) in About.
-            A full address, so it also works from other pages and in a new tab. */}
-        <a
-          href={`${localizePath('/', lang)}#founder`}
-          onClick={(e) => {
-            e.preventDefault()
-            scrollToSection('#founder')
-            setMobileOpen(false)
-          }}
-          className="navbar__cta"
-          tabIndex={compact ? -1 : undefined}
-        >
-          <span className="navbar__cta-avatar">
-            <img src={images.ctaAvatarWfrjn1.src} alt={images.ctaAvatarWfrjn1.alt || t('nav.ceo')} />
-          </span>
-          <span className="navbar__cta-content">
-            <span className="navbar__cta-heading-row">
-              <span className="navbar__cta-heading text-preset-q70fzl">{t('nav.meetTheCeo')}</span>
-              <span className="navbar__cta-icon-track">
-                <MenuIcon />
-                <MenuIcon />
-              </span>
-            </span>
-            <span className="navbar__cta-name-position">
-              <span className="text-preset-152twjm navbar__cta-name">{t('common.founderName')}</span>
-              <span className="text-preset-152twjm navbar__cta-position">{t('nav.ceo')}</span>
-            </span>
-          </span>
-        </a>
-        </motion.div>
-        <motion.div
-          className="navbar__book"
-          style={{ opacity: secondHalfIn, pointerEvents: compact ? 'auto' : 'none' }}
-          aria-hidden={!compact}
-        >
-          {/* Desktop only (hidden under the hamburger breakpoint in CSS; the
-              hamburger menu has its own, under the last menu item). */}
-          <LanguageSwitch size="small" className="navbar__language" tabbable={compact} />
-          <Button title={t('common.bookCall')} variant="light" booking solid className="navbar__book-button" tabIndex={compact ? 0 : -1} />
-        </motion.div>
-        </div>
+        {hideCta ? (
+          <div className="navbar__actions navbar__actions--language-only">
+            <LanguageSwitch size="small" className="navbar__language" />
+          </div>
+        ) : (
+          <div className="navbar__actions">
+            <motion.div
+              className="navbar__intro"
+              style={{ opacity: firstHalfOut, pointerEvents: compact ? 'none' : 'auto' }}
+              aria-hidden={compact}
+            >
+              {languageAtTop && <LanguageSwitch size="small" className="navbar__language" tabbable={!compact} />}
+              {/* Scrolls to the founder intro (photo + (Founder) row) in About.
+                  A full address, so it also works from other pages and in a new tab. */}
+              <a
+                href={`${localizePath('/', lang)}#founder`}
+                onClick={(e) => {
+                  e.preventDefault()
+                  scrollToSection('#founder')
+                  setMobileOpen(false)
+                }}
+                className="navbar__cta"
+                tabIndex={compact ? -1 : undefined}
+              >
+                <span className="navbar__cta-avatar">
+                  <img src={images.ctaAvatarWfrjn1.src} alt={images.ctaAvatarWfrjn1.alt || t('nav.ceo')} />
+                </span>
+                <span className="navbar__cta-content">
+                  <span className="navbar__cta-heading-row">
+                    <span className="navbar__cta-heading text-preset-q70fzl">{t('nav.meetTheCeo')}</span>
+                    <span className="navbar__cta-icon-track">
+                      <MenuIcon />
+                      <MenuIcon />
+                    </span>
+                  </span>
+                  <span className="navbar__cta-name-position">
+                    <span className="text-preset-152twjm navbar__cta-name">{t('common.founderName')}</span>
+                    <span className="text-preset-152twjm navbar__cta-position">{t('nav.ceo')}</span>
+                  </span>
+                </span>
+              </a>
+            </motion.div>
+            <motion.div
+              className="navbar__book"
+              style={{ opacity: secondHalfIn, pointerEvents: compact ? 'auto' : 'none' }}
+              aria-hidden={!compact}
+            >
+              {/* Desktop only (hidden under the hamburger breakpoint in CSS; the
+                  hamburger menu has its own, under the last menu item). */}
+              <LanguageSwitch size="small" className="navbar__language" tabbable={compact} />
+              <Button title={t('common.bookCall')} variant="light" booking solid className="navbar__book-button" tabIndex={compact ? 0 : -1} />
+            </motion.div>
+          </div>
+        )}
       </motion.div>
     </motion.header>
   )
