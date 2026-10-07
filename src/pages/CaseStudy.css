@@ -193,6 +193,13 @@
   text-indent: 7em;
   color: var(--color-ink);
 }
+/* Phones: no indent - at this width it pushes long words (especially
+   Hungarian ones) past the edge and wastes most of the first line. */
+@media (max-width: 809.98px) {
+  .case-study-content__intro {
+    text-indent: 0;
+  }
+}
 
 .case-study-content__spacer {
   width: 100%;
