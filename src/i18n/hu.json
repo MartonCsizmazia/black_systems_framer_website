@@ -226,7 +226,11 @@
     "messagePlaceholder": "Írd ide az üzeneted...",
     "submit": "Küldés",
     "privacyNote": "Az űrlap elküldésével tudomásul veszed az",
-    "privacyLink": "adatkezelési tájékoztatót"
+    "privacyLink": "adatkezelési tájékoztatót",
+    "sending": "Küldés...",
+    "sent": "Köszönöm, megkaptam az üzeneted. Hamarosan jelentkezem.",
+    "error": "Valami hiba történt, az üzenet nem ment el. Próbáld újra, vagy írj közvetlenül ide:",
+    "subject": "Új üzenet: {{name}} - blacksystems.ai"
   },
   "footer": {
     "tagline": "AI-automatizálás fejlődő vállalkozásoknak - azonnali válasz az érdeklődőknek, kevesebb kézi munka.",
@@ -419,7 +423,7 @@
             "Cloudflare, Inc. (USA): a weboldal tárhelye és védelme.",
             "Cal.com, Inc. (USA): hívásfoglalás.",
             "[E-mail-szolgáltató]: levelezés.",
-            "[Űrlapszolgáltató]: a kapcsolati űrlap üzeneteinek továbbítása.",
+            "Web3Forms: a kapcsolati űrlap üzeneteinek továbbítása a postafiókunkba.",
             "Közülük néhány az Európai Gazdasági Térségen kívül működik. Ilyenkor az adattovábbítás az EU-USA adatvédelmi keretrendszeren vagy az Európai Bizottság által elfogadott általános adatvédelmi kikötéseken alapul. Az adataidat soha nem adjuk el, és nem használjuk hirdetésre."
           ],
           "items": []

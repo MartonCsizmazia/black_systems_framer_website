@@ -1,9 +1,11 @@
+import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { images } from '../../assets/images'
 import OverlapFiller from '../../components/OverlapFiller/OverlapFiller'
 import SectionEyebrow from '../../components/SectionEyebrow/SectionEyebrow'
 import { useTranslation } from '../../i18n/i18n'
 import { localizePath } from '../../i18n/paths'
+import { EMAIL, WEB3FORMS_ACCESS_KEY } from '../../data/contact'
 import './Contact.css'
 
 /**
@@ -32,9 +34,41 @@ export default function Contact({ index = '05' }: { index?: string }) {
   const { lang, t } = useTranslation()
   // Hungarian names put the family name first, so the form asks for it first.
   const nameFields = lang === 'hu' ? (['lastName', 'firstName'] as const) : (['firstName', 'lastName'] as const)
-  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+  const [status, setStatus] = useState<'idle' | 'sending' | 'sent' | 'error'>('idle')
+
+  // Sends the message through Web3Forms, which emails it to EMAIL with the
+  // visitor's address as reply-to. The hidden `botcheck` box is a honeypot:
+  // people never see it, bots tick it, and Web3Forms drops those messages.
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
-    // No real backend wired up - the original is a Framer-hosted form.
+    if (status === 'sending') return
+    const form = e.currentTarget
+    const data = new FormData(form)
+    const first = String(data.get('firstName') ?? '').trim()
+    const last = String(data.get('lastName') ?? '').trim()
+    const name = lang === 'hu' ? `${last} ${first}` : `${first} ${last}`
+    setStatus('sending')
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          access_key: WEB3FORMS_ACCESS_KEY,
+          subject: t('contact.subject', { name }),
+          from_name: 'Black Systems website',
+          name,
+          email: data.get('email'),
+          message: data.get('message'),
+          botcheck: data.get('botcheck') === 'on',
+        }),
+      })
+      const result = await response.json()
+      if (!response.ok || !result.success) throw new Error(result.message ?? 'Send failed')
+      form.reset()
+      setStatus('sent')
+    } catch {
+      setStatus('error')
+    }
   }
 
   return (
@@ -77,8 +111,11 @@ export default function Contact({ index = '05' }: { index?: string }) {
 
             <label className="contact__field">
               <span className="text-preset-152twjm contact__label">{t('contact.message')}</span>
-              <textarea className="text-preset-152twjm" name="message" placeholder={t('contact.messagePlaceholder')} rows={4} />
+              <textarea className="text-preset-152twjm" name="message" placeholder={t('contact.messagePlaceholder')} rows={4} required />
             </label>
+
+            {/* Honeypot (see handleSubmit): hidden from people and screen readers. */}
+            <input type="checkbox" name="botcheck" className="contact__honeypot" tabIndex={-1} autoComplete="off" aria-hidden="true" />
 
             <p className="text-preset-152twjm contact__privacy">
               {t('contact.privacyNote')}{' '}
@@ -88,9 +125,21 @@ export default function Contact({ index = '05' }: { index?: string }) {
               .
             </p>
 
-            <button type="submit" className="text-preset-q70fzl contact__submit">
-              {t('contact.submit')}
+            <button type="submit" className="text-preset-q70fzl contact__submit" disabled={status === 'sending'}>
+              {status === 'sending' ? t('contact.sending') : t('contact.submit')}
             </button>
+
+            <p className="text-preset-q70fzl contact__status" role="status" aria-live="polite">
+              {status === 'sent' && t('contact.sent')}
+              {status === 'error' && (
+                <>
+                  {t('contact.error')}{' '}
+                  <a href={`mailto:${EMAIL}`} className="contact__privacy-link">
+                    {EMAIL}
+                  </a>
+                </>
+              )}
+            </p>
           </form>
         </div>
       </div>

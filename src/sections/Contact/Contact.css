@@ -191,3 +191,21 @@
 .contact__privacy-link:hover {
   color: var(--color-paper);
 }
+
+/* Honeypot: never shown (see Contact.tsx). */
+.contact__honeypot {
+  display: none;
+}
+.contact__submit:disabled {
+  cursor: default;
+  opacity: 0.5;
+}
+/* Sent / error message under the button; empty (and invisible) otherwise. */
+.contact .contact__status {
+  margin: -30px 0 0;
+  max-width: 520px;
+  color: var(--color-paper-50);
+}
+.contact .contact__status:empty {
+  display: none;
+}

@@ -226,7 +226,11 @@
     "messagePlaceholder": "Write your message...",
     "submit": "Submit",
     "privacyNote": "By sending this form, you acknowledge our",
-    "privacyLink": "privacy notice"
+    "privacyLink": "privacy notice",
+    "sending": "Sending...",
+    "sent": "Thanks, your message has arrived. I'll get back to you soon.",
+    "error": "Something went wrong and your message wasn't sent. Please try again, or write to me directly:",
+    "subject": "New message from {{name}} - blacksystems.ai"
   },
   "footer": {
     "tagline": "AI automation for growing businesses - instant lead response, less manual work.",
@@ -419,7 +423,7 @@
             "Cloudflare, Inc. (USA): website hosting and security.",
             "Cal.com, Inc. (USA): call booking.",
             "[Email provider]: email.",
-            "[Form service]: delivering contact form messages.",
+            "Web3Forms: delivering contact form messages to our inbox.",
             "Some of them are based outside the European Economic Area. These transfers rely on the EU-US Data Privacy Framework or on the standard contractual clauses adopted by the European Commission. We never sell your data or use it for advertising."
           ],
           "items": []
