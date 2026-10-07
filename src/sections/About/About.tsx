@@ -4,7 +4,6 @@ import OverlapFiller from '../../components/OverlapFiller/OverlapFiller'
 import SectionEyebrow from '../../components/SectionEyebrow/SectionEyebrow'
 import CtaBanner from '../../components/CtaBanner/CtaBanner'
 import ClientLogos from '../ClientLogos/ClientLogos'
-import { NAME } from '../../data/contact'
 import { useTranslation } from '../../i18n/i18n'
 import { images } from '../../assets/images'
 import './About.css'
@@ -69,7 +68,7 @@ export default function About() {
         <div className="about__portrait">
           <motion.div className="about__image" ref={imageRef} {...fadeIn(0.6)}>
             {/* TODO: replace with the founder's own photo (also used in the navbar's CEO card). */}
-            <motion.img src={images.assetMrongf.src} alt={NAME} style={{ y: imageY }} />
+            <motion.img src={images.assetMrongf.src} alt={t('common.founderName')} style={{ y: imageY }} />
           </motion.div>
 
         </div>
@@ -113,7 +112,7 @@ export default function About() {
             <div className="about__column">
               <span className="about__column-heading text-preset-q70fzl">{t('about.founder.label')}</span>
               <div className="about__founder-content">
-                <h3 className="about__founder-name">{NAME}</h3>
+                <h3 className="about__founder-name">{t('common.founderName')}</h3>
                 <span className="text-preset-q70fzl about__founder-role">{t('about.founder.role')}</span>
                 <p className="text-preset-q70fzl about__founder-text">{t('about.founder.intro')}</p>
 

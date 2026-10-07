@@ -5,7 +5,7 @@ import Button from '../Button/Button'
 import { useHomeNavLinks } from '../Navbar/homeNavLinks'
 import { useTranslation } from '../../i18n/i18n'
 import { localizePath } from '../../i18n/paths'
-import { EMAIL, LINKEDIN, NAME, PHONE } from '../../data/contact'
+import { EMAIL, LINKEDIN, PHONE } from '../../data/contact'
 import './Footer.css'
 
 
@@ -40,7 +40,7 @@ export default function Footer() {
 
           <div className="footer__column">
             <span className="footer__label text-preset-152twjm">{t('footer.contact')}</span>
-            <a className="footer__link">{NAME}</a>
+            <a className="footer__link">{t('common.founderName')}</a>
             <a href={`mailto:${EMAIL}`} className="footer__link">{EMAIL}</a>
             <a href={PHONE.href} className="footer__link">{PHONE.display}</a>
           </div>

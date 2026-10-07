@@ -128,6 +128,11 @@
   width: 100%;
   white-space: pre-wrap;
 }
+/* The Hungarian description's first line is longer (392px); a bit wider
+   keeps it at three lines, like the English. */
+:root[lang='hu'] .hero__line {
+  max-width: 400px;
+}
 .hero__dim {
   color: var(--color-paper-50);
 }

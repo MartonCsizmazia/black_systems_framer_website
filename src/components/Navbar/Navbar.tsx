@@ -5,7 +5,6 @@ import SquaresLogo from '../SquaresLogo/SquaresLogo'
 import { scrollToSection } from '../../hooks/useLenis'
 import Button from '../Button/Button'
 import LanguageSwitch from '../LanguageSwitch/LanguageSwitch'
-import { NAME } from '../../data/contact'
 import { useTranslation } from '../../i18n/i18n'
 import { useHomeNavLinks, type NavLink } from './homeNavLinks'
 import { localizePath } from '../../i18n/paths'
@@ -228,7 +227,7 @@ export default function Navbar({ links: customLinks, languageAtTop = false }: Na
               </span>
             </span>
             <span className="navbar__cta-name-position">
-              <span className="text-preset-152twjm navbar__cta-name">{NAME}</span>
+              <span className="text-preset-152twjm navbar__cta-name">{t('common.founderName')}</span>
               <span className="text-preset-152twjm navbar__cta-position">{t('nav.ceo')}</span>
             </span>
           </span>

@@ -6,18 +6,20 @@ import { images } from '../../assets/images'
 import { useTranslation } from '../../i18n/i18n'
 import './Services.css'
 
-// Language-independent parts of the three service cards; their texts come
-// from services.cards in the translation files, in the same order.
+// Language-independent parts of the three service cards; their texts (and
+// the images' alt texts) come from services.cards in the translation files,
+// in the same order.
 const cardMeta = [
-  { rollNo: '01', image: images.assetGwbdxr },
-  { rollNo: '02', image: images.womanStaircaseBchnf0 },
-  { rollNo: '03', image: images.womanBeach7ug4bh },
+  { rollNo: '01', image: images.leadCapture },
+  { rollNo: '02', image: images.manualWork },
+  { rollNo: '03', image: images.auditCustom },
 ]
 
 export default function Services() {
   const { t, tm } = useTranslation()
   const cards = tm('services.cards').map((text, i) => ({
     ...cardMeta[i],
+    image: { src: cardMeta[i].image.src, alt: text.imageAlt },
     category: text.category,
     heading: text.heading,
     bodyText: text.body,

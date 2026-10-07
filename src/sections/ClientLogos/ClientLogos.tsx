@@ -1,8 +1,6 @@
 import { useRef, useState } from 'react'
 import { motion, useAnimationFrame, useMotionValue } from 'framer-motion'
-import { useId } from 'react'
 import { images } from '../../assets/images'
-import { useTranslation } from '../../i18n/i18n'
 import './ClientLogos.css'
 
 /**
@@ -47,8 +45,6 @@ const SECONDS_PER_SET = 25
 const HOVER_SPEED_FACTOR = 0.35
 
 export default function ClientLogos() {
-  const { t } = useTranslation()
-  const labelId = useId()
   const trackRef = useRef<HTMLDivElement>(null)
   const x = useMotionValue(0)
   const [hovered, setHovered] = useState(false)
@@ -64,10 +60,7 @@ export default function ClientLogos() {
   })
 
   return (
-    <section className="client-logos" aria-labelledby={labelId}>
-      <p id={labelId} className="client-logos__label text-preset-152twjm">
-        {t('about.logosLabel')}
-      </p>
+    <section className="client-logos">
       <div
         className="client-logos__track"
         onMouseEnter={() => setHovered(true)}

@@ -10,7 +10,7 @@ import assetBk2irgSrc from './asset-bk2irg.avif'
 import assetCjbuf1Src from './asset-cjbuf1.avif'
 import assetF4esjySrc from './asset-f4esjy.avif'
 import assetFpupnaSrc from './budapest-logo.svg'
-import assetGwbdxrSrc from './asset-gwbdxr.avif'
+import leadCaptureSrc from './lead-capture-runners-358x512.avif'
 import assetJvelfwSrc from './asset-jvelfw.avif'
 import assetMrongfSrc from './asset-mrongf.avif'
 import assetPtmk11Src from './deutsche-telekom.svg'
@@ -29,10 +29,10 @@ import curlyWomanWq7hn1Src from './curly-woman-wq7hn1.avif'
 import manHoodie9kkvudSrc from './man-hoodie-9kkvud.avif'
 import manMotionBlur1d2ldlSrc from './man-motion-blur-1d2ldl.avif'
 import villaG891spSrc from './villa-g891sp.avif'
-import womanBeach7ug4bhSrc from './woman-beach-7ug4bh.avif'
+import auditCustomSrc from './audit-custom-shipwright-358x512.avif'
 import womanCloseUpVsmr1zSrc from './woman-close-up-vsmr1z.avif'
 import womanFlowersUjmih3Src from './woman-flowers-ujmih3.avif'
-import womanStaircaseBchnf0Src from './woman-staircase-bchnf0.avif'
+import manualWork0Src from './manual-work-automation-woman-358x512.avif'
 import womenOnTheSofaYw1gczSrc from './women-on-the-sofa-yw1gcz.avif'
 import womenOrangeBgAvoxawSrc from './women-orange-bg-avoxaw.avif'
 import blacksystemslogoThinStackedCurvy from './black-systems-thin-stacked-white.png'
@@ -52,7 +52,7 @@ export const images = {
   assetCjbuf1: { src: assetCjbuf1Src, alt: '' },
   assetF4esjy: { src: assetF4esjySrc, alt: '' },
   assetFpupna: { src: assetFpupnaSrc, alt: '' },
-  assetGwbdxr: { src: assetGwbdxrSrc, alt: '' },
+  leadCapture: { src: leadCaptureSrc, alt: '' },
   assetJvelfw: { src: assetJvelfwSrc, alt: '' },
   assetMrongf: { src: assetMrongfSrc, alt: '' },
   assetPtmk11: { src: assetPtmk11Src, alt: '' },
@@ -73,10 +73,10 @@ export const images = {
   placeYourLogoHere71ydgb: { src: blacksystemslogoThinStackedCurvy, alt: 'Place Your Logo Here' },
   blackSystemsLogoOneLine: { src: blacksystemslogoThinnerOneLineCurvy, alt: 'Black Systems' },
   villaG891sp: { src: villaG891spSrc, alt: 'Villa' },
-  womanBeach7ug4bh: { src: womanBeach7ug4bhSrc, alt: 'Woman Beach' },
+  auditCustom: { src: auditCustomSrc, alt: '' },
   womanCloseUpVsmr1z: { src: womanCloseUpVsmr1zSrc, alt: 'Woman Close Up' },
   womanFlowersUjmih3: { src: womanFlowersUjmih3Src, alt: 'Woman Flowers' },
-  womanStaircaseBchnf0: { src: womanStaircaseBchnf0Src, alt: 'Woman Staircase' },
+  manualWork: { src: manualWork0Src, alt: '' },
   womenOnTheSofaYw1gcz: { src: womenOnTheSofaYw1gczSrc, alt: 'Women On The Sofa' },
   womenOrangeBgAvoxaw: { src: womenOrangeBgAvoxawSrc, alt: 'Women Orange BG' },
   menOrangeBgBfbeq6: { src: menOrangeBgBfbeq6Src, alt: 'Men Orange BG' },

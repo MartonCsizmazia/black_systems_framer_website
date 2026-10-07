@@ -1,6 +1,7 @@
 {
   "common": {
     "brand": "Black Systems",
+    "founderName": "Márton Csizmazia",
     "logoLabel": "Black Systems - back to top",
     "bookCall": "Book a call",
     "bookFreeCall": "Book a free call",
@@ -36,7 +37,6 @@
   },
   "about": {
     "eyebrow": "About Us",
-    "logosLabel": "(Where I built systems before Black Systems)",
     "heading": "The AI automation partner for growing businesses. AI systems that bring in more leads and take the repetitive work off your team.",
     "pre": {
       "label": "(Pre)",
@@ -85,17 +85,20 @@
       {
         "category": "Lead Capture & Response",
         "heading": "Instant follow-up",
-        "body": "Every inquiry from your website, forms, email or ads gets an answer within minutes, day or night. The system qualifies the lead, answers common questions and books the call straight into your calendar."
+        "body": "Every inquiry from your website, forms, email or ads gets an answer within minutes, day or night. The system qualifies the lead, answers common questions and books the call straight into your calendar.",
+        "imageAlt": "A woman running ahead of a group of runners on a desert road at sunrise"
       },
       {
         "category": "Manual Work Automation",
         "heading": "Hands-off operations",
-        "body": "Copy-pasting, data entry, CRM updates, follow-up emails and reports run automatically between your tools, so your team spends its time on clients, not admin."
+        "body": "Copy-pasting, data entry, CRM updates, follow-up emails and reports run automatically between your tools, so your team spends its time on clients, not admin.",
+        "imageAlt": "A woman painting the Mona Lisa by hand next to a factory production line"
       },
       {
         "category": "Audit & Custom Systems",
         "heading": "Built around your process",
-        "body": "We map how your business actually runs, find where time and leads are lost, and build tailored automations for everything in between, tested, integrated and supported after launch."
+        "body": "We map how your business actually runs, find where time and leads are lost, and build tailored automations for everything in between, tested, integrated and supported after launch.",
+        "imageAlt": "A craftsman hand-finishing a wooden boat on a seaside cliff"
       }
     ]
   },

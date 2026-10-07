@@ -28,7 +28,9 @@ import './Contact.css'
  */
 /** `index`: the section number in its eyebrow, which differs per page. */
 export default function Contact({ index = '05' }: { index?: string }) {
-  const { t } = useTranslation()
+  const { lang, t } = useTranslation()
+  // Hungarian names put the family name first, so the form asks for it first.
+  const nameFields = lang === 'hu' ? (['lastName', 'firstName'] as const) : (['firstName', 'lastName'] as const)
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
     // No real backend wired up - the original is a Framer-hosted form.
@@ -59,14 +61,12 @@ export default function Contact({ index = '05' }: { index?: string }) {
 
           <form className="contact__form" onSubmit={handleSubmit}>
             <div className="contact__row">
-              <label className="contact__field">
-                <span className="text-preset-152twjm contact__label">{t('contact.firstName')}</span>
-                <input className="text-preset-152twjm" type="text" name="firstName" placeholder={t('contact.firstNamePlaceholder')} required />
-              </label>
-              <label className="contact__field">
-                <span className="text-preset-152twjm contact__label">{t('contact.lastName')}</span>
-                <input className="text-preset-152twjm" type="text" name="lastName" placeholder={t('contact.lastNamePlaceholder')} required />
-              </label>
+              {nameFields.map((field) => (
+                <label key={field} className="contact__field">
+                  <span className="text-preset-152twjm contact__label">{t(`contact.${field}`)}</span>
+                  <input className="text-preset-152twjm" type="text" name={field} placeholder={t(`contact.${field}Placeholder`)} required />
+                </label>
+              ))}
             </div>
 
             <label className="contact__field">
