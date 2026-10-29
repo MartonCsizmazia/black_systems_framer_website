@@ -98,7 +98,28 @@
         "body": "Feltérképezem, hogyan működik valójában a vállalkozásod, megtalálom, hol vész el idő és érdeklődő, és ezekre a pontokra egyedi automatizációkat építek. Tesztelem, bekötöm, és indulás után sem hagylak magadra.",
         "imageAlt": "Egy mester kézzel csiszol egy fahajót a tengerparti sziklán"
       }
-    ]
+    ],
+    "process": {
+      "label": "(Így dolgozom)",
+      "steps": [
+        {
+          "title": "Ingyenes konzultáció",
+          "text": "30 perc, ingyenes, és semmire nem kötelez. Megmutatod, hogyan működik a vállalkozásod, én pedig megkeresem, hol vész el idő és érdeklődő."
+        },
+        {
+          "title": "Írásos ajánlat",
+          "text": "Írásban kapod meg a feladatokat, az árat és a határidőt. A jóváhagyásod nélkül nem kezdek el dolgozni."
+        },
+        {
+          "title": "Fejlesztés és indulás",
+          "text": "Az automatizációt a saját eszközeiddel és valós adataiddal építem meg és tesztelem. Az első heteken belül elindul."
+        },
+        {
+          "title": "Indulás után",
+          "text": "Indulás után sem maradsz egyedül. Minden automatizációt figyelek, kijavítom, ha valami nem működik, és továbbfejlesztem, ahogy fejlődik a vállalkozásod."
+        }
+      ]
+    }
   },
   "caseStudies": {
     "eyebrow": "Esettanulmányok",
@@ -189,6 +210,10 @@
     "eyebrow": "Gyakran ismételt kérdések",
     "items": [
       {
+        "question": "Mi történik az ingyenes konzultáción?",
+        "answer": "Egy 30 perces beszélgetés, ingyenes, és semmire nem kötelez. Elmondod, hogyan zajlik nálatok az érdeklődők kezelése és az adminisztráció, én pedig megmutatom, hol segítene a legtöbbet az automatizálás. A végén látod, hogyan nézhetne ki az első automatizáció, nagyjából mennyibe kerülne, és mennyi idő alatt készülne el."
+      },
+      {
         "question": "Mennyi idő alatt indul el az első automatizációm?",
         "answer": "Általában heteken, nem hónapokon belül. Egy ingyenes konzultáción feltérképezzük, hol vész el idő és érdeklődő, majd először a legnagyobb hatású automatizációt indítom el, és onnan bővítem tovább."
       },
@@ -213,7 +238,7 @@
   "contact": {
     "eyebrow": "Kapcsolat",
     "heading": "Írj nekem",
-    "description": "Foglalj egy konzultációt, meséld el, hogyan dolgoztok, és az első automatizációd heteken belül már működik.",
+    "description": "Foglalj egy konzultációt, meséld el, hogyan dolgoztok, és az első automatizációd heteken belül már működik. A konzultáció 30 perces, ingyenes, és semmire nem kötelez.",
     "firstName": "Keresztnév*",
     "firstNamePlaceholder": "Péter",
     "lastName": "Vezetéknév*",
@@ -420,7 +445,7 @@
             "Ezek a cégek kezelnek adatokat a megbízásunkból, kizárólag a fenti célokra:",
             "Cloudflare, Inc. (USA): a weboldal tárhelye és védelme.",
             "Cal.com, Inc. (USA): hívásfoglalás.",
-            "[E-mail-szolgáltató]: levelezés.",
+            "Google Ireland Limited (Google Workspace): levelezés.",
             "Web3Forms: a kapcsolati űrlap üzeneteinek továbbítása a postafiókunkba.",
             "Közülük néhány az Európai Gazdasági Térségen kívül működik. Ilyenkor az adattovábbítás az EU-USA adatvédelmi keretrendszeren vagy az Európai Bizottság által elfogadott általános adatvédelmi kikötéseken alapul. Az adataidat soha nem adjuk el, és nem használjuk hirdetésre."
           ],

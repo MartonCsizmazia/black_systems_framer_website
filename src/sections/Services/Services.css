@@ -195,3 +195,80 @@
     padding-left: 0;
   }
 }
+
+/* "How it works": same box as a service card (max 1440px, 94px left inset,
+   30px padding), with the label in the card number's 300px column and each
+   step's title and text in the image (406px) and text columns. */
+.services__process {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1440px;
+  padding: 0 30px 0 calc(94px + 30px);
+}
+.services__process-label {
+  flex: 1;
+  max-width: 300px;
+  margin: 0;
+  /* Level with the first step's text (the steps' 24px top padding). */
+  padding-top: 24px;
+  color: var(--color-paper);
+}
+.services__steps {
+  flex: 1;
+  max-width: 948px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.services__step {
+  display: flex;
+  align-items: flex-start;
+  gap: 66px;
+  padding: 24px 0;
+  border-top: 1px solid var(--color-paper-10);
+}
+.services__step:last-child {
+  border-bottom: 1px solid var(--color-paper-10);
+}
+.services__step-title {
+  flex: none;
+  width: 406px;
+  color: var(--color-paper);
+}
+.services__step-no {
+  color: var(--color-paper-50);
+}
+.services__step-text {
+  flex: 1;
+  margin: 0;
+  color: var(--color-paper-50);
+}
+@media (max-width: 1199.98px) {
+  .services__process {
+    flex-direction: column;
+    gap: 30px;
+    padding: 0 30px;
+  }
+  .services__process-label,
+  .services__steps {
+    max-width: none;
+    width: 100%;
+  }
+  .services__process-label {
+    padding-top: 0;
+  }
+  .services__step-title {
+    width: 40%;
+  }
+}
+@media (max-width: 809.98px) {
+  .services__step {
+    flex-direction: column;
+    gap: 8px;
+  }
+  .services__step-title {
+    width: auto;
+  }
+}

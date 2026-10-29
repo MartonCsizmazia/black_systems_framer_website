@@ -78,7 +78,7 @@
   },
   "services": {
     "eyebrow": "Services",
-    "heading": "Process-driven agency delivering custom-built automation - I map how your business really runs, then design, integrate and maintain systems that fit it exactly.",
+    "heading": "Process-driven agency delivering custom-built automation. I map how your business really runs, then design, integrate and maintain systems that fit it exactly.",
     "cards": [
       {
         "category": "Lead Capture & Response",
@@ -98,7 +98,28 @@
         "body": "I map how your business actually runs, find where time and leads are lost, and build tailored automations for everything in between, tested, integrated and supported after launch.",
         "imageAlt": "A craftsman hand-finishing a wooden boat on a seaside cliff"
       }
-    ]
+    ],
+    "process": {
+      "label": "(How it works)",
+      "steps": [
+        {
+          "title": "Free call",
+          "text": "30 minutes, free and with no obligation. You show me how your business runs, and I find where time and leads get lost."
+        },
+        {
+          "title": "Written proposal",
+          "text": "You get the scope, the price and the timeline in writing. No work starts without your approval."
+        },
+        {
+          "title": "Build & launch",
+          "text": "I build and test the automation with your own tools and real data. Your first one goes live within weeks."
+        },
+        {
+          "title": "After launch",
+          "text": "You're never left on your own after launch. I keep an eye on every automation, fix whatever needs fixing and build on it as your business grows."
+        }
+      ]
+    }
   },
   "caseStudies": {
     "eyebrow": "Case Studies",
@@ -189,6 +210,10 @@
     "eyebrow": "Frequently Asked Questions",
     "items": [
       {
+        "question": "What happens on the free call?",
+        "answer": "It's a 30-minute call, free and with no obligation. You walk me through how leads and admin work in your business today, and I show you where automation would help most. You leave knowing what a first automation could look like, roughly what it would cost and how long it would take."
+      },
+      {
         "question": "How quickly will my first automation be live?",
         "answer": "Usually within weeks, not months. A free call maps where time and leads get lost, then I launch the automation with the biggest impact first and build from there."
       },
@@ -213,7 +238,7 @@
   "contact": {
     "eyebrow": "Contact",
     "heading": "Get In Touch",
-    "description": "Book a call, share your process, and your first automation goes live within weeks.",
+    "description": "Book a call, share your process, and your first automation goes live within weeks. The call takes 30 minutes, it's free and there's no obligation.",
     "firstName": "First Name*",
     "firstNamePlaceholder": "John",
     "lastName": "Last Name*",
@@ -420,7 +445,7 @@
             "These companies process data for us, only for the purposes above:",
             "Cloudflare, Inc. (USA): website hosting and security.",
             "Cal.com, Inc. (USA): call booking.",
-            "[Email provider]: email.",
+            "Google Ireland Limited (Google Workspace): email.",
             "Web3Forms: delivering contact form messages to our inbox.",
             "Some of them are based outside the European Economic Area. These transfers rely on the EU-US Data Privacy Framework or on the standard contractual clauses adopted by the European Commission. We never sell your data or use it for advertising."
           ],

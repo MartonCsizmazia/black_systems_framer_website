@@ -17,6 +17,7 @@ const cardMeta = [
 
 export default function Services() {
   const { t, tm } = useTranslation()
+  const steps = tm('services.process.steps')
   const cards = tm('services.cards').map((text, i) => ({
     ...cardMeta[i],
     image: { src: cardMeta[i].image.src, alt: text.imageAlt },
@@ -64,6 +65,28 @@ export default function Services() {
           <ServiceCard key={c.rollNo} {...c} />
         ))}
       </div>
+
+      {/* How a project runs, from the first call to after launch. Laid out
+          like a service card (label where the card's number is, steps where
+          its image and text are), so the step texts line up with the cards'. */}
+      <motion.div
+        className="services__process"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1, transition: { duration: 1.2, ease: [0.44, 0, 0.34, 0.98] } }}
+        viewport={{ once: true, amount: 0.01 }}
+      >
+        <h3 className="text-preset-q70fzl services__process-label">{t('services.process.label')}</h3>
+        <ol className="services__steps">
+          {steps.map((step, i) => (
+            <li key={step.title} className="services__step">
+              <span className="text-preset-q70fzl services__step-title">
+                <span className="services__step-no">{String(i + 1).padStart(2, '0')}/</span> {step.title}
+              </span>
+              <p className="text-preset-q70fzl services__step-text">{step.text}</p>
+            </li>
+          ))}
+        </ol>
+      </motion.div>
     </section>
   )
 }
