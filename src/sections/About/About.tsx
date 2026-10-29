@@ -67,7 +67,6 @@ export default function About() {
       <div className="about__bottom">
         <div className="about__portrait">
           <motion.div className="about__image" ref={imageRef} {...fadeIn(0.6)}>
-            {/* TODO: replace with the founder's own photo (also used in the navbar's CEO card). */}
             <motion.img src={images.assetMrongf.src} alt={t('common.founderName')} style={{ y: imageY }} />
           </motion.div>
 

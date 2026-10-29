@@ -227,7 +227,8 @@ export default function Navbar({ links: customLinks, languageAtTop = false, hide
                 tabIndex={compact ? -1 : undefined}
               >
                 <span className="navbar__cta-avatar">
-                  <img src={images.ctaAvatarWfrjn1.src} alt={images.ctaAvatarWfrjn1.alt || t('nav.ceo')} />
+                  {/* The name is written right next to it, so the photo needs no alt text. */}
+                  <img src={images.ctaAvatarWfrjn1.src} alt="" />
                 </span>
                 <span className="navbar__cta-content">
                   <span className="navbar__cta-heading-row">

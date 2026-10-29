@@ -80,7 +80,7 @@ export default function Contact({ index = '05' }: { index?: string }) {
 
       <div className="contact__layout">
         <div className="contact__photo">
-          <img src={images.menOrangeBgBfbeq6.src} alt={images.menOrangeBgBfbeq6.alt || ''} />
+          <img src={images.menOrangeBgBfbeq6.src} alt={t('common.founderName')} />
         </div>
 
         <div className="contact__inner">

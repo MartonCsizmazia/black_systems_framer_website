@@ -1,6 +1,7 @@
-import { useRef, useState } from 'react'
+import { useId, useRef, useState } from 'react'
 import { motion, useAnimationFrame, useMotionValue } from 'framer-motion'
 import { images } from '../../assets/images'
+import { useTranslation } from '../../i18n/i18n'
 import './ClientLogos.css'
 
 /**
@@ -13,7 +14,7 @@ import './ClientLogos.css'
  * single-item auto-rotating carousel with dots on phone (not reproduced;
  * the marquee is reused across all breakpoints as a simpler stand-in).
  */
-// The founder's past employers (not clients). Names are
+// The founder's past employers (not clients - the label says so). Names are
 // the first set's alt texts; the repeated copies are decorative.
 const logos = [
   { image: images.assetFpupna, name: 'Budapest' },
@@ -45,6 +46,8 @@ const SECONDS_PER_SET = 25
 const HOVER_SPEED_FACTOR = 0.35
 
 export default function ClientLogos() {
+  const { t } = useTranslation()
+  const labelId = useId()
   const trackRef = useRef<HTMLDivElement>(null)
   const x = useMotionValue(0)
   const [hovered, setHovered] = useState(false)
@@ -60,7 +63,10 @@ export default function ClientLogos() {
   })
 
   return (
-    <section className="client-logos">
+    <section className="client-logos" aria-labelledby={labelId}>
+      <p id={labelId} className="client-logos__label text-preset-152twjm">
+        {t('about.logosLabel')}
+      </p>
       <div
         className="client-logos__track"
         onMouseEnter={() => setHovered(true)}

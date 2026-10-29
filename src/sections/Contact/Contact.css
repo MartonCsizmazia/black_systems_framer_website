@@ -74,6 +74,17 @@
   flex-direction: column;
   gap: 40px;
 }
+/* Desktop: as tall as the photo, with the form pushed to the bottom so its
+   last line ends level with the photo's bottom edge instead of leaving an
+   empty strip under it. The heading and booking button stay at the top. */
+@media (min-width: 1200px) {
+  .contact__inner {
+    align-self: stretch;
+  }
+  .contact__form {
+    margin-top: auto;
+  }
+}
 @media (max-width: 1199.98px) {
   .contact__inner {
     flex: none;
