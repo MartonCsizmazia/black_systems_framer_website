@@ -5,8 +5,8 @@
 import asset4wrdliSrc from './accenture.svg'
 import asset4zx7dvSrc from './clario.svg'
 import assetFpupnaSrc from './budapest-logo.svg'
-import leadCaptureSrc from './lead-capture-runners-358x512.avif'
-import assetMrongfSrc from './asset-mrongf.avif'
+import leadCaptureSrc from './lead-capture-bakery-358x512.avif'
+import assetMrongfSrc from './laptop-red-studio.avif'
 import assetPtmk11Src from './deutsche-telekom.svg'
 import assetSji9heSrc from './voormedia.svg'
 import ctaAvatarWfrjn1Src from './cta-avatar-wfrjn1.avif'
@@ -16,10 +16,10 @@ import bgImageHshviiMobileSrc from './mountain_contrail_mobile.mp4'
 import villaG891spSrc from './villa-g891sp.avif'
 import auditCustomSrc from './audit-custom-shipwright-358x512.avif'
 import manualWork0Src from './manual-work-automation-woman-358x512.avif'
-import womenOrangeBgAvoxawSrc from './women-orange-bg-avoxaw.avif'
+import portraitOrangeSrc from './portrait-orange-bright-358x512.avif'
 import blacksystemslogoThinStackedCurvy from './black-systems-thin-stacked-white.png'
 import blacksystemslogoThinnerOneLineCurvy from './black-systems-thinner-oneline-white.png'
-import menOrangeBgBfbeq6Src from './men-orange-bg-bfbeq6.png'
+import menOrangeBgBfbeq6Src from './standing-orange-studio.avif'
 import residenceGoldenHourSrc from './residence-golden-hour-512x358.avif'
 import officeResumeReviewSrc from './resume-review-studio-512x358.avif'
 import hotelLobbyReceptionSrc from './hotel-lobby-studio-512x358.avif'
@@ -42,7 +42,7 @@ export const images = {
   villaG891sp: { src: villaG891spSrc, alt: 'Villa' },
   auditCustom: { src: auditCustomSrc, alt: '' },
   manualWork: { src: manualWork0Src, alt: '' },
-  womenOrangeBgAvoxaw: { src: womenOrangeBgAvoxawSrc, alt: 'Women Orange BG' },
+  portraitOrangeBgAvoxaw: { src: portraitOrangeSrc, alt: 'Portrait Orange BG' },
   menOrangeBgBfbeq6: { src: menOrangeBgBfbeq6Src, alt: 'Men Orange BG' },
   // Black Systems' own images.
   residenceGoldenHour: { src: residenceGoldenHourSrc, alt: 'Residence at golden hour' },

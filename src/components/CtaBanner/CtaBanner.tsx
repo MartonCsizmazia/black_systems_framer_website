@@ -77,7 +77,7 @@ export default function CtaBanner() {
 
           <div className="cta-banner__focal">
             <img
-              src={images.womenOrangeBgAvoxaw.src}
+              src={images.portraitOrangeBgAvoxaw.src}
               alt=""
               className="cta-banner__accent-photo"
             />
