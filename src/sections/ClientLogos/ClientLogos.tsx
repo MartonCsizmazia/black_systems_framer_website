@@ -13,7 +13,7 @@ import './ClientLogos.css'
  * single-item auto-rotating carousel with dots on phone (not reproduced;
  * the marquee is reused across all breakpoints as a simpler stand-in).
  */
-// The founder's past employers (not clients - the label says so). Names are
+// The founder's past employers (not clients). Names are
 // the first set's alt texts; the repeated copies are decorative.
 const logos = [
   { image: images.assetFpupna, name: 'Budapest' },

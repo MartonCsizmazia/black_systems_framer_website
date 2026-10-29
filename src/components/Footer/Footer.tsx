@@ -1,7 +1,6 @@
 import { images } from '../../assets/images'
 import { scrollToSection, scrollToTop } from '../../hooks/useLenis'
 import SquaresLogo from '../SquaresLogo/SquaresLogo'
-import Button from '../Button/Button'
 import { useHomeNavLinks } from '../Navbar/homeNavLinks'
 import { useTranslation } from '../../i18n/i18n'
 import { localizePath } from '../../i18n/paths'
@@ -35,12 +34,11 @@ export default function Footer() {
               <img src={images.blackSystemsLogoOneLine.src} alt="" className="footer__logo-img" />
             </a>
             <p className="footer__tagline">{t('footer.tagline')}</p>
-            <Button title={t('common.bookCall')} variant="light" booking />
           </div>
 
           <div className="footer__column">
             <span className="footer__label text-preset-152twjm">{t('footer.contact')}</span>
-            <a className="footer__link">{t('common.founderName')}</a>
+            <span className="footer__link footer__link--static">{t('common.founderName')}</span>
             <a href={`mailto:${EMAIL}`} className="footer__link">{EMAIL}</a>
             <a href={PHONE.href} className="footer__link">{PHONE.display}</a>
           </div>

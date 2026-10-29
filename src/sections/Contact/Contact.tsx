@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { images } from '../../assets/images'
+import Button from '../../components/Button/Button'
 import OverlapFiller from '../../components/OverlapFiller/OverlapFiller'
 import SectionEyebrow from '../../components/SectionEyebrow/SectionEyebrow'
 import { useTranslation } from '../../i18n/i18n'
@@ -93,6 +94,12 @@ export default function Contact({ index = '05' }: { index?: string }) {
           </motion.h2>
 
           <p className="text-preset-q70fzl contact__description">{t('contact.description')}</p>
+
+          {/* The description promises a call, so booking comes first; the
+              form below is the alternative for people who'd rather write. */}
+          <div className="contact__booking">
+            <Button title={t('common.bookFreeCall')} variant="light" booking solid />
+          </div>
 
           <form className="contact__form" onSubmit={handleSubmit}>
             <div className="contact__row">

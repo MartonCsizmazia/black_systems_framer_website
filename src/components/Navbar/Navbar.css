@@ -125,7 +125,7 @@
   transform-origin: left center;
 }
 
-/* CEO card and the compact "Book a call" button share one spot and
+/* CEO card and the compact "Book a free call" button share one spot and
    cross-fade with scroll. */
 .navbar__actions {
   display: grid;
@@ -152,19 +152,21 @@
 }
 
 /* The hamburger menu's language switch; desktop uses the one next to
-   "Book a call". */
+   "Book a free call". */
 .navbar__menu-language {
   display: none;
 }
 
-/* Language switch + "Book a call", fading in together with scroll. */
+/* Language switch + "Book a free call", fading in together with scroll. */
 .navbar__book {
   display: flex;
   align-items: center;
   gap: 20px;
 }
 .navbar__book-button {
-  width: 150px;
+  /* Sized by its label, which is longer in Hungarian. */
+  min-width: 150px;
+  white-space: nowrap;
 }
 /* Compact solid size so it fits the scrolled (compact) bar. */
 .navbar__book-button.button--solid {

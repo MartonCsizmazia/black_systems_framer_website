@@ -81,7 +81,7 @@ export default function CtaBanner() {
               alt=""
               className="cta-banner__accent-photo"
             />
-            <Button title={t('common.letsTalk')} variant="light" booking solid />
+            <Button title={t('common.bookFreeCall')} variant="light" booking solid />
           </div>
         </div>
       </div>

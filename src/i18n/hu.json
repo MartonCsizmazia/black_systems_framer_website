@@ -3,16 +3,14 @@
     "brand": "Black Systems",
     "founderName": "Csizmazia Márton",
     "logoLabel": "Black Systems - vissza a tetejére",
-    "bookCall": "Időpontfoglalás",
     "bookFreeCall": "Ingyenes konzultáció",
-    "letsTalk": "Beszéljünk",
     "backToTop": "Vissza a tetejére",
     "backHome": "Vissza a főoldalra",
     "copyright": "© {{year}}",
     "language": "Nyelv"
   },
   "nav": {
-    "aboutUs": "Rólunk",
+    "aboutUs": "Rólam",
     "services": "Szolgáltatások",
     "caseStudies": "Esettanulmányok",
     "faq": "GYIK",
@@ -36,7 +34,7 @@
     "backgroundAlt": "Háttér"
   },
   "about": {
-    "eyebrow": "Rólunk",
+    "eyebrow": "Rólam",
     "heading": "AI-automatizálás fejlődő vállalkozásoknak: rendszerek, amelyek több ügyfelet hoznak, és leveszik a csapatod válláról az ismétlődő munkát.",
     "pre": {
       "label": "(Előtte)",
@@ -44,7 +42,7 @@
     },
     "post": {
       "label": "(+Utána)",
-      "text": "Olyan AI rendszereket építünk, amelyek percek alatt válaszolnak minden érdeklődőnek, kiemelik a komoly megkereséseket, és a háttérben, megbízhatóan, éjjel-nappal elvégzik az ismétlődő feladatokat."
+      "text": "Olyan AI rendszereket építek, amelyek percek alatt válaszolnak minden érdeklődőnek, kiemelik a komoly megkereséseket, és a háttérben, megbízhatóan, éjjel-nappal elvégzik az ismétlődő feladatokat."
     },
     "results": {
       "label": "(=Eredmény)",
@@ -80,7 +78,7 @@
   },
   "services": {
     "eyebrow": "Szolgáltatások",
-    "heading": "Folyamatközpontú ügynökség egyedi automatizációkkal - feltérképezzük, hogyan működik a vállalkozásod, aztán egyedi rendszereket tervezünk, kötünk be és tartunk karban.",
+    "heading": "Folyamatközpontú ügynökség egyedi automatizációkkal - feltérképezem, hogyan működik a vállalkozásod, aztán egyedi rendszereket tervezek, kötök be és tartok karban.",
     "cards": [
       {
         "category": "Ügyfélszerzés és válaszadás",
@@ -97,7 +95,7 @@
       {
         "category": "Audit és egyedi rendszerek",
         "heading": "A folyamataidra szabva",
-        "body": "Feltérképezzük, hogyan működik valójában a vállalkozásod, megtaláljuk, hol vész el idő és érdeklődő, és ezekre a pontokra egyedi automatizációkat építünk. Teszteljük, bekötjük, és indulás után sem hagyunk magadra.",
+        "body": "Feltérképezem, hogyan működik valójában a vállalkozásod, megtalálom, hol vész el idő és érdeklődő, és ezekre a pontokra egyedi automatizációkat építek. Tesztelem, bekötöm, és indulás után sem hagylak magadra.",
         "imageAlt": "Egy mester kézzel csiszol egy fahajót a tengerparti sziklán"
       }
     ]
@@ -118,7 +116,7 @@
         "category": "Ingatlan",
         "description": "Minden megkeresésből valódi vevőjelölt.",
         "intro": "Automatizált ügyfélszerző rendszer, amely rögzít minden megkeresést, felméri, mennyire komoly az érdeklődés, azonnal válaszol, és a vásárlásra kész érdeklődőket egyenesen a CRM-be irányítja.",
-        "research": "Feltérképeztük az utat az első megkereséstől a lefoglalt hívásig, és lassú válaszidőket, kézi szűrést, szétszórt érdeklődőforrásokat és elmaradt utánkövetést találtunk.",
+        "research": "Feltérképeztem az utat az első megkereséstől a lefoglalt hívásig, és lassú válaszidőket, kézi szűrést, szétszórt érdeklődőforrásokat és elmaradt utánkövetést találtam.",
         "solution": "A rendszer minden érdeklődőt automatikusan rögzít és kiegészít. Az AI felméri, mennyire komoly az érdeklődés, rendszerezi a fontos adatokat, frissíti a CRM-et, személyre szabott választ küld, és a komoly érdeklődőket továbbítja az értékesítőknek.",
         "stats": [
           {
@@ -136,7 +134,7 @@
         "category": "Toborzás",
         "description": "Több száz jelentkezésből rendezett szűkített lista.",
         "intro": "AI-alapú előszűrési folyamat, amely beolvassa a beérkező jelentkezéseket, kinyeri a jelöltek adatait, felméri az alkalmasságot, és rangsorolt szűkített listát ad a toborzóknak.",
-        "research": "Feltérképeztük a szűrési folyamatot, és azt láttuk, hogy a toborzók újra és újra önéletrajzokat olvasnak, jelöltadatokat másolnak át, követelményeket ellenőriznek, és kézzel állítják össze a szűkített listákat.",
+        "research": "Feltérképeztem a szűrési folyamatot, és azt láttam, hogy a toborzók újra és újra önéletrajzokat olvasnak, jelöltadatokat másolnak át, követelményeket ellenőriznek, és kézzel állítják össze a szűkített listákat.",
         "solution": "Az AI kinyeri és rendszerezi minden jelentkezés adatait, a meghatározott szempontok szerint értékeli a jelölteket, jelzi a hiányzó követelményeket, pontozza az alkalmasságot, és az eredményeket közvetlenül a jelentkezéskezelő rendszerbe szinkronizálja.",
         "stats": [
           {
@@ -154,7 +152,7 @@
         "category": "Szálloda és vendéglátás",
         "description": "A vendégek akkor is választ kapnak, amikor a csapat alszik.",
         "intro": "Folyamatosan elérhető AI recepció, amely kezeli a rutin vendégkérdéseket, rögzíti a kéréseket, időpontokat foglal, és továbbítja azokat a beszélgetéseket, amelyekhez ember kell.",
-        "research": "Elemeztük az ismétlődő vendégkommunikációt a webes és üzenetküldő csatornákon, és visszatérő kérdéseket, késedelmes válaszokat, nehézkes foglalást és felesleges munkaterhet találtunk.",
+        "research": "Elemeztem az ismétlődő vendégkommunikációt a webes és üzenetküldő csatornákon, és visszatérő kérdéseket, késedelmes válaszokat, nehézkes foglalást és felesleges munkaterhet találtam.",
         "solution": "Az AI jóváhagyott üzleti információk alapján azonnal válaszol, kezeli a gyakori kéréseket, bekéri a hiányzó adatokat, ahol lehet, időpontot foglal, az összetett beszélgetéseket pedig átadja a munkatársaknak.",
         "stats": [
           {
@@ -172,7 +170,7 @@
         "category": "Tanácsadás és irodai szolgáltatások",
         "description": "Az ismétlődő adminisztráció úgy zajlik, hogy senkinek nem kell hozzányúlnia.",
         "intro": "Egy összehangolt rendszer, amely feldolgozza a dokumentumokat, adatokat mozgat a rendszerek között, frissíti a nyilvántartásokat, utánkövető üzeneteket küld, és automatikusan naprakészen tartja a riportokat.",
-        "research": "Feltérképeztük az e-mailben, dokumentumokban, CRM-ben és belső eszközökben zajló ismétlődő adminisztrációt, és duplikált adatbevitelt, másolgatást, következetlen nyilvántartásokat és kézi riportkészítést tártunk fel.",
+        "research": "Feltérképeztem az e-mailben, dokumentumokban, CRM-ben és belső eszközökben zajló ismétlődő adminisztrációt, és duplikált adatbevitelt, másolgatást, következetlen nyilvántartásokat és kézi riportkészítést tártam fel.",
         "solution": "A dokumentumok és üzenetek feldolgozása automatikus, a fontos adatok ellenőrzötten és rendszerezve kerülnek a helyükre, a rendszerek szinkronban maradnak, a kivételek pedig csak akkor jutnak el emberhez, ha mérlegelésre van szükség.",
         "stats": [
           {
@@ -192,19 +190,19 @@
     "items": [
       {
         "question": "Mennyi idő alatt indul el az első automatizációm?",
-        "answer": "Általában heteken, nem hónapokon belül. Egy ingyenes konzultáción feltérképezzük, hol vész el idő és érdeklődő, majd először a legnagyobb hatású automatizációt indítjuk el, és onnan építkezünk tovább."
+        "answer": "Általában heteken, nem hónapokon belül. Egy ingyenes konzultáción feltérképezzük, hol vész el idő és érdeklődő, majd először a legnagyobb hatású automatizációt indítom el, és onnan bővítem tovább."
       },
       {
         "question": "Le kell cserélnem a jelenlegi eszközeimet?",
-        "answer": "Csak ha szeretnéd. Összekötjük a már használt eszközeidet, például a CRM-et, a jelentkezéskezelő rendszert, az e-mailt vagy a foglalási rendszert, így az adatok automatikusan áramlanak közöttük. Ha egy új eszköz jobban illene, javasoljuk, de ez soha nem kötelező. Minden új eszközhöz csapatoktatást és részletes leírást adunk."
+        "answer": "Csak ha szeretnéd. Összekötöm a már használt eszközeidet, például a CRM-et, a jelentkezéskezelő rendszert, az e-mailt vagy a foglalási rendszert, így az adatok automatikusan áramlanak közöttük. Ha egy új eszköz jobban illene, javaslom, de ez soha nem kötelező. Minden új eszközhöz csapatoktatást és részletes leírást adok."
       },
       {
         "question": "Biztonságban vannak az én adataim és az ügyfeleim adatai?",
-        "answer": "Igen. A biztonságra az első perctől figyelünk: minden automatizáció csak a szükséges adatokhoz fér hozzá, és mindig tudod, milyen adatokkal dolgozik, hol tárolódnak, és ki láthatja őket. Semmi sem fut a tudtod nélkül."
+        "answer": "Igen. A biztonságra az első perctől figyelek: minden automatizáció csak a szükséges adatokhoz fér hozzá, és mindig tudod, milyen adatokkal dolgozik, hol tárolódnak, és ki láthatja őket. Semmi sem fut a tudtod nélkül."
       },
       {
         "question": "Mi történik, ha valami elromlik, vagy megváltozik a folyamatom?",
-        "answer": "Nem adom át a rendszert úgy, hogy aztán eltűnök. Minden automatizációt az indulás után is figyelünk, és a vállalkozásod változásaihoz igazítunk, legyen szó új érdeklődőforrásról, új eszközről vagy egy új lépésről a folyamatban."
+        "answer": "Nem adom át a rendszert úgy, hogy aztán eltűnök. Minden automatizációt az indulás után is figyelek, és a vállalkozásod változásaihoz igazítom, legyen szó új érdeklődőforrásról, új eszközről vagy egy új lépésről a folyamatban."
       },
       {
         "question": "Leváltja az AI a csapatomat?",
@@ -214,14 +212,14 @@
   },
   "contact": {
     "eyebrow": "Kapcsolat",
-    "heading": "Írj nekünk",
+    "heading": "Írj nekem",
     "description": "Foglalj egy konzultációt, meséld el, hogyan dolgoztok, és az első automatizációd heteken belül már működik.",
     "firstName": "Keresztnév*",
     "firstNamePlaceholder": "Péter",
     "lastName": "Vezetéknév*",
     "lastNamePlaceholder": "Kovács",
-    "email": "E-mail",
-    "message": "Üzenet",
+    "email": "E-mail*",
+    "message": "Üzenet*",
     "emailPlaceholder": "nev@cegnev.hu",
     "messagePlaceholder": "Írd ide az üzeneted...",
     "submit": "Küldés",
@@ -263,7 +261,7 @@
   },
   "legal": {
     "heading": "Jogi információk",
-    "intro": "Cégadataink, hogy mire számíthatsz, ha velünk dolgozol, és hogyan kezeljük a személyes adatokat, egy helyen.",
+    "intro": "Cégadatok, mire számíthatsz, ha velem dolgozol, és hogyan kezeljük a személyes adatokat, egy helyen.",
     "updated": "Utolsó frissítés: 2026. október 7.",
     "company": {
       "title": "Cégadatok",
@@ -285,15 +283,15 @@
       "items": [
         {
           "label": "(Ingyenes konzultáció)",
-          "text": "Az első konzultáció ingyenes, és semmire nem kötelez. Megnézzük, hogyan működik a vállalkozásod, és hol segítene a legtöbbet az automatizálás."
+          "text": "Az első konzultáció ingyenes, és semmire nem kötelez. Megnézem, hogyan működik a vállalkozásod, és hol segítene a legtöbbet az automatizálás."
         },
         {
           "label": "(Írásos ajánlat)",
-          "text": "Mielőtt bármilyen munka elkezdődne, írásos ajánlatot kapsz a feladatokról, az árról és a határidőkről. A jóváhagyásod nélkül semmit nem számlázunk."
+          "text": "Mielőtt bármilyen munka elkezdődne, írásos ajánlatot kapsz a feladatokról, az árról és a határidőkről. A jóváhagyásod nélkül semmit nem számlázok."
         },
         {
           "label": "(Titoktartás)",
-          "text": "Mindent, amit a vállalkozásodról megosztasz velünk, bizalmasan kezelünk. Kérésre már az első részletes beszélgetés előtt titoktartási szerződést (NDA) írunk alá."
+          "text": "Mindent, amit a vállalkozásodról megosztasz velem, bizalmasan kezelek. Kérésre már az első részletes beszélgetés előtt titoktartási szerződést (NDA) írok alá."
         },
         {
           "label": "(Hozzáférés és biztonság)",
@@ -301,7 +299,7 @@
         },
         {
           "label": "(Indulás után)",
-          "text": "Minden automatizációt az indulás után is figyelünk, és igazítunk rajta, ha változik a folyamatod."
+          "text": "Minden automatizációt az indulás után is figyelek, és igazítok rajta, ha változik a folyamatod."
         }
       ]
     },

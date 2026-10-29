@@ -1,4 +1,5 @@
 import { useEffect } from 'react'
+import { MotionConfig } from 'framer-motion'
 import { scrollToSection, useLenis } from './hooks/useLenis'
 import { useCalEmbed } from './hooks/useCalEmbed'
 import Home from './pages/Home'
@@ -56,8 +57,12 @@ export default function App({ pathname }: { pathname?: string }) {
 
   return (
     <I18nProvider lang={lang}>
-      <DocumentTitle path={path} />
-      {resolveRoute(path)}
+      {/* "user": with the system's reduce-motion setting on, Framer Motion
+          skips its movement animations (fades still run). */}
+      <MotionConfig reducedMotion="user">
+        <DocumentTitle path={path} />
+        {resolveRoute(path)}
+      </MotionConfig>
     </I18nProvider>
   )
 }

@@ -21,11 +21,11 @@ export interface NavbarProps {
   /**
    * Desktop: also show the language switch at the top of the page, left of
    * the CEO card (pages with a short menu, where there's room). It always
-   * shows next to "Book a call" once scrolled.
+   * shows next to "Book a free call" once scrolled.
    */
   languageAtTop?: boolean
   /**
-   * Hide the "Meet the CEO" card and the "Book a call" button (pages that
+   * Hide the "Meet the CEO" card and the "Book a free call" button (pages that
    * aren't about selling, like /legal). Desktop keeps just the language
    * switch, always visible; the hamburger menu has its own switch.
    */
@@ -36,7 +36,7 @@ export interface NavbarProps {
 // section (About) reaches the top of the viewport, i.e. after scrolling one
 // viewport height past the hero.
 //   0   -> 0.5 : CEO card and animated squares fade out
-//   0.5 -> 1   : "Book a call" fades in; wordmark shrinks and slides left
+//   0.5 -> 1   : "Book a free call" fades in; wordmark shrinks and slides left
 //   0   -> 1   : translucent backdrop fades in behind the bar
 const COMPACT_HALF = 0.5
 const WORDMARK_MIN_SCALE = 0.8
@@ -252,7 +252,7 @@ export default function Navbar({ links: customLinks, languageAtTop = false, hide
               {/* Desktop only (hidden under the hamburger breakpoint in CSS; the
                   hamburger menu has its own, under the last menu item). */}
               <LanguageSwitch size="small" className="navbar__language" tabbable={compact} />
-              <Button title={t('common.bookCall')} variant="light" booking solid className="navbar__book-button" tabIndex={compact ? 0 : -1} />
+              <Button title={t('common.bookFreeCall')} variant="light" booking solid className="navbar__book-button" tabIndex={compact ? 0 : -1} />
             </motion.div>
           </div>
         )}

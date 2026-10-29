@@ -33,6 +33,11 @@ export const SECTION_SCROLL = {
 // The page's single Lenis instance, so other components can drive it.
 let lenisInstance: Lenis | null = null
 
+/** Visitors who asked their system for less motion get native scrolling and
+ * instant jumps instead of the smooth glide. */
+const prefersReducedMotion = () => window.matchMedia('(prefers-reduced-motion: reduce)').matches
+const nativeBehavior = (): ScrollBehavior => (prefersReducedMotion() ? 'auto' : 'smooth')
+
 /**
  * Smoothly scroll to a section by its element id ('about' or '#about'), or
  * to the very top ('top' / '#top'). Falls back to native smooth scrolling
@@ -63,9 +68,9 @@ export function scrollToSection(target: string) {
       offset: el ? SECTION_SCROLL.offset : 0,
     })
   } else if (el) {
-    window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY + SECTION_SCROLL.offset, behavior: 'smooth' })
+    window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY + SECTION_SCROLL.offset, behavior: nativeBehavior() })
   } else {
-    window.scrollTo({ top: 0, behavior: 'smooth' })
+    window.scrollTo({ top: 0, behavior: nativeBehavior() })
   }
 }
 
@@ -75,12 +80,13 @@ export function scrollToTop() {
   if (lenisInstance) {
     lenisInstance.scrollTo(0, { duration: SECTION_SCROLL.duration, easing: SECTION_SCROLL.easing })
   } else {
-    window.scrollTo({ top: 0, behavior: 'smooth' })
+    window.scrollTo({ top: 0, behavior: nativeBehavior() })
   }
 }
 
 export function useLenis() {
   useEffect(() => {
+    if (prefersReducedMotion()) return
     const lenis = new Lenis({
       duration: 1.8,
       easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),

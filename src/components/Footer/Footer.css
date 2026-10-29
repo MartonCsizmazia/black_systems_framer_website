@@ -89,6 +89,10 @@
 .footer__link:hover {
   opacity: 0.6;
 }
+/* Plain text in a link column (the founder's name): no hover fade. */
+.footer__link--static:hover {
+  opacity: 1;
+}
 .footer__arrow {
   display: inline-block;
   margin-left: 2px;

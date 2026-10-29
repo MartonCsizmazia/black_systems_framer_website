@@ -3,7 +3,6 @@ import Hero from '../sections/Hero/Hero'
 import About from '../sections/About/About'
 import CaseStudiesPreview from '../sections/CaseStudiesPreview/CaseStudiesPreview'
 import Services from '../sections/Services/Services'
-// import Testimonial from '../sections/Testimonial/Testimonial'
 import FaqSection from '../components/FaqSection/FaqSection'
 import Contact from '../sections/Contact/Contact'
 import Footer from '../components/Footer/Footer'
@@ -17,12 +16,7 @@ export default function Home() {
       <About />
       <Services />
       <CaseStudiesPreview />
-      {/*<Pricing />*/}
-      {/*<Testimonial />*/}
-      {/*<Archive />*/}
-      {/*<Stats />*/}
       <FaqSection id="faq" index="04" />
-      {/*<Article />*/}
       <Contact />
       <Footer />
     </main>
