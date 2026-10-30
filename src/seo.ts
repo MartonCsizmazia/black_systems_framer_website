@@ -1,4 +1,5 @@
 import { caseStudies, caseStudyAtPath, caseStudyHref, caseStudyText } from './data/caseStudiesConfig'
+import { EMAIL, LINKEDIN, PHONE } from './data/contact'
 import { DEFAULT_LANG, getTexts, translate, type Lang } from './i18n/i18n'
 
 /** The site's public address: used for canonical links and link previews,
@@ -59,5 +60,43 @@ export function pageMeta(path: string, lang: Lang = DEFAULT_LANG): PageMeta {
     title: translate(lang, 'seo.notFound.title'),
     description: translate(lang, 'seo.notFound.description'),
     image: ogImagePath('home', lang),
+  }
+}
+
+/** Structured data (schema.org JSON-LD) for the home page in `lang`: tells
+ * search engines the site's name and the company behind it (name, logo,
+ * contact, founder), which Google uses for the site name and logo in its
+ * results. Other pages get none (null). */
+export function structuredData(path: string, lang: Lang = DEFAULT_LANG) {
+  if ((path.replace(/\/+$/, '') || '/') !== '/') return null
+  const organization = `${SITE_URL}/#organization`
+  return {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'WebSite',
+        '@id': `${SITE_URL}/#website`,
+        name: 'Black Systems',
+        url: `${SITE_URL}/`,
+        inLanguage: ['en', 'hu'],
+        publisher: { '@id': organization },
+      },
+      {
+        '@type': 'Organization',
+        '@id': organization,
+        name: 'Black Systems',
+        url: `${SITE_URL}/`,
+        logo: `${SITE_URL}/icon-512.png`,
+        description: translate(lang, 'seo.home.description'),
+        email: EMAIL,
+        telephone: PHONE.href.replace('tel:', ''),
+        foundingDate: '2025',
+        founder: {
+          '@type': 'Person',
+          name: getTexts(lang).common.founderName,
+          sameAs: [LINKEDIN],
+        },
+      },
+    ],
   }
 }

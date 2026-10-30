@@ -2,7 +2,7 @@ import React from 'react'
 import { renderToString } from 'react-dom/server'
 import App from './App'
 
-export { PRERENDER_PATHS, pageMeta, SITE_URL } from './seo'
+export { PRERENDER_PATHS, pageMeta, SITE_URL, structuredData } from './seo'
 export { LANGS } from './i18n/i18n'
 export { localizePath } from './i18n/paths'
 

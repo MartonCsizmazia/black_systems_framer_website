@@ -20,7 +20,7 @@ const root = join(dirname(fileURLToPath(import.meta.url)), '..')
 const dist = join(root, 'dist')
 const serverDir = join(root, 'dist-server')
 
-const { render, pageMeta, PRERENDER_PATHS, SITE_URL, LANGS, localizePath } = await import(
+const { render, pageMeta, structuredData, PRERENDER_PATHS, SITE_URL, LANGS, localizePath } = await import(
   pathToFileURL(join(serverDir, 'entry-server.js')).href
 )
 
@@ -73,6 +73,11 @@ function headTags(meta, lang, path) {
       `<meta property="og:image:height" content="630" />`,
       `<meta property="og:image:alt" content="${escape(meta.title)}" />`,
     )
+  }
+  const data = path && structuredData(path, lang)
+  if (data) {
+    // '<' escaped so the JSON can never close the script tag.
+    tags.push(`<script type="application/ld+json">${JSON.stringify(data).replace(/</g, '\\u003c')}</script>`)
   }
   return tags.join('\n    ')
 }
