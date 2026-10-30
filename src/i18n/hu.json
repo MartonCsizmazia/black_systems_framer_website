@@ -53,7 +53,7 @@
           "value": "1 percen belül"
         },
         {
-          "label": "Megválaszolt érdeklődők",
+          "label": "Utánkövetett érdeklődők",
           "value": "100%"
         },
         {
@@ -105,7 +105,7 @@
       }
     ],
     "process": {
-      "label": "(Így dolgozom)",
+      "label": "(Hogyan működik?)",
       "steps": [
         {
           "title": "Ingyenes konzultáció",
@@ -493,5 +493,9 @@
         }
       ]
     }
+  },
+  "introPdf": {
+    "fullCaseStudy": "A teljes esettanulmány",
+    "footerLink": "Bemutatkozó PDF"
   }
 }

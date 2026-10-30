@@ -493,5 +493,9 @@
         }
       ]
     }
+  },
+  "introPdf": {
+    "fullCaseStudy": "Read the full case study",
+    "footerLink": "Intro PDF"
   }
 }

@@ -19,6 +19,20 @@ export default function Footer() {
   const navLinks = useHomeNavLinks()
   const year = new Date().getFullYear()
 
+  // Quick access to the intro PDF (npm run intro-pdf) in the current
+  // language, for sending it after a call. Rendered twice: next to Legal on
+  // desktop and tablet, under the menu on phones (CSS shows one).
+  const introPdfLink = (placement: 'bottom' | 'phone') => (
+    <a
+      href={`/intro/black-systems-intro-${lang}.pdf`}
+      className={`footer__pdf footer__pdf--${placement} text-preset-152twjm`}
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      {t('introPdf.footerLink')} <span aria-hidden="true">↗</span>
+    </a>
+  )
+
   const jumpTo = (href: string) => (e: React.MouseEvent) => {
     e.preventDefault()
     scrollToSection(href)
@@ -58,6 +72,8 @@ export default function Footer() {
               </a>
             ))}
           </nav>
+
+          {introPdfLink('phone')}
         </div>
 
         <div className="footer__bottom text-preset-152twjm">
@@ -66,6 +82,7 @@ export default function Footer() {
             <a href={localizePath('/legal', lang)} className="footer__legal-link">
               {t('footer.legal')}
             </a>
+            {introPdfLink('bottom')}
           </div>
           <button type="button" className="footer__top-link" onClick={scrollToTop}>
             {t('common.backToTop')} <span aria-hidden="true">↑</span>

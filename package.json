@@ -8,7 +8,8 @@
     "build": "tsc -b && vite build && vite build --ssr src/entry-server.tsx --outDir dist-server && node scripts/prerender.mjs",
     "preview": "vite preview",
     "lint": "eslint .",
-    "og": "node scripts/og-images.mjs"
+    "og": "node scripts/og-images.mjs",
+    "intro-pdf": "node scripts/intro-pdf.mjs"
   },
   "dependencies": {
     "framer-motion": "^11.11.17",
