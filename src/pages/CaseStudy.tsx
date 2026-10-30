@@ -1,17 +1,15 @@
 import { Fragment, useRef } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
-
+import Navbar, { type NavLink } from '../components/Navbar/Navbar'
+import OverlapFiller from '../components/OverlapFiller/OverlapFiller'
 import SectionEyebrow from '../components/SectionEyebrow/SectionEyebrow'
 import LineReveal from '../components/LineReveal/LineReveal'
-
+import CaseStudySlider from '../components/CaseStudySlider/CaseStudySlider'
 import Footer from '../components/Footer/Footer'
 import Contact from '../sections/Contact/Contact'
 import { caseStudyText, type CaseStudyEntry } from '../data/caseStudiesConfig'
 import { useTranslation } from '../i18n/i18n'
-import CaseStudySlider from '../components/CaseStudySlider/CaseStudySlider'
 import './CaseStudy.css'
-import Navbar, { type NavLink } from "../components/Navbar/Navbar";
-import OverlapFiller from "../components/OverlapFiller/OverlapFiller";
 
 // Every value below is copied from the detail-page template chunk
 // (s1MaDFfTYJ…XDhxFXEf.mjs, CMS collection "UANVURkgl") - not approximated
@@ -197,8 +195,8 @@ function useCaseStudyNavLinks(caseStudy: CaseStudyEntry): NavLink[] {
 /**
  * One template for every /case-studies/:slug route, as in the original
  * (a single Framer CMS detail page): blurred cover hero, intro paragraph,
- * research/solution/results, a slider of all case studies, then the Contact
- * section and footer.
+ * challenge/research/solution/results, a slider of all case studies, then
+ * the Contact section and footer.
  */
 export default function CaseStudy({ caseStudy }: { caseStudy: CaseStudyEntry }) {
   const navLinks = useCaseStudyNavLinks(caseStudy)

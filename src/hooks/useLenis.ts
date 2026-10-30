@@ -26,7 +26,7 @@ export const SECTION_SCROLL = {
    * [data-scroll-anchor] element): negative = that many px below the top of
    * the screen. One value for every section, so all jumps land alike; it
    * must clear the compact fixed navbar (~70px tall incl. its top gap);
-   * -90 leaves ~20px of breathing room below it. */
+   * -80 leaves ~10px of breathing room below it. */
   offset: -80,
 }
 

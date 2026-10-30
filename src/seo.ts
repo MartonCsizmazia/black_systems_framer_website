@@ -1,4 +1,4 @@
-import { caseStudies, caseStudyHref, caseStudyText, findCaseStudy } from './data/caseStudiesConfig'
+import { caseStudies, caseStudyAtPath, caseStudyHref, caseStudyText } from './data/caseStudiesConfig'
 import { DEFAULT_LANG, getTexts, translate, type Lang } from './i18n/i18n'
 
 /** The site's public address: used for canonical links and link previews,
@@ -45,8 +45,7 @@ export function pageMeta(path: string, lang: Lang = DEFAULT_LANG): PageMeta {
       image: ogImagePath('home', lang),
     }
   }
-  const match = clean.match(/^\/case-studies\/([^/]+)$/)
-  const caseStudy = match ? findCaseStudy(match[1]) : undefined
+  const caseStudy = caseStudyAtPath(clean)
   if (caseStudy) {
     const text = caseStudyText(getTexts(lang), caseStudy.slug)
     return {

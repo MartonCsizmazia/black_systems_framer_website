@@ -51,10 +51,10 @@ const caseStudies = [...config.matchAll(/slug: '([^']+)'.*?image: images\.(\w+)/
 
 const img = {
   logo: await dataUri('src/assets/images/black-systems-thin-stacked-white.png'),
-  founder: await dataUri(imageFile('assetMrongf')),
+  founder: await dataUri(imageFile('founderPortrait')),
   services: await Promise.all(['leadCapture', 'manualWork', 'auditCustom'].map((n) => dataUri(imageFile(n)))),
   logos: await Promise.all(
-    ['assetPtmk11', 'assetSji9he', 'asset4zx7dv', 'asset4wrdli'].map((n) => dataUri(imageFile(n))),
+    ['logoDeutscheTelekom', 'logoVoormedia', 'logoClario', 'logoAccenture'].map((n) => dataUri(imageFile(n))),
   ),
   cases: await Promise.all(caseStudies.map((c) => dataUri(c.image))),
 }

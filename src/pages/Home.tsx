@@ -7,10 +7,10 @@ import FaqSection from '../components/FaqSection/FaqSection'
 import Contact from '../sections/Contact/Contact'
 import Footer from '../components/Footer/Footer'
 
-/** The one-page home: this project's own section list (moved out of App.tsx). */
+/** The one-page home, section by section. */
 export default function Home() {
   return (
-    <main style={{ background: 'var(--color-ink)', minHeight: '550vh' }}>
+    <main style={{ background: 'var(--color-ink)' }}>
       <Navbar />
       <Hero />
       <About />

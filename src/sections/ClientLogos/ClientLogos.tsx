@@ -17,11 +17,11 @@ import './ClientLogos.css'
 // The founder's past employers (not clients - the label says so). Names are
 // the first set's alt texts; the repeated copies are decorative.
 const logos = [
-  { image: images.assetFpupna, name: 'Budapest' },
-  { image: images.assetPtmk11, name: 'Deutsche Telekom' },
-  { image: images.assetSji9he, name: 'Voormedia' },
-  { image: images.asset4zx7dv, name: 'Clario' },
-  { image: images.asset4wrdli, name: 'Accenture' },
+  { image: images.logoBudapest, name: 'Budapest' },
+  { image: images.logoDeutscheTelekom, name: 'Deutsche Telekom' },
+  { image: images.logoVoormedia, name: 'Voormedia' },
+  { image: images.logoClario, name: 'Clario' },
+  { image: images.logoAccenture, name: 'Accenture' },
 ]
 
 // A 2x-duplicated track only tiles seamlessly while the viewport is narrower

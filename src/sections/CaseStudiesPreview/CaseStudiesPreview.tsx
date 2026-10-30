@@ -9,8 +9,8 @@ import { caseStudies, caseStudyHref, caseStudyText, type CaseStudyEntry } from '
 import { useTranslation } from '../../i18n/i18n'
 
 // Recovered exactly by measuring the live source: each card slot but the
-// last is plain `position: sticky`, with `top` increasing by 40px per card
-// (50px, 90px, 130px, ...) - NOT a framer-motion scale/y transform. Because
+// last is plain `position: sticky`, with `top` increasing per card
+// (STACK_STEP) - NOT a framer-motion scale/y transform. Because
 // later cards sit later in the DOM (same z-index, ties broken by DOM order)
 // each newly-pinned card paints over the lower portion of the one before
 // it, while that earlier card's own `top` offset keeps a fixed ~40px sliver
@@ -83,6 +83,7 @@ function CaseStudyCard({
         title={text.title}
         category={text.category}
         rollNo={caseStudy.rollNo}
+        year={caseStudy.year}
         href={caseStudyHref(caseStudy.slug, lang)}
         image={caseStudy.image}
         captionOpacity={isLast ? undefined : captionOpacity}
@@ -126,7 +127,7 @@ export default function CaseStudiesPreview() {
           {/* Opens the first case study's page at its slider of all case
               studies; the count follows the config. */}
           <a href={`${caseStudyHref(caseStudies[0].slug, lang)}#more-case-studies`} className="case-studies__see-all">
-            <img src={images.assetXfjtzm.src} alt="" className="case-studies__see-all-thumb" />
+            <img src={images.seeAllThumb.src} alt="" className="case-studies__see-all-thumb" />
             <span className="text-preset-q70fzl">{t('caseStudies.seeAll', { count: String(caseStudies.length).padStart(2, '0') })}</span>
           </a>
         </div>

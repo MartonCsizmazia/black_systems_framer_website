@@ -149,38 +149,6 @@
   transform: translate(-50%, -50%);
 }
 
-.services__video-thumb {
-  /* Floated, not absolutely positioned: the heading paragraph that follows
-     it in the DOM needs to flow around it (only its first line or two, for
-     as long as the float's height intersects that text), which position:
-     absolute can't do since it takes the element out of flow entirely. The
-     negative margin-top reproduces the exact same visual offset the old
-     `top: -175px` gave it. */
-  float: left;
-  margin-top: -175px;
-  margin-right: 24px;
-  width: 178px;
-  height: 232px;
-  object-fit: cover;
-  border-radius: 5px;
-}
-@media (min-width: 810px) and (max-width: 1199.98px) {
-  .services__video-thumb {
-    width: 94px;
-    height: auto;
-    aspect-ratio: 0.767;
-    margin-top: -95px;
-  }
-}
-@media (max-width: 809.98px) {
-  .services__video-thumb {
-    width: 71px;
-    height: auto;
-    aspect-ratio: 0.767;
-    margin-top: -69px;
-  }
-}
-
 .services__bottom {
   display: flex;
   flex-direction: column;

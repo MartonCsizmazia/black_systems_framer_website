@@ -101,30 +101,6 @@
   }
 }
 
-/* 46px / 40px lh, 30px / 30px lh on phone - H3 */
-.text-preset-wppu5t {
-  --framer-font-family: "BDO Grotesk Variable", sans-serif;
-  --framer-font-size: 46px;
-  --framer-font-weight: 1000;
-  --framer-line-height: 40px;
-  --framer-letter-spacing: -1.7px;
-}
-@media (max-width: 809.98px) {
-  .text-preset-wppu5t {
-    --framer-font-size: 30px;
-    --framer-line-height: 30px;
-  }
-}
-
-/* 36px / 38px lh - H4, no responsive override recovered */
-.text-preset-gftg2f {
-  --framer-font-family: "BDO Grotesk Variable", sans-serif;
-  --framer-font-size: 36px;
-  --framer-font-weight: 1000;
-  --framer-line-height: 38px;
-  --framer-letter-spacing: -1.2px;
-}
-
 /* 16px / 20.2px lh - body copy */
 .text-preset-q70fzl {
   --framer-font-family: "BDO Grotesk Variable", sans-serif;

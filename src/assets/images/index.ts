@@ -1,50 +1,56 @@
 // Every image the site uses: import it here, then reference it as images.<name>.
-// Most entries were generated from the captured Framer site; files are
-// identifiable by their file names.
+// Components set the alt text themselves where it depends on the language;
+// `alt` here is only the fallback.
 
-import asset4wrdliSrc from './accenture.svg'
-import asset4zx7dvSrc from './clario.svg'
-import assetFpupnaSrc from './budapest-logo.svg'
+import logoAccentureSrc from './accenture.svg'
+import logoClarioSrc from './clario.svg'
+import logoBudapestSrc from './budapest-logo.svg'
+import logoDeutscheTelekomSrc from './deutsche-telekom.svg'
+import logoVoormediaSrc from './voormedia.svg'
+import blackSystemsLogoStackedSrc from './black-systems-thin-stacked-white.png'
+import blackSystemsLogoOneLineSrc from './black-systems-thinner-oneline-white.png'
+import heroVideoSrc from './mountain_contrail_30s_8.mp4'
+import heroVideoMobileSrc from './mountain_contrail_mobile.mp4'
+import founderPortraitSrc from './laptop-red-studio.avif'
+import founderAvatarSrc from './cta-avatar-wfrjn1.avif'
+import ctaBackgroundSrc from './villa-g891sp.avif'
+import ctaPortraitSrc from './portrait-blue-warmer.avif'
+import contactPortraitSrc from './standing-orange-studio.avif'
+import seeAllThumbSrc from './asset-xfjtzm.avif'
 import leadCaptureSrc from './lead-capture-bakery-summer-358x512.avif'
-import assetMrongfSrc from './laptop-red-studio.avif'
-import assetPtmk11Src from './deutsche-telekom.svg'
-import assetSji9heSrc from './voormedia.svg'
-import ctaAvatarWfrjn1Src from './cta-avatar-wfrjn1.avif'
-import assetXfjtzmSrc from './asset-xfjtzm.avif'
-import bgImageHshviiSrc from './mountain_contrail_30s_8.mp4'
-import bgImageHshviiMobileSrc from './mountain_contrail_mobile.mp4'
-import villaG891spSrc from './villa-g891sp.avif'
+import manualWorkSrc from './manual-work-automation-woman-358x512.avif'
 import auditCustomSrc from './audit-custom-shipwright-358x512.avif'
-import manualWork0Src from './manual-work-automation-woman-358x512.avif'
-import portraitOrangeSrc from './portrait-blue-warmer.avif'
-import blacksystemslogoThinStackedCurvy from './black-systems-thin-stacked-white.png'
-import blacksystemslogoThinnerOneLineCurvy from './black-systems-thinner-oneline-white.png'
-import menOrangeBgBfbeq6Src from './standing-orange-studio.avif'
 import residenceGoldenHourSrc from './residence-golden-hour-512x358.avif'
 import officeResumeReviewSrc from './resume-review-studio-512x358.avif'
 import hotelLobbyReceptionSrc from './hotel-lobby-studio-512x358.avif'
 import officeSunsetSigningSrc from './sunlit-office-studio-512x358.avif'
 
 export const images = {
-  asset4wrdli: { src: asset4wrdliSrc, alt: '' },
-  asset4zx7dv: { src: asset4zx7dvSrc, alt: '' },
-  assetFpupna: { src: assetFpupnaSrc, alt: '' },
+  // Past employers (the logo strip in About).
+  logoAccenture: { src: logoAccentureSrc, alt: '' },
+  logoClario: { src: logoClarioSrc, alt: '' },
+  logoBudapest: { src: logoBudapestSrc, alt: '' },
+  logoDeutscheTelekom: { src: logoDeutscheTelekomSrc, alt: '' },
+  logoVoormedia: { src: logoVoormediaSrc, alt: '' },
+  // Brand.
+  blackSystemsLogoStacked: { src: blackSystemsLogoStackedSrc, alt: 'Black Systems' },
+  blackSystemsLogoOneLine: { src: blackSystemsLogoOneLineSrc, alt: 'Black Systems' },
+  // Hero background (desktop and phone versions).
+  heroVideo: { src: heroVideoSrc, alt: '' },
+  heroVideoMobile: { src: heroVideoMobileSrc, alt: '' },
+  // Founder photos: About portrait, navbar "Meet the CEO" card, CTA banner, Contact.
+  founderPortrait: { src: founderPortraitSrc, alt: '' },
+  founderAvatar: { src: founderAvatarSrc, alt: '' },
+  ctaBackground: { src: ctaBackgroundSrc, alt: '' },
+  ctaPortrait: { src: ctaPortraitSrc, alt: '' },
+  contactPortrait: { src: contactPortraitSrc, alt: '' },
+  // Thumbnail on the home page's "See all" case studies link.
+  seeAllThumb: { src: seeAllThumbSrc, alt: '' },
+  // Service cards.
   leadCapture: { src: leadCaptureSrc, alt: '' },
-  assetMrongf: { src: assetMrongfSrc, alt: '' },
-  assetPtmk11: { src: assetPtmk11Src, alt: '' },
-  assetSji9he: { src: assetSji9heSrc, alt: '' },
-  ctaAvatarWfrjn1: { src: ctaAvatarWfrjn1Src, alt: '' },
-  assetXfjtzm: { src: assetXfjtzmSrc, alt: '' },
-  bgImageHshvii: { src: bgImageHshviiSrc, alt: 'BG Image' },
-  bgImageHshviiMobile: { src: bgImageHshviiMobileSrc, alt: 'BG Image' },
-  placeYourLogoHere71ydgb: { src: blacksystemslogoThinStackedCurvy, alt: 'Place Your Logo Here' },
-  blackSystemsLogoOneLine: { src: blacksystemslogoThinnerOneLineCurvy, alt: 'Black Systems' },
-  villaG891sp: { src: villaG891spSrc, alt: 'Villa' },
+  manualWork: { src: manualWorkSrc, alt: '' },
   auditCustom: { src: auditCustomSrc, alt: '' },
-  manualWork: { src: manualWork0Src, alt: '' },
-  portraitOrangeBgAvoxaw: { src: portraitOrangeSrc, alt: '' },
-  menOrangeBgBfbeq6: { src: menOrangeBgBfbeq6Src, alt: '' },
-  // Black Systems' own images.
+  // Case study covers.
   residenceGoldenHour: { src: residenceGoldenHourSrc, alt: 'Residence at golden hour' },
   officeResumeReview: { src: officeResumeReviewSrc, alt: 'Reviewing a resume in an office' },
   hotelLobbyReception: { src: hotelLobbyReceptionSrc, alt: 'Hotel lobby reception desk' },

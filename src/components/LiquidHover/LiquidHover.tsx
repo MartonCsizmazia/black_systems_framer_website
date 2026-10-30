@@ -452,6 +452,9 @@ export default function LiquidHover({
     function resizeCanvas() {
       const cw = wrapper!.clientWidth
       const ch = wrapper!.clientHeight
+      // Hidden (display:none below desktop): nothing to size. Keeps the
+      // previous size instead of a 0x0 simulation.
+      if (cw === 0 || ch === 0) return
       const dpr = Math.min(window.devicePixelRatio || 1, 2)
       canvas!.width = Math.max(2, Math.round(cw * CANVAS_OVERSCAN * dpr))
       canvas!.height = Math.max(2, Math.round(ch * CANVAS_OVERSCAN * dpr))
@@ -478,6 +481,7 @@ export default function LiquidHover({
       allocatedSize = null
     }
     function allocateBuffers() {
+      if (simSize.w === 0 || simSize.h === 0) return // not sized yet (hidden)
       if (allocatedSize && allocatedSize.w === simSize.w && allocatedSize.h === simSize.h) return
       disposeBuffers()
       allocatedSize = { w: simSize.w, h: simSize.h }
@@ -587,6 +591,10 @@ export default function LiquidHover({
     }
 
     function render() {
+      rafRef.current = requestAnimationFrame(render)
+      // Skip the whole simulation while the layer is hidden (below desktop)
+      // or nothing has been sized yet; it resumes on the next visible frame.
+      if (!canvas!.offsetParent || !allocatedSize) return
       const dt = 1 / 60
       updateVideoTexture()
 
@@ -663,11 +671,6 @@ export default function LiquidHover({
         gl!.uniform1i(displayProgram.uniforms.u_text_texture, 0)
       }
       drawQuad()
-      gl!.viewport(0, 0, gl!.drawingBufferWidth, gl!.drawingBufferHeight)
-      gl!.bindFramebuffer(gl!.FRAMEBUFFER, null)
-      gl!.drawElements(gl!.TRIANGLES, 6, gl!.UNSIGNED_SHORT, 0)
-
-      rafRef.current = requestAnimationFrame(render)
     }
 
     // If the GPU context is lost anyway (driver reset, memory pressure), stop

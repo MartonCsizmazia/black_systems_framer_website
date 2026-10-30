@@ -83,35 +83,16 @@ function PlusMark({ right, bottom, from, visibleAt }: (typeof cornerMarks)[numbe
   )
 }
 
-export interface HeroProps {
-  /** Defaults to images.bgImageHshvii. Can be an image or a video file
-   * (.mp4/.webm/...); used for both the visible background and the
-   * LiquidHover distortion layer, which samples the same source. */
-  backgroundImage?: { src: string; alt?: string }
-  /** Used instead of `backgroundImage` on phones (< 810px). Defaults to
-   * images.bgImageHshviiMobile when no backgroundImage is given, otherwise
-   * to backgroundImage itself. */
-  backgroundImageMobile?: { src: string; alt?: string }
-  /** Whether the background darkens as the hero scrolls out of view - an
-   * overlay fading in from transparent to ~65% black over the same scroll
-   * distance the hero itself fades out over. On by default (the main page
-   * wants this); sub-pages reusing Hero with a different background can
-   * turn it off. */
-  darkenOnScroll?: boolean
-}
-
-export default function Hero({ backgroundImage, backgroundImageMobile, darkenOnScroll = true }: HeroProps = {}) {
+export default function Hero() {
   const { t, tm } = useTranslation()
   const services = tm('hero.services')
-  // Phones get their own background (framed so the animation reads better
-  // in portrait); switches live if the viewport crosses the breakpoint.
+  // Phones get their own background video (framed so the animation reads
+  // better in portrait); switches live if the viewport crosses the breakpoint.
   // null until the viewport is known (prerender + hydration): the video is
   // then rendered without a source, so phones never start downloading the
   // desktop video before React picks the right one.
   const isPhone = useMediaQuery(mediaQueries.phone)
-  const desktopBg = backgroundImage ?? images.bgImageHshvii
-  const mobileBg = backgroundImageMobile ?? (backgroundImage ?? images.bgImageHshviiMobile)
-  const bgImage = isPhone ? mobileBg : desktopBg
+  const bgImage = isPhone ? images.heroVideoMobile : images.heroVideo
   const bgSrc = isPhone === null ? undefined : bgImage.src
   // The background may be a still image or a video (picked by file extension).
   const bgIsVideo = isVideoSrc(bgImage.src)
@@ -143,115 +124,115 @@ export default function Hero({ backgroundImage, backgroundImageMobile, darkenOnS
 
   // Darkens the background as the hero scrolls out - same 1100px range as
   // heroOpacity, so it's noticeably dimmer well before the whole hero has
-  // faded away. Only rendered when darkenOnScroll is true.
+  // faded away.
   const darkenOpacity = useTransform(pageScrollY, [0, 1100], [0, 0.65])
 
   return (
     <div id="top" className="hero-wrapper">
-    <motion.section className="hero" style={{ opacity: heroOpacity, y: heroParallaxY }}>
-      <motion.div className="hero__bg" {...bgAppear}>
-        {bgIsVideo ? (
-          // muted + playsInline are required for autoplay (iOS included).
-          <video
-            ref={bgVideoRef}
-            src={bgSrc}
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="auto"
-            aria-hidden="true"
-          />
-        ) : (
-          <img src={bgSrc} alt={bgImage.alt || t('hero.backgroundAlt')} />
-        )}
-      </motion.div>
-
-      {/* Desktop-only. Real-time WebGL fluid-sim distortion, recovered
-          verbatim (shaders included) from the production bundle - see
-          LiquidHover.tsx. Props match the exact instance values captured
-          from source (cursorPower:1, cursorSize:.5, distortionPower:.8,
-          resolution:4). */}
-      <div className="hero__distortion-layer">
-        <LiquidHover
-          image={bgImage}
-          video={bgIsVideo ? bgVideoRef : undefined}
-          cursorPower={1}
-          cursorSize={0.5}
-          distortionPower={0.8}
-          resolution={4}
-        />
-      </div>
-
-      {darkenOnScroll && <motion.div className="hero__darken-overlay" style={{ opacity: darkenOpacity }} aria-hidden="true" />}
-
-      <div className="hero__spacer" />
-
-      {/* Desktop: under the navbar's CEO card (hidden with the hamburger
-          menu, which has its own switch). */}
-      <motion.div className="hero__language" {...descLine(0.3)}>
-        <LanguageSwitch />
-      </motion.div>
-
-      <div className="hero__top">
-        <div className="hero__description">
-          <motion.p className="text-preset-q70fzl hero__line" {...descLine(0.4)}>
-            {t('hero.line1')}
-          </motion.p>
-          <motion.p className="text-preset-q70fzl hero__line" {...descLine(0.6)}>
-            {t('hero.line2')}{' '}
-            <span className="hero__dim">{t('hero.line2Dim')}</span>
-          </motion.p>
-          <motion.p className="text-preset-q70fzl hero__line hero__dim" {...descLine(0.8)}>
-            {t('hero.line3')}
-          </motion.p>
-        </div>
-        <motion.div {...ctaAppear}>
-          <Button title={t('common.bookFreeCall')} variant="light" booking solid />
-        </motion.div>
-      </div>
-
-      <motion.div className="hero__bottom" style={{ y: bottomY }}>
-        <div className="hero__services">
-          <motion.p className="text-preset-q70fzl" {...serviceLine(0.9, 10)}>
-            <span className="hero__dim">01/</span> {services[0]}
-          </motion.p>
-          <motion.p className="text-preset-q70fzl" {...serviceLine(1.1, 8)}>
-            {services[1]}
-          </motion.p>
-          <motion.p className="text-preset-q70fzl" {...serviceLine(1.3, 6)}>
-            {services[2]}
-          </motion.p>
-        </div>
-
-        <div className="hero__details-logo">
-          <motion.div className="hero__year-details" {...yearDetailsAppear}>
-            <span className="text-preset-q70fzl">&copy; {new Date().getFullYear()}</span>
-            <div className="hero__lines">
-              {lineHeights.map((h, i) => (
-                <span key={i} className="hero__line-tick" style={{ height: h }} />
-              ))}
-            </div>
-            <span className="text-preset-q70fzl">25'</span>
-          </motion.div>
-
-          <motion.div className="hero__logo-banner" {...logoBannerAppear}>
-            {/* Logo drawn as a mask over a frosted white fill (see Hero.css),
-                so the background tints the letters instead of darkening them. */}
-            <div
-              className="hero__logo-fill"
-              role="img"
-              aria-label={images.placeYourLogoHere71ydgb.alt || ''}
-              style={{ '--logo-src': `url(${images.placeYourLogoHere71ydgb.src})` } as React.CSSProperties}
+      <motion.section className="hero" style={{ opacity: heroOpacity, y: heroParallaxY }}>
+        <motion.div className="hero__bg" {...bgAppear}>
+          {bgIsVideo ? (
+            // muted + playsInline are required for autoplay (iOS included).
+            <video
+              ref={bgVideoRef}
+              src={bgSrc}
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="auto"
+              aria-hidden="true"
             />
+          ) : (
+            <img src={bgSrc} alt={bgImage.alt || t('hero.backgroundAlt')} />
+          )}
+        </motion.div>
+
+        {/* Desktop-only. Real-time WebGL fluid-sim distortion, recovered
+            verbatim (shaders included) from the production bundle - see
+            LiquidHover.tsx. Props match the exact instance values captured
+            from source (cursorPower:1, cursorSize:.5, distortionPower:.8,
+            resolution:4). */}
+        <div className="hero__distortion-layer">
+          <LiquidHover
+            image={bgImage}
+            video={bgIsVideo ? bgVideoRef : undefined}
+            cursorPower={1}
+            cursorSize={0.5}
+            distortionPower={0.8}
+            resolution={4}
+          />
+        </div>
+
+        <motion.div className="hero__darken-overlay" style={{ opacity: darkenOpacity }} aria-hidden="true" />
+
+        <div className="hero__spacer" />
+
+        {/* Desktop: under the navbar's CEO card (hidden with the hamburger
+            menu, which has its own switch). */}
+        <motion.div className="hero__language" {...descLine(0.3)}>
+          <LanguageSwitch />
+        </motion.div>
+
+        <div className="hero__top">
+          <div className="hero__description">
+            <motion.p className="text-preset-q70fzl hero__line" {...descLine(0.4)}>
+              {t('hero.line1')}
+            </motion.p>
+            <motion.p className="text-preset-q70fzl hero__line" {...descLine(0.6)}>
+              {t('hero.line2')}{' '}
+              <span className="hero__dim">{t('hero.line2Dim')}</span>
+            </motion.p>
+            <motion.p className="text-preset-q70fzl hero__line hero__dim" {...descLine(0.8)}>
+              {t('hero.line3')}
+            </motion.p>
+          </div>
+          <motion.div {...ctaAppear}>
+            <Button title={t('common.bookFreeCall')} variant="light" booking solid />
           </motion.div>
         </div>
-      </motion.div>
 
-      {cornerMarks.map((mark, i) => (
-        <PlusMark key={i} {...mark} />
-      ))}
-    </motion.section>
+        <motion.div className="hero__bottom" style={{ y: bottomY }}>
+          <div className="hero__services">
+            <motion.p className="text-preset-q70fzl" {...serviceLine(0.9, 10)}>
+              <span className="hero__dim">01/</span> {services[0]}
+            </motion.p>
+            <motion.p className="text-preset-q70fzl" {...serviceLine(1.1, 8)}>
+              {services[1]}
+            </motion.p>
+            <motion.p className="text-preset-q70fzl" {...serviceLine(1.3, 6)}>
+              {services[2]}
+            </motion.p>
+          </div>
+
+          <div className="hero__details-logo">
+            <motion.div className="hero__year-details" {...yearDetailsAppear}>
+              <span className="text-preset-q70fzl">&copy; {new Date().getFullYear()}</span>
+              <div className="hero__lines">
+                {lineHeights.map((h, i) => (
+                  <span key={i} className="hero__line-tick" style={{ height: h }} />
+                ))}
+              </div>
+              <span className="text-preset-q70fzl">25'</span>
+            </motion.div>
+
+            <motion.div className="hero__logo-banner" {...logoBannerAppear}>
+              {/* Logo drawn as a mask over a frosted white fill (see Hero.css),
+                  so the background tints the letters instead of darkening them. */}
+              <div
+                className="hero__logo-fill"
+                role="img"
+                aria-label={images.blackSystemsLogoStacked.alt}
+                style={{ '--logo-src': `url(${images.blackSystemsLogoStacked.src})` } as React.CSSProperties}
+              />
+            </motion.div>
+          </div>
+        </motion.div>
+
+        {cornerMarks.map((mark, i) => (
+          <PlusMark key={i} {...mark} />
+        ))}
+      </motion.section>
     </div>
   )
 }

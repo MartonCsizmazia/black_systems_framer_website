@@ -95,6 +95,9 @@ export function mountSquaresLogo(container: HTMLElement, options: SquaresLogoOpt
   const step = opt.hold + opt.move
   const cycle = step * LAYOUTS.length
   let start: number | null = null, raf = 0
+  // The arrangement currently drawn and standing still, so the long holds
+  // don't rewrite the same attributes every frame.
+  let held = 0
 
   const tick = (now: number) => {
     if (start === null) start = now
@@ -102,10 +105,12 @@ export function mountSquaresLogo(container: HTMLElement, options: SquaresLogoOpt
     const idx = Math.floor(t / step)
     const local = t - idx * step
     if (local < opt.hold) {
-      draw(LAYOUTS[idx])
+      if (held !== idx) draw(LAYOUTS[idx])
+      held = idx
     } else {
       const next = (idx + 1) % LAYOUTS.length
       draw(interpolate(LAYOUTS[idx], LAYOUTS[next], (local - opt.hold) / opt.move))
+      held = -1
     }
     raf = requestAnimationFrame(tick)
   }

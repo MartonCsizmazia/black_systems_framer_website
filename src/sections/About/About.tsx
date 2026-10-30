@@ -20,12 +20,12 @@ import './About.css'
 const ABOUT_IMAGE_PARALLAX_START = -170
 
 // Recovered inline transitions (local consts in the "Home" page chunk, not
-// the global appear-animations table): simple opacity fades triggered
-// on-scroll-into-view (threshold 0, animate once).
+// the global appear-animations table): simple opacity fades, played the
+// first time the block scrolls into view.
 const fadeIn = (duration: number) => ({
   initial: { opacity: 0 },
   whileInView: { opacity: 1, transition: { duration, ease: [0.44, 0, 0.34, 0.98] } },
-  viewport: { once: false, amount: 0.01 },
+  viewport: { once: true, amount: 0.01 },
 })
 
 export default function About() {
@@ -60,16 +60,15 @@ export default function About() {
           whileInView={{ opacity: 1, y: 0, transition: { duration: 0.7, delay: 0.1 } }}
           viewport={{ once: true, amount: 0.01 }}
         >
-            {t('about.heading')}
+          {t('about.heading')}
         </motion.h1>
       </div>
 
       <div className="about__bottom">
         <div className="about__portrait">
           <motion.div className="about__image" ref={imageRef} {...fadeIn(0.6)}>
-            <motion.img src={images.assetMrongf.src} alt={t('common.founderName')} style={{ y: imageY }} />
+            <motion.img src={images.founderPortrait.src} alt={t('common.founderName')} style={{ y: imageY }} />
           </motion.div>
-
         </div>
 
         <motion.div className="about__columns" {...fadeIn(1.2)}>

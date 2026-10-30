@@ -228,7 +228,7 @@ export default function Navbar({ links: customLinks, languageAtTop = false, hide
               >
                 <span className="navbar__cta-avatar">
                   {/* The name is written right next to it, so the photo needs no alt text. */}
-                  <img src={images.ctaAvatarWfrjn1.src} alt="" />
+                  <img src={images.founderAvatar.src} alt="" />
                 </span>
                 <span className="navbar__cta-content">
                   <span className="navbar__cta-heading-row">

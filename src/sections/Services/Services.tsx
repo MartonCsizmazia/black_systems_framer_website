@@ -34,23 +34,17 @@ export default function Services() {
 
         <div className="services__content">
           <div className="services__heading-wrap">
-            {/* Original held an autoplaying looping video here; that distinct
-                asset wasn't fetched during capture, so its poster frame is
-                shown as a static image instead. Floated (not absolutely
-                positioned) so the heading text that follows it in the DOM
-                wraps around it instead of running underneath it. */}
             <motion.h2
               className="services__heading"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0, transition: { duration: 0.7, delay: 0.1 } }}
               viewport={{ once: true, amount: 0.01 }}
             >
-                {t('services.heading')}
+              {t('services.heading')}
             </motion.h2>
           </div>
 
           <div className="services__button-detail">
-            {/*<Button title="Explore More" href="/about" variant="light" />*/}
             <div className="services__details" aria-hidden="true">
               <span className="services__plus" />
               <span className="services__plus" />

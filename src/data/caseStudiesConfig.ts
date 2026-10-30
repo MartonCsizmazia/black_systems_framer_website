@@ -14,7 +14,8 @@ export type CaseStudySlug = keyof Translations['caseStudies']['items']
 export interface CaseStudyEntry {
   slug: CaseStudySlug
   rollNo: string
-  /** Shown on the hero and on the case study's card elsewhere ("© 2025"). */
+  /** The year the project was done ("© 2025"): shown on its page's hero
+   * and on its cards. */
   year: string
   /** Card art on the home page, and the blurred detail-hero background. */
   image: Image
@@ -26,8 +27,8 @@ export interface CaseStudyEntry {
 // and of the slider. Their texts (title, category, intro, ...) live in the
 // translation files under caseStudies.items.<slug>.
 export const caseStudies: CaseStudyEntry[] = [
-  { slug: 'lead-machine', rollNo: '(01)', year: '© 2026', image: images.residenceGoldenHour },
-  { slug: 'ai-recruiter', rollNo: '(02)', year: '© 2026', image: images.officeResumeReview },
+  { slug: 'lead-machine', rollNo: '(01)', year: '© 2025', image: images.residenceGoldenHour },
+  { slug: 'ai-recruiter', rollNo: '(02)', year: '© 2025', image: images.officeResumeReview },
   { slug: '24-7-front-desk', rollNo: '(03)', year: '© 2026', image: images.hotelLobbyReception },
   { slug: 'invisible-back-office', rollNo: '(04)', year: '© 2026', image: images.officeSunsetSigning },
 ]
@@ -36,8 +37,10 @@ export const caseStudies: CaseStudyEntry[] = [
  * Hungarian: /hu/case-studies/<slug>). */
 export const caseStudyHref = (slug: string, lang: Lang = 'en') => localizePath(`/case-studies/${slug}`, lang)
 
-export function findCaseStudy(slug: string) {
-  return caseStudies.find((p) => p.slug === slug)
+/** The case study a page path belongs to ('/case-studies/<slug>'), if any. */
+export function caseStudyAtPath(path: string) {
+  const slug = path.match(/^\/case-studies\/([^/]+)$/)?.[1]
+  return caseStudies.find((cs) => cs.slug === slug)
 }
 
 /** The texts of one case study from a language's translations. */

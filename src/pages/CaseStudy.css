@@ -234,7 +234,7 @@
   }
 }
 
-/* .framer-13tvm46 - pinned beside the gallery on desktop only */
+/* .framer-13tvm46 */
 .case-study-content__info {
   position: sticky;
   top: 50px;
@@ -344,48 +344,6 @@
 .case-study-content__stat-line {
   height: 1px;
   background: var(--color-ink-10);
-}
-
-/* .framer-1gre7sd + image frames .framer-1bi9nkt etc. */
-.case-study-content__gallery {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  flex: 1 0 0;
-}
-@media (max-width: 1199.98px) {
-  .case-study-content__gallery {
-    flex: none;
-    width: 100%;
-  }
-}
-.case-study-content__image {
-  display: flex;
-  align-items: flex-end;
-  width: 100%;
-  height: 607px;
-  border-radius: 5px;
-  overflow: hidden;
-}
-@media (min-width: 810px) and (max-width: 1199.98px) {
-  .case-study-content__image {
-    height: 100vh;
-  }
-}
-/* 150% tall and bottom-aligned, so it has half a frame of room to drift
-   down into as it parallaxes. */
-.case-study-content__image-layer {
-  flex: none;
-  width: 100%;
-  height: 150%;
-  border-radius: 5px;
-  overflow: hidden;
-}
-.case-study-content__image-layer img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
 }
 
 /* ---- More Works (.framer-1a8derr) ---- */

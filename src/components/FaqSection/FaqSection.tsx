@@ -4,7 +4,7 @@ import SectionEyebrow from '../SectionEyebrow/SectionEyebrow'
 import { useTranslation } from '../../i18n/i18n'
 import './FaqSection.css'
 
-export interface Faq {
+interface Faq {
   question: string
   answer: string
 }
@@ -60,26 +60,19 @@ function FaqItem({ faq, index }: { faq: Faq; index: number }) {
 
 export interface FaqSectionProps {
   /** Element id, so a menu link ('#faq') can scroll to it. */
-  id?: string
-  /** Section number shown in the eyebrow, e.g. '05' -> "(05)". */
-  index?: string
-  /** Questions to show; defaults to faq.items from the translation files. */
-  faqs?: Faq[]
+  id: string
+  /** Section number shown in the eyebrow, e.g. '04' -> "(04)". */
+  index: string
 }
 
 /**
- * Recovered from the shared "FAQ Section" component (.framer-jdAJs), which
- * the original reuses on About, Portfolio, Contact and every portfolio
- * detail page (here: the case study pages). Only the section number changes
- * per page; the heading is the site's standard SectionEyebrow.
+ * Recovered from the shared "FAQ Section" component (.framer-jdAJs): the
+ * questions from faq.items in the translation files, under the site's
+ * standard SectionEyebrow.
  */
-export default function FaqSection({
-  id,
-  index = '03',
-  faqs: customFaqs,
-}: FaqSectionProps) {
+export default function FaqSection({ id, index }: FaqSectionProps) {
   const { t, tm } = useTranslation()
-  const faqs = customFaqs ?? tm('faq.items')
+  const faqs = tm('faq.items')
   return (
     <section id={id} className="faq-section">
       <div className="faq-section__container">

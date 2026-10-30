@@ -8,14 +8,14 @@ import './CtaBanner.css'
 // Same technique as About's portrait: the container stays put, the
 // (deliberately oversized, `height:145%`) background photo pans linearly
 // inside it - a direct, spring-free function of scroll progress. Safe range
-// is [-360, 0] (45% of the 800px container = 360px of overflow); -250 is
-// -192 sped up another 30%, still inside the safe bound with margin.
+// is [-360, 0] (45% of the 800px container = 360px of overflow); -300 stays
+// inside it with margin.
 const CTA_BG_PARALLAX_START = -300
 
 /**
  * Recovered from the "CTA" component (.framer-LkKYy): a full-bleed dark
  * banner with a parallax background photo and a left-to-right scrolling
- * marquee headline. The accent photo and "Contact Now" button are NOT a
+ * marquee headline. The accent photo and the booking button are NOT a
  * bottom row - measured directly against the mirror, the photo sits dead
  * center (both axes) over the marquee text, and the button sits ~23px
  * below it, left-aligned to the photo's left edge. Four plus-mark corner
@@ -41,7 +41,7 @@ export default function CtaBanner() {
     <section className="cta-banner">
       <div className="cta-banner__container" ref={containerRef}>
         <motion.img
-          src={images.villaG891sp.src}
+          src={images.ctaBackground.src}
           alt=""
           className="cta-banner__bg"
           aria-hidden="true"
@@ -77,7 +77,7 @@ export default function CtaBanner() {
 
           <div className="cta-banner__focal">
             <img
-              src={images.portraitOrangeBgAvoxaw.src}
+              src={images.ctaPortrait.src}
               alt=""
               className="cta-banner__accent-photo"
             />
