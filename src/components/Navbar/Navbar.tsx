@@ -153,6 +153,31 @@ export default function Navbar({ links: customLinks, languageAtTop = false, hide
   const [compact, setCompact] = useState(false)
   useMotionValueEvent(progress, 'change', (p) => setCompact(p >= COMPACT_HALF))
 
+  // The open hamburger menu also closes on a tap outside the bar or Escape,
+  // not only on its X.
+  const barRef = useRef<HTMLDivElement>(null)
+  const hamburgerRef = useRef<HTMLButtonElement>(null)
+  // Opened with a mouse or tap (not the keyboard): Escape then drops focus from
+  // the X, so the keypress doesn't light up its keyboard focus ring.
+  const openedByPointer = useRef(false)
+  useEffect(() => {
+    if (!mobileOpen) return
+    const onPointerDown = (e: PointerEvent) => {
+      if (!barRef.current?.contains(e.target as Node)) setMobileOpen(false)
+    }
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key !== 'Escape') return
+      setMobileOpen(false)
+      if (openedByPointer.current) hamburgerRef.current?.blur()
+    }
+    document.addEventListener('pointerdown', onPointerDown)
+    document.addEventListener('keydown', onKeyDown)
+    return () => {
+      document.removeEventListener('pointerdown', onPointerDown)
+      document.removeEventListener('keydown', onKeyDown)
+    }
+  }, [mobileOpen])
+
   const scrollHome = (e: React.MouseEvent) => {
     e.preventDefault()
     scrollToSection('#top')
@@ -166,7 +191,7 @@ export default function Navbar({ links: customLinks, languageAtTop = false, hide
       data-framer-name="Primary"
       {...barAppear}
     >
-      <motion.div className={`navbar__bar${mobileOpen ? ' navbar__bar--open' : ''}`} style={{ y: barY }}>
+      <motion.div ref={barRef} className={`navbar__bar${mobileOpen ? ' navbar__bar--open' : ''}`} style={{ y: barY }}>
         {/* Translucent grey backdrop, faded in with scroll so the white menu
             stays readable over light sections. */}
         <motion.div className="navbar__backdrop" style={{ opacity: progress }} aria-hidden="true" />
@@ -175,8 +200,13 @@ export default function Navbar({ links: customLinks, languageAtTop = false, hide
             type="button"
             className="navbar__hamburger"
             aria-label={mobileOpen ? t('nav.closeMenu') : t('nav.openMenu')}
+            ref={hamburgerRef}
             aria-expanded={mobileOpen}
-            onClick={() => setMobileOpen((v) => !v)}
+            onClick={(e) => {
+              // detail is 0 for a keyboard "click" (Enter/Space).
+              openedByPointer.current = e.detail > 0
+              setMobileOpen((v) => !v)
+            }}
           >
             <span className="navbar__hamburger-line" />
             <span className="navbar__hamburger-line" />
