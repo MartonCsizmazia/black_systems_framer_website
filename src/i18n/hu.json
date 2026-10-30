@@ -141,7 +141,7 @@
         "intro": "Automatizált ügyfélszerző rendszer, amely rögzít minden megkeresést, felméri, mennyire komoly az érdeklődés, azonnal válaszol, és a vásárlásra kész érdeklődőket egyenesen a CRM-be irányítja.",
         "challenge": "Az iroda megkeresései ingatlanportálokról, a weboldalról, e-mailben és telefonon érkeztek, és nem volt egy hely, ahol mindet követni lehetett volna. Az, hogy valaki kap-e választ, azon múlt, ki látta meg éppen az üzenetet, az utánkövetés elmaradt, a komoly vevők pedig a gyorsabb versenytársaknál kötöttek ki. Azért kerestek meg, hogy ne veszítsenek el több ügyfelet a lassú, rendezetlen érdeklődőkezelés miatt.",
         "research": "Feltérképeztem az utat az első megkereséstől a lefoglalt hívásig, és lassú válaszidőket, kézi szűrést, szétszórt érdeklődőforrásokat és elmaradt utánkövetést találtam.",
-        "solution": "A rendszer minden érdeklődőt automatikusan rögzít és kiegészít. Az AI felméri, mennyire komoly az érdeklődés, rendszerezi a fontos adatokat, frissíti a CRM-et, személyre szabott választ küld, és a komoly érdeklődőket továbbítja az értékesítőknek. A rendszer 2 héten belül élesben működött.",
+        "solution": "A rendszert n8n-re építettem, és 2 hét alatt élesbe állt. Minden új érdeklődőt abban a pillanatban rögzít, ahogy beérkezik, és az Apollo és a Clay segítségével kiegészíti az adatait. Az OpenAI felméri, mennyire komoly az érdeklődés, rendszerezi a fontos adatokat és személyre szabott választ ír, a CRM magától frissül, a komoly érdeklődőkről pedig az értékesítők Slacken kapnak értesítést.",
         "stats": [
           {
             "label": "Válaszidő",
@@ -164,7 +164,7 @@
         "intro": "AI-alapú előszűrési folyamat, amely beolvassa a beérkező jelentkezéseket, kinyeri a jelöltek adatait, felméri az alkalmasságot, és rangsorolt szűkített listát ad a toborzóknak.",
         "challenge": "Egy online toborzóügynökség a hirdetéseire pozíciónként több száz jelentkezést kapott, és a hét nagy részét önéletrajzok olvasásával és adatok átmásolásával töltötte. A jó jelöltek napokig vártak válaszra, és közben néhányan máshol fogadtak el ajánlatot.",
         "research": "Feltérképeztem a szűrési folyamatot, és azt láttam, hogy a toborzók újra és újra önéletrajzokat olvasnak, jelöltadatokat másolnak át, követelményeket ellenőriznek, és kézzel állítják össze a szűkített listákat.",
-        "solution": "Az AI kinyeri és rendszerezi minden jelentkezés adatait, a meghatározott szempontok szerint értékeli a jelölteket, jelzi a hiányzó követelményeket, pontozza az alkalmasságot, és az eredményeket közvetlenül a jelentkezéskezelő rendszerbe szinkronizálja.",
+        "solution": "3 hét alatt egyetlen előszűrési folyamattá kapcsoltam össze az n8n-t, az OpenAI-t, a Greenhouse-t és az Airtable-t. Az AI kinyeri és rendszerezi minden jelentkezés adatait, a meghatározott szempontok szerint értékeli a jelölteket, jelzi a hiányzó követelményeket és pontozza az alkalmasságot. Az eredmények közvetlenül a Greenhouse-ba kerülnek, az Airtable-ben pedig a toborzók minden jelöltet egy helyen átlátnak.",
         "stats": [
           {
             "label": "Előszűrési idő",
@@ -187,11 +187,11 @@
         "intro": "Folyamatosan elérhető AI recepció, amely kezeli a rutin vendégkérdéseket, rögzíti a kéréseket, időpontokat foglal, és továbbítja azokat a beszélgetéseket, amelyekhez ember kell.",
         "challenge": "A vendégek a nap bármely szakában írtak egy belvárosi budapesti szállodának a weboldalon, e-mailben és üzenetküldő appokban, többnyire ugyanazokkal a kérdésekkel a bejelentkezésről, a parkolásról és a szabad szobákról. Az esti és éjszakai üzenetek reggelig vártak, a recepció pedig a nap nagy részében rutinkérdésekre válaszolt ahelyett, hogy az előtte álló vendégekkel foglalkozott volna. Amikor megkerestem őket, hogy megismerjem a meglévő rendszereiket, egyértelmű volt, hogy egy AI-asszisztensre van szükségük, amely átveszi a vendégkommunikációt, és leveszi a felesleges munkát a csapat válláról.",
         "research": "Elemeztem az ismétlődő vendégkommunikációt a webes és üzenetküldő csatornákon, és visszatérő kérdéseket, késedelmes válaszokat, nehézkes foglalást és felesleges munkaterhet találtam.",
-        "solution": "Az AI jóváhagyott üzleti információk alapján azonnal válaszol, kezeli a gyakori kéréseket, bekéri a hiányzó adatokat, ahol lehet, időpontot foglal, az összetett beszélgetéseket pedig átadja a munkatársaknak.",
+        "solution": "Egy héttel a munka kezdete után az AI asszisztens már WhatsAppon, Telegramon, Messengeren és Gmailen válaszolt a vendégeknek. Az n8n-re és az OpenAI-ra épülő rendszer a jóváhagyott szállodai információk alapján azonnal válaszol, kezeli a gyakori kéréseket, bekéri a hiányzó adatokat, ahol lehet, időpontot foglal, az összetett beszélgetéseket pedig átadja a munkatársaknak.",
         "stats": [
           {
             "label": "Elérhetőség",
-            "value": "24/7"
+            "value": "Munkaidőben → 0-24"
           },
           {
             "label": "Válaszidő",
@@ -206,15 +206,15 @@
         "intro": "Egy összehangolt rendszer, amely feldolgozza a dokumentumokat, adatokat mozgat a rendszerek között, frissíti a nyilvántartásokat, utánkövető üzeneteket küld, és automatikusan naprakészen tartja a riportokat.",
         "challenge": "Egy budapesti marketingügynökség sok érdeklődővel és több kiemelt ügyféllel dolgozott, a csapata pedig hetente órákat töltött ugyanazzal az adminisztrációval: e-mailekből és dokumentumokból gépelte át az adatokat, kézzel frissítette a CRM-et, és táblázatokból rakta össze a riportokat. A rendszerekben eltértek egymástól az adatok, a hibák pedig gyakran csak akkor derültek ki, amikor egy ügyfél szólt. Amikor megkerestek, három dologra volt szükségük: hogy a csapat visszakapja az idejét, hogy a rendszerek szinkronban legyenek, és hogy megszűnjenek a kézzel gépelésből adódó hibák.",
         "research": "Feltérképeztem az e-mailben, dokumentumokban, CRM-ben és belső eszközökben zajló ismétlődő adminisztrációt, és duplikált adatbevitelt, másolgatást, következetlen nyilvántartásokat és kézi riportkészítést tártam fel.",
-        "solution": "A dokumentumok és üzenetek feldolgozása automatikus, a fontos adatok ellenőrzötten és rendszerezve kerülnek a helyükre, a rendszerek szinkronban maradnak, a kivételek pedig csak akkor jutnak el emberhez, ha mérlegelésre van szükség.",
+        "solution": "2 héten belül n8n-folyamatok vették át a kézi adatrögzítést. Az OpenAI feldolgozza a beérkező dokumentumokat és üzeneteket, a fontos adatok ellenőrizve kerülnek a HubSpotba és a Google Workspace-be, a rendszerek pedig szinkronban maradnak. Emberhez csak akkor jut el Slack-értesítés, ha egy kivétel mérlegelést igényel.",
         "stats": [
           {
             "label": "Adatrögzítés",
-            "value": "Heti 5–10 óra/fő → Szinte nincs kézi rögzítés"
+            "value": "Heti 5–10 óra/fő → Heti <1 óra/fő"
           },
           {
             "label": "Hibaarány",
-            "value": "Gyakori kézi hibák → Minimális"
+            "value": "Gyakori manuális hibák → Heti 1–2"
           }
         ]
       }

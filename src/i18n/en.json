@@ -141,7 +141,7 @@
         "intro": "An automated lead engine that captures every inquiry, qualifies intent, responds instantly, and routes sales-ready prospects directly into the CRM.",
         "challenge": "The agency's inquiries came in from property portals, the website, email and phone, with no single place to track them. Whether a lead got a reply depended on who happened to see it, follow-ups were forgotten, and serious buyers ended up with faster competitors. They reached out to stop losing clients to slow, messy lead handling.",
         "research": "I mapped the journey from first inquiry to booked call, identifying slow response times, manual qualification, fragmented lead sources, and missed follow-ups.",
-        "solution": "Every lead is captured and enriched automatically. AI qualifies intent, structures key details, updates the CRM, triggers a tailored response, and routes qualified prospects to sales. The system was live within 2 weeks.",
+        "solution": "I built the system on n8n and had it live in 2 weeks. Every new lead is captured the moment it arrives and enriched with Apollo and Clay. OpenAI qualifies intent, structures key details and writes a tailored reply, the CRM updates itself, and the sales team gets a Slack alert for every qualified prospect.",
         "stats": [
           {
             "label": "Response time",
@@ -164,7 +164,7 @@
         "intro": "An AI-powered screening workflow that reads incoming applications, extracts candidate data, evaluates job fit, and gives recruiters a prioritized shortlist.",
         "challenge": "The online recruitment agency received hundreds of applications per role through its job ads and spent most of the week reading CVs and copying data into its applicant tracking system. Good candidates waited days for an answer, and some accepted other offers in the meantime.",
         "research": "I mapped the screening process and found recruiters repeatedly reading CVs, transferring candidate data, checking requirements, and manually building shortlists.",
-        "solution": "AI extracts and structures every application, evaluates candidates against defined criteria, flags missing requirements, scores fit, and syncs the results directly with the ATS.",
+        "solution": "Over 3 weeks I connected n8n, OpenAI, Greenhouse and Airtable into one screening pipeline. AI extracts and structures every application, evaluates candidates against defined criteria, flags missing requirements and scores fit. The results sync straight into Greenhouse, and Airtable gives the recruiters a clear overview of every candidate.",
         "stats": [
           {
             "label": "Screening time",
@@ -187,11 +187,11 @@
         "intro": "An always-on AI front desk that handles routine guest questions, captures requests, schedules services, and escalates conversations that need a human.",
         "challenge": "Guests wrote to this inner-city Budapest hotel at all hours through the website, email and messaging apps, mostly with the same questions about check-in, parking and availability. Evening and night messages waited until morning, and the reception team spent much of the day on routine answers instead of the guests in front of them. When I reached out to ask about their existing systems, it was clear they needed an AI assistant to handle guest communication and take the routine work off the team's shoulders.",
         "research": "I analyzed repetitive guest communication across web and messaging channels, identifying recurring questions, delayed replies, booking friction, and unnecessary staff workload.",
-        "solution": "The AI responds instantly using approved business information, handles common requests, collects missing details, schedules where possible, and hands complex conversations to staff.",
+        "solution": "One week after I started, the AI assistant was answering guests on WhatsApp, Telegram, Messenger and Gmail. Built on n8n and OpenAI, it responds instantly using approved hotel information, handles common requests, collects missing details, schedules where possible, and hands complex conversations to staff.",
         "stats": [
           {
             "label": "Availability",
-            "value": "24/7"
+            "value": "Business hours → 24/7"
           },
           {
             "label": "Response time",
@@ -206,15 +206,15 @@
         "intro": "A connected operations workflow that processes documents, moves data between systems, updates records, sends follow-ups, and keeps reporting current automatically.",
         "challenge": "This Budapest marketing agency handled a high volume of leads and high-value clients, and the team spent hours every week on the same admin: retyping data from emails and documents, updating the CRM by hand and building reports from spreadsheets. Records didn't match between systems, and mistakes often surfaced only when a client noticed them. When they reached out, they needed three things: their team's time back, systems that stay in sync, and an end to the errors of manual work.",
         "research": "I mapped recurring administrative work across email, documents, CRM and internal tools, exposing duplicate entry, copy-pasting, inconsistent records, and manual reporting.",
-        "solution": "Documents and messages are processed automatically, key data is validated and structured, systems stay synchronized, and exceptions are routed to people only when judgment is required.",
+        "solution": "Within 2 weeks, n8n workflows had taken over the manual data entry. OpenAI reads incoming documents and messages, the key data is validated and written into HubSpot and Google Workspace, and the systems stay in sync. People only get a Slack alert when an exception needs their judgment.",
         "stats": [
           {
             "label": "Data entry",
-            "value": "5–10 hrs/week/person → Near zero manual entry"
+            "value": "5–10 hrs/week/person → Under 1 hr/week/person"
           },
           {
             "label": "Error rate",
-            "value": "Frequent manual errors → Minimized"
+            "value": "Frequent manual errors → 1–2 per week"
           }
         ]
       }
