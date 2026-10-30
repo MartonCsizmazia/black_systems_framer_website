@@ -43,7 +43,7 @@
     },
     "post": {
       "label": "(+Utána)",
-      "text": "Olyan AI rendszereket építek, amelyek percek alatt válaszolnak minden érdeklődőnek, kiemelik a komoly megkereséseket, és a háttérben, megbízhatóan, éjjel-nappal elvégzik az ismétlődő feladatokat."
+      "text": "Olyan AI rendszereket építek, amelyek percek alatt válaszolnak minden érdeklődőnek és kiemelik a komoly megkereséseket, az adatrögzítés, a másolgatás és az adminisztráció pedig magától fut a háttérben, megbízhatóan, éjjel-nappal."
     },
     "results": {
       "label": "(=Eredmény)",
@@ -53,12 +53,16 @@
           "value": "1 percen belül"
         },
         {
-          "label": "Több kezelt érdeklődő",
-          "value": "+20%"
+          "label": "Megválaszolt érdeklődők",
+          "value": "100%"
         },
         {
-          "label": "Elérhetőség",
-          "value": "24/7"
+          "label": "Kézi adatrögzítés",
+          "value": "akár -90%"
+        },
+        {
+          "label": "Felszabaduló idő",
+          "value": "akár heti 10 óra/fő"
         }
       ]
     },

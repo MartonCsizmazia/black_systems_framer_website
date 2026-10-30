@@ -43,7 +43,7 @@
     },
     "post": {
       "label": "(+Post)",
-      "text": "I build AI systems that respond to every lead in minutes, qualify them and handle the repetitive tasks in the background, reliably, day and night."
+      "text": "I build AI systems that answer every lead within minutes and qualify them, while the data entry, copy-pasting and admin run on their own in the background, reliably, day and night."
     },
     "results": {
       "label": "(=Results)",
@@ -53,12 +53,16 @@
           "value": "under 1 minute"
         },
         {
-          "label": "More leads handled",
-          "value": "+20%"
+          "label": "Leads followed up",
+          "value": "100%"
         },
         {
-          "label": "Availability",
-          "value": "24/7"
+          "label": "Manual data entry",
+          "value": "up to 90% less"
+        },
+        {
+          "label": "Time back per person",
+          "value": "up to 10 hrs/week"
         }
       ]
     },
