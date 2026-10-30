@@ -45,7 +45,7 @@ export default function Footer() {
           <div className="footer__brand">
             <a href={localizePath('/', lang)} className="footer__logo" aria-label={t('common.logoLabel')} onClick={jumpTo('#top')}>
               <SquaresLogo className="footer__logo-icon" label={t('common.brand')} />
-              <img src={images.blackSystemsLogoOneLine.src} alt="" className="footer__logo-img" />
+              <img src={images.blackSystemsLogoOneLine.src} alt="" width={1003} height={62} className="footer__logo-img" />
             </a>
             <p className="footer__tagline">{t('footer.tagline')}</p>
           </div>

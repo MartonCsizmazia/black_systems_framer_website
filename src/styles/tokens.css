@@ -17,7 +17,7 @@
   /* raw tokens (source of truth, do not rename) */
   --token-86dbb439-c396-48fd-926a-93eef5aacd34: #000;       /* "Black" (named in source) */
   --token-7d46519b-7ae3-4c0a-9383-88033d4deee8: #fff;       /* "White" (named in source) */
-  --token-aac9763f-10b4-4aa7-b48b-ab766ef819dd: #00000080;  /* black @ 50% */
+  --token-aac9763f-10b4-4aa7-b48b-ab766ef819dd: #0000008a;  /* black @ 54%: 4.6:1 on white (WCAG AA); 50% was 3.9:1 */
   --token-33e01e0c-d060-494c-832f-507a8774ce40: #ffffff80;  /* white @ 50% */
   --token-3b41c797-5fa1-4e2c-94df-48a4abc7b257: #00000029;  /* black @ 16% */
   --token-b7ef8bea-3b17-4397-bd71-c76845e01632: #0000001a;  /* black @ 10% */

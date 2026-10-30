@@ -188,6 +188,8 @@ export default function Navbar({ links: customLinks, languageAtTop = false, hide
             <motion.img
               src={images.blackSystemsLogoOneLine.src}
               alt=""
+              width={1003}
+              height={62}
               className="navbar__logo-img"
               style={{ x: wordmarkX, scale: wordmarkScale }}
             />

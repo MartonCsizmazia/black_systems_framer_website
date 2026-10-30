@@ -3,7 +3,6 @@ import { motion, useScroll, useTransform, type MotionValue } from 'framer-motion
 import WorkCard from '../../components/WorkCard/WorkCard'
 import SectionEyebrow from '../../components/SectionEyebrow/SectionEyebrow'
 import OverlapFiller from '../../components/OverlapFiller/OverlapFiller'
-import { images } from '../../assets/images'
 import './CaseStudiesPreview.css'
 import { caseStudies, caseStudyHref, caseStudyText, type CaseStudyEntry } from '../../data/caseStudiesConfig'
 import { useTranslation } from '../../i18n/i18n'
@@ -127,7 +126,6 @@ export default function CaseStudiesPreview() {
           {/* Opens the first case study's page at its slider of all case
               studies; the count follows the config. */}
           <a href={`${caseStudyHref(caseStudies[0].slug, lang)}#more-case-studies`} className="case-studies__see-all">
-            <img src={images.seeAllThumb.src} alt="" className="case-studies__see-all-thumb" />
             <span className="text-preset-q70fzl">{t('caseStudies.seeAll', { count: String(caseStudies.length).padStart(2, '0') })}</span>
           </a>
         </div>

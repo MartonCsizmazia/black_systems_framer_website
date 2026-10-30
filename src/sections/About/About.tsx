@@ -110,7 +110,7 @@ export default function About() {
             <div className="about__column">
               <span className="about__column-heading text-preset-q70fzl">{t('about.founder.label')}</span>
               <div className="about__founder-content">
-                <h3 className="about__founder-name">{t('common.founderName')}</h3>
+                <h2 className="about__founder-name">{t('common.founderName')}</h2>
                 <span className="text-preset-q70fzl about__founder-role">{t('about.founder.role')}</span>
                 <p className="text-preset-q70fzl about__founder-text">{t('about.founder.intro')}</p>
 

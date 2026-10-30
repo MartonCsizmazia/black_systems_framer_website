@@ -77,7 +77,7 @@ export default function ClientLogos() {
             const copy = i >= logos.length
             return (
               <div key={i} className="client-logos__tile" aria-hidden={copy || undefined}>
-                <img src={logo.image.src} alt={copy ? '' : logo.name} className="client-logos__logo" />
+                <img src={logo.image.src} alt={copy ? '' : logo.name} width={122} height={40} className="client-logos__logo" />
               </div>
             )
           })}

@@ -77,12 +77,6 @@
   text-decoration: none;
   color: var(--color-ink);
 }
-.case-studies__see-all-thumb {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  object-fit: cover;
-}
 
 .case-studies__middle {
   flex: 1;

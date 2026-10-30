@@ -21,18 +21,24 @@ export const calTriggerProps = {
   'data-cal-config': JSON.stringify({ layout: 'month_view' }),
 }
 
-// Set once embed.js has actually loaded. Until then (or if it's blocked),
-// booking links fall back to navigating to CAL_URL.
+// Set once embed.js has actually loaded (__calEmbedFailed: it could not load).
 // Kept on window so it survives hot reloads of this module in dev.
 export const isCalEmbedReady = () => window.__calEmbedReady === true
 
 /**
- * Click handler for booking triggers. embed.js opens the modal from its own
- * document-level listener but never cancels the link's navigation, so do
- * that here - only when the embed is ready, keeping the href fallback.
+ * Click handler for booking triggers. Once embed.js is loaded it opens the
+ * modal from its own document-level listener but never cancels the link's
+ * navigation, so do that here. Before it has loaded (a click with no hover
+ * or focus first), load it now and open the modal through the queued API.
+ * If embed.js failed to load, the link simply navigates to CAL_URL.
  */
 export function preventCalNavigation(e: { preventDefault: () => void }) {
-  if (isCalEmbedReady()) e.preventDefault()
+  if (window.__calEmbedFailed) return
+  e.preventDefault()
+  if (isCalEmbedReady()) return
+  window.__calEmbedPending = true
+  loadCalEmbed()
+  window.Cal!.ns[CAL_NAMESPACE]('modal', { calLink: CAL_LINK, config: { layout: 'month_view' } })
 }
 
 type CalApi = ((...args: unknown[]) => void) & {
@@ -45,6 +51,8 @@ declare global {
   interface Window {
     Cal?: CalApi
     __calEmbedReady?: boolean
+    __calEmbedFailed?: boolean
+    __calEmbedPending?: boolean
   }
 }
 
@@ -77,23 +85,44 @@ function installCalLoader(C: Window, A: string, L: string) {
 
 const EMBED_SRC = 'https://app.cal.com/embed/embed.js'
 
+/** Sets up the embed and starts loading embed.js (only the first call counts). */
+function loadCalEmbed() {
+  if (window.Cal?.ns?.[CAL_NAMESPACE]) return
+  installCalLoader(window, EMBED_SRC, 'init')
+  const Cal = window.Cal!
+  Cal('init', CAL_NAMESPACE, { origin: 'https://app.cal.com' })
+  const script = document.querySelector(`script[src="${EMBED_SRC}"]`)
+  script?.addEventListener('load', () => { window.__calEmbedReady = true })
+  script?.addEventListener('error', () => {
+    window.__calEmbedFailed = true
+    // A click made before loading finished was cancelled; go to the page instead.
+    if (window.__calEmbedPending) window.location.assign(CAL_URL)
+  })
+  Cal.ns[CAL_NAMESPACE]('ui', {
+    theme: 'dark',
+    hideEventTypeDetails: false,
+    layout: 'month_view',
+    // Monochrome to match the site's black/white palette.
+    cssVarsPerTheme: {
+      light: { 'cal-brand': '#111111' },
+      dark: { 'cal-brand': '#ffffff' },
+    },
+  })
+}
+
+/**
+ * Loads Cal.com only when a visitor heads for a booking button (hover, focus
+ * or touch), so its script and cookies stay off the page for everyone else.
+ */
 export function useCalEmbed() {
   useEffect(() => {
-    // Only set up once (React StrictMode runs effects twice in dev).
-    if (window.Cal?.ns?.[CAL_NAMESPACE]) return
-    installCalLoader(window, EMBED_SRC, 'init')
-    const Cal = window.Cal!
-    Cal('init', CAL_NAMESPACE, { origin: 'https://app.cal.com' })
-    document.querySelector(`script[src="${EMBED_SRC}"]`)?.addEventListener('load', () => { window.__calEmbedReady = true })
-    Cal.ns[CAL_NAMESPACE]('ui', {
-      theme: 'dark',
-      hideEventTypeDetails: false,
-      layout: 'month_view',
-      // Monochrome to match the site's black/white palette.
-      cssVarsPerTheme: {
-        light: { 'cal-brand': '#111111' },
-        dark: { 'cal-brand': '#ffffff' },
-      },
-    })
+    const events = ['pointerover', 'focusin', 'touchstart'] as const
+    const onIntent = (e: Event) => {
+      if (!(e.target instanceof Element) || !e.target.closest('[data-cal-link]')) return
+      loadCalEmbed()
+      events.forEach((type) => document.removeEventListener(type, onIntent))
+    }
+    events.forEach((type) => document.addEventListener(type, onIntent, { passive: true }))
+    return () => events.forEach((type) => document.removeEventListener(type, onIntent))
   }, [])
 }

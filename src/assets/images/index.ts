@@ -16,7 +16,6 @@ import founderAvatarSrc from './cta-avatar-wfrjn1.avif'
 import ctaBackgroundSrc from './villa-g891sp.avif'
 import ctaPortraitSrc from './portrait-blue-warmer.avif'
 import contactPortraitSrc from './standing-orange-studio.avif'
-import seeAllThumbSrc from './asset-xfjtzm.avif'
 import leadCaptureSrc from './lead-capture-bakery-summer-358x512.avif'
 import manualWorkSrc from './manual-work-automation-woman-358x512.avif'
 import auditCustomSrc from './audit-custom-shipwright-358x512.avif'
@@ -45,7 +44,6 @@ export const images = {
   ctaPortrait: { src: ctaPortraitSrc, alt: '' },
   contactPortrait: { src: contactPortraitSrc, alt: '' },
   // Thumbnail on the home page's "See all" case studies link.
-  seeAllThumb: { src: seeAllThumbSrc, alt: '' },
   // Service cards.
   leadCapture: { src: leadCaptureSrc, alt: '' },
   manualWork: { src: manualWorkSrc, alt: '' },

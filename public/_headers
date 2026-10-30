@@ -1,5 +1,13 @@
 # Cloudflare Pages response headers.
 
+# Basic security headers for every response: HTTPS only (HSTS), no framing
+# by other sites, no MIME sniffing, and only the origin sent as referrer.
+/*
+  Strict-Transport-Security: max-age=31536000
+  X-Frame-Options: DENY
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+
 # The intro PDFs are for sending to people; keep them out of search results
 # so searches land on the website itself.
 /intro/*
