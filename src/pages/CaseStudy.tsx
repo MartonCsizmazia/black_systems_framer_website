@@ -1,4 +1,4 @@
-import { useRef } from 'react'
+import { Fragment, useRef } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
 
 import SectionEyebrow from '../components/SectionEyebrow/SectionEyebrow'
@@ -105,6 +105,20 @@ function CaseStudyHero({ caseStudy, fadeTargetRef }: { caseStudy: CaseStudyEntry
   )
 }
 
+/** A result like "2 days → 1 min": each side stays on one line, and a long
+ * value may break only after the arrow. */
+function StatValue({ value }: { value: string }) {
+  const parts = value.split(' → ')
+  // The space between the parts sits outside the no-wrap spans: it's the
+  // only place the browser may break the line.
+  return parts.map((part, i) => (
+    <Fragment key={i}>
+      {i > 0 && ' '}
+      <span className="case-study-content__stat-part">{i < parts.length - 1 ? `${part} →` : part}</span>
+    </Fragment>
+  ))
+}
+
 function CaseStudyContent({ caseStudy, fadeTargetRef }: { caseStudy: CaseStudyEntry; fadeTargetRef: React.RefObject<HTMLDivElement> }) {
   const { t, texts } = useTranslation()
   const text = caseStudyText(texts, caseStudy.slug)
@@ -124,6 +138,11 @@ function CaseStudyContent({ caseStudy, fadeTargetRef }: { caseStudy: CaseStudyEn
 
       <div className="case-study-content__bottom">
         <motion.div className="case-study-content__info" {...fadeIn(1.2)}>
+          {/* Why the client reached out: where the relationship starts. */}
+          <div className="case-study-content__row">
+            <h2 className="text-preset-q70fzl case-study-content__heading">{t('caseStudies.challenge')}</h2>
+            <p className="text-preset-q70fzl case-study-content__text">{text.challenge}</p>
+          </div>
           <div className="case-study-content__row">
             <h2 className="text-preset-q70fzl case-study-content__heading">{t('caseStudies.research')}</h2>
             <p className="text-preset-q70fzl case-study-content__text">{text.research}</p>
@@ -140,7 +159,7 @@ function CaseStudyContent({ caseStudy, fadeTargetRef }: { caseStudy: CaseStudyEn
                   <div className="case-study-content__stat" key={s.label}>
                     <div className="case-study-content__stat-row">
                       <span className="text-preset-q70fzl">{s.label}</span>
-                      <span className="text-preset-q70fzl case-study-content__stat-value">{s.value}</span>
+                      <span className="text-preset-q70fzl case-study-content__stat-value"><StatValue value={s.value} /></span>
                     </div>
                     <span className="case-study-content__stat-line" />
                   </div>

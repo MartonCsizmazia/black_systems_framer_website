@@ -269,6 +269,9 @@
 .case-study-content__heading {
   flex: 1 0 0;
   max-width: 100px;
+  /* Longer labels ("(Kiinduló helyzet)") run into the gap beside them
+     rather than wrap. */
+  white-space: nowrap;
 }
 .case-study-content__text {
   flex: 1 0 0;
@@ -319,12 +322,24 @@
 }
 .case-study-content__stat-row {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
+  gap: 16px;
+}
+/* The label keeps its natural width (up to half the row) and wraps beyond
+   that; the value takes the rest. A value breaks only after its arrow (see
+   StatValue), never inside "0-24" or "5-10 hrs". */
+.case-study-content__stat-row > :first-child {
+  flex: 0 1 auto;
+  max-width: 50%;
 }
 .case-study-content__stat-value {
+  flex: 1;
   color: var(--color-ink-50);
   text-align: right;
+}
+.case-study-content__stat-part {
+  white-space: nowrap;
 }
 .case-study-content__stat-line {
   height: 1px;

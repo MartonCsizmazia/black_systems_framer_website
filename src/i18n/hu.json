@@ -35,7 +35,7 @@
   },
   "about": {
     "eyebrow": "Rólam",
-    "logosLabel": "(Ahol a Black Systems előtt rendszereket építettem)",
+    "logosLabel": "(Az ő rendszereiket automatizáltam)",
     "heading": "AI-automatizálás fejlődő vállalkozásoknak: rendszerek, amelyek több ügyfelet hoznak, és leveszik a csapatod válláról az ismétlődő munkát.",
     "pre": {
       "label": "(Előtte)",
@@ -129,6 +129,7 @@
     "current": "(Jelenlegi)",
     "previous": "Előző esettanulmányok",
     "next": "Következő esettanulmányok",
+    "challenge": "(Kiinduló helyzet)",
     "research": "(Feltárás)",
     "solution": "(Megoldás)",
     "results": "(Eredmények)",
@@ -138,16 +139,21 @@
         "category": "Ingatlan",
         "description": "Minden megkeresésből valódi vevőjelölt.",
         "intro": "Automatizált ügyfélszerző rendszer, amely rögzít minden megkeresést, felméri, mennyire komoly az érdeklődés, azonnal válaszol, és a vásárlásra kész érdeklődőket egyenesen a CRM-be irányítja.",
+        "challenge": "Az iroda megkeresései ingatlanportálokról, a weboldalról, e-mailben és telefonon érkeztek, és nem volt egy hely, ahol mindet követni lehetett volna. Az, hogy valaki kap-e választ, azon múlt, ki látta meg éppen az üzenetet, az utánkövetés elmaradt, a komoly vevők pedig a gyorsabb versenytársaknál kötöttek ki. Azért kerestek meg, hogy ne veszítsenek el több ügyfelet a lassú, rendezetlen érdeklődőkezelés miatt.",
         "research": "Feltérképeztem az utat az első megkereséstől a lefoglalt hívásig, és lassú válaszidőket, kézi szűrést, szétszórt érdeklődőforrásokat és elmaradt utánkövetést találtam.",
-        "solution": "A rendszer minden érdeklődőt automatikusan rögzít és kiegészít. Az AI felméri, mennyire komoly az érdeklődés, rendszerezi a fontos adatokat, frissíti a CRM-et, személyre szabott választ küld, és a komoly érdeklődőket továbbítja az értékesítőknek.",
+        "solution": "A rendszer minden érdeklődőt automatikusan rögzít és kiegészít. Az AI felméri, mennyire komoly az érdeklődés, rendszerezi a fontos adatokat, frissíti a CRM-et, személyre szabott választ küld, és a komoly érdeklődőket továbbítja az értékesítőknek. A rendszer 2 héten belül élesben működött.",
         "stats": [
           {
             "label": "Válaszidő",
-            "value": "<1 perc"
+            "value": "2 nap → 1 perc"
           },
           {
             "label": "Ügyfélszerzés",
-            "value": "24/7"
+            "value": "Munkaidőben → 0-24"
+          },
+          {
+            "label": "Utánkövetés",
+            "value": "~50% → 100%"
           }
         ]
       },
@@ -156,16 +162,21 @@
         "category": "Toborzás",
         "description": "Több száz jelentkezésből rendezett szűkített lista.",
         "intro": "AI-alapú előszűrési folyamat, amely beolvassa a beérkező jelentkezéseket, kinyeri a jelöltek adatait, felméri az alkalmasságot, és rangsorolt szűkített listát ad a toborzóknak.",
+        "challenge": "Egy online toborzóügynökség a hirdetéseire pozíciónként több száz jelentkezést kapott, és a hét nagy részét önéletrajzok olvasásával és adatok átmásolásával töltötte. A jó jelöltek napokig vártak válaszra, és közben néhányan máshol fogadtak el ajánlatot.",
         "research": "Feltérképeztem a szűrési folyamatot, és azt láttam, hogy a toborzók újra és újra önéletrajzokat olvasnak, jelöltadatokat másolnak át, követelményeket ellenőriznek, és kézzel állítják össze a szűkített listákat.",
         "solution": "Az AI kinyeri és rendszerezi minden jelentkezés adatait, a meghatározott szempontok szerint értékeli a jelölteket, jelzi a hiányzó követelményeket, pontozza az alkalmasságot, és az eredményeket közvetlenül a jelentkezéskezelő rendszerbe szinkronizálja.",
         "stats": [
           {
-            "label": "Jelentkezések",
-            "value": "24/7"
+            "label": "Előszűrési idő",
+            "value": "2 nap → 15 perc"
           },
           {
-            "label": "Adatrögzítés",
-            "value": "100%"
+            "label": "Jelöltadatok rögzítése",
+            "value": "10 perc → 1 percen belül"
+          },
+          {
+            "label": "Jelentkezések feldolgozása",
+            "value": "Munkaidőben → 0-24"
           }
         ]
       },
@@ -174,6 +185,7 @@
         "category": "Szálloda és vendéglátás",
         "description": "A vendégek akkor is választ kapnak, amikor a csapat alszik.",
         "intro": "Folyamatosan elérhető AI recepció, amely kezeli a rutin vendégkérdéseket, rögzíti a kéréseket, időpontokat foglal, és továbbítja azokat a beszélgetéseket, amelyekhez ember kell.",
+        "challenge": "A vendégek a nap bármely szakában írtak egy belvárosi budapesti szállodának a weboldalon, e-mailben és üzenetküldő appokban, többnyire ugyanazokkal a kérdésekkel a bejelentkezésről, a parkolásról és a szabad szobákról. Az esti és éjszakai üzenetek reggelig vártak, a recepció pedig a nap nagy részében rutinkérdésekre válaszolt ahelyett, hogy az előtte álló vendégekkel foglalkozott volna. Amikor megkerestem őket, hogy megismerjem a meglévő rendszereiket, egyértelmű volt, hogy egy AI-asszisztensre van szükségük, amely átveszi a vendégkommunikációt, és leveszi a felesleges munkát a csapat válláról.",
         "research": "Elemeztem az ismétlődő vendégkommunikációt a webes és üzenetküldő csatornákon, és visszatérő kérdéseket, késedelmes válaszokat, nehézkes foglalást és felesleges munkaterhet találtam.",
         "solution": "Az AI jóváhagyott üzleti információk alapján azonnal válaszol, kezeli a gyakori kéréseket, bekéri a hiányzó adatokat, ahol lehet, időpontot foglal, az összetett beszélgetéseket pedig átadja a munkatársaknak.",
         "stats": [
@@ -183,25 +195,26 @@
           },
           {
             "label": "Válaszidő",
-            "value": "<1 perc"
+            "value": "Több óra → <1 perc"
           }
         ]
       },
       "invisible-back-office": {
         "title": "A láthatatlan háttériroda",
-        "category": "Tanácsadás és irodai szolgáltatások",
+        "category": "Marketingügynökség",
         "description": "Az ismétlődő adminisztráció úgy zajlik, hogy senkinek nem kell hozzányúlnia.",
         "intro": "Egy összehangolt rendszer, amely feldolgozza a dokumentumokat, adatokat mozgat a rendszerek között, frissíti a nyilvántartásokat, utánkövető üzeneteket küld, és automatikusan naprakészen tartja a riportokat.",
+        "challenge": "Egy budapesti marketingügynökség sok érdeklődővel és több kiemelt ügyféllel dolgozott, a csapata pedig hetente órákat töltött ugyanazzal az adminisztrációval: e-mailekből és dokumentumokból gépelte át az adatokat, kézzel frissítette a CRM-et, és táblázatokból rakta össze a riportokat. A rendszerekben eltértek egymástól az adatok, a hibák pedig gyakran csak akkor derültek ki, amikor egy ügyfél szólt. Amikor megkerestek, három dologra volt szükségük: hogy a csapat visszakapja az idejét, hogy a rendszerek szinkronban legyenek, és hogy megszűnjenek a kézzel gépelésből adódó hibák.",
         "research": "Feltérképeztem az e-mailben, dokumentumokban, CRM-ben és belső eszközökben zajló ismétlődő adminisztrációt, és duplikált adatbevitelt, másolgatást, következetlen nyilvántartásokat és kézi riportkészítést tártam fel.",
         "solution": "A dokumentumok és üzenetek feldolgozása automatikus, a fontos adatok ellenőrzötten és rendszerezve kerülnek a helyükre, a rendszerek szinkronban maradnak, a kivételek pedig csak akkor jutnak el emberhez, ha mérlegelésre van szükség.",
         "stats": [
           {
-            "label": "Adatáramlás",
-            "value": "Automatizált"
+            "label": "Adatrögzítés",
+            "value": "Heti 5–10 óra/fő → Szinte nincs kézi rögzítés"
           },
           {
-            "label": "Működés",
-            "value": "24/7"
+            "label": "Hibaarány",
+            "value": "Gyakori kézi hibák → Minimális"
           }
         ]
       }
